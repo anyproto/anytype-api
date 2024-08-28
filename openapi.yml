@@ -181,6 +181,8 @@ paths:
   /auth/displayCode:
     post:
       summary: Open a modal window with a code in Anytype Desktop app
+      tags:
+        - auth
       responses:
         '200':
           description: Success
@@ -190,6 +192,8 @@ paths:
   /auth/token:
     get:
       summary: Retrieve an authentication token using a code
+      tags:
+        - auth
       parameters:
         - in: query
           name: code
@@ -219,6 +223,8 @@ paths:
   /spaces:
     post:
       summary: Create a new Space
+      tags:
+        - spaces
       requestBody:
         required: true
         content:
@@ -241,6 +247,8 @@ paths:
           $ref: '#/components/responses/ServerError'
     get:
       summary: Retrieve a list of spaces
+      tags:
+        - spaces
       parameters:
         - $ref: '#/components/parameters/LimitParameter'
         - $ref: '#/components/parameters/OffsetParameter'
@@ -264,6 +272,8 @@ paths:
   /spaces/{space_id}/members:
     get:
       summary: Retrieve a list of members for the specified Space
+      tags:
+        - spaces
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
       responses:
@@ -288,6 +298,8 @@ paths:
   /spaces/{space_id}/objects:
     get:
       summary: Retrieve objects in a specific space
+      tags:
+        - space_objects
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/LimitParameter'
@@ -316,6 +328,8 @@ paths:
   /spaces/{space_id}/objectTypes:
     get:
       summary: Retrieve object types in a specific space
+      tags:
+        - types_and_templates
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/LimitParameter'
@@ -344,6 +358,8 @@ paths:
   /spaces/{space_id}/objectTypes/{typeId}/templates:
     get:
       summary: Retrieve a list of templates for a specific object type in a space
+      tags:
+        - types_and_templates
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - in: path
@@ -374,6 +390,8 @@ paths:
   /spaces/{space_id}/objects/{object_id}:
     get:
       summary: Retrieve a specific object in a space
+      tags:
+        - space_objects
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/ObjectIdParameter'
@@ -393,6 +411,8 @@ paths:
 
     post:
       summary: Create a new object in a specific space
+      tags:
+        - space_objects
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/ObjectIdParameter'
@@ -422,6 +442,8 @@ paths:
 
     put:
       summary: Update an existing object in a specific space
+      tags:
+        - space_objects
       parameters:
         - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/ObjectIdParameter'
@@ -449,6 +471,8 @@ paths:
   /objects:
     get:
       summary: Search and retrieve objects across all the spaces
+      tags:
+        - search
       parameters:
         - in: query
           name: search
