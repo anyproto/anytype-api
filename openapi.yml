@@ -1,0 +1,640 @@
+openapi: 3.0.0
+info:
+  title: Anytype API
+  description: This API allows interaction with Anytype resources such as spaces, objects, and object types.
+  version: 1.0.0
+
+servers:
+  - url: /v1
+    description: Version 1 of the API
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    OffsetParameter:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        minimum: 0
+      required: false
+      description: The number of items to skip before starting to collect the result set
+    LimitParameter:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+        default: 100
+      required: false
+      description: The number of items to return
+  responses:
+    UnauthorizedError:
+      description: Authentication token is missing or invalid.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Invalid or missing authentication token."
+    NotFoundError:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Resource with specified ID doesn't exist."
+    ValidationError:
+      description: Invalid input.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Input validation failed."
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "An internal server error occurred."
+
+security:
+  - BearerAuth: []
+
+paths:
+  /auth/displayCode:
+    post:
+      summary: Open a modal window with a code in Anytype Desktop app
+      responses:
+        '200':
+          description: Success
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /auth/token:
+    get:
+      summary: Retrieve an authentication token using a code
+      parameters:
+        - in: query
+          name: code
+          schema:
+            type: string
+          required: true
+          description: The code retrieved from Anytype Desktop app
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: "kjasdlksjadkjasld"
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces:
+    post:
+      summary: Create a new Space
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                img:
+                  type: string
+                status:
+                  type: string
+                  enum: [private, shared, ...]
+      responses:
+        '200':
+          description: Space created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+    get:
+      summary: Retrieve a list of spaces
+      parameters:
+        - $ref: '#/components/parameters/LimitParameter'
+        - $ref: '#/components/parameters/OffsetParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  spaces:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        img:
+                          type: string
+                        status:
+                          type: string
+                          enum: [private, shared, ...]
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces/{spaceId}/members:
+    get:
+      summary: Retrieve a list of members for the specified Space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  members:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        role:
+                          type: string
+                          example: "admin"  # example roles: admin, member, guest
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces/{spaceId}/objects:
+    get:
+      summary: Retrieve objects in a specific space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - $ref: '#/components/parameters/LimitParameter'
+        - $ref: '#/components/parameters/OffsetParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  objects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        type:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            img:
+                              type: string
+                        relations:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              name:
+                                type: string
+                              values:
+                                type: array
+                                items:
+                                  type: string
+                              type:
+                                type: string
+                                enum: [object, text, number, bool, date]
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces/{spaceId}/objectTypes:
+    get:
+      summary: Retrieve object types in a specific space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - $ref: '#/components/parameters/LimitParameter'
+        - $ref: '#/components/parameters/OffsetParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  objectTypes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        img:
+                          type: string
+                        relations:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              name:
+                                type: string
+                              values:
+                                type: array
+                                items:
+                                  type: string
+                              type:
+                                type: string
+                                enum: [object, text, number, bool, date]
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces/{spaceId}/objectTypes/{typeId}/templates:
+    get:
+      summary: Retrieve a list of templates for a specific object type in a space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - in: path
+          name: typeId
+          schema:
+            type: string
+          required: true
+          description: The ID of the object type
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        img:
+                          type: string
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+  /spaces/{spaceId}/objects/{objectId}:
+    get:
+      summary: Retrieve a specific object in a space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - in: path
+          name: objectId
+          schema:
+            type: string
+          required: true
+          description: The ID of the object
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  img:
+                    type: string
+                  type:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      img:
+                        type: string
+                  relations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        values:
+                          type: array
+                          items:
+                            type: string
+                        type:
+                          type: string
+                          enum: [object, text, number, bool, date]
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+    post:
+      summary: Create a new object in a specific space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - in: path
+          name: objectId
+          schema:
+            type: string
+          required: true
+          description: The ID of the object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                typeId:
+                  type: string
+                relations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      values:
+                        type: array
+                        items:
+                          type: string
+                body:
+                  type: string
+      responses:
+        '200':
+          description: Object created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+
+    put:
+      summary: Update an existing object in a specific space
+      parameters:
+        - in: path
+          name: spaceId
+          schema:
+            type: string
+          required: true
+          description: The ID of the space
+        - in: path
+          name: objectId
+          schema:
+            type: string
+          required: true
+          description: The ID of the object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                typeId:
+                  type: string
+                relations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      values:
+                        type: array
+                        items:
+                          type: string
+                body:
+                  type: string
+      responses:
+        '200':
+          description: Object updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/NotFoundError'
+        '502':
+          $ref: '#/components/responses/ServerError'
+          
+
+  /objects:
+    get:
+      summary: Search and retrieve objects across all the spaces
+      parameters:
+        - in: query
+          name: search
+          schema:
+            type: string
+          description: The search term to filter objects by name
+        - $ref: '#/components/parameters/LimitParameter'
+        - $ref: '#/components/parameters/OffsetParameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  objects:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        img:
+                          type: string
+                        space:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            img:
+                              type: string
+                            status:
+                              type: string
+                              enum: [private, shared, ...]
+                        type:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            name:
+                              type: string
+                            img:
+                              type: string
+                        relations:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              name:
+                                type: string
+                              values:
+                                type: array
+                                items:
+                                  type: string
+                              type:
+                                type: string
+                                enum: [object, text, number, bool, date]
+        '403':
+          $ref: '#/components/responses/UnauthorizedError'
+        '502':
+          $ref: '#/components/responses/ServerError'
