@@ -32,6 +32,94 @@ components:
         default: 100
       required: false
       description: The number of items to return
+    SpaceIdParameter:
+      in: path
+      name: space_id
+      schema:
+        type: string
+      required: true
+      description: The ID of the space
+    ObjectIdParameter:
+      in: path
+      name: object_id
+      schema:
+        type: string
+      required: true
+      description: The ID of the object
+  schemas:
+    Space:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "space"
+        id:
+          type: string
+        name:
+          type: string
+    SpaceMember:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "space_member"
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum: ["editor", "viewer", "owner"]
+    Object:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "object"
+        id:
+          type: string
+        name:
+          type: string
+        objectType:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        relations:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              values:
+                type: array
+                items:
+                  type: string
+    ObjectType:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "object_type"
+        id:
+          type: string
+        name:
+          type: string
+    ObjectTemplate:
+      type: object
+      properties:
+        type:
+          type: string
+          example: "object_template"
+        id:
+          type: string
+        name:
+          type: string
   responses:
     UnauthorizedError:
       description: Authentication token is missing or invalid.
@@ -117,7 +205,10 @@ paths:
               schema:
                 type: object
                 properties:
-                  token:
+                  access_token:
+                    type: string
+                    example: "kjasdlksjadkjasld"
+                  refresh_token:
                     type: string
                     example: "kjasdlksjadkjasld"
         '400':
@@ -137,21 +228,13 @@ paths:
               properties:
                 name:
                   type: string
-                img:
-                  type: string
-                status:
-                  type: string
-                  enum: [private, shared, ...]
       responses:
         '200':
           description: Space created successfully
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
+                $ref: '#/components/schemas/Space'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '502':
@@ -172,32 +255,17 @@ paths:
                   spaces:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        img:
-                          type: string
-                        status:
-                          type: string
-                          enum: [private, shared, ...]
+                      $ref: '#/components/schemas/Space'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '502':
           $ref: '#/components/responses/ServerError'
 
-  /spaces/{spaceId}/members:
+  /spaces/{space_id}/members:
     get:
       summary: Retrieve a list of members for the specified Space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
+        - $ref: '#/components/parameters/SpaceIdParameter'
       responses:
         '200':
           description: Success
@@ -209,15 +277,7 @@ paths:
                   members:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        role:
-                          type: string
-                          example: "admin"  # example roles: admin, member, guest
+                      $ref: '#/components/schemas/SpaceMember'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -225,16 +285,11 @@ paths:
         '502':
           $ref: '#/components/responses/ServerError'
 
-  /spaces/{spaceId}/objects:
+  /spaces/{space_id}/objects:
     get:
       summary: Retrieve objects in a specific space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
+        - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/LimitParameter'
         - $ref: '#/components/parameters/OffsetParameter'
       responses:
@@ -250,37 +305,7 @@ paths:
                   objects:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        type:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            name:
-                              type: string
-                            img:
-                              type: string
-                        relations:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              name:
-                                type: string
-                              values:
-                                type: array
-                                items:
-                                  type: string
-                              type:
-                                type: string
-                                enum: [object, text, number, bool, date]
+                      $ref: '#/components/schemas/Object'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -288,16 +313,11 @@ paths:
         '502':
           $ref: '#/components/responses/ServerError'
 
-  /spaces/{spaceId}/objectTypes:
+  /spaces/{space_id}/objectTypes:
     get:
       summary: Retrieve object types in a specific space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
+        - $ref: '#/components/parameters/SpaceIdParameter'
         - $ref: '#/components/parameters/LimitParameter'
         - $ref: '#/components/parameters/OffsetParameter'
       responses:
@@ -313,30 +333,7 @@ paths:
                   objectTypes:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        img:
-                          type: string
-                        relations:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              name:
-                                type: string
-                              values:
-                                type: array
-                                items:
-                                  type: string
-                              type:
-                                type: string
-                                enum: [object, text, number, bool, date]
+                      $ref: '#/components/schemas/ObjectType'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -344,16 +341,11 @@ paths:
         '502':
           $ref: '#/components/responses/ServerError'
 
-  /spaces/{spaceId}/objectTypes/{typeId}/templates:
+  /spaces/{space_id}/objectTypes/{typeId}/templates:
     get:
       summary: Retrieve a list of templates for a specific object type in a space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
+        - $ref: '#/components/parameters/SpaceIdParameter'
         - in: path
           name: typeId
           schema:
@@ -371,14 +363,7 @@ paths:
                   templates:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        img:
-                          type: string
+                      $ref: '#/components/schemas/ObjectTemplate'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -386,61 +371,19 @@ paths:
         '502':
           $ref: '#/components/responses/ServerError'
 
-  /spaces/{spaceId}/objects/{objectId}:
+  /spaces/{space_id}/objects/{object_id}:
     get:
       summary: Retrieve a specific object in a space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
-        - in: path
-          name: objectId
-          schema:
-            type: string
-          required: true
-          description: The ID of the object
+        - $ref: '#/components/parameters/SpaceIdParameter'
+        - $ref: '#/components/parameters/ObjectIdParameter'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                  name:
-                    type: string
-                  img:
-                    type: string
-                  type:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                      name:
-                        type: string
-                      img:
-                        type: string
-                  relations:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        values:
-                          type: array
-                          items:
-                            type: string
-                        type:
-                          type: string
-                          enum: [object, text, number, bool, date]
+                $ref: '#/components/schemas/Object'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -451,18 +394,8 @@ paths:
     post:
       summary: Create a new object in a specific space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
-        - in: path
-          name: objectId
-          schema:
-            type: string
-          required: true
-          description: The ID of the object
+        - $ref: '#/components/parameters/SpaceIdParameter'
+        - $ref: '#/components/parameters/ObjectIdParameter'
       requestBody:
         required: true
         content:
@@ -471,21 +404,6 @@ paths:
               type: object
               properties:
                 name:
-                  type: string
-                typeId:
-                  type: string
-                relations:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                      values:
-                        type: array
-                        items:
-                          type: string
-                body:
                   type: string
       responses:
         '200':
@@ -496,10 +414,7 @@ paths:
                 type: object
                 properties:
                   object:
-                    type: object
-                    properties:
-                      id:
-                        type: string
+                    $ref: '#/components/schemas/Object'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '502':
@@ -508,55 +423,21 @@ paths:
     put:
       summary: Update an existing object in a specific space
       parameters:
-        - in: path
-          name: spaceId
-          schema:
-            type: string
-          required: true
-          description: The ID of the space
-        - in: path
-          name: objectId
-          schema:
-            type: string
-          required: true
-          description: The ID of the object
+        - $ref: '#/components/parameters/SpaceIdParameter'
+        - $ref: '#/components/parameters/ObjectIdParameter'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                typeId:
-                  type: string
-                relations:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                      values:
-                        type: array
-                        items:
-                          type: string
-                body:
-                  type: string
+              $ref: '#/components/schemas/Object'
       responses:
         '200':
           description: Object updated successfully
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  object:
-                    type: object
-                    properties:
-                      id:
-                        type: string
+                $ref: '#/components/schemas/Object'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '404':
@@ -574,6 +455,11 @@ paths:
           schema:
             type: string
           description: The search term to filter objects by name
+        - in: query
+          name: object_type
+          schema:
+            type: string
+          description: Specify object type for search
         - $ref: '#/components/parameters/LimitParameter'
         - $ref: '#/components/parameters/OffsetParameter'
       responses:
@@ -589,51 +475,7 @@ paths:
                   objects:
                     type: array
                     items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                        name:
-                          type: string
-                        img:
-                          type: string
-                        space:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            name:
-                              type: string
-                            img:
-                              type: string
-                            status:
-                              type: string
-                              enum: [private, shared, ...]
-                        type:
-                          type: object
-                          properties:
-                            id:
-                              type: string
-                            name:
-                              type: string
-                            img:
-                              type: string
-                        relations:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: string
-                              name:
-                                type: string
-                              values:
-                                type: array
-                                items:
-                                  type: string
-                              type:
-                                type: string
-                                enum: [object, text, number, bool, date]
+                      $ref: '#/components/schemas/Object'
         '403':
           $ref: '#/components/responses/UnauthorizedError'
         '502':
