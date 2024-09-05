@@ -55,8 +55,39 @@ components:
           example: "space"
         id:
           type: string
-        name:
+        home_object_id:
           type: string
+          example: "bafyreie4qcl3wczb4cw5hrfyycikhjyh6oljdis3ewqrk5boaav3sbwqya"
+        archive_object_id:
+          type: string
+          example: "bafyreialsgoyflf3etjm3parzurivyaukzivwortf32b4twnlwpwocsrri"
+        profile_object_id:
+          type: string
+          example: "bafyreiaxhwreshjqwndpwtdsu4mtihaqhhmlygqnyqpfyfwlqfq3rm3gw4"
+        marketplace_workspace_id:
+          type: string
+          example: "_anytype_marketplace"
+        device_id:
+          type: string
+          example: "12D3KooWGZMJ4kQVyQVXaj7gJPZr3RZ2nvd9M2Eq2pprEoPih9WF"
+        account_space_id:
+          type: string
+          example: "bafyreihpd2knon5wbljhtfeg3fcqtg3i2pomhhnigui6lrjmzcjzep7gcy.23me69r569oi1"
+        widgets_id:
+          type: string
+          example: "bafyreialj7pceh53mifm5dixlho47ke4qjmsn2uh4wsjf7xq2pnlo5xfva"
+        space_view_id:
+          type: string
+          example: "bafyreigzv3vq7qwlrsin6njoduq727ssnhwd6bgyfj6nm4hv3pxoc2rxhy"
+        tech_space_id:
+          type: string
+          example: "bafyreif4xuwncrjl6jajt4zrrfnylpki476nv2w64yf42ovt7gia7oypii.23me69r569oi1"
+        timezone:
+          type: string
+          example: ""
+        network_id:
+          type: string
+          example: "N83gJpVd9MuNRZAuJLZ7LiMntTThhPc6DtzWWVjb1M3PouVU"
     SpaceMember:
       type: object
       properties:
@@ -67,6 +98,7 @@ components:
           type: string
         name:
           type: string
+          example: ""
         role:
           type: string
           enum: ["editor", "viewer", "owner"]
@@ -78,28 +110,88 @@ components:
           example: "object"
         id:
           type: string
-        name:
+        object_type:
           type: string
-        objectType:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
-        relations:
+          example: "note"
+        root_id:
+          type: string
+        blocks:
           type: array
           items:
             type: object
             properties:
               id:
                 type: string
-              name:
-                type: string
-              values:
+              children_ids:
                 type: array
                 items:
                   type: string
+              background_color:
+                type: string
+              align:
+                type: string
+              verticalalign:
+                type: string
+              layout:
+                type: object
+                properties:
+                  style:
+                    type: string
+              text:
+                type: object
+                properties:
+                  text:
+                    type: string
+                  style:
+                    type: string
+                  checked:
+                    type: boolean
+                  color:
+                    type: string
+                  iconemoji:
+                    type: string
+                  iconimage:
+                    type: string
+              file:
+                type: object
+                properties:
+                  hash:
+                    type: string
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  mime:
+                    type: string
+                  size:
+                    type: integer
+                  addedat:
+                    type: integer
+                  targetobjectid:
+                    type: string
+                  state:
+                    type: integer
+                  style:
+                    type: integer
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              details:
+                type: object
+                additionalProperties: true
+        relation_links_list:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              format:
+                type: string
     ObjectType:
       type: object
       properties:
