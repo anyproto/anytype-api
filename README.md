@@ -5,7 +5,7 @@
 
 - Current state preview: https://anyproto.github.io/anytype-api/
 
-- Swagger file: [openapi.yml](./openapi.yml)
+- Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-heart/blob/main/core/api/docs/swagger.yaml)
 
 Use online [Swagger Editor](https://editor-next.swagger.io/) or a plugin for your IDE to edit this file.
 

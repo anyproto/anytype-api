@@ -1,21 +1,30 @@
 name: Swagger UI
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      anytype-heart-blob:
+        description: 'Blob to fetch Swagger file from repo anytype-heart. It can be a brach, tag or hash commit'
+        required: true
+        default: 'main'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Swagger File
+        run: curl -L -o swagger.yaml "https://raw.githubusercontent.com/anyproto/anytype-heart/${{ github.event.inputs.anytype-heart-blob }}/core/api/docs/swagger.yaml"
+
       - name: Generate Swagger UI
         uses: Legion2/swagger-ui-action@v1
         with:
           output: swagger-ui
-          spec-file: openapi.yml
+          spec-file: swagger.yaml
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
