@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import clsx from "clsx";
 import React from "react";
 import styles from "./styles.module.css";
@@ -9,9 +10,11 @@ const FeatureList = [
     description: (
       <>
         Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build
-        robust applications.
+        powerful extensions.
       </>
     ),
+    link: "/docs/api/anytype-api",
+    linkText: "Jump to the reference →",
   },
   {
     title: "💡 Examples",
@@ -21,6 +24,8 @@ const FeatureList = [
         Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.
       </>
     ),
+    link: "/docs/examples",
+    linkText: "Explore the examples →",
   },
   {
     title: "👥 Join our Community",
@@ -31,18 +36,23 @@ const FeatureList = [
         of Anytype.
       </>
     ),
+    link: "https://github.com/anyproto",
+    linkText: "Check out our GitHub →",
   },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ Svg, title, description, link, linkText }) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+      <div className="padding-horiz--md">
+        <h3 className={styles.featureTitle}>{title}</h3>
+        <p className={styles.featureDescription}>{description}</p>
+        <Link to={link} className={styles.featureLink}>
+          {linkText}
+        </Link>
       </div>
     </div>
   );

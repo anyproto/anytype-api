@@ -9,3 +9,23 @@
   height: 200px;
   width: 200px;
 }
+
+.featureTitle {
+  text-align: left;
+}
+
+.featureDescription {
+  text-align: left;
+  color: var(--ifm-font-color-secondary);
+}
+
+.featureLink {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--ifm-link-color);
+  text-decoration: none;
+}
+
+.featureLink:hover {
+  text-decoration: underline;
+}
