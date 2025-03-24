@@ -243,7 +243,7 @@ const config: Config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: ["docusaurus-theme-openapi-docs", "@easyops-cn/docusaurus-search-local"],
 };
 
 export default async function createConfig() {
