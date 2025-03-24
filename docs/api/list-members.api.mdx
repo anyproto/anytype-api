@@ -1,0 +1,71 @@
+---
+id: list-members
+title: "List members"
+description: "Returns a paginated list of members belonging to the specified space. Each member record includes the member’s profile ID, name, icon (which may be derived from an emoji or image), network identity, global name, status (e.g. joining, active) and role (e.g. Viewer, Editor, Owner). This endpoint supports collaborative features by allowing clients to show who is in a space and manage access rights."
+sidebar_label: "List members"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/api/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List members"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/members"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a paginated list of members belonging to the specified space. Each member record includes the member’s profile ID, name, icon (which may be derived from an emoji or image), network identity, global name, status (e.g. joining, active) and role (e.g. Viewer, Editor, Owner). This endpoint supports collaborative features by allowing clients to show who is in a space and manage access rights.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"default":100,"maximum":1000,"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"description":"The member","properties":{"global_name":{"description":"The global name of the member in the network","example":"john.any","type":"string"},"icon":{"description":"The icon of the object","properties":{"color":{"description":"The color of the icon","example":"red","type":"string"},"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"file":{"description":"The file of the icon","example":"http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The type of the icon","enum":["emoji","file","icon"],"example":"emoji","type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"util.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"util.Icon"},"id":{"description":"The profile object id of the member","example":"_participant_bafyreigyfkt6rbv24sbv5aq2hko1bhmv5xxlf22b4bypdu6j7hnphm3psq_23me69r569oi1_AAjEaEwPF4nkEh9AWkqEnzcQ8HziBB4ETjiTpvRCQvWnSMDZ","type":"string"},"identity":{"description":"The identity of the member in the network","example":"AAjEaEwPF4nkEh7AWkqEnzcQ8HziGB4ETjiTpvRCQvWnSMDZ","type":"string"},"name":{"description":"The name of the member","example":"John Doe","type":"string"},"object":{"description":"The data model of the object","example":"member","type":"string"},"role":{"description":"The role of the member","enum":["viewer","editor","owner","no_permission"],"example":"owner","type":"string"},"status":{"description":"The status of the member","enum":["joining","active","removed","declined","removing","canceled"],"example":"active","type":"string"}},"type":"object","title":"space.Member"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1024,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-space_Member"}}},"description":"List of members"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

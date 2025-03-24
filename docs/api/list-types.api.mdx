@@ -1,0 +1,71 @@
+---
+id: list-types
+title: "List types"
+description: "This endpoint retrieves a paginated list of object types (e.g. 'Page', 'Note', 'Task') available within the specified space. Each type’s record includes its unique identifier, type key, display name, icon, and a recommended layout. While a type's id is truly unique, a type's key can be the same across spaces for known types, e.g. 'ot-page' for 'Page'. Clients use this information when offering choices for object creation or for filtering objects by type through search."
+sidebar_label: "List types"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWFFv2zYQ/iuEXtICip24SYb5aUGXDh66tmhS9KEIAkqiLSaUqJCUHdkwsIf9gz3taf9tv2A/YXekKMmR3C5on4ahKGKRx7vvPh7vjtwECdOx4oXhMg+mwVXKNWF5UkieG6KYUZwtmSaUFHTBc2pYQgTXhsg5kdEtiw0xVQECz9hoMSIH7+iCHYTk4I009u8V1XcHzwldUi5oJBhZcZPynJiUEV2wmM85aNQFjdmIXNA4ter++vUPDcZjqRLC81iUAJJwo0mZ8/uSEZ6w3OBSFVp5cseqkCRcF4JWJKcZCwmPZR4SmieAHVVlGbiF6GklSzMiH1MOcKhdfwDawZImRpWiqq2E7SSoJzHNScQccDBAaKyk1g66JnOpyF0uV7mjIySODmkOC2TEzjtyRuSl4AAfnNGoDqzyHKYziltAVinLgdw5UzxfkDiV3Kuv6Y4Vc5IwhMNzLowTdgKaRJUjxaRKlouUaEZVnI6CMCioAuggroPpp82jrb9ET8jsR5Dj+F1Qk8JvZBO+rJ83PIERxe5LrlgSTIEuFgY6TllGg+kmQLMoaxBPsN2Gj21cAXt5mUVMYQBxwzLgXBJ9xwsgF9wBcg1VBt2B8VgKYUMMlimmS2HAGeMBwh6pqkUIpLnJFk/C5hQWBdOj0GODsGYLpp4ADg5BqfI9RgXP+B6bx0dgNaMPPCsz+zUE4hrp1IXMNdO4enJ0hH8gdg3ECP6kRSF4bLd8fKsR6KZjrVCyYMCXW51QU2N47Jc/s86r+gDGpVLMHvMutSgxrMRGFSjBtS7YMKZ2EGCk8SXGxmMFH1MG65RdbBVB4DfSYcAeaFYIIGdOhWYNU5GUgtE82AKw2Dnfx4UzX8AFkSTV8Go75ZdbIx00gbLoHgU2CGTylg/rs1N79f395++/DSmEY8yG9eHMXnWpMcV0PD6efDc6gn/H0xcQaGdjnkGqGUd0XkWMs8KsT9NlXJ2Zh0LEyyK9jaL0tLqNJ+v7NOOpfiFXd+mppNEJW9NyfU+rQYg2SX05NDzIHOP+U01V7WG9jdddH7zArsEweDhEFYdLqvCwYcoKZrD4lYVxUS9qR145/e3ArLZkuLF2SsPFqJ1Gl9wpHkwEmOP3sZ7IuMzwfPZY2jYjTSD2zNtgHjghNpQTb9Qy+myVcqiJvKl8O1Xn+Q4o3G3F+KKKzsSpXkvY1onRk7O7cnJ7MqmSs1N2lt5Xk/LFwqwXyep+eZau5wZOfTm02/+OGrusiwJr3JC6mo5BhZi2SCYTJnqnuFVcW+op7tT2G1fbh430e4C9PhiZyCFTOHADvcCwAWwSdvbuSR3D7l7WfcOT4ssNjK5wuhWjStnT7OJn5pK7zbFb7AdsT8f3JdZ2nkDbQO0+Ie66Htuy1Uu1KdU3GVTyvspZnmAlw17O8gTVnsJ/FK4LU9snRqyS0LvtLVMNV64H6ZcLV5kH3aqLcq/Yu0rPEl8fhw0eDxXy0LcfwyfmkSHsdwqw85SWp7E/aN1IQ8We1IxTPQgt035Dfde/6+vkZKh12huEbcSM3jU/f4HYeeIqlryv4+vQSd+4uEYtuy6+rjsbe4qQipOj469ooZhSrlHYHYb6o/FAokRzSj/ktDSpVHw91CT0/P1icejqu7A4BvzdMQqzp1/VMT7F3RlYgFIsICDVEmLJrf0Gfl9afXs9HraLcppBbuCmsreZCK45TCE58HmNnbWhC9s1uNCAAUhiqYTKGyzskbI3nGkwdhl5vPF3nO3YrUADaNHdlkol2oZLyJiKVGpjG67vx8vjAC16QJdIt6OyC8t/1Q3INPj545W/PNj0ZWdbStGYdRRviH6XqSujsJ0cAemyKKQyP9C8wlUjLtvbybkbI5dOBstA44QGL9o1Y6+5x759ETh/NyNUCLnCuwPsBkjayypc5ok3AtlKlgpLmy6hZ6G+0oXNxRQv45ZZvItCiDIsH+BKi5ZcWhXkvMlOr50YOR4d9eAvwHwZjaCuoycQwUZ6lw6NHkdCRmNgKR+/nr28eHN5McrsiQH8mX47x6gD5cN0WJkbOb8pbYXz4ep9BT5gFEPDkYTosJ5CQGQ07/hks5OPph1iO0f2/1eX//SrS32YDXswY6CK2/bERvKmTkGf3PMKxsi089DS5C1MNCi12URUsw9KbLc47N4i7EsO17jPSXN9/kyofZsXmEGnbG/cPsQsqShRKLBvLV8LsXmH+Yxp/xzTWr7GD8XR9BOZeva+fud6TjpPY4PGfa+dV13bHlSzo9trkE0ZTSDHIxY3fR7HcEPvLOzV7223dP10gSXD1xPf9/rCUf9A7YOgIIKsxJW8YzlEkcdo8BsBbrf/AL5nsKI=
+sidebar_class_name: "get api-method"
+info_path: docs/api/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List types"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/types"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint retrieves a paginated list of object types (e.g. 'Page', 'Note', 'Task') available within the specified space. Each type’s record includes its unique identifier, type key, display name, icon, and a recommended layout. While a type's id is truly unique, a type's key can be the same across spaces for known types, e.g. 'ot-page' for 'Page'. Clients use this information when offering choices for object creation or for filtering objects by type through search.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"default":100,"maximum":1000,"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"description":"The type of the object","properties":{"archived":{"description":"Whether the type is archived","example":false,"type":"boolean"},"icon":{"description":"The icon of the object","properties":{"color":{"description":"The color of the icon","example":"red","type":"string"},"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"file":{"description":"The file of the icon","example":"http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The type of the icon","enum":["emoji","file","icon"],"example":"emoji","type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"util.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"util.Icon"},"id":{"description":"The id of the type (which is unique across spaces)","example":"bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu","type":"string"},"name":{"description":"The name of the type","example":"Page","type":"string"},"object":{"description":"The data model of the object","example":"type","type":"string"},"recommended_layout":{"description":"The recommended layout of the type","example":"todo","type":"string"},"type_key":{"description":"The key of the type (can be the same across spaces for known types)","example":"ot-page","type":"string"}},"type":"object","title":"object.Type"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1024,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-object_Type"}}},"description":"List of types"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

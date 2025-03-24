@@ -7,8 +7,18 @@
 
 - Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-heart/blob/main/core/api/docs/swagger.yaml)
 
-Use online [Swagger Editor](https://editor-next.swagger.io/) or a plugin for your IDE to edit this file.
+### Local Development
 
-Let's discuss in chat. Feel free to change stuff in here too.
+```bash
+yarn start
+```
 
-> Later we will add a proper documentation website to this repo.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```bash
+yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.

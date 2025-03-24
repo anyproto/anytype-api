@@ -159,6 +159,8 @@ dist
 
 # Docusaurus cache and generated files
 .docusaurus
+/build
+.cache-loader
 
 # Serverless directories
 .serverless/
@@ -192,4 +194,3 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,node
-
