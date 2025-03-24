@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "API Reference",
+    title: "📚  API Reference",
     Svg: require("@site/static/img/logo.svg").default,
     description: (
       <>
@@ -14,7 +14,7 @@ const FeatureList = [
     ),
   },
   {
-    title: "Examples",
+    title: "💡 Examples",
     Svg: require("@site/static/img/logo.svg").default,
     description: (
       <>
@@ -23,7 +23,7 @@ const FeatureList = [
     ),
   },
   {
-    title: "Join our Community",
+    title: "👥 Join our Community",
     Svg: require("@site/static/img/logo.svg").default,
     description: (
       <>

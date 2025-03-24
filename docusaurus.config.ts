@@ -81,7 +81,7 @@ const config: Config = {
               to: "/docs/intro",
             },
             {
-              label: "API Reference",
+              label: "Reference",
               to: "/docs/api/anytype-api",
             },
           ],
