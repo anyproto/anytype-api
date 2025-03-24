@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 const FeatureList = [
   {
     title: "📚  API Reference",
-    Svg: require("@site/static/img/logo.svg").default,
+    Svg: require("@site/static/img/anytype.svg").default,
     description: (
       <>
         Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build
@@ -18,7 +18,7 @@ const FeatureList = [
   },
   {
     title: "💡 Examples",
-    Svg: require("@site/static/img/logo.svg").default,
+    Svg: require("@site/static/img/anytype.svg").default,
     description: (
       <>
         Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.
@@ -29,7 +29,7 @@ const FeatureList = [
   },
   {
     title: "👥 Join our Community",
-    Svg: require("@site/static/img/logo.svg").default,
+    Svg: require("@site/static/img/anytype.svg").default,
     description: (
       <>
         Connect with other developers, get support, and share your creative projects. Join our community to collaborate and shape the future

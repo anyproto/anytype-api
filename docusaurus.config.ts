@@ -49,7 +49,6 @@ const config: Config = {
       logo: {
         alt: "Anytype",
         src: "img/logo.svg",
-        width: 80,
       },
       items: [
         {
