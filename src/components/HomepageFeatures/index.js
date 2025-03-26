@@ -13,7 +13,7 @@ const FeatureList = [
         powerful extensions.
       </>
     ),
-    link: "/docs/api/anytype-api",
+    link: "/docs/category/reference",
     linkText: "Jump to the reference →",
   },
   {
@@ -24,7 +24,7 @@ const FeatureList = [
         Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.
       </>
     ),
-    link: "/docs/examples",
+    link: "/docs/category/examples",
     linkText: "Explore the examples →",
   },
   {
