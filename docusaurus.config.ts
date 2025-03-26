@@ -49,6 +49,7 @@ const config: Config = {
       logo: {
         alt: "Anytype",
         src: "img/logo.svg",
+        srcDark: "img/logo@dark.svg",
       },
       items: [
         {
