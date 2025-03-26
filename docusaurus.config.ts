@@ -74,7 +74,7 @@ const config: Config = {
       style: "light",
       links: [
         {
-          title: "Docs",
+          title: "Developers",
           items: [
             {
               label: "Guides",
@@ -129,55 +129,14 @@ const config: Config = {
     },
     languageTabs: [
       {
-        highlight: "python",
-        language: "python",
-        logoClass: "python",
-      },
-      {
         highlight: "bash",
         language: "curl",
         logoClass: "curl",
       },
       {
-        highlight: "csharp",
-        language: "csharp",
-        logoClass: "csharp",
-      },
-      {
-        highlight: "go",
-        language: "go",
-        logoClass: "go",
-      },
-      {
-        highlight: "javascript",
-        language: "nodejs",
-        logoClass: "nodejs",
-      },
-      {
-        highlight: "ruby",
-        language: "ruby",
-        logoClass: "ruby",
-      },
-      {
-        highlight: "php",
-        language: "php",
-        logoClass: "php",
-      },
-      {
-        highlight: "java",
-        language: "java",
-        logoClass: "java",
-        variant: "unirest",
-      },
-      {
-        highlight: "powershell",
-        language: "powershell",
-        logoClass: "powershell",
-      },
-      {
-        highlight: "dart",
-        language: "dart",
-        logoClass: "dart",
+        highlight: "python",
+        language: "python",
+        logoClass: "python",
       },
       {
         highlight: "javascript",
@@ -185,24 +144,19 @@ const config: Config = {
         logoClass: "javascript",
       },
       {
+        highlight: "go",
+        language: "go",
+        logoClass: "go",
+      },
+      {
+        highlight: "rust",
+        language: "rust",
+        logoClass: "rust",
+      },
+      {
         highlight: "c",
         language: "c",
         logoClass: "c",
-      },
-      {
-        highlight: "objective-c",
-        language: "objective-c",
-        logoClass: "objective-c",
-      },
-      {
-        highlight: "ocaml",
-        language: "ocaml",
-        logoClass: "ocaml",
-      },
-      {
-        highlight: "r",
-        language: "r",
-        logoClass: "r",
       },
       {
         highlight: "swift",
@@ -213,11 +167,6 @@ const config: Config = {
         highlight: "kotlin",
         language: "kotlin",
         logoClass: "kotlin",
-      },
-      {
-        highlight: "rust",
-        language: "rust",
-        logoClass: "rust",
       },
     ],
   } satisfies Preset.ThemeConfig,
