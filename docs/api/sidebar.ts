@@ -88,6 +88,12 @@ const sidebar: SidebarsConfig = {
           label: "Remove object from list",
           className: "api-method delete",
         },
+        {
+          type: "doc",
+          id: "api/get-list-views",
+          label: "Get list views",
+          className: "api-method get",
+        },
       ],
     },
     {
