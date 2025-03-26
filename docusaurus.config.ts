@@ -54,14 +54,20 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          docId: "intro",
+          docId: "guides",
           position: "left",
           label: "Guides",
         },
         {
-          label: "Reference",
           position: "left",
+          label: "Reference",
           to: "/docs/api/anytype-api",
+        },
+        {
+          type: "doc",
+          docId: "examples",
+          position: "left",
+          label: "Examples",
         },
         {
           href: "https://github.com/anyproto/anytype-api",
@@ -78,11 +84,15 @@ const config: Config = {
           items: [
             {
               label: "Guides",
-              to: "/docs/intro",
+              to: "/docs/guides",
             },
             {
               label: "Reference",
               to: "/docs/api/anytype-api",
+            },
+            {
+              label: "Examples",
+              to: "/docs/examples",
             },
           ],
         },

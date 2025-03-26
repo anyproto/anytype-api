@@ -14,7 +14,7 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
-    { type: "doc", id: "intro" },
+    { type: "doc", id: "guides" },
     {
       type: "category",
       label: "Get Started",
@@ -35,6 +35,7 @@ const sidebars: SidebarsConfig = {
       items: require("./docs/api/sidebar.js"),
     },
   ],
+  exampleSidebar: [{ type: "doc", id: "examples" }],
 };
 
 export default sidebars;
