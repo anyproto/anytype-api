@@ -5,7 +5,7 @@
 
 .heroBanner {
   color: #000000;
-  padding: 8rem 0;
+  padding: 2rem 0;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -22,4 +22,25 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.icon {
+  width: 75%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  grid-column: 2;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
