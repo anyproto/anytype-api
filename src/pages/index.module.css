@@ -12,12 +12,6 @@
   background-color: var(--ifm-color-primary-lightest);
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
 .buttons {
   display: flex;
   align-items: center;
@@ -43,4 +37,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 6rem 2rem;
+
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .iconContainer {
+    grid-row: 1;
+  }
+
+  .textContent {
+    grid-row: 2;
+  }
+
+  .icon {
+    width: 75%;
+    grid-column: auto;
+  }
 }
