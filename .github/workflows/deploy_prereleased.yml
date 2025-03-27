@@ -1,0 +1,17 @@
+---
+name: prereleased
+
+on:
+  push:
+    branches:
+      - stage
+
+jobs:
+  deploy_landing:
+    uses: anyproto/site/.github/workflows/deploy_landing_reusable.yml@main
+    secrets: inherit # pass all secrets
+    with:
+      site_name:  developers-stage.anytype.io
+      BUILD_TYPE: staging
+      NODE_VERSION: 20
+      src_static_dir: /opt/site/build
