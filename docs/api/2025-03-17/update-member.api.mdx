@@ -1,0 +1,71 @@
+---
+id: update-member
+title: "Update member"
+description: "Modifies a member's status and role in a space. Use this endpoint to approve a joining member by setting the status to `active` and specifying a role (`reader` or `writer`), reject a joining member by setting the status to `declined`, remove a member by setting the status to `removed`, or update an active member's role. This endpoint enables fine-grained control over member access and permissions."
+sidebar_label: "Update member"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWO9u2zYQfxVBX9YCjv/l35JPc1Jny9B2beyswIrCoSTKoi2RCknZcQx/2xvsAfaKe4TdkZIlx3KatEWxD0MAhyKP9+d3xzsel25AlS9Zqpng7qn7RgQsZFQ5xElo4lH5g3KUJjqDGR44UsTUYRxWVUp82nSuFXV0xJRDeZAKxrWjhUPSVIoZBaoJTDE+znk53sJRVGuc0REtGMOOG+JrNqM3RohKqc/CBVIRK/HFjaQkoPLGEdK5mUumYfyy4Ug6ob5+jpyA+jHjNLjBzYlV8rObLCXuAfFZGhAN2wAEo3OJE6radIYbaFBOvBjgDEHo3lgSlO34gmsgdoCpLKQT36fKgpxSmTClwCGq6TbclEiSULBYuacflw/8NUA3OJevgI7hd0p0BGMOO+DLOGnEApiR9DZjkgbuqZYZbbjKj2hC3NOlqxepodUSTHdXq8ZDGW+shruEWAOeK+WTJaZKn4lggRSICuUahxBAMfMJym9NFCqxrLCC4AKINEQpfiHq+H9T5ysMGwxFwHHMHRbmQWmDajNcQG/KswTQdWeMzu1EwLSQLmhJ70iSoohy8YEtYKaJlW0tBjaGRGgiakuaDSADmwkwGBXxuSl5Tbjlq2JGeHgSkILpeO365rUJVuvAKws37Fo16j0MeNno3vLkCidUChFpQe+221/hshyILbiGVZA2t4xj4ZF4ZEOubp8lcJBgE29MV/jFqZ4LOXWruE5ExJuEL+p8ynxrxLYoXClkrHHfVNcXsdhhoFkqthshVY2kiYItZSA+Jqyen1naye+fv//6s45hyOpODfLDlZ3sIq3T01ar0z1utuGvc7rfabePWiwhY9rySLjwKKOpvj+MZv7iSN+lsT9Lo4nnRYeLid+9v40SFql9MZ9Gh4J4B/SeZPe3pNYBoZAJ0fVKIvFDJfNDZaHKLczduHGYCoJNgQ33bg9Z7M2IxCDCZOtewuYLo0Y/31TOXFj+5cRlLqk4gZlmcbNcRpN2h281brdQD4SfJXjOnpMA1uJNMAf1YiFqrb/NbocF27lqrcUICpFmPksJ1yP0taRsvAin+kh6s+6B8maH5LYbTUXHi5LZ4d1dHHa73oG3SIPsaHIc8TRK9lN1O+ruJ/ToRB4enQjWGfV6kz7pz99dHPBpPzrpfZje9vm9//7HX+7Z2dlBfzhhw3R2df5+9oEP3rz6o/asBoAO04sd5zVffXpe2NTpeEOnn5+o09N8XYPzr5CUnFeiJt03Ci/XsoXEDXcZEdB4KzmVzNfytljX11FkbK5gu2rYw4oJOs65meBiVN5kNo9gQfLkQjosL2S7FMlrOsw8VlbzSUvoE+7T+JsVW1tFn0x4lRfURwqyrcZwI87M7TDM4niBMB18VfmlUtri9LAqKwVp3FCswTgjcOnPLw6fR+Sz+eh3ErPAaNk3StSYXpVoTO18J1OvOcl0JCS7r6vBz7e1ym+ntRtCjbkH38lcCD+RSWgeuNBOKDL+TYx+K/QF8tppcB7ZpVCgOPxu4XwJEqC8x9DpSWy+7N5vYPfA8Ntpdb1cpFPUz6QpXdDbeZRIKjEi4PMT9kiajM1NxKY7hZkKesFIBLYN8yPTICK92zLJRbWWRde3auW7Wst1j7ZyUSTqYLvJTMbltS4WPokjobS51p20Zh0XdShUHKADLLhVRYuv/JoDBezD0M1bP8THrpYgozBjOjr2quwB+4WXip6urC1FWShyM5Z8HooiaIgtiRAdDK1RWZoKqX+Ciz2KbDJRNqs9O+cMLA0slAgogKDc0yo4bznTdPi9d5cOiWMxV3CRAOeiZtAWzJmOnEKIzI+YwgQeQS9qX01UI6/Mtt1HUtPoQ8RTrAdgSqmtM7CntDcD4/AtwXltyZxOs72l/hjEZ17TFwlaAgdCi8KkPa1aHjRJLUCJt15fnvffDvrNxBxA0D9Rv4UYxMC8Hg5DMxLhKFO0Ev2FrYAHzGJcWZC67e7hXnt/r3OMAlIIqoTwimm2My3L+AbElVzw/4vUf+9FKj/Imt7pVhoDB3SxCcRlnow+2puOAuLTyiNUkcVgtnw1ggyDOQc3LZceUfRaxqsVTkNqkJgYYQhdGUO97RMYUziGHBiSWNFHgufFVf6M8dKpvJTV6p9P2teAGYkz/ILhlC6qL2nmeexL5Fdf0b5AgRKv1Scgjkz0GTTs+rmVuTdELuX+rUKK+tsdPfBvqh+lrVabd73h+S9A7eXPddhp4IMFmeOlGn6NssKAYB/mcG7pxoSPM1OIXcsUU39ROXKb1yUiH6BZtXBAgBiKoZhSvlqt0dH4jcisVv8CZa3u3w==
+sidebar_class_name: "patch api-method"
+info_path: docs/api/2025-03-17/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update member"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/spaces/{space_id}/members/{member_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Modifies a member's status and role in a space. Use this endpoint to approve a joining member by setting the status to `active` and specifying a role (`reader` or `writer`), reject a joining member by setting the status to `declined`, remove a member by setting the status to `removed`, or update an active member's role. This endpoint enables fine-grained control over member access and permissions.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Member ID","in":"path","name":"member_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"role":{"description":"Role to assign if approving a joining member","enum":["viewer","editor"],"example":"viewer","type":"string"},"status":{"description":"Status of the member","enum":["active","removed","declined"],"example":"active","type":"string"}},"type":"object","title":"space.UpdateMemberRequest"}}},"description":"Member to update","required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"member":{"description":"The member","properties":{"global_name":{"description":"The global name of the member in the network","example":"john.any","type":"string"},"icon":{"description":"The icon of the object","properties":{"color":{"description":"The color of the icon","example":"red","type":"string"},"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"file":{"description":"The file of the icon","example":"http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The type of the icon","enum":["emoji","file","icon"],"example":"emoji","type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"util.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"util.Icon"},"id":{"description":"The profile object id of the member","example":"_participant_bafyreigyfkt6rbv24sbv5aq2hko1bhmv5xxlf22b4bypdu6j7hnphm3psq_23me69r569oi1_AAjEaEwPF4nkEh9AWkqEnzcQ8HziBB4ETjiTpvRCQvWnSMDZ","type":"string"},"identity":{"description":"The identity of the member in the network","example":"AAjEaEwPF4nkEh7AWkqEnzcQ8HziGB4ETjiTpvRCQvWnSMDZ","type":"string"},"name":{"description":"The name of the member","example":"John Doe","type":"string"},"object":{"description":"The data model of the object","example":"member","type":"string"},"role":{"description":"The role of the member","enum":["viewer","editor","owner","no_permission"],"example":"owner","type":"string"},"status":{"description":"The status of the member","enum":["joining","active","removed","declined","removing","canceled"],"example":"active","type":"string"}},"type":"object","title":"space.Member"}},"type":"object","title":"space.MemberResponse"}}},"description":"Member updated successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Resource not found","type":"string"}},"type":"object"}},"type":"object","title":"util.NotFoundError"}}},"description":"Member not found"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: get-template
+title: "Get template"
+description: "Get template"
+sidebar_label: "Get template"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv0zAQ/iuWn0DamrbrQPSJAhOahAai29M0TU5yaTyS2NjOtizKG/+AH8Bf5CdwF6dt1hYE5WVPic/n+87fnT+75loYkYMDY/n0suYx2MhI7aQq+JTPtYiAnb7jB1zSWAuX4n+BK3BkafZaxmgx8LWUBmI+daaEA26jFHLBpzV3lW59nZHFgjfNwSbGOTr8FoJW/z8C5DoT7g8oncO/Il2Rs9WqsGBpfjwc0mcDPQVGIcE6iNkSCnEiVTgoHK0QWmcyErQiuLG0rO7BaqM0GCc9yCrC1oyM/Eq4F+hCmf788f0bIm3kjRzEj/1CkVQGZOSMPlJhXiQv4ju4qY7VRL8MYzBCSDEJ48VY2/sweUgmk6oSx2XpFrArvKe1D7AqwRlN7VjiDf0lPaa2Kry0qPAGIrfTQrbJcLRdj4tClC5VRj5AvH8VwBhlts05WCsWsLMt/zrpyXbSn8Gq0uBZLJRjiSqLJ5n68a7+P8UkTSEyZsHcgmEe/sllT0axIBFsJy3Hw/14I+/B9Y8vimaq8BzxBTgctooy5UErijaol+LYBG24oO6kDMddDLKthafBGJ4hL8SlyShckKlIZKmybno0Gg5fBbcjTrpjISqNdNWcaPIUvBFWRrOS0liRkDqneSdh/qCjT8uALBJFjlQGEbVlQL4lgdpSa2Xca1FUFGYg1VoqZ97G5t4HJ3yiBGSnQbBeEywjN5tEnqfSstmnUyayTN1ZJqlD0BNn2Z10KVuCmK7rLbNllDKB35bdA+YLZ5koUFKJ3wFmgj0EKMW0lXW2bO4PzuwWNyfCDNgH78ZGg+FW+guEL8NBpHLaCbaYU8stHTobhJkKA2SpCD6cvj05m58M8rhVLzC5/ZjMsX4YfDcdrc+1Sq5L22qadFmfUOQDrVR+T9J4OD4+HI4PR2MC0NgAuSh6W9voxkcMr8rv4N4F6IJ3XtNtte469dJf3xbXTnsXue99tK1v3lW/tubeVYltSI1JseoaOwsuTNY0ZMbbzlRox99bYSTR7l8X0tI/nppEZBa20l5pAn/2ubuFn7PeI2TntjojUk0EiqykEf5+gar/SGnfBfvgrx8oe8Avadwf/dHjZZ8MehVrrtA9BYFXelsP7zGLItCut3ZLj0lxVnr3/uQcFeQXyv6HuQ==
+sidebar_class_name: "get api-method"
+info_path: docs/api/2025-02-12/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get template"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/types/{type_id}/templates/{template_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get template
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type ID","in":"path","name":"type_id","required":true,"schema":{"type":"string"}},{"description":"Template ID","in":"path","name":"template_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The requested template","content":{"application/json":{"schema":{"properties":{"template":{"properties":{"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreictrp3obmnf6dwejy5o4p7bderaaia4bdg2psxbfzf44yya5uutge","type":"string"},"name":{"example":"Template Name","type":"string"},"type":{"example":"template","type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"404":{"description":"Resource not found","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

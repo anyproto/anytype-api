@@ -1,0 +1,71 @@
+---
+id: export-object
+title: "Export object"
+description: "Export object"
+sidebar_label: "Export object"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v2zAM/SuCThuQRkm2HubT0q2HAMVaLO2pKArFZmK1suVJctrM8H8faTmJl7jAkF16skzx4/GRIiteSCsz8GAdj+4rnoCLrSq8MjmP+LyQMbDZdz7giv4L6VM852iBf45uH1WCEgu/SmUh4ZG3JQy4i1PIJI8q7jdFo+utyle8rgeHMa4XTxD7N4OY5vq/o1y+FsZ6tjQ2k74/0u7uX8MMOORlhrTxTNrnxLzkKCqs8WZRLvlDXT+QL1eY3IEj88loRJ/e/KEBCAlzZRyDc8tS6w36i03uIfdkJ4tCq1iSnXhyZFx1sGHgAqxXIVSTGn7hVWaFJtCCRMIbESKh6yPStpLAOUpI9rkP9IVMGNEEzp+OEaw19licYfZyBb1lPUL4FubxMea7XJY+NVb9huQ9gj7vI3qGIG0uNXNg12BZCP/u0JNQrmiE8La9sPd7X2BrNMCYWIyEXqFpmih0LBfNVHGi2k6XWgQTFO1mQd02sajCo63RPhAUplhpNbkS2sRSp+g/+jQejb6I9ZjTo3QQl1b5zZxYCgxcSKfiaRkeTZtf6n3B2+dP/wvSaQhQ+dKQIlVBxk0VkG5FQV1ZELKvMt+Qm6Ey+wkzDTI2Dzp4EYBSIBcJsbcRW8/1IY23qXJsejNjUmvz4piiBkFNvGUvyqdsGwQnjyktUkkTJWUSvw2zg7YEjsk8YaTqhogEWwhwTlEqe7Rs3rhg0zUmJxca2FVQY+Ph6Aj+CsOXi2FsMsqkGYTblM6wfAttFgJZysXV7Nvlj/nlMEsoP8SfuevlHOuHzvvpaHQezfKxRIhoorzuEop8oJTKH0iajCbnZ6PJ2XhCAajBMpl3Ujvsxb8o3tXfw6sXhUbE5KXJdTtY78Pyc2gbddZgyyxJu3trN3GjdsdgD1JXkp+qwraCO6vrmsQ4Uu0G5XhcS6uI87CXlaMzvpel1A6OIO/mAf/ws11fH1lnffem1AqRZ2JP6pL+8PgMm+56b7bpKfG7q/0EAHsKT0ZwuPZPQNHa1g+omYJMwDYFCZdT3NWF75gdDWOaN7tRd3M9v8UB8geRukLy
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-02-12/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export object"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/spaces/{space_id}/objects/{object_id}/export/{format}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Export object
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Object ID","in":"path","name":"object_id","required":true,"schema":{"type":"string"}},{"description":"Export format","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["markdown","protobuf"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Object exported successfully","content":{"application/json":{"schema":{"properties":{"path":{"example":"/path/to/export","type":"string"}},"type":"object"}}}},"400":{"description":"Bad request","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -60,7 +60,7 @@ const config: Config = {
         {
           position: "left",
           label: "Reference",
-          to: "/docs/category/reference",
+          to: "/docs/category/reference/2025-03-17",
         },
         {
           position: "left",
@@ -86,7 +86,7 @@ const config: Config = {
             },
             {
               label: "Reference",
-              to: "/docs/category/reference",
+              to: "/docs/category/reference/2025-03-17",
             },
             {
               label: "Examples",
@@ -187,12 +187,31 @@ const config: Config = {
         docsPluginId: "classic",
         config: {
           anytype: {
-            specPath: "docs/api/swagger.yaml",
+            specPath: "docs/api/swagger-2025-03-17.yaml",
             outputDir: "docs/api",
-            downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger.yaml",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
+            },
+            version: "2025-03-17",
+            label: "2025-03-17",
+            baseUrl: "/api/2025-03-17",
+            downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger-2025-03-17.yaml",
+            versions: {
+              "2025-02-12": {
+                specPath: "docs/api/swagger-2025-02-12.yaml",
+                outputDir: "docs/api/2025-02-12",
+                label: "2025-02-12",
+                baseUrl: "/docs/api/2025-02-12/anytype-api",
+                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger-2025-02-12.yaml",
+              },
+              "2025-03-17": {
+                specPath: "docs/api/swagger-2025-03-17.yaml",
+                outputDir: "docs/api/2025-03-17",
+                label: "2025-03-17",
+                baseUrl: "/docs/api/2025-03-17/anytype-api",
+                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger-2025-03-17.yaml",
+              },
             },
           } satisfies OpenApiPlugin.Options,
         } satisfies Plugin.PluginOptions,

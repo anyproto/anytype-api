@@ -1,5 +1,7 @@
 // @ts-check
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
+import apiVersions from "./docs/api/versions.json";
+import { versionCrumb, versionSelector } from "docusaurus-plugin-openapi-docs/lib/sidebars/utils";
 
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
@@ -15,7 +17,18 @@ const sidebars: SidebarsConfig = {
       items: require("./docs/guides/sidebar.ts"),
     },
   ],
-  openApiSidebar: [
+  openApiSidebar20250317: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(apiVersions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`2025-03-17`),
+    },
     {
       type: "category",
       label: "Anytype API",
@@ -24,9 +37,34 @@ const sidebars: SidebarsConfig = {
         title: "API Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
-        slug: "/category/reference",
+        slug: "/category/reference/2025-03-17",
       },
-      items: require("./docs/api/sidebar.ts"),
+      items: require("./docs/api/2025-03-17/sidebar.ts"),
+    },
+  ],
+  openApiSidebar20250212: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(apiVersions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`2025-02-12`),
+    },
+    {
+      type: "category",
+      label: "Anytype API",
+      link: {
+        type: "generated-index",
+        title: "API Reference",
+        description:
+          "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
+        slug: "/category/reference/2025-02-12",
+      },
+      items: require("./docs/api/2025-02-12/sidebar.ts"),
     },
   ],
   exampleSidebar: [

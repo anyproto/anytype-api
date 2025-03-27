@@ -1,0 +1,71 @@
+---
+id: export-object
+title: "Export object"
+description: "This endpoint exports a single object from the specified space into a desired format. The export format is provided as a path parameter (currently supporting “markdown” and “protobuf”), and clients can optionally specify an export path in the request body. The endpoint calls an export service which converts the object’s content into the requested format and returns the file path where the exported data is stored. It is useful for data backup, sharing, or further processing."
+sidebar_label: "Export object"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV91u2zYUfhWCVy3gWE66YpivlnYZkKFYijrdLoogoCQqYiOJGknZ8QwBeY0B28vlSfYdUpLV2Am2tOjNdmNIR+fv+87h4fGGp9ImRtVO6YrP+XmuLJNVWmtVOSZvam2cZYJZVV0Vkun4o0wcy4wumcsls7VMVKZkiieRSAYjDW34VAbCTJtSuCk7h2rw1YkYotRGL1UKLUEBauFy/BhRSicNe5Y0xsjKFWtmm5oskQC7u/2zFOY61avq7vYvJqqURHDkdNxkED2feGFSKNhaloiKaQ9NFOTJZ7uGSp+Nj6oqj8XI3xppHYt1uu5S7nlIYG5HZlaapQLcVa6SnCW6WkqiibwEhu5u/7Akd0gjkDKKMBDjczXSNaYKxpkCxz6nVS6N9LIQEjapcIJ4s06D2yk79Sw2VmZNQQ6DQiyS66aeMJsLA8omDB+yxsCTIcYTaamUUz7hA9mWzz9s7vXBwpfz9AfoKXqnpPBcwQJvvtiXKoWEMFGt+dyZRk64TXJZCj7fcLeuva6jPHjbTu7HOAvN9FCQwORnRzkZ993+SMO3h8PIqilBE+/bj/jr2o5fTHayuAi+UOxX6CZy0DUDPYq6LlQiKL/oo6UkN7uAAnq4AiT4srWurLSkcDSb/SuHyLNGe6pg7ZHP75NE3e77btvCbIVzOTSf00Asb0RZF5RdRMqR01FQ4LsMTO4Bwbty3jaYTEP1Q3Xedfi4R7u3S4ZMbJNQE6PpizWH9jefRYc0RptdcYkI4kp6jQH0K5H2R/gfAH6MgsapYvqLKFTqszzxSezBPo7ooR5+JajvK9G4XBv1u0y/BNaxvwfRfhIUX19+tcqeIoLBHeEHOwZlsP0CuBfe34OI98clPStxASq39qM5lsJIQ+Tg9YKGixNXNLW7s0QTCJM81ymNNu3bM5xzHvlRbaNNP7LbKGQK0TBg2+4YR5swCVtOCVBG4WpoTAFXuXP1PIoKjdswR5D5i8PZ7Ltoecgpoz7hBZUjUD1Ou3/7MYzaOf/p13PeDVhiK3zdUk7BPBFU5nfbUXrS12zT0ijPdN8hIvEdglZQlGy3NHwvqjV5nCq9HffHQcYWQQcftgAtEG5tot7zTuX8nnT89pRhM9ArS3c8oCb0la0UBmkfBKNbNwYloMGV064TKjLpxqz1SwCpWrqU0d6SBiGgbLNlC++CHS8BTsTYEd4ENXY4ne2kf4XwTTxNdElI/C3VQzpA2eNCxxFYqqI3p69Pfl6cTEt/2pB/ac+yRVht9tPhdS51domtY9TqPVbwASm1TSDpaHb08mD24uDwWwpAjVmKagStu5qHo/MJxaOD//9W+t/ZSrvz7+SNi+oCbUqt4xu8310+hPXTQnk+WkS740TS8eY4LCjzbsvDrKLpRX42m1hY+d4UbUti0GBo4OJxiTTpoIXNWFl6xnDNRGHlI3367F23QD5nowV6L6ROiMNFR0YUDb3h8Vquxwu232efEn+8XD8hgS2FT87g/uL9hCw62/YCmrkUKW4IKkj4+DoEPTgnF1vjnR2BAASLY2yOtXtUd3yTvj1b0B0Vdxt8qVOyMWJF/xTw6xMNB9nfd1624YWorhq/YvDgk66x/hbs8A7XXfdAqPZSgRb1Guf6WlZtOzDj6J2Iadu/AXSXkqg=
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-03-17/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export object"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/spaces/{space_id}/objects/{object_id}/export/{format}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint exports a single object from the specified space into a desired format. The export format is provided as a path parameter (currently supporting “markdown” and “protobuf”), and clients can optionally specify an export path in the request body. The endpoint calls an export service which converts the object’s content into the requested format and returns the file path where the exported data is stored. It is useful for data backup, sharing, or further processing.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Object ID","in":"path","name":"object_id","required":true,"schema":{"type":"string"}},{"description":"Export format","in":"path","name":"format","required":true,"schema":{"enum":["markdown","protobuf"],"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"path":{"description":"The path the object was exported to","example":"/path/to/export","type":"string"}},"type":"object","title":"export.ObjectExportResponse"}}},"description":"Object exported successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
