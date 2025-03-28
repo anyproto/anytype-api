@@ -20,14 +20,15 @@ The API returns an array of space objects, each containing metadata such as the 
 
 ## Create a Space
 
-To create a new space, send a `POST` request to the `/spaces` endpoint with a JSON payload containing the space name:
+To create a new space, send a `POST` request to the `/spaces` endpoint with a JSON payload containing space details such as the name and description.
 
 ```bash
 curl -X POST "http://localhost:31009/v1/spaces" \
   -H "Authorization: Bearer <YOUR_BEARER_TOKEN>" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "My New Space"
+    "name": "My New Space",
+    "description": "This is a new space for my project"
   }'
 ```
 
