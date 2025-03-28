@@ -158,7 +158,7 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/2025-03-17/export-object",
           label: "Export object",
-          className: "api-method post",
+          className: "api-method get",
         },
       ],
     },
