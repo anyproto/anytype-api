@@ -1,11 +1,13 @@
 # Anytype API
 
 > [!WARNING]
-> 👷‍♂️ Work in progress here! This is an early draft made for collaboration.
+> 👷‍♂️ Work in progress here!
 
-- Current state preview: https://anyproto.github.io/anytype-api/
+- Current API specification for production: https://anyproto.github.io/anytype-api/
 
-- Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-heart/blob/main/core/api/docs/swagger.yaml)
+- Developer portal: https://developers-stage.anytype.io/
+
+- Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-api/blob/main/docs/api/swagger-2025-03-17.yaml)
 
 ### Local Development
 
@@ -15,7 +17,8 @@ npm run start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-> [!Note] For local search functionality to work, you must run npm run build (and then npm run serve). The search index is generated during the build process and is not available in development mode.
+> [!Note]
+> For local search functionality to work, you must run npm run build (and then npm run serve). The search index is generated during the build process and is not available in development mode.
 
 ### Build & Serve
 
