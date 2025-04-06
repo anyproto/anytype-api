@@ -2046,3 +2046,130 @@ paths:
         with a specific object type within a space. Templates provide pre‑configured
         structures for creating new objects. Each template record contains its identifier,
         name, and icon, so that clients can offer users a selection of templates when
+        creating objects.
+      parameters:
+        - description: The version of the API to use
+          in: header
+          name: Anytype-Version
+          schema:
+            default: "2025-03-17"
+            type: string
+        - description: Space ID
+          in: path
+          name: space_id
+          required: true
+          schema:
+            type: string
+        - description: Type ID
+          in: path
+          name: type_id
+          required: true
+          schema:
+            type: string
+        - description: The number of items to skip before starting to collect the result
+            set
+          in: query
+          name: offset
+          schema:
+            default: 0
+            type: integer
+        - description: The number of items to return
+          in: query
+          name: limit
+          schema:
+            default: 100
+            maximum: 1000
+            type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pagination.PaginatedResponse-object_Template"
+          description: List of templates
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.UnauthorizedError"
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ServerError"
+          description: Internal server error
+      security:
+        - bearerauth: []
+      summary: List templates
+      tags:
+        - templates
+  /spaces/{space_id}/types/{type_id}/templates/{template_id}:
+    get:
+      description: Fetches full details for one template associated with a particular
+        object type in a space. The response provides the template’s identifier, name,
+        icon, and any other relevant metadata. This endpoint is useful when a client
+        needs to preview or apply a template to prefill object creation fields.
+      parameters:
+        - description: The version of the API to use
+          in: header
+          name: Anytype-Version
+          schema:
+            default: "2025-03-17"
+            type: string
+        - description: Space ID
+          in: path
+          name: space_id
+          required: true
+          schema:
+            type: string
+        - description: Type ID
+          in: path
+          name: type_id
+          required: true
+          schema:
+            type: string
+        - description: Template ID
+          in: path
+          name: template_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/object.TemplateResponse"
+          description: The requested template
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.UnauthorizedError"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.NotFoundError"
+          description: Resource not found
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.GoneError"
+          description: Resource deleted
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ServerError"
+          description: Internal server error
+      security:
+        - bearerauth: []
+      summary: Get template
+      tags:
+        - templates
+servers:
+  - url: http://localhost:31009/v1

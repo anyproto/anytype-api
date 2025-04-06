@@ -112,12 +112,6 @@ const sidebar: SidebarsConfig = {
           label: "Get member",
           className: "api-method get",
         },
-        {
-          type: "doc",
-          id: "api/2025-03-17/update-member",
-          label: "Update member",
-          className: "api-method patch",
-        },
       ],
     },
     {
