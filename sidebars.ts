@@ -12,7 +12,7 @@ const sidebars: SidebarsConfig = {
         type: "generated-index",
         title: "Guides",
         description: "Explore a collection of guides that provide step-by-step instructions and best practices for using the Anytype API.",
-        slug: "/category/guides",
+        slug: "/guides",
       },
       items: require("./docs/guides/sidebar.ts"),
     },
@@ -37,7 +37,7 @@ const sidebars: SidebarsConfig = {
         title: "API Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
-        slug: "/category/reference",
+        slug: "/reference",
       },
       items: require("./docs/api/2025-03-17/sidebar.ts"),
     },
@@ -62,7 +62,7 @@ const sidebars: SidebarsConfig = {
         title: "API Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
-        slug: "/category/reference/2025-02-12",
+        slug: "/reference/2025-02-12",
       },
       items: require("./docs/api/2025-02-12/sidebar.ts"),
     },
@@ -76,7 +76,7 @@ const sidebars: SidebarsConfig = {
         title: "Examples",
         description:
           "Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.",
-        slug: "/category/examples",
+        slug: "/examples",
       },
       items: require("./docs/examples/sidebar.ts"),
     },

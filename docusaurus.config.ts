@@ -55,17 +55,17 @@ const config: Config = {
         {
           position: "left",
           label: "Guides",
-          to: "/docs/category/guides",
+          to: "/docs/guides",
         },
         {
           position: "left",
           label: "Reference",
-          to: "/docs/category/reference",
+          to: "/docs/reference",
         },
         {
           position: "left",
           label: "Examples",
-          to: "/docs/category/examples",
+          to: "/docs/examples",
         },
         {
           href: "https://github.com/anyproto/anytype-api",
@@ -82,15 +82,15 @@ const config: Config = {
           items: [
             {
               label: "Guides",
-              to: "/docs/category/guides",
+              to: "/docs/guides",
             },
             {
               label: "Reference",
-              to: "/docs/category/reference",
+              to: "/docs/reference",
             },
             {
               label: "Examples",
-              to: "/docs/category/examples",
+              to: "/docs/examples",
             },
           ],
         },
