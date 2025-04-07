@@ -60,7 +60,7 @@ const config: Config = {
         {
           position: "left",
           label: "Reference",
-          to: "/docs/category/reference/2025-03-17",
+          to: "/docs/category/reference",
         },
         {
           position: "left",
@@ -86,7 +86,7 @@ const config: Config = {
             },
             {
               label: "Reference",
-              to: "/docs/category/reference/2025-03-17",
+              to: "/docs/category/reference",
             },
             {
               label: "Examples",

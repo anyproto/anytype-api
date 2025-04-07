@@ -37,7 +37,7 @@ const sidebars: SidebarsConfig = {
         title: "API Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
-        slug: "/category/reference/2025-03-17",
+        slug: "/category/reference",
       },
       items: require("./docs/api/2025-03-17/sidebar.ts"),
     },

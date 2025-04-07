@@ -13,7 +13,7 @@ const FeatureList = [
         powerful extensions.
       </>
     ),
-    link: "/docs/category/reference/2025-03-17",
+    link: "/docs/category/reference",
     linkText: "Jump to the reference →",
   },
   {
