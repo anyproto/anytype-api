@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "📚  API Reference",
+    title: "📚 Reference",
     Svg: require("@site/static/img/reference.svg").default,
     description: (
       <>

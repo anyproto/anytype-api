@@ -31,10 +31,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Anytype API",
+      label: "Reference",
       link: {
         type: "generated-index",
-        title: "API Reference",
+        title: "Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
         slug: "/reference",
@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
       label: "Anytype API",
       link: {
         type: "generated-index",
-        title: "API Reference",
+        title: "Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build powerful extensions.",
         slug: "/reference/2025-02-12",
