@@ -3,9 +3,7 @@
 > [!WARNING]
 > 👷‍♂️ Work in progress here!
 
-- Current API specification for production: https://anyproto.github.io/anytype-api/
-
-- Developer portal: https://developers-stage.anytype.io/
+- Developer portal: [developers.anytype.io](https://developers.anytype.io/)
 
 - Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-api/blob/main/docs/api/swagger-2025-03-17.yaml)
 
