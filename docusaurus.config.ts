@@ -7,7 +7,7 @@ import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
-  title: "Start building with Anytype",
+  title: "Anytype API",
   tagline: "The developer portal for working the Anytype API",
   url: "https://api.anytype.io",
   baseUrl: "/",
@@ -15,8 +15,6 @@ const config: Config = {
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "anyproto",
   projectName: "anytype-api",
 

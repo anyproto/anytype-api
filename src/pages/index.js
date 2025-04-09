@@ -14,7 +14,7 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.gridContainer}>
           <div className={styles.textContent}>
-            <h1 className="hero__title">{siteConfig.title}</h1>
+            <h1 className="hero__title">{"Start building with Anytype"}</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className={styles.buttons}>
               <Link className="button button--secondary" to="/docs/guides">
@@ -34,7 +34,7 @@ function HomepageHeader() {
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title={`${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+    <Layout description={`${siteConfig.tagline}`}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
