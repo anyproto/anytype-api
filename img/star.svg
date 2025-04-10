@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="themed-svg">
+  <style>
+    .themed-svg path {
+      fill: black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .themed-svg path {
+        fill: white;
+      }
+    }
+  </style>
+  <path d="M32 38L0 32L32 26L64 32L32 38Z"/>
+  <path d="M26 32L32 0L38 32L32 64L26 32Z"/>
+  <path d="M30.8068 33.1932L5.75 32L30.8068 30.8068L32 5.75L33.1932 30.8068L58.25 32L33.1932 33.1932L32 58.25L30.8068 33.1932Z"/>
+</svg>
