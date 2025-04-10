@@ -8,12 +8,12 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "Anytype API",
-  tagline: "The developer portal for extending Anytype through powerful integrations",
+  tagline: "The developer portal for extending Anytype through powerful integrations.",
   url: "https://developers.anytype.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/star.ico",
+  favicon: "img/star.svg",
 
   organizationName: "anyproto",
   projectName: "anytype-api",
@@ -40,7 +40,7 @@ const config: Config = {
     image: "img/twitter-card.png",
     metadata: [
       { name: "twitter:title", content: "Start building with the Anytype API" },
-      { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations" },
+      { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     colorMode: {
