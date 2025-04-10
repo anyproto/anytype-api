@@ -57,7 +57,6 @@ const config: Config = {
       logo: {
         alt: "Anytype",
         src: "img/star.svg",
-        srcDark: "img/star@dark.svg",
       },
       items: [
         {

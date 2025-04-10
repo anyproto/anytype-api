@@ -1,24 +1,16 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_6_121)">
-<mask id="mask0_6_121" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
-<path d="M64 0H0V64H64V0Z" fill="white"/>
-</mask>
-<g mask="url(#mask0_6_121)">
-<g opacity="0.4" filter="url(#filter0_f_6_121)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M30.8068 33.1932L5.75 32L30.8068 30.8068L32 5.75L33.1932 30.8068L58.25 32L33.1932 33.1932L32 58.25L30.8068 33.1932Z" fill="black"/>
-</g>
-<path d="M32 38L0 32L32 26L64 32L32 38Z" fill="black"/>
-<path d="M26 32L32 0L38 32L32 64L26 32Z" fill="black"/>
-</g>
-</g>
-<defs>
-<filter id="filter0_f_6_121" x="5.0625" y="5.0625" width="53.875" height="53.875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="0.34375" result="effect1_foregroundBlur_6_121"/>
-</filter>
-<clipPath id="clip0_6_121">
-<rect width="64" height="64" fill="white"/>
-</clipPath>
-</defs>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="themed-svg">
+  <style>
+    .themed-svg path {
+      fill: black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .themed-svg path {
+        fill: white;
+      }
+    }
+  </style>
+  <path d="M32 38L0 32L32 26L64 32L32 38Z"/>
+  <path d="M26 32L32 0L38 32L32 64L26 32Z"/>
+  <path d="M30.8068 33.1932L5.75 32L30.8068 30.8068L32 5.75L33.1932 30.8068L58.25 32L33.1932 33.1932L32 58.25L30.8068 33.1932Z"/>
 </svg>
