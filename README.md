@@ -1,11 +1,13 @@
-# Anytype API
+<h1 style="display: flex; align-items: center;">
+    <img src="static/img/star.svg" alt="Logo" style="width: 22px; margin-right: 4px;">
+    Anytype API
+</h1>
 
-> [!WARNING]
-> 👷‍♂️ Work in progress here!
+The developer portal for extending Anytype through powerful integrations.
 
-- Developer portal: [developers.anytype.io](https://developers.anytype.io/)
+- 👷‍♂️ [Developer Portal](https://developers.anytype.io/)
 
-- Swagger file: [swagger.yaml](https://github.com/anyproto/anytype-api/blob/main/docs/api/swagger-2025-03-17.yaml)
+- 📎 [Swagger File](https://github.com/anyproto/anytype-api/blob/main/docs/api/swagger-2025-03-17.yaml)
 
 ## Local Development
 
