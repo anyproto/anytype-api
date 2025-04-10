@@ -8,12 +8,12 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "Anytype API",
-  tagline: "The developer portal for working the Anytype API",
+  tagline: "The developer portal for extending Anytype through powerful integrations",
   url: "https://api.anytype.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/star.ico",
 
   organizationName: "anyproto",
   projectName: "anytype-api",
@@ -37,6 +37,16 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: "img/twitter-card.png",
+    metadata: [
+      { name: "twitter:title", content: "Start building with the Anytype API" },
+      { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    colorMode: {
+      defaultMode: "light",
+      respectPrefersColorScheme: true,
+    },
     docs: {
       sidebar: {
         hideable: true,
@@ -46,8 +56,8 @@ const config: Config = {
       title: "Developers",
       logo: {
         alt: "Anytype",
-        src: "img/logo.svg",
-        srcDark: "img/logo@dark.svg",
+        src: "img/star.svg",
+        srcDark: "img/star@dark.svg",
       },
       items: [
         {
