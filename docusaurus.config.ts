@@ -9,7 +9,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 const config: Config = {
   title: "Anytype API",
   tagline: "The developer portal for extending Anytype through powerful integrations",
-  url: "https://api.anytype.io",
+  url: "https://developers.anytype.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
