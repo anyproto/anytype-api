@@ -14,7 +14,7 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.gridContainer}>
           <div className={styles.textContent}>
-            <h1 className="hero__title">{"Start building with Anytype"}</h1>
+            <h1 className="hero__title">{siteConfig.themeConfig.metadata[0].content}</h1>
             <p className="hero__subtitle">{siteConfig.tagline}</p>
             <div className={styles.buttons}>
               <Link className="button button--secondary" to="/docs/guides">

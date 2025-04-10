@@ -8,7 +8,7 @@ import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: "Anytype API",
-  tagline: "The developer portal for working the Anytype API",
+  tagline: "The developer portal for working with the Anytype API",
   url: "https://api.anytype.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -37,6 +37,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: "img/twitter-card.png",
+    metadata: [
+      { name: "twitter:title", content: "Start building with Anytype" },
+      { name: "twitter:description", content: "The developer portal for working with the Anytype API" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
     docs: {
       sidebar: {
         hideable: true,
