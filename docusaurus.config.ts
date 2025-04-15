@@ -13,7 +13,7 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/star.svg",
+  favicon: "img/logo.svg",
 
   organizationName: "anyproto",
   projectName: "anytype-api",
@@ -56,7 +56,8 @@ const config: Config = {
       title: "Developers",
       logo: {
         alt: "Anytype",
-        src: "img/star.svg",
+        src: "img/logo.svg",
+        srcDark: "img/logo@dark.svg",
       },
       items: [
         {
