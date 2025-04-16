@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 title: "Searching and Filtering Objects"
+description: "This guide explains how to search and filter objects through the Anytype API."
+keywords: [anytype, api, search, filtering, objects, notes, pages, tasks, content, management]
 ---
 
 # Searching and Filtering Objects
