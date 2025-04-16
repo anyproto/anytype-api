@@ -3,11 +3,17 @@ sidebar_position: 1
 title: "Anytype for Raycast"
 ---
 
-# Raycast Extension for Anytype: Architecture & Implementation
+import styles from "../../../src/examples/index.css";
+
+# Anytype for Raycast
 
 ## Overview
 
 The Anytype Raycast extension is a typescript client that brings the Anytype experience into the Raycast launcher. It lets users **create, browse, and search Anytype objects** directly from Raycast. Under the hood, the extension communicates with the Anytype desktop app via a local API, manages state with React hooks, and follows Raycast’s guidelines for UI and performance. This write-up provides a deep dive into the extension’s architecture and implementation, highlighting key decisions and patterns used to build a feature-rich API client in Raycast.
+
+![Raycast Extension for Anytype](../../../static/img/raycast.png)
+
+<span className="imageCaption">Detail View in Raycast: Object body, with properties in right sidebar.</span>
 
 ## Authentication & Pairing Flow
 
