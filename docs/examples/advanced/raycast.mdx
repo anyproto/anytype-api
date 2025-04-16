@@ -13,6 +13,13 @@ import styles from "../../../src/examples/index.css";
 
 The Anytype Raycast extension is a typescript client that brings the Anytype experience into the Raycast launcher. It lets users **create, browse, and search Anytype objects** directly from Raycast. Under the hood, the extension communicates with the Anytype desktop app via a local API, manages state with React hooks, and follows Raycast’s guidelines for UI and performance. This write-up provides a deep dive into the extension’s architecture and implementation, highlighting key decisions and patterns used to build a feature-rich API client in Raycast.
 
+<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
+  Find the extension's repository on [Github](https://github.com/anyproto/anytype-raycast), and install it from Raycast's store:
+  <a title="Install anytype Raycast Extension" href="https://www.raycast.com/any/anytype">
+    <img src="https://www.raycast.com/any/anytype/install_button@2x.png?v=1.1" height="48" alt="Install Anytype" />
+  </a>
+</div>
+
 ![Detail View in Raycast](../../../static/img/raycast1.png)
 
 <span className="imageCaption">Detail View in Raycast: Object body, with properties in right sidebar.</span>
