@@ -11,7 +11,7 @@ import styles from "../../../src/examples/index.css";
 
 The Anytype Raycast extension is a typescript client that brings the Anytype experience into the Raycast launcher. It lets users **create, browse, and search Anytype objects** directly from Raycast. Under the hood, the extension communicates with the Anytype desktop app via a local API, manages state with React hooks, and follows Raycast’s guidelines for UI and performance. This write-up provides a deep dive into the extension’s architecture and implementation, highlighting key decisions and patterns used to build a feature-rich API client in Raycast.
 
-![Raycast Extension for Anytype](../../../static/img/raycast.png)
+![Detail View in Raycast](../../../static/img/raycast1.png)
 
 <span className="imageCaption">Detail View in Raycast: Object body, with properties in right sidebar.</span>
 
@@ -26,6 +26,10 @@ Anytype’s API is secured, so the extension must authenticate with the running 
 
 **Why this strategy?** Using a local pairing flow avoids storing user credentials or long-lived tokens externally. By leveraging Anytype’s app for the authentication UI (the code display) and a short token exchange, the extension stays secure and user-friendly. The flow also handles edge cases: it has built-in prompts to launch the Anytype app or download it if not running, and robust validation to prevent proceeding with an expired or incompatible token.
 
+![Pairing Process](../../../static/img/raycast2.png)
+
+<span className="imageCaption">Pairing Process: Prompting the user to authenticate with the Anytype app.</span>
+
 ## Data Fetching & Pagination
 
 Once authenticated, the extension fetches data from the Anytype API for various domains: **spaces**, **objects**, **lists**, **types**, and **members**. The architecture relies on Raycast’s asynchronous data utilities to handle **pagination** and **loading states** seamlessly:
@@ -36,6 +40,10 @@ Once authenticated, the extension fetches data from the Anytype API for various 
 - **Batch and Conditional Fetching:** For certain data, the extension employs specialized fetching strategies. For example, in the **Browse Spaces** view, after loading the list of spaces, it kicks off parallel requests to fetch the member count for each space (using a small page size of 1 just to get the total count from pagination metadata). These run in a `Promise.all` to populate member counts without blocking the main UI. This design choice provides additional context (number of members per space) in the list view with minimal delay. All such background fetches have error handling – e.g. if fetching member counts fails, a toast alerts the user but the spaces list still displays.
 
 By leveraging `useCachedPromise` and careful pagination logic, the extension efficiently handles potentially large data sets (many objects or members) while keeping the Raycast UI responsive. Developers can adapt this pattern for their own clients: define a hook per resource that returns data and pagination, and feed that into the client's list component for automatic continuous scroll behavior.
+
+![Paginated Data Fetching](../../../static/img/raycast3.png)
+
+<span className="imageCaption">Paginated Data Fetching: Loading more results as the user scrolls.</span>
 
 ## Caching & State Management with Hooks
 
@@ -48,6 +56,10 @@ Handling state in a Raycast extension is a bit different from a typical web app.
 
 In summary, the extension caches server data when appropriate (using Raycast caching and local storage) and uses React state for UI responsiveness. By carefully separating persistent state (like pins and auth) from transient state (like input text), it achieves both **performance** and **consistency**. Developers can emulate this by deciding which data needs to persist (store it via client's local storage) and which can be ephemeral, and by using custom hooks to encapsulate related state and side-effects.
 
+![Local Storage for Pinned Spaces](../../../static/img/raycast4.png)
+
+<span className="imageCaption">Local Storage for Pinned Spaces: Storing user preferences and pinned items.</span>
+
 ## Error Handling & User Feedback
 
 Robust error handling is crucial in a productivity tool – users should be informed of issues and guided on how to resolve them. The Anytype extension employs multiple layers of error handling, with clear **toast notifications**, graceful fallbacks, and informative empty states:
@@ -58,7 +70,11 @@ Robust error handling is crucial in a productivity tool – users should be info
 - **Success and Action Feedback:** Positive actions are confirmed with toasts as well. Copying an object’s deep link to clipboard triggers a success toast: "Link copied". Deleting an object shows a success message including the object’s title once done. These small cues reassure the user that the command was received and processed. The extension uses `Toast.Style.Success` and `Toast.Style.Failure` consistently to differentiate outcomes. It also leverages Raycast’s `showToast` capabilities such as `primaryAction` on the toast – for example, if starting the pairing fails because Anytype isn’t running, the error toast suggests opening Anytype (and even provides a one-click action to do so) , as well as an option to download the app if it’s not installed.
 - **Empty States with Actions:** Rather than showing a blank screen when a list is empty, the extension uses **Empty States** to guide the user. Raycast’s `<List.EmptyView>` is utilized to display a message and suggest next steps. For instance, if no spaces match the search query in the "Browse Spaces" view, the list shows _"No spaces found"_ with a prompt that the user can press ⏎ (Enter) to create a new space. Under the hood, this is implemented by a component `EmptyViewSpace` that provides an action to open the "Create Space" form, carrying over the attempted name as a draft. The same concept is applied to object lists: _"No objects found"_ can prompt creating a new object. These empty state components improve UX by turning a dead-end into a shortcut for a useful action.
 
-Overall, the extension strives to never leave the user guessing. Whether through a quick toast or an interactive empty state, it provides **immediate feedback** and often a path to resolve the issue (open the app, try again, create a new item, etc.). This approach can serve as a blueprint: always catch errors from API calls, use toasts and UI elements in the client to communicate, and anticipate scenarios like offline or outdated versions proactively.
+Overall, the extension strives to never leave the user guessing. Whether through a quick toast or an interactive empty state, it provides **immediate feedback** and often a path to resolve the issue (open the app, try again, insert a name, etc.). This approach can serve as a blueprint: always catch errors from API calls, validate inputs, use toasts and UI elements to communicate, and anticipate scenarios like offline or outdated versions proactively.
+
+![Input Validation](../../../static/img/raycast5.png)
+
+<span className="imageCaption">Input Validation: Ensuring the user enters required information correctly.</span>
 
 ## Preferences & Configuration
 
@@ -77,6 +93,10 @@ const secondPrimaryAction = primaryAction === "show_details" ? openObjectAction 
 - **Anytype App Path:** In cases where the Anytype app isn’t in the standard location or if multiple versions exist, the extension offers a preference to specify the path to the Anytype application. This is used when the extension needs to programmatically launch the app (for example, if the user clicks "Open Anytype" during the pairing flow). By default, the extension tries a sensible default path, but this preference allows manual override.
 
 The preferences are defined in the extension’s metadata and are accessed via `getPreferenceValues()` throughout the code. Because Raycast makes preferences reactive (changes take effect on next command invocation), the extension reads these values at runtime rather than hard-coding constants. This design lets developers and users fine-tune the extension’s behavior without altering code.
+
+![Extension Settings](../../../static/img/raycast6.png)
+
+<span className="imageCaption">Extension Settings: User-configurable preferences for the extension.</span>
 
 ## Example Recipe: Creating and Prefilling a New Object from an Empty Search
 
@@ -100,7 +120,7 @@ In the Search Anytype command component, after attempting to load results and pi
 
 ```
 
-Here, `searchText` is the user’s query. By providing it in contextValues (specifically as the name field), we pass the information that "if a new object is created, it should have this name - at least initially."
+Here, `searchText` is the user’s query. By providing it in contextValues (specifically as the name field), we pass the information that "if a new object is created, it should have this name" - at least initially. The same context logic applies to pre-selected space, type or collection, if the user searches in a specific space or list.
 
 ### 2. The Empty View Component
 
@@ -119,7 +139,12 @@ Here, `searchText` is the user’s query. By providing it in contextValues (spec
 ```
 
 This is exactly what the extension does. When the user presses Enter on this empty view, it **pushes a Create Object form onto the navigation stack**, with the `draftValues` passed along. The `draftValues` are derived from the `contextValues` we provided earlier. In our case, `draftValues` will contain at least a name property (and possibly default space or type if the context knows it). The `EmptyViewObject` component ensures all expected fields exist in `draftValues` – if some context is not provided, it initializes them to undefined but keeps the object shape (space, type, list, etc.). This ensures the create form receives a complete object for its uncontrolled state.
+
 **Note:** The use of `<Action.Push>` here is key. It means the extension is not starting a whole new command, but simply navigating within the Raycast extension UI to a new view. The user will see the "Create Object" form slide in, with their search query prefilled.
+
+![Empty View](../../../static/img/raycast7.png)
+
+<span className="imageCaption">Empty View: Offering the user a way to create a new object when no results are found.</span>
 
 ### 3. Prefilling the Create Form
 
@@ -142,15 +167,27 @@ const { spaces, types, templates, lists, selectedSpace, selectedType, ... } = us
 The `mergedValues` line merges any `launchContext.defaults` (which could come from created quicklinks) with our `draftValues`, giving precedence to `draftValues`. In the empty search case, `launchContext` is not used, so `mergedValues` is effectively just our `{ name: "...user query..." }`. This is passed into `useCreateObjectData` which will immediately load the necessary supporting data (like the list of spaces and object types) and pick defaults for space/type if not specified. Notably, if only the name is provided, the extension will auto-select the first space and first object type as defaults so that the form is ready to submit with minimal input.
 The form component (CreateObjectForm) receives `draftValues={mergedValues}`, which the text fields use as initial values. `enableDrafts={true}` allows Raycast to preserve the form state if the user navigates away and back (not strictly needed for this flow, but useful in general if the user accidentally closes the form).
 
+![Prefilling Create Form](../../../static/img/raycast8.png)
+
+<span className="imageCaption">
+  Prefilling Create Form: The form is prefilled with the search query as the object name and selected list as collection.
+</span>
+
 ### 4. Creating the Object
 
 With the form prefilled, the user can adjust any other fields (pick a different space or type, add a description, etc.) or just hit **Cmd+Enter** to create the object. The form’s submit handler will call the Anytype API to create a new object with all the collected fields. Since the extension already loaded the required context (like space and type IDs), it can call the correct endpoint immediately. On success, a toast appears confirming the object creation, and the extension navigates back or closes the form (often using `popToRoot()` to return to the main list) – this detail is handled inside the form’s implementation.
 If the user had started from an empty search and created an object, they’ll typically see that new object appear in search results immediately (if the search query still matches the name) or they can find it in the relevant space.
+
 **Why is this useful?** From a UX standpoint, this feature saves time – the user doesn’t have to realize they need to switch context to Anytype and create something; the extension bridges that gap. Architecturally, it demonstrates how to use Raycast’s navigation and context passing to link separate commands (search and create) into one flow. The combination of `<List.EmptyView>` with an action and a full for creation is a recipe that can be reused in other integrations: whenever you have a searchable list that might yield nothing, consider offering the user a way to create what they’re looking for.
+
+![Confirmation of Object Creation](../../../static/img/raycast9.png)
+
+<span className="imageCaption">Confirmation of Object Creation: Toast notification confirming the successful creation of the object.</span>
 
 ## Conclusion
 
-The Anytype Raycast extension showcases a sophisticated use of Raycast’s API and React to create a rich client for a third-party app. We covered how it handles **authentication** through a secure pairing flow, efficiently **fetches and paginates data** for potentially thousands of items, **caches state** and uses hooks to keep the UI responsive, and provides robust **error handling** and **user feedback** at every step. We also walked through a concrete example of bridging features (search to create) to deliver a seamless user experience.
+The Anytype Raycast extension demonstrates how to build a powerful client on top of the Anytype API, using Raycast as a lightweight, high-performance interface for creation, search, and navigation." We covered how it handles **authentication** through a secure pairing flow, efficiently **fetches and paginates data** for potentially thousands of items, **caches state** and uses hooks to keep the UI responsive, and provides robust **error handling** and **user feedback** at every step. We also walked through a concrete example of bridging features (search to create) to deliver a seamless user experience.
+
 For developers, this extension serves as a practical reference for building feature-rich API clients. Key takeaways include:
 
 - Using wrappers like EnsureAuthenticated to guard multiple commands with shared logic.
