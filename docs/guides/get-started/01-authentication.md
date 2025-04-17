@@ -1,6 +1,8 @@
 ---
 sidebar_position: 1
 title: "Authentication"
+description: "This guide explains how to authenticate to the Anytype API."
+keywords: [anytype, api, authentication, bearer token, desktop app, pairing flow]
 ---
 
 # Authentication

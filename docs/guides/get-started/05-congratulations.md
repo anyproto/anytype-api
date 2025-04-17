@@ -1,6 +1,8 @@
 ---
 sidebar_position: 5
 title: "Congratulations!"
+description: "This guide provides a quick overview of the Anytype API Getting Started guide."
+keywords: [anytype, api, getting started, authentication, spaces, objects, search, filtering]
 ---
 
 # Congratulations!

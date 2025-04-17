@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 title: "Working with Objects"
+description: "This guide explains how to work with objects through the Anytype API."
+keywords: [anytype, api, objects, notes, pages, tasks, content, management]
 ---
 
 # Working with Objects

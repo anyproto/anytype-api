@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: "Working with Spaces"
+description: "This guide explains how to work with spaces through the Anytype API."
+keywords: [anytype, api, spaces, workspace, organization, management]
 ---
 
 # Working with Spaces
