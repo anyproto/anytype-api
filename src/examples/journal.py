@@ -48,7 +48,7 @@ def select_space(spaces):
     except (ValueError, IndexError):
         print(RED + "Invalid selection, defaulting to the first space.")
         selected = spaces[0]
-    print(GREEN + f"Using space: {selected['name']} (ID: {selected['id']})")
+    print(GREEN + f"Using space: {selected['name']} (ID: {selected['id']})" + RESET)
     return selected['id']
 
 def get_journal_details():

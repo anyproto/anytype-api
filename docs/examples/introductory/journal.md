@@ -14,9 +14,9 @@ In this cookbook example, we'll write a small **Python** script that uses the **
 **What this script does:**
 
 - **Fetches your spaces:** Uses the Anytype API to retrieve the list of available spaces (workspaces) accessible with your credentials.
-- **Selects a space:** Takes the first space from the list (for simplicity) as the target space for the new object.
+- **Selects a space:** Prompts you to select a space interactively from the fetched list.
 - **Creates a journal page:** Creates a new object of type `ot-page` (Anytype's type key for a basic page object) with the title "Journal – _Today´s Date_".
-- **Adds default content:** Populates the page's body with a simple template: a top-level heading and a prompt "What happened today:" for your entry.
+- **Adds default content:** Prompts you interactively to specify custom content, or uses a detailed default template.
 - **Sets an icon:** Optionally assigns a 📝 emoji as the page icon for easy identification.
 
 > Note: Make sure your Anytype app is running and you've the latest version installed. Without the Anytype app running locally, the API calls will fail with a connection error.
@@ -27,39 +27,48 @@ Before creating a new object, we need to know _which space_ to put it in. Every 
 
 ```python
 import requests
+import os
 from datetime import datetime
+from dotenv import load_dotenv
 
-# Anytype API base URL (assuming default local port and API version)
-BASE_URL = "http://localhost:31009/v1"
-API_VERSION = "2025-04-22"  # API version date (ensure this matches your Anytype app version)
+ANYTYPE_API_BASE_URL = "http://localhost:31009/v1"
+ANYTYPE_VERSION = "2025-04-22"
 
-# Your app key (replace these with your actual one)
-app_key = "YOUR_APP_KEY"
+load_dotenv()
 
-# Prepare HTTP headers for authentication and content type.
-# The Anytype API expects the session token as a Bearer token.
+app_key = os.getenv("ANYTYPE_APP_KEY")
+if not app_key:
+    raise RuntimeError("Environment variable ANYTYPE_APP_KEY is not set")
+
 headers = {
     "Authorization": f"Bearer {app_key}",
-    "Anytype-Version": API_VERSION,
+    "Anytype-Version": ANYTYPE_VERSION,
     "Content-Type": "application/json"
 }
 
-# 1. Fetch the list of spaces accessible to the user
-spaces_url = f"{BASE_URL}/spaces"
-response = requests.get(spaces_url, headers=headers)
-response.raise_for_status()  # raise an error if the request failed (e.g., unauthorized)
+def fetch_spaces():
+    """Fetch and return the list of spaces from the API."""
+    url = f"{ANYTYPE_API_BASE_URL}/spaces"
+    resp = requests.get(url, headers=headers)
+    resp.raise_for_status()
+    data = resp.json().get("data", [])
+    if not data:
+        raise RuntimeError("No spaces found. Check your token or that Anytype is running.")
+    return data
 
-spaces_data = response.json()
-# The response is paginated. The list of spaces is under a 'data' field.
-spaces_list = spaces_data.get("data", [])
-if not spaces_list:
-    raise RuntimeError("No spaces found. Check your token or that Anytype is running.")
-
-# Use the first space from the list for creating the journal entry
-first_space = spaces_list[0]
-first_space_id = first_space["id"]
-print(f"Using space: {first_space['name']} (ID: {first_space_id})")
-
+def select_space(spaces):
+    """Prompt the user to select a space and return its ID."""
+    print("Available spaces:")
+    for idx, space in enumerate(spaces, start=1):
+        print(f"{idx}. {space['name']} (ID: {space['id']})")
+    try:
+        choice = int(input(f"Select a space [1-{len(spaces)}]: "))
+        selected = spaces[choice - 1]
+    except (ValueError, IndexError):
+        print("Invalid selection, defaulting to the first space.")
+        selected = spaces[0]
+    print(f"Using space: {selected['name']} (ID: {selected['id']})")
+    return selected['id']
 ```
 
 In the code above, we use the `requests.get` function to call `/spaces` with the required headers:
@@ -81,32 +90,59 @@ In our example, we set:
 - **icon** to an emoji with format "emoji".
 
 ```python
-# 2. Prepare the new journal entry object data
-today_str = datetime.now().strftime("%B %d, %Y")  # e.g., "April 16, 2025"
-object_name = f"Journal – {today_str}"
+def get_journal_details():
+    """Prompt the user for journal entry title, body, and icon."""
+    today = datetime.now().strftime("%B %d, %Y")
+    default_name = f"Journal – {today}"
+    default_body = f"""## Highlights
+- **Accomplishments**:
+    1. ...
+    2. ...
+- *Challenges*:
+    - ...
 
-# Define a simple markdown content for the page body
-object_body = f"""# Journal Entry for {today_str}
+## Reflection
+> "Take a moment to reflect on your day."
 
-What happened today:"""
+### What Went Well
+- ...
 
-# Create the JSON payload for the new object
-new_object_payload = {
-    "name": object_name,
-    "type_key": "ot-page",        # using a basic page type; adjust if a specific journal type exists
-    "body": object_body,
-    "icon": {
-        "emoji": "📝",
-        "format": "emoji"
-    }
+### What Could Be Improved
+- [ ] ...
+
+---
+
+## Quick Notes
+- **People I interacted with**: ...
+- **Resources/Links**: [Example](https://example.com)
+"""
+    name = input(f"Enter entry title [{default_name}]: ").strip() or default_name
+    print("Enter journal content. Press Enter on empty line to finish (leave blank to use default):")
+    lines = []
+    while True:
+        line = input()
+        if not line:
+            break
+        lines.append(line)
+    body = "\n".join(lines) if lines else default_body
+    icon = input("Enter an emoji for the icon [📝]: ").strip() or "📝"
+    return name, body, icon
+
+# Prompt for journal details and create the entry
+name, body, icon = get_journal_details()
+
+payload = {
+    "name": name,
+    "type_key": "ot-page",
+    "body": body,
+    "icon": {"emoji": icon, "format": "emoji"}
 }
 
-# 3. Send the create object request to Anytype
-create_url = f"{BASE_URL}/spaces/{first_space_id}/objects"
-create_response = requests.post(create_url, headers=headers, json=new_object_payload)
-create_response.raise_for_status()  # ensure the request succeeded
+create_url = f"{ANYTYPE_API_BASE_URL}/spaces/{space_id}/objects"
+create_response = requests.post(create_url, headers=headers, json=payload)
+create_response.raise_for_status()
 
-new_object = create_response.json()
+new_object = create_response.json().get("object", {})
 print(f"Created object '{new_object['name']}' (ID: {new_object['id']})")
 ```
 
