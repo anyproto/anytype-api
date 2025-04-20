@@ -15,7 +15,7 @@ In this cookbook example, we'll write a small **Python** script that uses the **
 
 - **Fetches your spaces:** Uses the Anytype API to retrieve the list of available spaces (workspaces) accessible with your credentials.
 - **Selects a space:** Prompts you to select a space interactively from the fetched list.
-- **Creates a journal page:** Creates a new object of type `ot-page` (Anytype's type key for a basic page object) with the title "Journal – _Today´s Date_".
+- **Creates a journal page:** Creates a new object of type `ot-page` (Anytype's type key for a basic page object) with the title "Journal – `<Date>`".
 - **Adds default content:** Prompts you interactively to specify custom content, or uses a detailed default template.
 - **Sets an icon:** Optionally assigns a 📝 emoji as the page icon for easy identification.
 
@@ -86,8 +86,8 @@ In our example, we set:
 
 - **name** to `"Journal – <Date>"` (with today's date).
 - **type_key** to `"ot-page"`, which is the type for a normal page in Anytype. (If you have a dedicated journal type or template, you could use its key or template ID here.)
-- **body** to a Markdown string that starts with a level-1 heading and a prompt.
-- **icon** to an emoji with format "emoji".
+- **body** to a markdown string that starts with a level-2 heading and a prompt.
+- **icon** to an emoji with format `emoji`.
 
 ```python
 def get_journal_details():
