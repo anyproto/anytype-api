@@ -162,14 +162,44 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/2025-04-22/create-property",
+          label: "Create property",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/delete-property",
+          label: "Delete property",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/2025-04-22/get-property",
           label: "Get property",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api/2025-04-22/list-property-options",
-          label: "List property options",
+          id: "api/2025-04-22/update-property",
+          label: "Update property",
+          className: "api-method patch",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Tags",
+      items: [
+        {
+          type: "doc",
+          id: "api/2025-04-22/list-tags",
+          label: "List tags",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/get-tag",
+          label: "Get tag",
           className: "api-method get",
         },
       ],
