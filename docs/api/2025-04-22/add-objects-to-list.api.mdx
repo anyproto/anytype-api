@@ -1,0 +1,71 @@
+---
+id: add-objects-to-list
+title: "Add objects to list"
+description: "Enables clients to add one or more objects to a specific list (collection only) by submitting a JSON array of object IDs. Upon success, the endpoint returns a confirmation message. This endpoint is vital for building user interfaces that allow drag‑and‑drop or multi‑select additions to collections."
+sidebar_label: "Add objects to list"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV19P3DgQ/ypWXq6VYLNw9OH26WiPSlQIKhZ6DwghJ3F23TpxznaguVWkfoWT7hP2k9xv7IQEdmkFQjzdy67/jGfmNx7P/LKKMmFTIysndRnNooOSJ0pYliopSmeZ04xnGdOlYNqwQhv8J59F2m0xW4lU5jJlSlrHXqVaKWxCF46o5jVLGmbrpJDOyXIB+Q/zk2PGjeEN03mnih3+YSfsvMIhW6epsHaLuaVgoswqLUvHjHC1KS2Op7rMpSm4t1BAki/EhJ0tpR2kMb6WjiuWw+Oklioj07UVhmFbmJzDBAxwx7hS+oZlhi++f/uHlxl+M6MrD7VWTmJuBQGiIEgy6mEPKO0k2ooqbnghoNlGs4vVvYCeAcg1tnxIco9r/+MhaYFHOCxJaCl4JgxmJRRhvl82rqnE9qdwEBs2XYqCRzNSn3P4Bqnd6e6b7ene9u4uBEgea9YZoI3aduu+I/MKuBHq3mbF3XKwaGn3SmZYMeKvWhqRRTNnajE2/VMbR5QED5mgDHmshcsgLKx7q7OGJJABDplJQ15VSqY+F+LPlhxYjVRJJwq7QedtqHwWwgZWNqC4k51rPre0YJGxVngbu9Ppo5y7j3PNh5PukSHvRNY/i7xWqiEEe480VyGphXEyOCuM0WZ9uXtOXuIrLypFHr7lGetuYFOS9SshVBtWMJfOa6qdVJNPXMnMe3ngndiAfGzRQ915IajnJa/dUhv5t8ieA+tY34No7xj1cPdeCO6psLo2KAmldiiVdfksoI+1e0+6HgR8fGsNW29eLI8PqfKXaApoAyjHLJx9BsBzr+9BuJvtkpwVaW2ka3zPSAQ3wlAqYHpJZc/xBbUTX4xshAV0mKXOqKpq/xZ9cZ1Fsa/cNl71FbyNqdBioau3bdw1bOoi3onQpmqjqPM4V83iWOmUqyUUz37dmU5/i693InKi93FONxCiO/a0n73X1JKh7cOfZ32vogCF3SHKZMxjp5s9Her6QX9NF/1FXFIHyXWfHDz1yYEskOS0ratKG/c7D21yIvVa62TzIIONAagF0uFM3GteuzTPJ6hLi6LSNwgYbo8XoEU2MAgeGM6NdEvW2fvFomiFB2W/f/s3XMpWz5W22JCi4DaQpz9oV9zRENSDJaLRZUZ8Ag9AoLEQ4gEUm4fXun+NGBBHY0dBjO1MpmsoF3CtTiapLggwjDvdI9/mlYwTpZMY0Szjo8N3B8fzg0nhHyTAFfYkp6SG9s1h8zJXOr8KBKZ/DX3gETesdpTnLkuBAUregpdjbEQvB0pJWRvdu5BRhfifoD6BoHbPz4mvLkbKgZu1XcKsujJyEQgg1YjZiAr6SkJrA3friwleKNULOrpaJdyKc6PalpbxrA1VNQyvuZF0XYEXS0tjlLCcKyt+cMevTjuy9ZqNWOtGFD2XKxtKOq5qmmH4RTRjVuup6lPsD4z2Ceb7qLWXEO04/uMi8bOvh41OBePr3xC3/lE0gtC7YGn7jPQMEmtdeDixj/yv3A9lx83q48mcWkLSsfdCZ3TG8Bui1Pj10dIeuW8vfm0VKV4uat/Eo6CTukbfdDrQt92lG1BkN94H8tNLnOkvokSO9hFyNKfLadv/ADmVQbg=
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add objects to list"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/spaces/{space_id}/lists/{list_id}/objects"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Enables clients to add one or more objects to a specific list (collection only) by submitting a JSON array of object IDs. Upon success, the endpoint returns a confirmation message. This endpoint is vital for building user interfaces that allow drag‑and‑drop or multi‑select additions to collections.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"List ID","in":"path","name":"list_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"items":{"type":"string"},"type":"array"}}},"description":"List of object IDs","required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"string"}}},"description":"Objects added successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Resource not found","type":"string"}},"type":"object"}},"type":"object","title":"util.NotFoundError"}}},"description":"Not found"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,71 @@
+---
+id: start-new-challenge
+title: "Start new challenge"
+description: "This endpoint initiates a secure authentication flow by generating a new challenge. Clients must supply the name of the application (via a query parameter) that is requesting authentication. On success, the service returns a unique challenge ID. This challenge ID must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. In essence, this endpoint “boots up” the login process and is the first step in a multi-phase authentication sequence."
+sidebar_label: "Start new challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVs1uGzcQfhViL3UAWX+xHVinKo4LqAiawHLTQxAY3N2RxGSX3JJcOYIgwA+RY/tyfpJ+Q0pe/bhugha9tD7IS3I4M983w5lZJjm5zKrKK6OTQXI9U06QziujtBdKK6+kJyekcJTVloSs/Yy0V5nkG2JSmFuRLsSUNFls6SlENd2KbCaLgvSU2uKiULjhRFk7L1xdVcVCQInQsiRhJuFbYnej82iuJLT8WpNdiEpaiHmyzyAn4ZITlnDkoq0db9rijYaBLCPnWkGtIztXGeGKr61mGLVWuN24J0av2iKg3t6KvrJukZKoHeXiVvlZ0OnNJ2w/cHTkiCAEHuChEc4UcwpyjT6pc/bAKprzYp/DoLAtRlDqHOmM2PftMNzf/ZYaAwbr6v7u96C8MFOlRWUNYw0GcIEPJsoyy54qRA94y7rw6riaSXcQO8c8wlw7aSUPNLtk8H55kBQk5jjiS+t4Dd+OGC2YwWXFQjOSOVmsOKxYD/XCLyo6fhcv4sBlMyplMmD1Ewm/INXv9k+PuyfH/T4EWB57DkzpabJatfYdGVZVzJqtFNiheuNMyJ3GF2TXTfhsJXxTWcqTgbc1bTu1b/1DFIaZlyZfsERmtAd//LmVr52Pjp1bHqoy6UfKPFQBCnS5ymhHjgX63e43KUSgK7JexdsPcG9UHuncj1aTeyoX0jmT8TPeSuJcuaqQC2xlJo8ZqolyrP8khyfGxkQFh/RZllXBCM9enJ28mJxSlsvz3nM6l33q9dL+2WPB3GMFa+WDEk7L9qvo0AW8uVozlQTedsFdbD3SBKcnf4tIstbYw+0Sb0oimVjiAepLmW/S7ivQPYW39qpov5OFyoOXl8GJR7CO9JyF8I6r2jPY038N7AgWrJZFKKBkRbz7D8AeB31PQH7MbtAqp1yakiGSJcHTRLGaGWR/UpkQkEpif5B0OJk66+y+4dzmwhOUxcpW24KLlffVoNMpTCaLGRQMnve63fPOvJfwsw+tTvnFmJmMLKUkLRocG39Y/WBsKbmI/fjL9aa8MdB42rDFxgIGjtBVU1IuN3QvV1y2JmYTXJmF4CKKip3llmms/17GitpW5qDKinGUwUED0AFhc6ez0XxAeuh+XNCprMwtiAL7siy4sSiOBy5x5Q+1Y23vO+7CztQW7ef+7ourJD5aIsYcH02KoZdBnv9Be8GzRCtUm5QWRufcepDAxK8diBtQYhyUi+EcHMi0IPE6ioleu3uAcgrX6rSdmZIBw7g3G+THslKdtDBpB2zqzuvRxeVP48t2mTMPAFe6N5NxnBIepy3I3JjJTex1m2zeEA/esLvujrsNDQY4OUupt7CNvbR+d0JK9gKy9cL/n8f+o/PYunR4+uw7eDYYalbrpF+uS9370Dc5d7aLHaoX1zM+Xi5TGPnZFqsVb8eRKAx3yvGLQvGcyMLRE9l3dLWelp6Jrxm9HnX6Ey12JzA0tZrFQqmdS6vYGTj2AcLrIfLbvPyr8fQJtw6H1MY7TJ9R6CJaOr5mPY3EQe9tbgyR8pV/Una7hb19M+YGkq7HzJIDOUisvOV5Fb/wppWYgDw0o7C3TAqpp3Vo3UnUyX9/AP7u3z4=
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start new challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/display_code"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint initiates a secure authentication flow by generating a new challenge. Clients must supply the name of the application (via a query parameter) that is requesting authentication. On success, the service returns a unique challenge ID. This challenge ID must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. In essence, this endpoint “boots up” the login process and is the first step in a multi-phase authentication sequence.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"App name requesting the challenge","in":"query","name":"app_name","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the displayed code and needed to solve the challenge for token","example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object","title":"auth.DisplayCodeResponse"}}},"description":"Challenge ID"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

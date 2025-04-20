@@ -1,0 +1,71 @@
+---
+id: solve-challenge
+title: "Solve challenge"
+description: "After receiving a challenge ID from the display_code endpoint, the client calls this endpoint to provide the corresponding 4-digit code (also via a query parameter) along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns an ephemeral session token together with a permanent app key. These tokens are then used in subsequent API requests to authorize access. This endpoint is central to ensuring that only properly authenticated sessions can access further resources."
+sidebar_label: "Solve challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVt1u2zYUfhVCN2sB23K8tMAMDFiapEW2Ys3iLL0ogoCWKJsNJbIk5dQxDOwh9oR7kn2HlC3HztxlG3bVXDgSdX6+853Dc84iyYXLrDRe6ioZJkeFF5ZZkQk5k9WEcZZNuVKimgh2dsIKq0vmp4Ll0hnF5zeZzgUTVW60rHwnfMqUFJVnGdQcDqRbf2deM2P1TEInSGprhTO6ysnVYTeXEwlFMvmMK6fZTHIg+FQLO2eGW14KoHvOuNKQv5N+Gs1sIOyxy2kLiM2ElYUUhIP7LWGnVU1RMyAMSDLPeJV3mCwYYEjXAQ++tpXDMRNmKkphuWJOOEdqXt8K+p0I2LURDmdG2JJXRAA3ht2KeUDkRBSHKRtir1jtRM5kxVw9dgIhQuPo/Awu8ey8I6547afaynvBeJbBK5napJOAQ49AQRrWa0tEhlh1peZENvDggSxBUmbcw2sTAbQRWDTNitqGMJAQXVsc9ZJOsubcJcMPi61SIaLBb+BCF4FcCgBIEBqUJQlNBc+FxVsFQ1Rf1dzPjeheRUV8cBmI5cmQzBe8Vh5Sg/7gRbd/2B0MIEDyOHOegkuWy842kOON/K/8hppp3a6zfiNznBLJ0oo8GXpbi00MX3T2oEpRH1aKGSgNF6MJjp0Id+u1oQr4KzzQfhKO6yiMynil8zlJZLrySCk9wo+i1AJh+tERzMWuKT3+iAqHKQSVxGuHOiCBQb//JIOxqryM2pC9QZnHBG7XR3MHYrE3Fb2qw3WpgwjxmZdGEcz76ehNev/LRTk5OplL9f7cT/Kq0AefTl729U/9QTq6msiDN/y1f/n9Y8WxFS7epQ+GyXXvki7hRRN8EqjY6n8twPUdTyB1+K84EtZqu3tc4uLxiQgSawJe8XzFzN+Ib1/E6G6qd8WVzAPK0wDikZjPqhkJoRmZ2lOwL/63YM/gwVahqVr0EhZ1/4OwR8HenpAf8xus8gk1u1AICW4d2t9U44ImRoeEGI7zYZJSOaWxPHBvg5XYJGurqO95b4ZpqjTG4BSaw28P+v3v0tlBQlfZiQyt2s9HRGGkZywwGSxZbd9ea8wS6oc/vr9cdUqKMH5taSJnATyl5qJtE6crnhdLakOFXmWVZyGrSJ8ksK42Rlv/A4/9qyf1TsNmoyiDD22ADhG2OunK8g7bYWrRbBCl0XcgCrTzUtHYkZQIKNFlCxO08feNayfRH7/97gzHQ4fFZOOhrS0sHZCnf7Cu0FfwiDHOxmKOxYKmGCpX0HVHxG1QbBSMs6MZOOBjJdjbKMYOev2dKNHxp/W4l+mSAoZzr1eRd7mR6VjpcQo2q/Tt2fHpz6PTXpkTDwiudO8KqkZYf5y2IHOji5s4NldlvCIevOG0GbQPZyMcUFVi39iIbaTVbGPNSbaSsXGtvy57X5e9jWWvaSZefPYp0i3D3AvXYNF0vQ9hiJJo6HtoZNTa6HyxGHMnfrVquaTjuO2ElVE6ulxooAWSLPYU47OLZhl6zrYWukeBhZVje6/DHKtJNAl72z9x/fT1bh+6uOW1qK7pxUqCBXauIdjsx0+j6kub9x5Iu/v3A86i0HH01L0kO63EzhLQahyhrozfK7s5S8/fjWigjZtVtiSehonld7QT4xdoOokOkYfhGM4WieLVpA47RBJt0t+fzFgvlw==
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Solve challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+After receiving a challenge ID from the display_code endpoint, the client calls this endpoint to provide the corresponding 4-digit code (also via a query parameter) along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns an ephemeral session token together with a permanent app key. These tokens are then used in subsequent API requests to authorize access. This endpoint is central to ensuring that only properly authenticated sessions can access further resources.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"Challenge ID","in":"query","name":"challenge_id","required":true,"schema":{"type":"string"}},{"description":"4-digit code retrieved from Anytype Desktop app","in":"query","name":"code","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"app_key":{"description":"The app key used to authenticate requests","example":"zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=","type":"string"}},"type":"object","title":"auth.TokenResponse"}}},"description":"Authentication token"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

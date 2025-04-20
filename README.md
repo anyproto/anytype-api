@@ -7,7 +7,7 @@ The developer portal for extending Anytype through powerful integrations.
 
 - 👷‍♂️ [Developer Portal](https://developers.anytype.io/)
 
-- 📎 [Swagger File](https://github.com/anyproto/anytype-api/blob/main/docs/api/swagger-2025-03-17.yaml)
+- 📎 [Swagger File](https://github.com/anyproto/anytype-api/blob/main/docs/api/openapi-2025-04-22.yaml)
 
 ## Local Development
 

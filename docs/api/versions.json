@@ -1,9 +1,15 @@
 [
   {
+    "version": "2025-04-22",
+    "label": "2025-04-22",
+    "baseUrl": "/docs/api/2025-04-22/anytype-api",
+    "downloadUrl": "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-04-22.yaml"
+  },
+  {
     "version": "2025-03-17",
     "label": "2025-03-17",
     "baseUrl": "/docs/api/2025-03-17/anytype-api",
-    "downloadUrl": "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger-2025-03-17.yaml"
+    "downloadUrl": "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-03-17.yaml"
   },
   {
     "version": "2025-02-12",

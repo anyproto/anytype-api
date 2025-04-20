@@ -1,0 +1,71 @@
+---
+id: export-object
+title: "Export object"
+description: "This endpoint exports a single object from the specified space into a desired format. The export format is provided as a path parameter (currently supporting “markdown” only). The endpoint calls the export service which converts the object’s content into the requested format. It is useful for sharing, or displaying the markdown representation of the objecte externally."
+sidebar_label: "Export object"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV8FuGzcQ/RVie2gC2LuymxyqU93WLVwETRE56SE1DGqXshhzyS3JlaMKC/gjegmQ/py/pG9IrrSO5KR1gvTSi80lhzPvzQxnRqusEq60svHS6Gycnc6lY0JXjZHaM/G6MdY7xpmT+kIJZqavROnZzJqa+blgrhGlnElRYcVLwXDJQBo6pcXmzNia+5ydQjTqSlsMVhprFrKCFCcDDfdz/LG8Fl5Y9qBsrRXaqyVzbUM3AYDdXL+tub2szJW+uf6LGa2WD5P2HnLJlXIBWzLohF1IQLuay3LOSqMXgiiRRGRzc/3G0b6HuUiAzqz4vRXOD0icBNStE7NW0SZzc26Bao9hXUnXKL4kkHS7Rwk1jRUOmjk5mJnZwDBBBFcNxMs828vW7F02frnaCoxgQO4GWo5+OWFAC0S4LEloLnglLL40FOH7SC/9shH7L+JFHLhyLmqejUn9jLfKQ+pwdPh4f/Ro//AQAiSPPeeJWtZ1e+8CmYRAn3zf26TAbSyGNDiXFXbIg5QF2djbVgxNf9DG05hmdxmJ7vtoK8fDjNxtaX12txmh2xrxyvqQZ2fbTjwjBa4x2glHdw5HI/qXko6WvGmULEOSFK8cwVsNbOCpNMhaGW+vLZH117xuFBn7goW3K2Nqe+mV+E3neb4rpv1OdCRJkPh6I4/+j/55loDjHi7ujFN8aVQE2rIUzuGBqGUG6UcfxVNYa+wO+rDAL8Rt9t/yqn+y/4Dw+1zQeqnyF1zJKqA8DiB2cB9aDFQPPhPV55q3fm6s/ENUn4LrUN+dbG8ZxenjzxbZEx1rZCjk6Azx7ifgPQn67mS82y7JOYHmJP0yVOmp4FZYcg4+z+ile35BBTw9Dkf1AFV9blA7sgvhQ6En6awIxdIVq75odkVEiq11ieuKVSxCHVXvACW2h9YqqvjeN+OiUAZ9b26cH391MBp9XSwOMoLSI51QHKKPh3j7rx9ilRtnP/162vcIclM83fiajAUPSD0zffh5GcKPOEsClLr1Nzy2nlyarXbEJlEGBxsSDiw2d4pe81ZYQpGjzifqxlzBGYgPrxUyh3o3mJWh0V5JjBPJ3pcOD9WZ1sLZN9d/Rq/vpSaMxSYJ9xjJ0z9oV9zTkuuKTcXS6IpKKVJcUDEE4w0pNgnK2dECPuBTzElPohg7yEdbLC8ArZ3mpamJMIx70zPf540spspMC3hTF09Ovjv+eXKc1+HJgVztns4mcZ7Z7bYgc25m53Eo6PO9dzz8ht00Rtzu/DDQIH9qrgfcUodcv59boRi8/v/Hxv9wbEyP02O3gDJMMV1KuVWqNC/jWOYgPB4MaOkB0O5wohqnoQf1gyoKXV+tptyJ51Z1HW2DoqXqh+UCXCjj48QqHa1R6GZcOfGefHnwLM1TD9lgntzJJG0iySl1uWrpC8tLsRzOm2G8u4/94ax5DwAbz90bwbtz6D1QpLvdGSTTj4B/F5AP/bzYiSna3v6RsYZHLklCGAwbPzjbGhe6YZ/88ZgaUd+lkvF1O0oLYrjTLUjXIHFqLoXuurWXPH2Tk7rub2UzQSE=
+sidebar_class_name: "get api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export object"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/objects/{object_id}/{format}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint exports a single object from the specified space into a desired format. The export format is provided as a path parameter (currently supporting “markdown” only). The endpoint calls the export service which converts the object’s content into the requested format. It is useful for sharing, or displaying the markdown representation of the objecte externally.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Object ID","in":"path","name":"object_id","required":true,"schema":{"type":"string"}},{"description":"Export format","in":"path","name":"format","required":true,"schema":{"enum":["markdown"],"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"markdown":{"example":"# This is the title\n...","type":"string"}},"type":"object","title":"object.ObjectExportResponse"}}},"description":"Object exported successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

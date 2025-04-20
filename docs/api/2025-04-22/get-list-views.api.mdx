@@ -1,0 +1,71 @@
+---
+id: get-list-views
+title: "Get list views"
+description: "Returns a paginated list of views defined for a specific list (query or collection) within a space. Each view includes configuration details such as layout, applied filters, and sorting options, enabling clients to render the list according to user preferences and context. This endpoint supports pagination parameters to control the number of views returned and the starting point of the result set."
+sidebar_label: "Get list views"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get list views"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/lists/{list_id}/views"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a paginated list of views defined for a specific list (query or collection) within a space. Each view includes configuration details such as layout, applied filters, and sorting options, enabling clients to render the list according to user preferences and context. This endpoint supports pagination parameters to control the number of views returned and the starting point of the result set.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"List ID","in":"path","name":"list_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"properties":{"filters":{"description":"The list of filters","items":{"properties":{"condition":{"description":"The filter condition","enum":["equal","not_equal","greater","less","greater_or_equal","less_or_equal","like","not_like","in","not_in","empty","not_empty","all_in","not_all_in","exact_in","not_exact_in","exists"],"example":"contains","type":"string"},"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","file","checkbox","url","email","phone","object"],"example":"date","type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFile","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObject"],"title":"object.PropertyFormat"},"id":{"description":"The id of the filter","example":"67bf3f21cda9134102e2422c","type":"string"},"property_key":{"description":"The property key used for filtering","example":"name","type":"string"},"value":{"description":"The value used for filtering","example":"Some value...","type":"string"}},"type":"object","title":"list.Filter"},"type":"array","uniqueItems":false},"id":{"description":"The id of the view","example":"67bf3f21cda9134102e2422c","type":"string"},"layout":{"description":"The layout of the view","enum":["grid","table"],"example":"grid","type":"string"},"name":{"description":"The name of the view","example":"All","type":"string"},"sorts":{"description":"The list of sorts","items":{"properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","file","checkbox","url","email","phone","object"],"example":"date","type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFile","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObject"],"title":"object.PropertyFormat"},"id":{"description":"The id of the sort","example":"67bf3f21cda9134102e2422c","type":"string"},"property_key":{"description":"The property key used for sorting","example":"name","type":"string"},"sort_type":{"description":"The sort direction","enum":["asc","desc","custom"],"example":"asc","type":"string"}},"type":"object","title":"list.Sort"},"type":"array","uniqueItems":false}},"type":"object","title":"list.View"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1024,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-list_View"}}},"description":"List of views"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Resource not found","type":"string"}},"type":"object"}},"type":"object","title":"util.NotFoundError"}}},"description":"Not found"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

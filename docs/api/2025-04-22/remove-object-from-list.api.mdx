@@ -1,0 +1,71 @@
+---
+id: remove-object-from-list
+title: "Remove object from list"
+description: "Removes a given object from the specified list (collection only) in a space. The endpoint takes the space, list, and object identifiers as path parameters. It's subject to rate limiting and returns a success message on completion. It is used for dynamically managing collections without affecting the underlying object data."
+sidebar_label: "Remove object from list"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV8Fu20YQ/ZUFL0kAWZRd51Cd6jYK4MJwCstJD4FhrMihtDHJZXaXThSBQD+iX9gv6Ztd0qQtOYFdw6deJO7scN7M7OzM4yZKySZGVU7pMppGZ1Toa7JCiqW6plLoxSdKnMiMLoRbkbAVJSpTlIpcWSdeJjrPoYCXhS7z9SuhSrxrK5nQWJzjBSrTSqvSCSevYDfYwO7IGxgJWaYdiEqpdGzcAN+KSroVfowsyEE0FsfuhRW2DspOCyMdwUqhnCqX3pAhV5uSvbd1kpC1osCPXBKcE4kuqpzYVTYllBW1RRyZNiJdl7JQiczztShkKZdssA/Nii/KrXTthMwyFmGXA6nLlEy+5mUbQiqdHEejqHc7mn7c3Mkxp+UaWz5pmbd09McxRwSH8LJipRVJGMcKnhHWR+XarSva+xBexIZNVlTIaMrmM1nnDloHk4PXe5PDvYMDKLA+ZNYZeBg1zeiuI3M+CHH8psPkjPeI/pguVQqJoc+1MpRGU2dqGkL/EOOEy+Q+CC6B/4zwLqT+PoxwMg9FuWBlW+HsyfL+wWTCf4kuHYqUH2VV5SgZdiL+ZNmTzXfsNaOdXluULF+4tCvYrEYNRtA+fCBgZXRFxqngLhmjzba4vQ1e46vk6wBPfpV8cT7XZN2uoukkIY87JFgr5y3VTuXjDzJXqfdy5p3YEfsQ0Ye6/0yhvi9ljYts1DdKnyLWob17o70F6sM9fKZwz8jq2uCKlxotXKNdPUXQp9q9ZVv3Bnx6g4at189Wx8dAMKXMhSWD9irCu08Q8Nzbuzfc3bisZympjXJrPwMWJA0ZLgUsL7jBOLnk8eBbpI0gwMRYaTQnAGBQkZ8jrB7FvhfbeNP15Cbm1glB20GbOLgOyU2/a3hGeJfCEKpNznPFuWoax7nGtFtp66Y/7U8mP8fX+xG71Hk85/MIuR763a3ealNInje//3neTSJOV9jtc85gPhOqzHRXBjLxZYDzVuyQratKG/eLDANurPTW0BPzoIONPgiLKPp34s7y1vGcrzDpeb5SUekvzC0sySJncqD45GRgLzzhRYv3gttyuDr2n7/+DskftTMeD30xjgTr8x+s5+AjNjCaBa11mTITQKkThghH3Acl5uFeHl0jB3KRkzgJamJ/PNmKcgnX6sUY/IUDBrjTXeR7slLxIteLGNks45Pj32an89m48FcPwRX2XcblC+u70+Z1LnV2GahHV/dd4pE3SFuycptfAKBC/YAuDWIL9PEWa+QKje4cyqAf/M84n4ZxtjfO0VcXoxJBhJq2jjZtF/kYGJ2F8nTA7XwjYVlPxtpCZ2HPntAduF+wnc1mIS29N3nTsBiD3HCPw+O1NIrrObBeZfkZDS2TuaXv1MDLs5aYvRIDTrozpFaIEubClHnNKzxe0XrIWT1NfAx+z1cfAd+l8NHoQy77CPz+tJoLKLffEA87ix99nex0K8Bvf6PceMgZaZVwTSo32NviA81wFL6ZnczOZ1DvJlCLfzNq2gcOcmdyUKxe41xfUdk0N7lyvOY8Nc2/ISw5mQ==
+sidebar_class_name: "delete api-method"
+info_path: docs/api/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove object from list"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/spaces/{space_id}/lists/{list_id}/objects/{object_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a given object from the specified list (collection only) in a space. The endpoint takes the space, list, and object identifiers as path parameters. It's subject to rate limiting and returns a success message on completion. It is used for dynamically managing collections without affecting the underlying object data.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","schema":{"default":"2025-04-22","type":"string"}},{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"List ID","in":"path","name":"list_id","required":true,"schema":{"type":"string"}},{"description":"Object ID","in":"path","name":"object_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"string"}}},"description":"Objects removed successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Bad request","type":"string"}},"type":"object"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Unauthorized","type":"string"}},"type":"object"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Resource not found","type":"string"}},"type":"object"}},"type":"object","title":"util.NotFoundError"}}},"description":"Not found"},"500":{"content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"example":"Internal server error","type":"string"}},"type":"object"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
