@@ -147,6 +147,32 @@ components:
           example: VerticalAlignTop
           type: string
       type: object
+    object.Color:
+      description: The color of the icon
+      enum:
+        - grey
+        - yellow
+        - orange
+        - red
+        - pink
+        - purple
+        - blue
+        - ice
+        - teal
+        - lime
+      example: yellow
+      type: string
+      x-enum-varnames:
+        - ColorGrey
+        - ColorYellow
+        - ColorOrange
+        - ColorRed
+        - ColorPink
+        - ColorPurple
+        - ColorBlue
+        - ColorIce
+        - ColorTeal
+        - ColorLime
     object.CreateObjectRequest:
       properties:
         body:
@@ -158,7 +184,7 @@ components:
           example: This is a description of the object.
           type: string
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         name:
           description: The name of the object
           example: My object
@@ -190,6 +216,21 @@ components:
           description: The name of the property
           example: Last modified date
           type: string
+      required:
+        - format
+        - name
+      type: object
+    object.CreateTagRequest:
+      properties:
+        color:
+          $ref: "#/components/schemas/object.Color"
+        name:
+          description: The name of the tag
+          example: In progress
+          type: string
+      required:
+        - color
+        - name
       type: object
     object.File:
       description: The file of the block, if applicable
@@ -222,6 +263,38 @@ components:
           description: The type of the file
           type: string
       type: object
+    object.Icon:
+      description: The icon of the object
+      properties:
+        color:
+          $ref: "#/components/schemas/object.Color"
+        emoji:
+          description: The emoji of the icon
+          example: "\U0001F4C4"
+          type: string
+        file:
+          description: The file of the icon
+          example: http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay
+          type: string
+        format:
+          $ref: "#/components/schemas/object.IconFormat"
+        name:
+          description: The name of the icon
+          example: document
+          type: string
+      type: object
+    object.IconFormat:
+      description: The type of the icon
+      enum:
+        - emoji
+        - file
+        - icon
+      example: emoji
+      type: string
+      x-enum-varnames:
+        - IconFormatEmoji
+        - IconFormatFile
+        - IconFormatIcon
     object.Object:
       properties:
         archived:
@@ -229,7 +302,7 @@ components:
           example: false
           type: boolean
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The id of the object
           example: bafyreie6n5l5nkbjal37su54cha4coy7qzuhrnajluzv5qd5jvtsrxkequ
@@ -292,7 +365,7 @@ components:
           type: array
           uniqueItems: false
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The id of the object
           example: bafyreie6n5l5nkbjal37su54cha4coy7qzuhrnajluzv5qd5jvtsrxkequ
@@ -437,10 +510,14 @@ components:
       description: The select value, if applicable
       properties:
         color:
-          $ref: "#/components/schemas/util.Color"
+          $ref: "#/components/schemas/object.Color"
         id:
           description: The id of the tag
           example: bafyreiaixlnaefu3ci22zdenjhsdlyaeeoyjrsid5qhfeejzlccijbj7sq
+          type: string
+        key:
+          description: The key of the tag
+          example: 67b0d3e3cda913b84c1299b1
           type: string
         name:
           description: The name of the tag
@@ -460,7 +537,7 @@ components:
           example: false
           type: boolean
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The id of the template
           example: bafyreictrp3obmnf6dwejy5o4p7bderaaia4bdg2psxbfzf44yya5uutge
@@ -491,7 +568,7 @@ components:
           example: red
           type: string
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         style:
           description: The style of the text
           enum:
@@ -524,7 +601,7 @@ components:
           example: false
           type: boolean
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The id of the type (which is unique across spaces)
           example: bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu
@@ -561,13 +638,33 @@ components:
     object.UpdatePropertyRequest:
       properties:
         id:
-          description: Id of the property to update
+          description: The id of the property to update
           example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
           type: string
         name:
-          description: Name to set for the property
+          description: the name to set for the property
           example: Last modified date
           type: string
+      required:
+        - id
+        - name
+      type: object
+    object.UpdateTagRequest:
+      properties:
+        color:
+          $ref: "#/components/schemas/object.Color"
+        id:
+          description: The id of the tag to update
+          example: bafyreiaixlnaefu3ci22zdenjhsdlyaeeoyjrsid5qhfeejzlccijbj7sq
+          type: string
+        name:
+          description: The name to set for the tag
+          example: In progress
+          type: string
+      required:
+        - color
+        - id
+        - name
       type: object
     pagination.PaginatedResponse-list_View:
       properties:
@@ -749,7 +846,7 @@ components:
           example: john.any
           type: string
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The profile object id of the member
           example: _participant_bafyreigyfkt6rbv24sbv5aq2hko1bhmv5xxlf22b4bypdu6j7hnphm3psq_23me69r569oi1_AAjEaEwPF4nkEh9AWkqEnzcQ8HziBB4ETjiTpvRCQvWnSMDZ
@@ -804,7 +901,7 @@ components:
           example: http://127.0.0.1:31006
           type: string
         icon:
-          $ref: "#/components/schemas/util.Icon"
+          $ref: "#/components/schemas/object.Icon"
         id:
           description: The id of the space
           example: bafyreigyfkt6rbv24sbv5aq2hko3bhmv5xxlf22b4bypdu6j7hnphm3psq.23me69r569oi1
@@ -827,32 +924,6 @@ components:
         space:
           $ref: "#/components/schemas/space.Space"
       type: object
-    util.Color:
-      description: The color of the icon
-      enum:
-        - grey
-        - yellow
-        - orange
-        - red
-        - pink
-        - purple
-        - blue
-        - ice
-        - teal
-        - lime
-      example: yellow
-      type: string
-      x-enum-varnames:
-        - ColorGrey
-        - ColorYellow
-        - ColorOrange
-        - ColorRed
-        - ColorPink
-        - ColorPurple
-        - ColorBlue
-        - ColorIce
-        - ColorTeal
-        - ColorLime
     util.ForbiddenError:
       properties:
         code:
@@ -883,38 +954,6 @@ components:
           example: 410
           type: integer
       type: object
-    util.Icon:
-      description: The icon of the object
-      properties:
-        color:
-          $ref: "#/components/schemas/util.Color"
-        emoji:
-          description: The emoji of the icon
-          example: "\U0001F4C4"
-          type: string
-        file:
-          description: The file of the icon
-          example: http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay
-          type: string
-        format:
-          $ref: "#/components/schemas/util.IconFormat"
-        name:
-          description: The name of the icon
-          example: document
-          type: string
-      type: object
-    util.IconFormat:
-      description: The type of the icon
-      enum:
-        - emoji
-        - file
-        - icon
-      example: emoji
-      type: string
-      x-enum-varnames:
-        - IconFormatEmoji
-        - IconFormatFile
-        - IconFormatIcon
     util.NotFoundError:
       properties:
         code:
@@ -1026,6 +1065,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1075,6 +1115,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1131,6 +1172,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1189,6 +1231,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1241,6 +1284,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1297,6 +1341,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1348,6 +1393,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1421,6 +1467,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1492,6 +1539,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1561,6 +1609,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1630,6 +1679,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1689,6 +1739,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1746,6 +1797,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1806,6 +1858,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1869,6 +1922,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -1943,6 +1997,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2005,6 +2060,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2068,6 +2124,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2124,6 +2181,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2181,6 +2239,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2254,6 +2313,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2314,6 +2374,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2380,11 +2441,16 @@ paths:
         - Properties
   /spaces/{space_id}/properties/{property_id}/tags:
     get:
-      description: Lists all tag options for a given property id.
+      description: This endpoint retrieves a paginated list of tags available for
+        a specific property within a space. Each tag record includes its unique identifier,
+        name, and color. This information is essential for clients to display select
+        or multi-select options to users when they are creating or editing objects.
+        The endpoint also supports pagination through offset and limit parameters.
       parameters:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2430,13 +2496,159 @@ paths:
       summary: List tags
       tags:
         - Tags
-  /spaces/{space_id}/properties/{property_id}/tags/{tag_id}:
-    get:
-      description: Retrieves a tag option for a given property id.
+    post:
+      description: This endpoint creates a new tag for a given property id in a space.
+        The tag is identified by its unique identifier within the specified space.
+        The request must include the tag's name and color. The response includes the
+        tag's details such as its ID, name, and color. This is useful for clients
+        when users want to add new tag options to a property.
       parameters:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
+          schema:
+            type: string
+        - description: Space ID
+          in: path
+          name: space_id
+          required: true
+          schema:
+            type: string
+        - description: Property ID
+          in: path
+          name: property_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/object.CreateTagRequest"
+        description: Tag to create
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/object.TagResponse"
+          description: The created tag
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ValidationError"
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.UnauthorizedError"
+          description: Unauthorized
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ServerError"
+          description: Internal server error
+      security:
+        - bearerauth: []
+      summary: Create tag
+      tags:
+        - Tags
+  /spaces/{space_id}/properties/{property_id}/tags/{tag_id}:
+    delete:
+      description: This endpoint “deletes” a tag by marking it as archived. The deletion
+        process is performed safely and is subject to rate limiting. It returns the
+        tag’s details after it has been archived. Proper error handling is in place
+        for situations such as when the tag isn’t found or the deletion cannot be
+        performed because of permission issues.
+      parameters:
+        - description: The version of the API to use
+          in: header
+          name: Anytype-Version
+          required: true
+          schema:
+            default: "2025-04-22"
+            type: string
+        - description: Space ID
+          in: path
+          name: space_id
+          required: true
+          schema:
+            type: string
+        - description: Property ID
+          in: path
+          name: property_id
+          required: true
+          schema:
+            type: string
+        - description: Tag ID
+          in: path
+          name: tag_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/object.TagResponse"
+          description: The deleted tag
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.UnauthorizedError"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ForbiddenError"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.NotFoundError"
+          description: Resource not found
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.GoneError"
+          description: Resource deleted
+        "423":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.RateLimitError"
+          description: Rate limit exceeded
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ServerError"
+          description: Internal server error
+      security:
+        - bearerauth: []
+      summary: Delete tag
+      tags:
+        - Tags
+    get:
+      description: This endpoint retrieves a tag for a given property id. The tag
+        is identified by its unique identifier within the specified space. The response
+        includes the tag's details such as its ID, name, and color. This is useful
+        for clients to display or when editing a specific tag option.
+      parameters:
+        - description: The version of the API to use
+          in: header
+          name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2494,6 +2706,87 @@ paths:
       summary: Get tag
       tags:
         - Tags
+    patch:
+      description: This endpoint updates a tag for a given property id in a space.
+        The tag is identified by its unique identifier within the specified space.
+        The request must include the tag's name and color. The response includes the
+        tag's details such as its ID, name, and color. This is useful for clients
+        when users want to edit existing tags for a property.
+      parameters:
+        - description: The version of the API to use
+          in: header
+          name: Anytype-Version
+          required: true
+          schema:
+            default: "2025-04-22"
+            type: string
+        - description: Space ID
+          in: path
+          name: space_id
+          required: true
+          schema:
+            type: string
+        - description: Property ID
+          in: path
+          name: property_id
+          required: true
+          schema:
+            type: string
+        - description: Tag ID
+          in: path
+          name: tag_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/object.UpdateTagRequest"
+        description: Tag to update
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/object.TagResponse"
+          description: The updated tag
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ValidationError"
+          description: Bad request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.UnauthorizedError"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.NotFoundError"
+          description: Resource not found
+        "410":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.GoneError"
+          description: Resource deleted
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/util.ServerError"
+          description: Internal server error
+      security:
+        - bearerauth: []
+      summary: Update tag
+      tags:
+        - Tags
   /spaces/{space_id}/search:
     post:
       description: This endpoint performs a focused search within a single space (specified
@@ -2506,6 +2799,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2573,6 +2867,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2631,6 +2926,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2693,6 +2989,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string
@@ -2756,6 +3053,7 @@ paths:
         - description: The version of the API to use
           in: header
           name: Anytype-Version
+          required: true
           schema:
             default: "2025-04-22"
             type: string

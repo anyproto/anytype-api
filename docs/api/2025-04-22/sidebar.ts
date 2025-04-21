@@ -198,9 +198,27 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/2025-04-22/create-tag",
+          label: "Create tag",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/delete-tag",
+          label: "Delete tag",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/2025-04-22/get-tag",
           label: "Get tag",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/update-tag",
+          label: "Update tag",
+          className: "api-method patch",
         },
       ],
     },
