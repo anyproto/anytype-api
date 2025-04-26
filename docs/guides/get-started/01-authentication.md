@@ -34,7 +34,7 @@ The authentication flow is a two‑step process:
    ```
 
 2. **Retrieve a Token (Solve Challenge):**
-   Once you have a `challenge_id` from the previous step, and the user has retrieved a **4‑digit** code from the Anytype desktop app, call this to exchange them for authentication tokens.
+   Once you have a `challenge_id` from the previous step, and the user has retrieved a **4‑digit** code from the Anytype desktop app, call this to exchange them for an authentication token.
 
    **Request**:
 
@@ -50,11 +50,10 @@ The authentication flow is a two‑step process:
    ```json
    {
      "app_key": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=",
-     "session_token": "eyJhbGciOeJIRzI1NiIsInR5cCI6IkpXVCJ9.eyJzZWVkIjoiY0dmVndlUnAifQ..."
    }
    ```
 
    > Tip: For now, you'll pass the non-ephemeral `app_key` as a Bearer token in future requests:
-   > `Authorization: Bearer eyJhbGciOi...`
+   > `Authorization: Bearer zhSG/zQRmgAD...`
 
 Once authenticated, you’re ready to explore spaces, objects, and more.
