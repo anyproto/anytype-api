@@ -12,13 +12,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/2025-04-22/start-new-challenge",
+          id: "api/2025-04-22/create-auth-challenge",
           label: "Start new challenge",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "api/2025-04-22/solve-challenge",
+          id: "api/2025-04-22/solve-auth-challenge",
           label: "Solve challenge",
           className: "api-method post",
         },
@@ -30,13 +30,13 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/2025-04-22/search-objects-across-all-spaces",
+          id: "api/2025-04-22/search-global",
           label: "Search objects across all spaces",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "api/2025-04-22/search-objects-within-a-space",
+          id: "api/2025-04-22/search-space",
           label: "Search objects within a space",
           className: "api-method post",
         },
@@ -72,19 +72,19 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/2025-04-22/get-objects-in-list",
+          id: "api/2025-04-22/get-list-objects",
           label: "Get objects in list",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "api/2025-04-22/add-objects-to-list",
+          id: "api/2025-04-22/add-list-objects",
           label: "Add objects to list",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "api/2025-04-22/remove-object-from-list",
+          id: "api/2025-04-22/remove-list-object",
           label: "Remove object from list",
           className: "api-method delete",
         },
@@ -141,6 +141,12 @@ const sidebar: SidebarsConfig = {
           id: "api/2025-04-22/get-object",
           label: "Get object",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/update-object",
+          label: "Update object",
+          className: "api-method patch",
         },
         {
           type: "doc",
@@ -234,9 +240,27 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "api/2025-04-22/create-type",
+          label: "Create type",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/delete-type",
+          label: "Delete type",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
           id: "api/2025-04-22/get-type",
           label: "Get type",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "api/2025-04-22/update-type",
+          label: "Update type",
+          className: "api-method patch",
         },
       ],
     },
