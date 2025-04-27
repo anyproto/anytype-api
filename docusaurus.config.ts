@@ -39,7 +39,7 @@ const config: Config = {
   themeConfig: {
     image: "img/twitter-card.png",
     metadata: [
-      { name: "twitter:title", content: "Start building with the Anytype API" },
+      { name: "twitter:title", content: "Start building with Anytype's API" },
       { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
