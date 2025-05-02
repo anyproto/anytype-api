@@ -64,6 +64,12 @@ const sidebar: SidebarsConfig = {
           label: "Get space",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "api/2025-04-22/update-space",
+          label: "Update space",
+          className: "api-method patch",
+        },
       ],
     },
     {
