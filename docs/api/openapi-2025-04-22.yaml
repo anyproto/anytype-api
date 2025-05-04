@@ -46,6 +46,43 @@ components:
           example: VerticalAlignTop
           type: string
       type: object
+    apimodel.CheckboxPropertyLinkValue:
+      properties:
+        checkbox:
+          description: The checkbox value of the property
+          example: true
+          type: boolean
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: done
+          type: string
+      type: object
+    apimodel.CheckboxPropertyValue:
+      properties:
+        checkbox:
+          description: The checkbox value of the property
+          example: true
+          type: boolean
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: done
+          type: string
+        name:
+          description: The name of the property
+          example: Done
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+      type: object
     apimodel.Color:
       description: The color of the icon
       enum:
@@ -96,7 +133,7 @@ components:
           type: string
         type_key:
           description: The key of the type of object to create
-          example: ot-page
+          example: page
           type: string
       required:
         - type_key
@@ -162,6 +199,43 @@ components:
         - layout
         - name
       type: object
+    apimodel.DatePropertyLinkValue:
+      properties:
+        date:
+          description: The date value of the property
+          example: "2025-02-14T12:34:56Z"
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: last_modified_date
+          type: string
+      type: object
+    apimodel.DatePropertyValue:
+      properties:
+        date:
+          description: The date value of the property
+          example: "2025-02-14T12:34:56Z"
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: last_modified_date
+          type: string
+        name:
+          description: The name of the property
+          example: Last modified date
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+      type: object
     apimodel.DisplayCodeResponse:
       properties:
         challenge_id:
@@ -169,6 +243,52 @@ components:
             to solve the challenge for token
           example: 67647f5ecda913e9a2e11b26
           type: string
+      type: object
+    apimodel.EmailPropertyLinkValue:
+      properties:
+        email:
+          description: The email value of the property
+          example: example@example.com
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: email
+          type: string
+      type: object
+    apimodel.EmailPropertyValue:
+      properties:
+        email:
+          description: The email value of the property
+          example: example@example.com
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: email
+          type: string
+        name:
+          description: The name of the property
+          example: Email
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+      type: object
+    apimodel.EmojiIcon:
+      properties:
+        emoji:
+          description: The emoji of the icon
+          example: "\U0001F4C4"
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.IconFormat"
       type: object
     apimodel.File:
       description: The file of the block, if applicable
@@ -203,6 +323,60 @@ components:
           type: string
         type:
           description: The type of the file
+          type: string
+      type: object
+    apimodel.FileIcon:
+      properties:
+        file:
+          description: The file of the icon
+          example: bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay
+          type: string
+        format:
+          $ref: "#/components/schemas/apimodel.IconFormat"
+      type: object
+    apimodel.FilesPropertyLinkValue:
+      properties:
+        files:
+          description: The file values of the property
+          example:
+            - "['fileId']"
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: files
+          type: string
+      type: object
+    apimodel.FilesPropertyValue:
+      properties:
+        files:
+          description: The file values of the property
+          example:
+            - "['fileId']"
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: files
+          type: string
+        name:
+          description: The name of the property
+          example: Files
+          type: string
+        object:
+          description: The data model of the object
+          example: property
           type: string
       type: object
     apimodel.Filter:
@@ -246,28 +420,13 @@ components:
       type: object
     apimodel.Icon:
       description: The icon of the object
-      properties:
-        color:
-          $ref: "#/components/schemas/apimodel.Color"
-        emoji:
-          description: The emoji of the icon
-          example: "\U0001F4C4"
-          type: string
-        file:
-          description: The file of the icon
-          example: bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay
-          type: string
-        format:
-          $ref: "#/components/schemas/apimodel.IconFormat"
-        name:
-          description: The name of the icon
-          example: document
-          type: string
-      required:
-        - format
+      oneOf:
+        - $ref: "#/components/schemas/apimodel.EmojiIcon"
+        - $ref: "#/components/schemas/apimodel.FileIcon"
+        - $ref: "#/components/schemas/apimodel.NamedIcon"
       type: object
     apimodel.IconFormat:
-      description: The type of the icon
+      description: The format of the icon
       enum:
         - emoji
         - file
@@ -329,6 +488,95 @@ components:
         member:
           $ref: "#/components/schemas/apimodel.Member"
       type: object
+    apimodel.MultiSelectPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: tag
+          type: string
+        multi_select:
+          description: The selected tag values of the property
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+      type: object
+    apimodel.MultiSelectPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: tag
+          type: string
+        multi_select:
+          description: The selected tag values of the property
+          items:
+            $ref: "#/components/schemas/apimodel.Tag"
+          type: array
+          uniqueItems: false
+        name:
+          description: The name of the property
+          example: Tag
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+      type: object
+    apimodel.NamedIcon:
+      properties:
+        color:
+          $ref: "#/components/schemas/apimodel.Color"
+        format:
+          $ref: "#/components/schemas/apimodel.IconFormat"
+        name:
+          description: The name of the icon
+          example: document
+          type: string
+      type: object
+    apimodel.NumberPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: height
+          type: string
+        number:
+          description: The number value of the property
+          example: 42
+          type: number
+      type: object
+    apimodel.NumberPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: height
+          type: string
+        name:
+          description: The name of the property
+          example: Height
+          type: string
+        number:
+          description: The number value of the property
+          example: 42
+          type: number
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+      type: object
     apimodel.Object:
       properties:
         archived:
@@ -384,7 +632,7 @@ components:
       x-enum-varnames:
         - ObjectLayoutBasic
         - ObjectLayoutProfile
-        - ObjectLayoutTodo
+        - ObjectLayoutAction
         - ObjectLayoutNote
         - ObjectLayoutBookmark
         - ObjectLayoutSet
@@ -422,7 +670,7 @@ components:
           x-enum-varnames:
             - ObjectLayoutBasic
             - ObjectLayoutProfile
-            - ObjectLayoutTodo
+            - ObjectLayoutAction
             - ObjectLayoutNote
             - ObjectLayoutBookmark
             - ObjectLayoutSet
@@ -454,6 +702,88 @@ components:
         type:
           $ref: "#/components/schemas/apimodel.Type"
       type: object
+    apimodel.ObjectsPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: creator
+          type: string
+        objects:
+          description: The object values of the property
+          example:
+            - "['objectId']"
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+      type: object
+    apimodel.ObjectsPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: creator
+          type: string
+        name:
+          description: The name of the property
+          example: Created by
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+        objects:
+          description: The object values of the property
+          example:
+            - "['objectId']"
+          items:
+            type: string
+          type: array
+          uniqueItems: false
+      type: object
+    apimodel.PhonePropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: phone
+          type: string
+        phone:
+          description: The phone value of the property
+          example: "+1234567890"
+          type: string
+      type: object
+    apimodel.PhonePropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: phone
+          type: string
+        name:
+          description: The name of the property
+          example: Phone
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+        phone:
+          description: The phone value of the property
+          example: "+1234567890"
+          type: string
+      type: object
     apimodel.Property:
       description: The property block, if applicable
       properties:
@@ -478,7 +808,18 @@ components:
       type: object
     apimodel.PropertyFormat:
       description: The format of the property used for filtering
-      example: date
+      enum:
+        - text
+        - number
+        - select
+        - multi_select
+        - date
+        - files
+        - checkbox
+        - url
+        - email
+        - phone
+        - objects
       type: string
       x-enum-varnames:
         - PropertyFormatText
@@ -510,69 +851,18 @@ components:
         - name
       type: object
     apimodel.PropertyLinkWithValue:
-      properties:
-        checkbox:
-          description: The checkbox value, if applicable
-          enum:
-            - true
-            - false
-          example: true
-          type: boolean
-        date:
-          description: The date value, if applicable
-          example: "2025-02-14T12:34:56Z"
-          type: string
-        email:
-          description: The email value, if applicable
-          example: example@example.com
-          type: string
-        files:
-          description: The file references, if applicable
-          example:
-            - "['fileId']"
-          items:
-            type: string
-          type: array
-          uniqueItems: false
-        key:
-          description: The key of the property
-          example: last_modified_date
-          type: string
-        multi_select:
-          description: The multi-select values, if applicable
-          items:
-            type: string
-          type: array
-          uniqueItems: false
-        number:
-          description: The number value, if applicable
-          example: 42
-          type: number
-        objects:
-          description: The object references, if applicable
-          example:
-            - "['objectId']"
-          items:
-            type: string
-          type: array
-          uniqueItems: false
-        phone:
-          description: The phone number value, if applicable
-          example: "+1234567890"
-          type: string
-        select:
-          description: The select value, if applicable
-          type: string
-        text:
-          description: The text value, if applicable
-          example: Some text...
-          type: string
-        url:
-          description: The url value, if applicable
-          example: https://example.com
-          type: string
-      required:
-        - key
+      oneOf:
+        - $ref: "#/components/schemas/apimodel.TextPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.NumberPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.SelectPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.MultiSelectPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.DatePropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.FilesPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.CheckboxPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.URLPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.EmailPropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.PhonePropertyLinkValue"
+        - $ref: "#/components/schemas/apimodel.ObjectsPropertyLinkValue"
       type: object
     apimodel.PropertyResponse:
       properties:
@@ -580,80 +870,18 @@ components:
           $ref: "#/components/schemas/apimodel.Property"
       type: object
     apimodel.PropertyWithValue:
-      properties:
-        checkbox:
-          description: The checkbox value, if applicable
-          enum:
-            - true
-            - false
-          example: true
-          type: boolean
-        date:
-          description: The date value, if applicable
-          example: "2025-02-14T12:34:56Z"
-          type: string
-        email:
-          description: The email value, if applicable
-          example: example@example.com
-          type: string
-        files:
-          description: The file references, if applicable
-          example:
-            - "['fileId']"
-          items:
-            type: string
-          type: array
-          uniqueItems: false
-        format:
-          $ref: "#/components/schemas/apimodel.PropertyFormat"
-        id:
-          description: The id of the property
-          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
-          type: string
-        key:
-          description: The key of the property
-          example: last_modified_date
-          type: string
-        multi_select:
-          description: The multi-select values, if applicable
-          items:
-            $ref: "#/components/schemas/apimodel.Tag"
-          type: array
-          uniqueItems: false
-        name:
-          description: The name of the property
-          example: Last modified date
-          type: string
-        number:
-          description: The number value, if applicable
-          example: 42
-          type: number
-        object:
-          description: The data model of the object
-          example: property
-          type: string
-        objects:
-          description: The object references, if applicable
-          example:
-            - "['objectId']"
-          items:
-            type: string
-          type: array
-          uniqueItems: false
-        phone:
-          description: The phone number value, if applicable
-          example: "+1234567890"
-          type: string
-        select:
-          $ref: "#/components/schemas/apimodel.Tag"
-        text:
-          description: The text value, if applicable
-          example: Some text...
-          type: string
-        url:
-          description: The url value, if applicable
-          example: https://example.com
-          type: string
+      oneOf:
+        - $ref: "#/components/schemas/apimodel.TextPropertyValue"
+        - $ref: "#/components/schemas/apimodel.NumberPropertyValue"
+        - $ref: "#/components/schemas/apimodel.SelectPropertyValue"
+        - $ref: "#/components/schemas/apimodel.MultiSelectPropertyValue"
+        - $ref: "#/components/schemas/apimodel.DatePropertyValue"
+        - $ref: "#/components/schemas/apimodel.FilesPropertyValue"
+        - $ref: "#/components/schemas/apimodel.CheckboxPropertyValue"
+        - $ref: "#/components/schemas/apimodel.URLPropertyValue"
+        - $ref: "#/components/schemas/apimodel.EmailPropertyValue"
+        - $ref: "#/components/schemas/apimodel.PhonePropertyValue"
+        - $ref: "#/components/schemas/apimodel.ObjectsPropertyValue"
       type: object
     apimodel.SearchRequest:
       properties:
@@ -666,13 +894,47 @@ components:
         types:
           description: The types of objects to search for, specified by key or ID
           example:
-            - ot-page
-            - ot-678043f0cda9133be777049f
+            - page
+            - 678043f0cda9133be777049f
             - bafyreightzrdts2ymxyaeyzspwdfo2juspyam76ewq6qq7ixnw3523gs7q
           items:
             type: string
           type: array
           uniqueItems: false
+      type: object
+    apimodel.SelectPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: status
+          type: string
+        select:
+          description: The selected tag value of the property
+          type: string
+      type: object
+    apimodel.SelectPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: status
+          type: string
+        name:
+          description: The name of the property
+          example: Status
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+        select:
+          $ref: "#/components/schemas/apimodel.Tag"
       type: object
     apimodel.Sort:
       properties:
@@ -763,7 +1025,7 @@ components:
           $ref: "#/components/schemas/apimodel.Space"
       type: object
     apimodel.Tag:
-      description: The select value, if applicable
+      description: The selected tag value of the property
       properties:
         color:
           $ref: "#/components/schemas/apimodel.Color"
@@ -835,6 +1097,43 @@ components:
           example: Some text...
           type: string
       type: object
+    apimodel.TextPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: description
+          type: string
+        text:
+          description: The text value of the property
+          example: Some text...
+          type: string
+      type: object
+    apimodel.TextPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: description
+          type: string
+        name:
+          description: The name of the property
+          example: Description
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+        text:
+          description: The text value of the property
+          example: Some text...
+          type: string
+      type: object
     apimodel.TokenResponse:
       properties:
         app_key:
@@ -858,16 +1157,16 @@ components:
         key:
           description: The key of the type (can be the same across spaces for known
             types)
-          example: ot-page
+          example: page
           type: string
         layout:
           description: The layout of the object
-          example: todo
+          example: basic
           type: string
           x-enum-varnames:
             - ObjectLayoutBasic
             - ObjectLayoutProfile
-            - ObjectLayoutTodo
+            - ObjectLayoutAction
             - ObjectLayoutNote
             - ObjectLayoutBookmark
             - ObjectLayoutSet
@@ -881,6 +1180,10 @@ components:
           description: The data model of the object
           example: type
           type: string
+        plural_name:
+          description: The plural name of the type
+          example: Pages
+          type: string
         properties:
           description: The properties linked to the type
           items:
@@ -890,17 +1193,54 @@ components:
       type: object
     apimodel.TypeLayout:
       description: The layout of the type
-      example: todo
+      example: basic
       type: string
       x-enum-varnames:
         - TypeLayoutBasic
         - TypeLayoutProfile
-        - TypeLayoutTodo
+        - TypeLayoutAction
         - TypeLayoutNote
     apimodel.TypeResponse:
       properties:
         type:
           $ref: "#/components/schemas/apimodel.Type"
+      type: object
+    apimodel.URLPropertyLinkValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        key:
+          example: source
+          type: string
+        url:
+          description: The URL value of the property
+          example: https://example.com
+          type: string
+      type: object
+    apimodel.URLPropertyValue:
+      properties:
+        format:
+          $ref: "#/components/schemas/apimodel.PropertyFormat"
+        id:
+          description: The id of the property
+          example: bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a
+          type: string
+        key:
+          description: The key of the property
+          example: source
+          type: string
+        name:
+          description: The name of the property
+          example: Source
+          type: string
+        object:
+          description: The data model of the object
+          example: property
+          type: string
+        url:
+          description: The URL value of the property
+          example: https://example.com
+          type: string
       type: object
     apimodel.UpdateObjectRequest:
       properties:
@@ -952,12 +1292,12 @@ components:
           $ref: "#/components/schemas/apimodel.Icon"
         layout:
           description: The layout of the type
-          example: todo
+          example: basic
           type: string
           x-enum-varnames:
             - TypeLayoutBasic
             - TypeLayoutProfile
-            - TypeLayoutTodo
+            - TypeLayoutAction
             - TypeLayoutNote
         name:
           description: The name to set for the type
@@ -1100,7 +1440,7 @@ components:
           type: integer
         total:
           description: The total number of items available for the endpoint
-          example: 1024
+          example: 1000
           type: integer
       type: object
     util.ForbiddenError:
@@ -3273,7 +3613,7 @@ paths:
         'Page', 'Note', 'Task') available within the specified space. Each type’s
         record includes its unique identifier, type key, display name, icon, and layout.
         While a type's id is truly unique, a type's key can be the same across spaces
-        for known types, e.g. 'ot-page' for 'Page'. Clients use this information when
+        for known types, e.g. 'page' for 'Page'. Clients use this information when
         offering choices for object creation or for filtering objects by type through
         search.
       operationId: listTypes
