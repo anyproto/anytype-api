@@ -154,12 +154,6 @@ const sidebar: SidebarsConfig = {
           label: "Update object",
           className: "api-method patch",
         },
-        {
-          type: "doc",
-          id: "api/2025-04-22/export-object",
-          label: "Export object",
-          className: "api-method get",
-        },
       ],
     },
     {
