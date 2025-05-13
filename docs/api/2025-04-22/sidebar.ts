@@ -78,6 +78,12 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "api/2025-04-22/get-list-objects",
+          label: "Get objects in list",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "api/2025-04-22/add-list-objects",
           label: "Add objects to list",
           className: "api-method post",
@@ -92,12 +98,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "api/2025-04-22/get-list-views",
           label: "Get list views",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "api/2025-04-22/get-list-objects",
-          label: "Get objects in list",
           className: "api-method get",
         },
       ],
