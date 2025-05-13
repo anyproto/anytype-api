@@ -1,0 +1,71 @@
+---
+id: list-types
+title: "List types"
+description: "This endpoint retrieves a paginated list of object types (e.g. 'Page', 'Note', 'Task') available within the specified space. Each type’s record includes its unique identifier, type key, display name, icon, and layout. While a type's id is truly unique, a type's key can be the same across spaces for known types, e.g. 'page' for 'Page'. Clients use this information when offering choices for object creation or for filtering objects by type through search."
+sidebar_label: "List types"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/api/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List types"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/spaces/{space_id}/types"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+This endpoint retrieves a paginated list of object types (e.g. 'Page', 'Note', 'Task') available within the specified space. Each type’s record includes its unique identifier, type key, display name, icon, and layout. While a type's id is truly unique, a type's key can be the same across spaces for known types, e.g. 'page' for 'Page'. Clients use this information when offering choices for object creation or for filtering objects by type through search.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space to retrieve types from","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"default":100,"maximum":1000,"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"description":"The type of the object","properties":{"archived":{"description":"Whether the type is archived","example":false,"type":"boolean"},"icon":{"description":"The icon of the object","oneOf":[{"properties":{"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.EmojiIcon"},{"properties":{"file":{"description":"The file of the icon","example":"bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.FileIcon"},{"properties":{"color":{"description":"The color of the icon","enum":["grey","yellow","orange","red","pink","purple","blue","ice","teal","lime"],"example":"yellow","type":"string","x-enum-varnames":["ColorGrey","ColorYellow","ColorOrange","ColorRed","ColorPink","ColorPurple","ColorBlue","ColorIce","ColorTeal","ColorLime"],"title":"apimodel.Color"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"apimodel.NamedIcon"}],"type":"object","title":"apimodel.Icon"},"id":{"description":"The id of the type (which is unique across spaces)","example":"bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu","type":"string"},"key":{"description":"The key of the type (can be the same across spaces for known types)","example":"page","type":"string"},"layout":{"description":"The layout of the object","example":"basic","type":"string","x-enum-varnames":["ObjectLayoutBasic","ObjectLayoutProfile","ObjectLayoutAction","ObjectLayoutNote","ObjectLayoutBookmark","ObjectLayoutSet","ObjectLayoutCollection","ObjectLayoutParticipant"]},"name":{"description":"The name of the type","example":"Page","type":"string"},"object":{"description":"The data model of the object","example":"type","type":"string"},"plural_name":{"description":"The plural name of the type","example":"Pages","type":"string"},"properties":{"description":"The properties linked to the type","items":{"description":"The property","properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"id":{"description":"The id of the property","example":"bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a","type":"string"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"},"object":{"description":"The data model of the object","example":"property","type":"string"}},"type":"object","title":"apimodel.Property"},"type":"array","uniqueItems":false}},"type":"object","title":"apimodel.Type"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1000,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-apimodel_Type"}}},"description":"The list of types"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

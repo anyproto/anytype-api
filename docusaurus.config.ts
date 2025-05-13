@@ -195,17 +195,24 @@ const config: Config = {
         docsPluginId: "classic",
         config: {
           anytype: {
-            specPath: "docs/api/openapi-2025-04-22.yaml",
+            specPath: "docs/api/openapi-2025-05-20.yaml",
             outputDir: "docs/api",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
             },
-            version: "2025-04-22",
-            label: "2025-04-22",
-            baseUrl: "/api/2025-04-22",
-            downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-04-22.yaml",
+            version: "2025-05-20",
+            label: "2025-05-20",
+            baseUrl: "/api/2025-05-20",
+            downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-05-20.yaml",
             versions: {
+              "2025-05-20": {
+                specPath: "docs/api/openapi-2025-05-20.yaml",
+                outputDir: "docs/api/2025-05-20",
+                label: "2025-05-20",
+                baseUrl: "/docs/api/2025-05-20/anytype-api",
+                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-05-20.yaml",
+              },
               "2025-04-22": {
                 specPath: "docs/api/openapi-2025-04-22.yaml",
                 outputDir: "docs/api/2025-04-22",

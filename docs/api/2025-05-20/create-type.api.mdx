@@ -1,0 +1,71 @@
+---
+id: create-type
+title: "Create type"
+description: "Creates a new object type in the specified space using a JSON payload. The creation process is subject to rate limiting. The payload must include type details such as the name, icon, and layout. The endpoint then returns the full type data, ready to be used for creating objects."
+sidebar_label: "Create type"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/api/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/spaces/{space_id}/types"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates a new object type in the specified space using a JSON payload. The creation process is subject to rate limiting. The payload must include type details such as the name, icon, and layout. The endpoint then returns the full type data, ready to be used for creating objects.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space in which to create the type","in":"path","name":"space_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"icon":{"description":"The icon of the object","oneOf":[{"properties":{"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.EmojiIcon"},{"properties":{"file":{"description":"The file of the icon","example":"bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.FileIcon"},{"properties":{"color":{"description":"The color of the icon","enum":["grey","yellow","orange","red","pink","purple","blue","ice","teal","lime"],"example":"yellow","type":"string","x-enum-varnames":["ColorGrey","ColorYellow","ColorOrange","ColorRed","ColorPink","ColorPurple","ColorBlue","ColorIce","ColorTeal","ColorLime"],"title":"apimodel.Color"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"apimodel.NamedIcon"}],"type":"object","title":"apimodel.Icon"},"layout":{"description":"The layout of the type","example":"basic","type":"string","x-enum-varnames":["TypeLayoutBasic","TypeLayoutProfile","TypeLayoutAction","TypeLayoutNote"],"title":"apimodel.TypeLayout"},"name":{"description":"The name of the type","example":"Page","type":"string"},"plural_name":{"description":"The plural name of the type","example":"Pages","type":"string"},"properties":{"description":"⚠ Warning: Properties are experimental and may change in the next update. ⚠ The properties linked to the type","items":{"properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"}},"required":["format","key","name"],"type":"object","title":"apimodel.PropertyLink"},"type":"array","uniqueItems":false}},"required":["layout","name"],"type":"object","title":"apimodel.CreateTypeRequest"}}},"description":"The type to create","required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"type":{"description":"The type of the object","properties":{"archived":{"description":"Whether the type is archived","example":false,"type":"boolean"},"icon":{"description":"The icon of the object","oneOf":[{"properties":{"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.EmojiIcon"},{"properties":{"file":{"description":"The file of the icon","example":"bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.FileIcon"},{"properties":{"color":{"description":"The color of the icon","enum":["grey","yellow","orange","red","pink","purple","blue","ice","teal","lime"],"example":"yellow","type":"string","x-enum-varnames":["ColorGrey","ColorYellow","ColorOrange","ColorRed","ColorPink","ColorPurple","ColorBlue","ColorIce","ColorTeal","ColorLime"],"title":"apimodel.Color"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"apimodel.NamedIcon"}],"type":"object","title":"apimodel.Icon"},"id":{"description":"The id of the type (which is unique across spaces)","example":"bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu","type":"string"},"key":{"description":"The key of the type (can be the same across spaces for known types)","example":"page","type":"string"},"layout":{"description":"The layout of the object","example":"basic","type":"string","x-enum-varnames":["ObjectLayoutBasic","ObjectLayoutProfile","ObjectLayoutAction","ObjectLayoutNote","ObjectLayoutBookmark","ObjectLayoutSet","ObjectLayoutCollection","ObjectLayoutParticipant"]},"name":{"description":"The name of the type","example":"Page","type":"string"},"object":{"description":"The data model of the object","example":"type","type":"string"},"plural_name":{"description":"The plural name of the type","example":"Pages","type":"string"},"properties":{"description":"The properties linked to the type","items":{"description":"The property","properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"id":{"description":"The id of the property","example":"bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a","type":"string"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"},"object":{"description":"The data model of the object","example":"property","type":"string"}},"type":"object","title":"apimodel.Property"},"type":"array","uniqueItems":false}},"type":"object","title":"apimodel.Type"}},"type":"object","title":"apimodel.TypeResponse"}}},"description":"The created type"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"429":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"rate_limit_exceeded","type":"string"},"message":{"example":"Rate limit exceeded","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":429,"type":"integer"}},"type":"object","title":"util.RateLimitError"}}},"description":"Rate limit exceeded"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
