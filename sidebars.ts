@@ -17,6 +17,31 @@ const sidebars: SidebarsConfig = {
       items: require("./docs/guides/sidebar.ts"),
     },
   ],
+  openApiSidebar20250520: [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionSelector(apiVersions),
+      className: "version-button",
+    },
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionCrumb(`2025-05-20`),
+    },
+    {
+      type: "category",
+      label: "Reference",
+      link: {
+        type: "generated-index",
+        title: "Reference",
+        description:
+          "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, properties, types, and templates to build powerful extensions.",
+        slug: "/reference",
+      },
+      items: require("./docs/api/2025-05-20/sidebar.ts"),
+    },
+  ],
   openApiSidebar20250422: [
     {
       type: "html",
@@ -37,7 +62,7 @@ const sidebars: SidebarsConfig = {
         title: "Reference",
         description:
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, properties, types, and templates to build powerful extensions.",
-        slug: "/reference",
+        slug: "/reference/2025-04-22",
       },
       items: require("./docs/api/2025-04-22/sidebar.ts"),
     },

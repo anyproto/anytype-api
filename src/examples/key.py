@@ -1,7 +1,7 @@
 import requests
 
 API_BASE_URL = "http://localhost:31009/v1"
-API_VERSION = "2025-04-22"
+API_VERSION = "2025-05-20"
 
 def start_challenge(app_name):
     url = f"{API_BASE_URL}/auth/display_code"

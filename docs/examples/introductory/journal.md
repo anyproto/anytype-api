@@ -31,8 +31,8 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 
-ANYTYPE_API_BASE_URL = "http://localhost:31009/v1"
-ANYTYPE_VERSION = "2025-04-22"
+ANYTYPE_API_BASE_URL = "http://localhost:31009"
+ANYTYPE_VERSION = "2025-05-20"
 
 load_dotenv()
 
@@ -48,7 +48,7 @@ headers = {
 
 def fetch_spaces():
     """Fetch and return the list of spaces from the API."""
-    url = f"{ANYTYPE_API_BASE_URL}/spaces"
+    url = f"{ANYTYPE_API_BASE_URL}/v1/spaces"
     resp = requests.get(url, headers=headers)
     resp.raise_for_status()
     data = resp.json().get("data", [])
@@ -74,7 +74,7 @@ def select_space(spaces):
 In the code above, we use the `requests.get` function to call `/spaces` with the required headers:
 
 - The **Authorization header** sends our app key as a Bearer token to authenticate.
-- We include **Anytype-Version** to match the API version (in this case, `"2025-04-22"`).
+- We include **Anytype-Version** to match the API version (in this case, `"2025-05-20"`).
 - On success, the response JSON contains our spaces. We take the first space's `id` (and printed its name for confirmation).
 
 For real-world scripts, you might choose a specific space by filtering `spaces_list` or by name, but here we use the first one for simplicity.

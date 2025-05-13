@@ -3,8 +3,8 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 
-ANYTYPE_API_BASE_URL = "http://localhost:31009/v1"
-ANYTYPE_VERSION = "2025-04-22"
+ANYTYPE_API_BASE_URL = "http://localhost:31009"
+ANYTYPE_VERSION = "2025-05-20"
 
 # Get the app key from the environment variable
 load_dotenv()
@@ -29,7 +29,7 @@ headers = {
 
 def fetch_spaces():
     """Fetch and return the list of spaces from the API."""
-    url = f"{ANYTYPE_API_BASE_URL}/spaces"
+    url = f"{ANYTYPE_API_BASE_URL}/v1/spaces"
     resp = requests.get(url, headers=headers)
     resp.raise_for_status()
     data = resp.json().get("data", [])
