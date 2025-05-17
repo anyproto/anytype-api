@@ -1,13 +1,27 @@
-<h1 style="display: flex; align-items: center;">
-    <img src="static/img/star.svg" alt="Logo" style="width: 22px; margin-right: 4px;">
-    Anytype API
-</h1>
+# Anytype API
 
-The developer portal for extending Anytype through powerful integrations.
+Start building with Anytype's API. The [developer portal](https://developers.anytype.io/) for extending Anytype through powerful integrations.
 
-- 👷‍♂️ [Developer Portal](https://developers.anytype.io/)
+- 📖 [Guides](https://developers.anytype.io/docs/guides)
+- 📚 [API Reference](https://developers.anytype.io/docs/reference)
+- 💡 [Cookbooks & Examples](https://developers.anytype.io/docs/examples)
 
-- 📎 [Swagger File](https://github.com/anyproto/anytype-api/blob/main/docs/api/openapi-2025-04-22.yaml)
+## Features
+
+The Anytype API gives you the tools to make more out of Anytype. Here's what you can do:
+
+- **Global & Space Search**: Find anything across all spaces or within specific ones
+- **Spaces & Members**: Manage workspaces and their participants
+- **Objects & Lists**: Create and organize pages, tasks, bookmarks and collections
+- **Properties & Tags**: Add metadata to enrich and organize your content
+- **Types & Templates**: Define types and templates for your objects
+
+## Projects
+
+Explore practical applications of Anytype's API:
+
+- [anytype-raycast](https://github.com/anyproto/anytype-raycast): A Raycast Extension based on the Anytype API that allows you to create, browse, search and edit within Anytype - right at your fingertips, anywhere on your Mac.
+- [anytype-mcp](https://github.com/anyproto/anytype-mcp): A Model Context Protocol (MCP) server to enable AI assistants to seamlessly interact with Anytype's API through natural language.
 
 ## Local Development
 
@@ -18,7 +32,7 @@ npm run start
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 > [!Note]
-> For local search functionality to work, you must run npm run build (and then npm run serve). The search index is generated during the build process and is not available in development mode.
+> For local search functionality to work, you must run `npm run build` (and then `npm run serve`). The search index is generated during the build process and is not available in development mode.
 
 ## Build & Serve
 
