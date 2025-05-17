@@ -1,11 +1,11 @@
 ---
 id: create-auth-challenge
-title: "Start new challenge"
-description: "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop On success, the service returns a unique challenge ID. This challenge ID must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access."
-sidebar_label: "Start new challenge"
+title: "Start challenge"
+description: "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop. The `challenge_id` must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access."
+sidebar_label: "Start challenge"
 hide_title: true
 hide_table_of_contents: true
-api: eJztV9tu20YQ/ZUFX5oAuid2YD3Vsd1CRVAHlpM+BIa8IkfSJuQus7uUowoC+hH9wn5JzywpUzcLSN231g+WuJzLmTOzM6NllJCLrcq9MjrqRz+TJis9OSGF0dT0KiMhCz8j7VUsWUrEM5mmpKckJsaKqZV4pafi/P1AyDgm54Q3AhqicGR/cGIui9S3xIccurk1c5WwuMR5qhJxL/N8pGVG942gBJ05WaGcKwKKQquvBYn7R68jldwLqRORKJencsFCbmasF7FJSDwoP1M6mDrXC7/ISVyS++JNLq61cEVAWLtSMQlLvrB6w1kd4eCyJW5nym0diaxwni1oMQ5RJsFrsOnNFxyTTnKjtBcvHBGEUvPwkllxJp1TkKvtcShAYBXN+WGX7WCwApER1LRyGRy4woIfP5MeiUoXwluAAhLQmVa6Lthme8aq3/GOE+LEVIKfMlOtqBGZnDMO8UGCAogtIf0jVho9YoRULi1y5KEf9T8td6rmFgEhaY7xmknJPaoBAcMjlBULzUgmZPHEycZzlZ3mx1IRLyx9LZQlwEAw1IhcPKNMRn12N+Eiglav0ztpdk6avQ4UWB9nDuTpabRaNQ4BY3drVCBHsBdyOyW7BolXdlFjXNfmUXC7KO5KYfh4a5IFS8RGe6SUv26kp/3ZMcjlvikz/kyxhymEBFsON8eRY4Fep/NdBnHfkF6vSu3NO1TSuktWXZa4mtI5EyvpN+u7unQ4CreNC0wTJXh+ory5R4QaBof0TWZ5yhGevjl9/WZyQnEiz7qv6Ez2qNsd904PJXWHFTwrn5bZURlApK3LEtQFHm4qtqLA3bEAcY8PBei8tHxQFz/svH4e7cDFn3X4Y5mMqhrZj7gRZahIOd3ReSsTcUSnYmdLhaw19pAwgvSF2xJGiI+C6Fw0xV09Rn7hVdr6yC08kHAVXB0gfaDLPq90Xnj2ffIvc8lgrZbpqJwcoyeDPsjqoNJez50ntZ/L78k/4XcYQB3h9hD4YFVOuVFH5+jj0R3HjiHA/T03oXxyifN+1J5329zq29W1HgV6gT/YK1t9YVPu3t7n/XY7NbFMZ7DRf9XtdM4ibnaO4sIqvxhyysosjUlaTBV2/vj0k7GZ5Bb+y2+3UdU/w10Ib2sW2VOIgUvhpm6kV2smlytu1hOzriJZpSWTipG6Is+xDfwoy/nSUmZv5ohhKYMXdXQO4dU67bXlA10Ek5gnB2W5eeCB6khmKe89oRShxHMwNJTKH5YgdHFTWIyav/740+USXxqizDm+1CWOxQTy/AHrKS9ijdBjx7QwOuFxjZtC3N8QcR2UGAbj4nwODuQ4JfGuFBPdVmcvyimgFeNWbDIOGM69WUfeRE9tj1MzboNN3X43uLj6dXjVyhLmAcFl7noyLNemw7QFmZGZjMrJv67mNfHgDafVrrA9zuGAizOTeiO2IXdjTJgHsbmMbCVko5X8v77+99bXqmt4+ubb4BNb3Kqq92XV5T5F8y4EQzdC7Wx2OnQvbmYss1yOpaMPNl2t+LhcBMOqqxzfKDTPiUwdHam+FzfVjvhSfM/ieTCCL7TY3j9RbgWLhZY7l1YxKAC8g3C1Wj8L7bH9/QjC/S2+Bop1vBS6KJ02b9lOLbE392uNc5CT+6Oym1Pt/fWQZ8q42rezsCREVj7w4o7/QMM/dEJVsUA4W0ap1NMirARRaZP//gZSKEkt
+api: eJztV01v20YQ/SsLXpoA+k7swDrVsd1CRdAElpMeAkNekiNpE3KX2V3KUQT9975ZUqYsyQJS91KgPljicj7evJmdGa2ilFxiVeGV0dEw+p00WenJCSmMprZXOQlZ+jlprxLJUiKZyywjPSMxNVbMrMQrPRPnH0ZCJgk5J7wR0BClI/uLEwtZZr4jPhbQLaxZqJTFJc4zlYo7WRQTLXO6awUl6CzICuVcGVCUWn0rSdw9eJ2o9E5InYpUuSKTSxZyc2O9SExK4l75udLB1Lle+mVB4pLcV2+KjriZ7xnKS+dZWIs4AE6DgaDuzVcck04Lo7QXLxwRhDJz/5IDdCZbUJBr+GBUlrxVtOCHXeKCQUahnMgJalq5HA5caRGqn0sPzrOl8BaggATMZLWuC7bZnrHqB94xt07MJEKtSO9ErcgUnDyIj1LkMrGETE5YafKAEVKFtKDbQz8afl7tFABTBP4d4zXTikYkFgHDI5QVC81JpmTxxHnDc010+1OliBeWvpXKEmAgGGpFLplTLqMhu5tyPUBr0BuctHsn7UEPCqyPMwfy9Cxar1uHgLG7DSqQI9gLuZ3q24DEK7tsMG7K7Ci4XRS3lTB8vDXpkiUSoz1Syl+30tP94hjkat+Uib9Q4mEKIcGWwyVw5Fhg0Ov9lEFcHaTXq0p7u4orWnfJasoSt0w6ZxIl/XZ91/cHR+HicIFpohTPT5Q3X/dQw+CQvsu8yDjC0zenr99MTyhJ5Vn/FZ3JAfX78eD0UFJ3WMGz8lmVHZUDRNa5rEBd4OG6ZisK3B0LcHR5MEDnpeWDpvhh5/XzaAcu/mzCj2U6qWtkP+JWlKMi5WxH561MxRGdmp1HKmStsYeEEaQv3SNhhPggiM5FM9zVY+SXXmWdT9yNAwlXwdUB0ke6atlKF6Vn3yf/MpcM1mqZTaohMHky6IOsjmrtzQh5Uvu5/J78E37HAdQRbg+BD1bljBt1dI4+Ht1y7BgC3N8LE8qnkDgfRt1Fv8utvltf60mgF/iDvarVlzbj7u19Mex2M5PIbA4bw1f9Xu8s4mbnKCmt8ssxp6zKUkzSYqqw84en34zNJbfwP/66ier+Ge5CeNuwyJ5CDFwK100jvdowuVpzs56aTRXJOi25VIzUlUWBwf6rrOZLR5m9mSPGlQxeNNE5hNfodDeWD3QRTGKeHKRlnGEGO5J5xhtMqETo8BgM/aR2h3UGTdyUFpNGtIUrJL60RJVyfGkqHNsM5PmDECuvVK3QYmNaGp3ytMZFIW5vCLiJSYyDcXG+AAUMSryrxES/09sLcgZoZdxJTM7xwrk3m8DbaKndODNxF2Tq7rvRxdWf46tOnjINCC5376dck7B+mLUgMzHTSTX4N8W84R204bReFR5Pczjg2syl3optzM1YbO8hj3Kx1UX+X0L/00toffc9ffddUINdbF2X7aruVZ+jRR+CoaegDLb7FXoQtySWWa1i6eijzdZrPq7WubCwKscXAy1wKjNHRwrpxXW96b0UP7M+HozgKy0fb5GonJLFQuNcSKsYFADeQrhekJ+F9tgWfgTh/i7eAMVSXQldVE7bN2ynkdib3o3GOcgp/FHZ7dn04f2YJ0Ncb815GPWRlfe8fuM/0PDPlVBVLBDOVlEm9awMgz2qbPLf30vrIFQ=
 sidebar_class_name: "post api-method"
 info_path: docs/api/2025-05-20/anytype-api
 custom_edit_url: null
@@ -22,7 +22,7 @@ import Heading from "@theme/Heading";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Start new challenge"}
+  children={"Start challenge"}
 >
 </Heading>
 
@@ -36,7 +36,7 @@ import Heading from "@theme/Heading";
 
 
 
-Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop On success, the service returns a unique challenge ID. This challenge ID must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.
+Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop. The `challenge_id` must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.
 
 <Heading
   id={"request"}

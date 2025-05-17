@@ -13,7 +13,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/2025-05-20/create-auth-challenge",
-          label: "Start new challenge",
+          label: "Start challenge",
           className: "api-method post",
         },
         {
