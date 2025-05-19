@@ -15,7 +15,7 @@ In this cookbook example, we'll write a small **Python** script that uses the **
 
 - **Fetches your spaces:** Uses the Anytype API to retrieve the list of available spaces (workspaces) accessible with your credentials.
 - **Selects a space:** Prompts you to select a space interactively from the fetched list.
-- **Creates a journal page:** Creates a new object of type `ot-page` (Anytype's type key for a basic page object) with the title "Journal – `<Date>`".
+- **Creates a journal page:** Creates a new object of type `page` (Anytype's type key for a basic page object) with the title "Journal – `<Date>`".
 - **Adds default content:** Prompts you interactively to specify custom content, or uses a detailed default template.
 - **Sets an icon:** Optionally assigns a 📝 emoji as the page icon for easy identification.
 
@@ -151,7 +151,7 @@ Let's break down the creation step:
 - We formatted today's date using Python's `datetime` to use in the journal title and content.
 - We built the `new_object_payload` dictionary with the required fields:
   - `name`: A string for the object title.
-  - `type_key`: The object type. Here we use `"ot-page"`. (Anytype uses keys like `ot-page`, `ot-note`, etc., for object types.)
+  - `type_key`: The object type. Here we use `"page"`. (Anytype uses keys like `page`, `note`, etc., for object types.)
   - `body`: The main content of the page. We provided a Markdown string with a heading and a prompt. The Anytype API supports Markdown in the body text.
   - `icon`: An optional icon for the page. We specify an emoji by giving the emoji character and setting `"format": "emoji"`.
 - We then used `requests.post` to send the payload to the create object endpoint. The URL includes the `first_space_id` we got earlier.
