@@ -3,8 +3,7 @@
 
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
-import type * as Plugin from "@docusaurus/types/src/plugin";
-import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import { getOpenApiPluginConfig } from "./openapi.config";
 
 const config: Config = {
   title: "Anytype API",
@@ -191,50 +190,7 @@ const config: Config = {
       {
         id: "openapi",
         docsPluginId: "classic",
-        config: {
-          anytype: {
-            specPath: "docs/api/openapi-2025-05-20.yaml",
-            outputDir: "docs/api",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-            version: "2025-05-20",
-            label: "2025-05-20",
-            baseUrl: "/api/2025-05-20",
-            downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-05-20.yaml",
-            versions: {
-              "2025-05-20": {
-                specPath: "docs/api/openapi-2025-05-20.yaml",
-                outputDir: "docs/api/2025-05-20",
-                label: "2025-05-20",
-                baseUrl: "/docs/api/2025-05-20/anytype-api",
-                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-05-20.yaml",
-              },
-              "2025-04-22": {
-                specPath: "docs/api/openapi-2025-04-22.yaml",
-                outputDir: "docs/api/2025-04-22",
-                label: "2025-04-22",
-                baseUrl: "/docs/api/2025-04-22/anytype-api",
-                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-04-22.yaml",
-              },
-              "2025-03-17": {
-                specPath: "docs/api/openapi-2025-03-17.yaml",
-                outputDir: "docs/api/2025-03-17",
-                label: "2025-03-17",
-                baseUrl: "/docs/api/2025-03-17/anytype-api",
-                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/openapi-2025-03-17.yaml",
-              },
-              "2025-02-12": {
-                specPath: "docs/api/swagger-2025-02-12.yaml",
-                outputDir: "docs/api/2025-02-12",
-                label: "2025-02-12",
-                baseUrl: "/docs/api/2025-02-12/anytype-api",
-                downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/api/swagger-2025-02-12.yaml",
-              },
-            },
-          } satisfies OpenApiPlugin.Options,
-        } satisfies Plugin.PluginOptions,
+        config: getOpenApiPluginConfig(),
       },
     ],
   ],

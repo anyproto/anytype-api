@@ -20,7 +20,7 @@ The authentication flow is a two‑step process:
    **Request**:
 
    ```bash
-   curl -X POST "http://localhost:31009/v1/auth/display_code?app_name=MyAwesomeApp" \
+   curl -X POST "http://localhost:31009/v1/auth/display_code?app_name=my_awesome_app" \
         -H "Content-Type: application/json" \
         -d "{}"
    ```
@@ -49,7 +49,7 @@ The authentication flow is a two‑step process:
 
    ```json
    {
-     "app_key": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=",
+     "app_key": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6="
    }
    ```
 
