@@ -1,31 +1,33 @@
 import requests
 
-API_BASE_URL = "http://localhost:31009/v1"
+API_BASE_URL = "http://localhost:31009"
 API_VERSION = "2025-05-20"
 
 def start_challenge(app_name):
-    url = f"{API_BASE_URL}/auth/display_code"
+    url = f"{API_BASE_URL}/v1/auth/challenges"
     headers = {
-        "Anytype-Version": API_VERSION
+        "Anytype-Version": API_VERSION,
+        "Content-Type": "application/json"
     }
-    params = {
+    data = {
         "app_name": app_name
     }
-    response = requests.post(url, headers=headers, params=params)
+    response = requests.post(url, headers=headers, json=data)
     response.raise_for_status()
     data = response.json()
     return data["challenge_id"]
 
 def solve_challenge(challenge_id, code):
-    url = f"{API_BASE_URL}/auth/token"
+    url = f"{API_BASE_URL}/v1/auth/api_keys"
     headers = {
-        "Anytype-Version": API_VERSION
+        "Anytype-Version": API_VERSION,
+        "Content-Type": "application/json"
     }
-    params = {
+    data = {
         "challenge_id": challenge_id,
         "code": code
     }
-    response = requests.post(url, headers=headers, params=params)
+    response = requests.post(url, headers=headers, json=data)
     response.raise_for_status()
     data = response.json()
     return data["api_key"]

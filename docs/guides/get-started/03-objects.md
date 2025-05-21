@@ -15,7 +15,7 @@ Objects are the building blocks of your work - whether they’re notes, tasks, o
 
 ## Create an Object
 
-To create an object, send a `POST` request to `/spaces/{space_id}/objects` with a payload containing the following fields:
+To create an object, send a `POST` request to `/v1/spaces/{space_id}/objects` with a payload containing the following fields:
 
 - **name:** The title of your object.
 - **icon:** Information about the icon (for example, an emoji).
@@ -50,13 +50,13 @@ Example payload:
 ## Retrieve, Update & Delete
 
 - Retrieve an Object:
-  `GET /spaces/{space_id}/objects/{object_id}`
+  `GET /v1/spaces/{space_id}/objects/{object_id}`
 
 - Update an Object:
-  `PUT /spaces/{space_id}/objects/{object_id}`
+  `PUT /v1/spaces/{space_id}/objects/{object_id}`
 
 - Delete an Object:
-  `DELETE /spaces/{space_id}/objects/{object_id}`
+  `DELETE /v1/spaces/{space_id}/objects/{object_id}`
   (This marks the object as archived.)
 
 Archiving moves the object out of active views but retains the ability to restore it later.
