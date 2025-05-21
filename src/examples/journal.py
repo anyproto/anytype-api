@@ -97,7 +97,7 @@ def create_journal_entry(space_id, name, body, icon):
         "body": body,
         "icon": {"emoji": icon, "format": "emoji"}
     }
-    url = f"{ANYTYPE_API_BASE_URL}/spaces/{space_id}/objects"
+    url = f"{ANYTYPE_API_BASE_URL}/v1/spaces/{space_id}/objects"
     resp = requests.post(url, headers=headers, json=payload)
     resp.raise_for_status()
     return resp.json().get("object", {})

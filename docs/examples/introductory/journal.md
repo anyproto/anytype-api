@@ -138,7 +138,7 @@ payload = {
     "icon": {"emoji": icon, "format": "emoji"}
 }
 
-create_url = f"{ANYTYPE_API_BASE_URL}/spaces/{space_id}/objects"
+create_url = f"{ANYTYPE_API_BASE_URL}/v1/spaces/{space_id}/objects"
 create_response = requests.post(create_url, headers=headers, json=payload)
 create_response.raise_for_status()
 
