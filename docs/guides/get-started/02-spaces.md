@@ -15,7 +15,7 @@ To get a list of spaces, send a `GET` request to the `/spaces` endpoint.
 
 ```bash
 curl -X GET "http://localhost:31009/v1/spaces" \
-     -H "Authorization: Bearer <YOUR_BEARER_TOKEN>"
+     -H "Authorization: Bearer <YOUR_API_KEY>"
 ```
 
 The API returns an array of space objects, each containing metadata such as the space ID, name, icon, and other properties.
@@ -26,7 +26,7 @@ To create a new space, send a `POST` request to the `/spaces` endpoint with a JS
 
 ```bash
 curl -X POST "http://localhost:31009/v1/spaces" \
-  -H "Authorization: Bearer <YOUR_BEARER_TOKEN>" \
+  -H "Authorization: Bearer <YOUR_API_KEY>" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "My New Space",

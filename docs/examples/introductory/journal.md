@@ -9,7 +9,7 @@ keywords: [anytype, api, python, journal, automation, script, developer, cookboo
 
 ## Overview
 
-In this cookbook example, we'll write a small **Python** script that uses the **Anytype API** to create a new daily journal entry in your Anytype workspace. We assume you have already obtained an **app key** (via the pairing flow) and that your Anytype app is running to accept API requests. Using this key, the script will connect to Anytype's local API, find your space, and create a new page object for today's journal entry.
+In this cookbook example, we'll write a small **Python** script that uses the **Anytype API** to create a new daily journal entry in your Anytype workspace. We assume you have already obtained an **API key** (via the auth challenge flow) and that your Anytype app is running to accept API requests. Using this key, the script will connect to Anytype's local API, find your space, and create a new page object for today's journal entry.
 
 **What this script does:**
 
@@ -36,12 +36,12 @@ ANYTYPE_VERSION = "2025-05-20"
 
 load_dotenv()
 
-app_key = os.getenv("ANYTYPE_APP_KEY")
-if not app_key:
-    raise RuntimeError("Environment variable ANYTYPE_APP_KEY is not set")
+api_key = os.getenv("ANYTYPE_API_KEY")
+if not api_key:
+    raise RuntimeError("Environment variable ANYTYPE_API_KEY is not set")
 
 headers = {
-    "Authorization": f"Bearer {app_key}",
+    "Authorization": f"Bearer {api_key}",
     "Anytype-Version": ANYTYPE_VERSION,
     "Content-Type": "application/json"
 }
@@ -73,7 +73,7 @@ def select_space(spaces):
 
 In the code above, we use the `requests.get` function to call `/spaces` with the required headers:
 
-- The **Authorization header** sends our app key as a Bearer token to authenticate.
+- The **Authorization header** sends our API key as a Bearer token to authenticate.
 - We include **Anytype-Version** to match the API version (in this case, `"2025-05-20"`).
 - On success, the response JSON contains our spaces. We take the first space's `id` (and printed its name for confirmation).
 

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 ANYTYPE_API_BASE_URL = "http://localhost:31009"
 ANYTYPE_VERSION = "2025-05-20"
 
-# Get the app key from the environment variable
+# Get the api key from the environment variable
 load_dotenv()
 
 # ANSI escape codes for colored output
@@ -16,13 +16,13 @@ YELLOW = "\033[33m"
 GREEN = "\033[32m"
 RED = "\033[31m"
 
-app_key = os.getenv("ANYTYPE_APP_KEY")
-if not app_key:
-    raise RuntimeError("Environment variable ANYTYPE_APP_KEY is not set")
+api_key = os.getenv("ANYTYPE_API_KEY")
+if not api_key:
+    raise RuntimeError("Environment variable ANYTYPE_API_KEY is not set")
 
 # Prepare HTTP headers for authentication and content type.
 headers = {
-    "Authorization": f"Bearer {app_key}",
+    "Authorization": f"Bearer {api_key}",
     "Anytype-Version": ANYTYPE_VERSION,
     "Content-Type": "application/json"
 }
@@ -34,7 +34,7 @@ def fetch_spaces():
     resp.raise_for_status()
     data = resp.json().get("data", [])
     if not data:
-        raise RuntimeError("No spaces found. Check your token or that Anytype is running.")
+        raise RuntimeError("No spaces found. Check your API key or that Anytype is running.")
     return data
 
 def select_space(spaces):

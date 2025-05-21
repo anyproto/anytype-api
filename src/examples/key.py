@@ -28,7 +28,7 @@ def solve_challenge(challenge_id, code):
     response = requests.post(url, headers=headers, params=params)
     response.raise_for_status()
     data = response.json()
-    return data["app_key"]
+    return data["api_key"]
 
 def main():
     app_name = input("Enter your app name: ")
@@ -36,8 +36,8 @@ def main():
         challenge_id = start_challenge(app_name)
         print(f"Challenge started. Please enter the 4-digit code displayed in the Anytype Desktop app.")
         code = input("Code: ")
-        app_key = solve_challenge(challenge_id, code)
-        print(f"App key: {app_key}")
+        api_key = solve_challenge(challenge_id, code)
+        print(f"API key: {api_key}")
     except requests.HTTPError as e:
         print(f"HTTP error: {e.response.status_code} - {e.response.text}")
     except Exception as e:
