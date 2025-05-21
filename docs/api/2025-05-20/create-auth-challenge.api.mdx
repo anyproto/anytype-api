@@ -1,11 +1,11 @@
 ---
 id: create-auth-challenge
-title: "Start challenge"
-description: "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop. The `challenge_id` must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access."
-sidebar_label: "Start challenge"
+title: "Create Challenge"
+description: "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a 4-digit code within the Anytype Desktop. The `challenge_id` must then be used with the `/v1/auth/api_keys` endpoint to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access."
+sidebar_label: "Create Challenge"
 hide_title: true
 hide_table_of_contents: true
-api: eJztV01v20YQ/SsLXpoA+k7swDrVsd1CRdAElpMeAkNekiNpE3KX2V3KUQT9975ZUqYsyQJS91KgPljicj7evJmdGa2ilFxiVeGV0dEw+p00WenJCSmMprZXOQlZ+jlprxLJUiKZyywjPSMxNVbMrMQrPRPnH0ZCJgk5J7wR0BClI/uLEwtZZr4jPhbQLaxZqJTFJc4zlYo7WRQTLXO6awUl6CzICuVcGVCUWn0rSdw9eJ2o9E5InYpUuSKTSxZyc2O9SExK4l75udLB1Lle+mVB4pLcV2+KjriZ7xnKS+dZWIs4AE6DgaDuzVcck04Lo7QXLxwRhDJz/5IDdCZbUJBr+GBUlrxVtOCHXeKCQUahnMgJalq5HA5caRGqn0sPzrOl8BaggATMZLWuC7bZnrHqB94xt07MJEKtSO9ErcgUnDyIj1LkMrGETE5YafKAEVKFtKDbQz8afl7tFABTBP4d4zXTikYkFgHDI5QVC81JpmTxxHnDc010+1OliBeWvpXKEmAgGGpFLplTLqMhu5tyPUBr0BuctHsn7UEPCqyPMwfy9Cxar1uHgLG7DSqQI9gLuZ3q24DEK7tsMG7K7Ci4XRS3lTB8vDXpkiUSoz1Syl+30tP94hjkat+Uib9Q4mEKIcGWwyVw5Fhg0Ov9lEFcHaTXq0p7u4orWnfJasoSt0w6ZxIl/XZ91/cHR+HicIFpohTPT5Q3X/dQw+CQvsu8yDjC0zenr99MTyhJ5Vn/FZ3JAfX78eD0UFJ3WMGz8lmVHZUDRNa5rEBd4OG6ZisK3B0LcHR5MEDnpeWDpvhh5/XzaAcu/mzCj2U6qWtkP+JWlKMi5WxH561MxRGdmp1HKmStsYeEEaQv3SNhhPggiM5FM9zVY+SXXmWdT9yNAwlXwdUB0ke6atlKF6Vn3yf/MpcM1mqZTaohMHky6IOsjmrtzQh5Uvu5/J78E37HAdQRbg+BD1bljBt1dI4+Ht1y7BgC3N8LE8qnkDgfRt1Fv8utvltf60mgF/iDvarVlzbj7u19Mex2M5PIbA4bw1f9Xu8s4mbnKCmt8ssxp6zKUkzSYqqw84en34zNJbfwP/66ier+Ge5CeNuwyJ5CDFwK100jvdowuVpzs56aTRXJOi25VIzUlUWBwf6rrOZLR5m9mSPGlQxeNNE5hNfodDeWD3QRTGKeHKRlnGEGO5J5xhtMqETo8BgM/aR2h3UGTdyUFpNGtIUrJL60RJVyfGkqHNsM5PmDECuvVK3QYmNaGp3ytMZFIW5vCLiJSYyDcXG+AAUMSryrxES/09sLcgZoZdxJTM7xwrk3m8DbaKndODNxF2Tq7rvRxdWf46tOnjINCC5376dck7B+mLUgMzHTSTX4N8W84R204bReFR5Pczjg2syl3optzM1YbO8hj3Kx1UX+X0L/00toffc9ffddUINdbF2X7aruVZ+jRR+CoaegDLb7FXoQtySWWa1i6eijzdZrPq7WubCwKscXAy1wKjNHRwrpxXW96b0UP7M+HozgKy0fb5GonJLFQuNcSKsYFADeQrhekJ+F9tgWfgTh/i7eAMVSXQldVE7bN2ynkdib3o3GOcgp/FHZ7dn04f2YJ0Ncb815GPWRlfe8fuM/0PDPlVBVLBDOVlEm9awMgz2qbPLf30vrIFQ=
+api: eJztV01v20YQ/SsLXtoC+k7swDrVcdzCRdAElpMeAkNakiNpY3KX2V0qUQT9975ZUqIsyQJS91KgPljicj7evJmdGa2ilFxiVeGV0dEw+p00WenJCSmMprZXOQlZ+jlprxLJUiKZyywjPSMxNVbMrMQrPROX72+ETBJyTngjoCFKR/YnJxayzHxHfCigW1izUCmLS5xnKhUTWRRjLXOatIISdBZkhXKuDChKrb6UJCZbr2OVToTUqUiVKzK5ZKGX7VTNlBeJSUl8VX6udDB2qZd+WZB4Q+7Bm6Ij7uYHpvLSeRbWIg6Q02AgqE+6i36Xo+/KQo0faOkmgnRaGKU9B+lMtqAg2XDCyCx5q2jBD/vkefNAmnEoJ3KCmlYuh1FXWoTr59KD92wpvAUsYAE7Wa3rgm22Z6z6jnfMrxMziWAr4jtRKzIFJxDiNynymVhCNsesNN5ihFQhLSj30I+Gn1Z7RcAkIQeO8ZppRSSSi4DhEcqKheYkU7J44tzhuaa6/bFSxAtLX0plCTAQDLUil8wpl9GQ3U25JqA16A3O2r2z9qAHBdbHmQN5ehat161jwNjdBhXIEeyF3F4FbkDilV02GDeldhLcPor7Shg+Xpt0yRKJ0R4p5a876el+dgxydWjKxJ8p8TCFkGDL4SI4ciww6PV/yCCuD9LrVaW9W8cVrftkNWWJmyadM4mSfrfC6zuEo3B1uMA0UYrnJ8qbr3x9GcAifZN5kXGM56/OX76anlGSyov+C7qQA+r348H5sbTu8YJn5bMqPyoHjKxzFcr2auP1tuYsCgyeCvPmzdEwnZeWD5orADsve73nkA+g/NlQEMt0XFfKYdStKEddytmezmuZihM6NUOPVMhaY48JI0hfukfCCHEriJ5FM9zYUwkovco6H7kvBxKug6sjpO/Cxsuzf5lJhmq1zMbVMBg/GfJRTm9q7c0oeVL7ueye/RN2RwHUk8weBx+syhk36+gSvTy659gxCLjHFyYUTyFxPoy2I2tb69wNK2tVsy9txv3b+2LY7WYmkdkcFoYv+r3eRcTtzlFSWuWXI05YlaOYpMVcYdfbp9+MzSU38T/+uovqDhruQXjbcMieQgRcCLdNK73e8Lhac7uemk0NyTopuVSM1JVFYaz/VVYTpqPMwdQRo0oGL5roHMJrdLoby0c6CGYxzw7SMs4whR3JPOM9JtQhdHgQhl5Su8NSgzZuSotZI9rCFRJfWqJKOL409Y2dBvL8QYiVF6tWaLIxLY1OeV7jmhC3NgTcxCRGwbi4XIACBiXeVmKi3+kdBInNZ17GncTkHC+ce7MJvI2W2o0zE3dBpu6+vbm6/nN03clTpgHB5e7dlCsS1o+zFmTGZjquRv+mlDe8gzac1svC43kOB1yZudQ7sVWNXVztrCKPkrHTRP7fRf/zu2jdADx9813Qg5VsXdfuqm5Xn6JFH4KhsbSinZaFNsRdiSVWq1g6+mCz9ZqPq50ubK3K8d1AD5zKzNGJUvr5tl73fhE/skMexc+bz6NVErVTsljonQtpFYMCwHsI11vys9CeWsVPIDxcyBug2KwroavKafuO7TQSB+O70bgEOYU/Kbs7nN6/G/FwiOvVOQ+zPrLyK+/g+A80/Jsl1BQLhLNVlEk9K8Nkjyqb/Pc37TEikQ==
 sidebar_class_name: "post api-method"
 info_path: docs/api/2025-05-20/anytype-api
 custom_edit_url: null
@@ -22,13 +22,13 @@ import Heading from "@theme/Heading";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Start challenge"}
+  children={"Create Challenge"}
 >
 </Heading>
 
 <MethodEndpoint
   method={"post"}
-  path={"/v1/auth/display_code"}
+  path={"/v1/auth/challenges"}
   context={"endpoint"}
 >
   
@@ -36,7 +36,7 @@ import Heading from "@theme/Heading";
 
 
 
-Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a short code within the Anytype Desktop. The `challenge_id` must then be used with the token endpoint (see below) to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.
+Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a 4-digit code within the Anytype Desktop. The `challenge_id` must then be used with the `/v1/auth/api_keys` endpoint to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.
 
 <Heading
   id={"request"}
@@ -62,7 +62,7 @@ Generates a one-time authentication challenge for granting API access to the use
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the displayed code and needed to solve the challenge for token","example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object","title":"apimodel.DisplayCodeResponse"}}},"description":"The challenge ID associated with the started challenge"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  responses={{"201":{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the displayed code and needed to solve the challenge for api_key","example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object","title":"apimodel.CreateChallengeResponse"}}},"description":"The challenge ID associated with the started challenge"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
 >
   
 </StatusCodes>

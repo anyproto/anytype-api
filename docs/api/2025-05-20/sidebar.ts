@@ -12,14 +12,14 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/2025-05-20/create-auth-challenge",
-          label: "Start challenge",
+          id: "api/2025-05-20/create-api-key",
+          label: "Create API Key",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "api/2025-05-20/solve-auth-challenge",
-          label: "Solve challenge",
+          id: "api/2025-05-20/create-auth-challenge",
+          label: "Create Challenge",
           className: "api-method post",
         },
       ],
