@@ -16,8 +16,8 @@ export interface OpenApiConfig {
 }
 
 export const openApiConfig: OpenApiConfig = {
-  latestVersion: "2025-04-22",
-  showVersions: ["2025-04-22", "2025-03-17"],
+  latestVersion: "2025-05-20",
+  showVersions: ["2025-05-20", "2025-04-22", "2025-03-17"],
   versions: {
     "2025-05-20": {
       specPath: "docs/api/openapi-2025-05-20.yaml",
