@@ -12,7 +12,7 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/logo.svg",
+  favicon: "img/logo.ico",
 
   organizationName: "anyproto",
   projectName: "anytype-api",
@@ -39,6 +39,7 @@ const config: Config = {
       { name: "twitter:title", content: "Start building with Anytype's API" },
       { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://developers.anytype.io/img/twitter-card.png" },
     ],
     colorMode: {
       defaultMode: "light",
