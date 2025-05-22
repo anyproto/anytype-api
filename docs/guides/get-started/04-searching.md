@@ -20,8 +20,9 @@ Call the `/search` endpoint to perform a search across all spaces you have acces
 
 ```bash
 curl -X POST "http://localhost:31009/v1/search?offset=0&limit=10" \
--H "Authorization: Bearer <YOUR_API_KEY>" \
 -H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_API_KEY>" \
+-H "Anytype-Version: 2025-05-20" \
 -d '{
     "query": "project",
     "types": ["ot-page"],

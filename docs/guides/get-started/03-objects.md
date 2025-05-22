@@ -23,10 +23,14 @@ To create an object, send a `POST` request to `/v1/spaces/{space_id}/objects` wi
 - **type_key:** The type of object to create.
 - **properties:** A list of properties to include in the object.
 
-Example payload:
+Example request:
 
-```json
-{
+```bash
+curl -X POST 'http://localhost:31009/v1/spaces/<YOUR_SPACE_ID>/objects' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <YOUR_API_KEY>" \
+-H "Anytype-Version: 2025-05-20" \
+-d '{
   "name": "Project Plan",
   "icon": {
     "emoji": "📄",
@@ -44,7 +48,7 @@ Example payload:
       "checkbox": true
     }
   ]
-}
+}'
 ```
 
 ## Retrieve, Update & Delete
