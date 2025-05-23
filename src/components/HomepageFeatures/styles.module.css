@@ -5,9 +5,23 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.features::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1px;
+  background: var(--ifm-color-emphasis-200);
 }
 
 .featureSvg {
+  color: var(--ifm-color-emphasis-900);
   height: 250px;
   width: 250px;
   padding: 1.5rem;

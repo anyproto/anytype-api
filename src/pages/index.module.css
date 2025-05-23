@@ -4,12 +4,16 @@
  */
 
 .heroBanner {
-  color: #000000;
+  color: var(--ifm-color-emphasis-900);
   padding: 2rem;
   text-align: left;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-color-primary-lightest);
+  background: linear-gradient(180deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-background-color) 100%);
+}
+
+[data-theme="dark"] .heroBanner {
+  background: linear-gradient(180deg, var(--ifm-color-primary-lightest) -100%, var(--ifm-background-color) 100%);
 }
 
 .contentWrapper {
