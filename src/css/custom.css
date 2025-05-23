@@ -34,6 +34,49 @@ h1 {
   font-size: 2.25rem;
 }
 
+/* Footer */
+.footer {
+  background-color: var(--ifm-background-color);
+  position: relative;
+  padding-top: 3rem;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1px;
+  background: var(--ifm-color-emphasis-200);
+}
+
+.footer .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 0.75rem;
+}
+
+.footer-copyright-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.footer-copyright-flag {
+  margin-left: 0.5rem;
+  height: 1em;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
 /* Sidebar Method labels */
 .api-method > .menu__link {
   align-items: center;

@@ -131,10 +131,10 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `<div style="display: flex; flex-direction: column-reverse; gap: 1rem;">
-      <div style="display: flex; align-items: center; justify-content: center; color: #9ca3af;">
+      copyright: `<div class="footer-copyright">
+      <div class="footer-copyright-content">
         Made by Any — a Swiss association
-        <img src="/img/swiss.svg" alt="Swiss" style="margin-left: 0.25rem; height: 1em; display: inline-block; vertical-align: text-bottom;" />
+        <img src="/img/swiss.svg" alt="Swiss" class="footer-copyright-flag" />
       </div>
     </div>`,
     },
