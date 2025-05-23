@@ -1,0 +1,116 @@
+---
+id: changelog
+title: Changelog
+sidebar_label: Changelog
+description: Track changes and updates to the Anytype API across different versions
+toc_max_heading_level: 4
+---
+
+### 2025-05-20
+
+#### Added
+
+- New authentication endpoints:
+  - `POST /v1/auth/challenges` for creating new challenges
+  - `POST /v1/auth/api_keys` for exchanging challenge code for API key
+- Support for built-in SVG as type icons
+- Stable type and property keys: You can now specify these keys when creating or updating types and properties. They must be unique and follow camel_case formatting.
+
+#### Changed
+
+- Burst rate limiting (sustained 1rps, burst size 60) with option to disable via `ANYTYPE_API_DISABLE_RATE_LIMIT=1` environment variable
+- Switched creation endpoints to return StatusCreated (201) instead of StatusOk (200)
+- Improved API key generation system
+- Removed ExportService dependency, now using RPC for exports
+
+#### Fixed
+
+- Request body format for `POST /spaces/:space_id/lists/:list_id/objects`
+- Emoji input validation checks
+- `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects` now works with built-in type queries
+
+#### Breaking Changes
+
+- Removed `format` from `PropertyLinkWithValue` for improved efficiency
+- Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) will be deprecated in favor of new challenge-based system in the future
+- Added required subresource `views` to path `/spaces/:space_id/lists/:list_id/:view_id/objects [get]` for retrieving objects in a list view
+
+### 2025-04-22
+
+#### Added
+
+- New space management endpoint:
+  - `PATCH /spaces/:space_id`
+- New type management endpoints:
+  - `POST /spaces/:space_id/types`
+  - `PATCH /spaces/:space_id/types/:type_id`
+  - `DELETE /spaces/:space_id/types/:type_id`
+- New property management endpoints:
+  - `GET /spaces/:space_id/properties`
+  - `GET /spaces/:space_id/properties/:property_id`
+  - `POST /spaces/:space_id/properties`
+  - `PATCH /spaces/:space_id/properties/:property_id`
+  - `DELETE /spaces/:space_id/properties/:property_id`
+- New tag management endpoints:
+  - `GET /spaces/:space_id/properties/:property_id/tags`
+  - `GET /spaces/:space_id/properties/:property_id/tags/:tag_id`
+  - `POST /spaces/:space_id/properties/:property_id/tags`
+  - `PATCH /spaces/:space_id/properties/:property_id/tags/:tag_id`
+  - `DELETE /spaces/:space_id/properties/:property_id/tags/:tag_id`
+- Added property `id` alongside `key` in responses
+- Return linked `properties` (featured and from sidebar) and `plural_name` for types
+
+#### Changed
+
+- Renamed `recommended_layout` to `layout` for types
+- Moved `description` and `source` to `[]properties` in `CreateObjectRequest`
+- Renamed layout `todo` to `action` for consistency
+- Removed `ot-` prefix for type keys
+- Renamed `property` to `property_key` in sort options in search
+
+#### Breaking Changes
+
+- Deprecated separate markdown export, unified with `getObject`
+- Deprecated `blocks` in `getObject` in favor of `markdown` exported body
+
+### 2025-03-17
+
+#### Added
+
+- New space endpoint:
+  - `GET /spaces/:space_id`
+- New space member endpoint:
+  - `GET /spaces/:space_id/members/:member_id`
+  - `PATCH /spaces/:space_id/members/:member_id`
+- New list (collection/query) endpoints:
+  - `GET /spaces/:space_id/lists/:list_id/views`
+  - `GET /spaces/:space_id/lists/:list_id/views/view_id/objects`
+  - `POST /spaces/:space_id/lists/:list_id/objects`
+  - `DELETE /spaces/:space_id/lists/:list_id/objects`
+- Added `Anytype-Version` to response headers
+- Added `name` as sort property option for search endpoints
+- Added `description` field for spaces
+- Included custom `properties` (formerly: relations) in object response details
+
+#### Changed
+
+- Upgraded Swagger specification to OpenAPI 3.1
+- Implemented `last_modified` as a fallback sort criterion for the `last_opened` sort
+- Updated status codes for deleted resources:
+  - `GET /spaces/:space_id/objects/:object_id` now returns 410 for deleted objects
+  - `GET /spaces/:space_id/types/:type_id` now returns 410 for deleted types
+  - `GET /spaces/:space_id/types/:type_id/templates/:template_id` now returns 410 for deleted templates
+- Archived objects, types and templates now have `archived: true` flag
+
+#### Fixed
+
+- Corrected error mapping originating from middleware functions
+
+#### Breaking Changes
+
+- Renamed `details` to `properties` with explicit `format` field and standardized naming conventions
+- Standardized icon structure with clear format differentiation (`emoji`, `file`, or `icon`)
+- Renamed `timestamp` to `property` in sort for search endpoints
+- Renamed `unique_key` to `key` for types
+- Renamed `object_type_unique_key` to `type_key` for object creation
+- Changed markdown export endpoint to `GET /spaces/:space_id/objects/:object_id/:format`
