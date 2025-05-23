@@ -3,21 +3,27 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .featureSvg {
   height: 250px;
   width: 250px;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .featureTitle {
   text-align: left;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
 }
 
 .featureDescription {
   text-align: left;
-  color: var(--ifm-font-color-secondary);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .featureLink {
@@ -25,8 +31,10 @@
   font-weight: bold;
   color: var(--ifm-link-color);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .featureLink:hover {
-  text-decoration: underline;
+  color: var(--ifm-color-primary-darker);
+  text-decoration: none;
 }

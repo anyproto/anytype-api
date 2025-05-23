@@ -5,37 +5,23 @@ import styles from "./styles.module.css";
 
 const FeatureList = [
   {
-    title: "📚 Reference",
+    title: "Reference",
     Svg: require("@site/static/img/reference.svg").default,
-    description: (
-      <>
-        Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, types, and templates to build
-        powerful extensions.
-      </>
-    ),
+    description: <>Everything you need to know about the API in one place.</>,
     link: "/docs/reference",
     linkText: "Jump to the reference →",
   },
   {
-    title: "💡 Examples",
+    title: "Examples",
     Svg: require("@site/static/img/examples.svg").default,
-    description: (
-      <>
-        Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.
-      </>
-    ),
+    description: <>Real-world examples to kickstart your integration journey.</>,
     link: "/docs/examples",
     linkText: "Explore the examples →",
   },
   {
-    title: "👥 Join our Community",
+    title: "Join our Community",
     Svg: require("@site/static/img/community.svg").default,
-    description: (
-      <>
-        Connect with other developers, get support, and share your creative projects. Join our community to collaborate and shape the future
-        of Anytype.
-      </>
-    ),
+    description: <>Connect with developers and help shape the future of Anytype.</>,
     link: "https://github.com/anyproto",
     linkText: "Check out our GitHub →",
   },

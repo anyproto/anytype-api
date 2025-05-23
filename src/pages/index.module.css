@@ -5,11 +5,16 @@
 
 .heroBanner {
   color: #000000;
-  padding: 2rem 2rem;
+  padding: 2rem;
   text-align: left;
   position: relative;
   overflow: hidden;
   background-color: var(--ifm-color-primary-lightest);
+}
+
+.contentWrapper {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .buttons {
@@ -19,7 +24,6 @@
 }
 
 .icon {
-  width: 75%;
   max-width: 100%;
   height: auto;
   display: block;
@@ -30,7 +34,7 @@
   display: grid;
   grid-template-columns: 1fr 0.6fr;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
 }
 
 .iconContainer {
