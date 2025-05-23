@@ -1,12 +1,12 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: var(--spacing-2xl) 0;
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   position: relative;
-  padding-top: 3rem;
+  padding-top: var(--spacing-3xl);
 }
 
 .features::before {
@@ -24,31 +24,35 @@
   color: var(--ifm-color-emphasis-900);
   height: 250px;
   width: 250px;
-  padding: 1.5rem;
+  padding: var(--spacing-xl);
 }
 
 .featureTitle {
   text-align: left;
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--ifm-heading-color);
 }
 
 .featureDescription {
   text-align: left;
   color: var(--ifm-color-emphasis-700);
-  font-size: 0.95rem;
+  font-size: var(--font-size-body);
   line-height: 1.5;
+  margin-bottom: var(--spacing-lg);
 }
 
 .featureLink {
   display: inline-block;
-  font-weight: bold;
-  color: var(--ifm-link-color);
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
   text-decoration: none;
+  font-size: var(--font-size-small);
   transition: color 0.15s ease;
 }
 
 .featureLink:hover {
-  color: var(--ifm-color-primary-darker);
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }

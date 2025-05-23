@@ -15,6 +15,35 @@
   --ifm-color-primary-lightest: #ffdbd8;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --shadow-light: rgba(0, 0, 0, 0.04);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+
+  /* Typography Scale */
+  --font-size-h1: 2.5rem; /* 40px - Page titles */
+  --font-size-h2: 2.25rem; /* 36px - Section titles */
+  --font-size-h3: 1.125rem; /* 18px - Subsection titles */
+  --font-size-h4: 1rem; /* 16px - Minor titles */
+  --font-size-large: 1.125rem; /* 18px - Large body text */
+  --font-size-body: 0.95rem; /* 15px - Regular body text */
+  --font-size-small: 0.875rem; /* 14px - Small text */
+  --font-size-caption: 0.8rem; /* 13px - Captions, code */
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 0.75rem; /* 12px */
+  --spacing-lg: 1rem; /* 16px */
+  --spacing-xl: 1.5rem; /* 24px */
+  --spacing-2xl: 2rem; /* 32px */
+  --spacing-3xl: 3rem; /* 48px */
+  --spacing-4xl: 4rem; /* 64px */
+
+  /* Border Radius Scale */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -31,7 +60,19 @@
 
 /* Page title customization */
 h1 {
-  font-size: 2.25rem;
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
 }
 
 /* Footer */
@@ -96,7 +137,7 @@ h1 {
   text-align: center;
   flex-shrink: 0;
   border-color: transparent;
-  color: white;
+  color: var(--ifm-color-white);
 }
 
 .get > .menu__link::before {
@@ -115,7 +156,7 @@ h1 {
 }
 
 .delete > .menu__link::before {
-  content: "del";
+  content: "delete";
   background-color: var(--openapi-code-red);
 }
 
