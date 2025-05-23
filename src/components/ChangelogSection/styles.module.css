@@ -15,7 +15,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
+  width: min(1000px, 100vw);
   height: 1px;
   background: var(--ifm-color-emphasis-200);
 }
@@ -146,7 +146,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .changelogSection {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-1xl) 0;
   }
 
   .changelogContainer {
@@ -172,12 +172,16 @@
   }
 
   .versionMeta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-xs);
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-sm);
   }
 
   .separator {
-    display: none;
+    display: inline;
+  }
+
+  .viewAllContainer {
+    margin-bottom: var(--spacing-xl);
   }
 }

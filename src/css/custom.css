@@ -88,7 +88,7 @@ h4 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
+  width: min(1000px, 100vw);
   height: 1px;
   background: var(--ifm-color-emphasis-200);
 }
@@ -163,4 +163,19 @@ h4 {
 .patch > .menu__link::before {
   content: "patch";
   background-color: var(--openapi-code-orange);
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: var(--spacing-xl);
+  }
+
+  .footer__links {
+    margin-bottom: 0rem;
+  }
+
+  .footer-copyright {
+    padding-top: 0rem;
+  }
 }

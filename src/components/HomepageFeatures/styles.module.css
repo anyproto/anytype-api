@@ -15,7 +15,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1000px;
+  width: min(1000px, 100vw);
   height: 1px;
   background: var(--ifm-color-emphasis-200);
 }
@@ -55,4 +55,11 @@
 .featureLink:hover {
   color: var(--ifm-color-primary);
   text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .features {
+    padding-top: var(--spacing-xl);
+  }
 }
