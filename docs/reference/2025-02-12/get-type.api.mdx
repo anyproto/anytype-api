@@ -1,0 +1,55 @@
+---
+id: get-type
+title: "Get type"
+description: "Get type"
+sidebar_label: "Get type"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVs1u4zYQfhWCpxZwLFtJDNSnum2wCLBoF+vsKVgYtDS2mJVEhkM5qwi+7Rv0AfqKfYTOiP6RbRVoc9qTqOE3nJmPw49spFVOFeDBoZw+NjIFTJy2XptSTuXcqgTE/W9yIDX/W+UzGpfkQX/IswudksXBc6UdpHLqXQUDiUkGhZLTRvratljvdLmW2+3gPMYDAf41BHv/3wifGYzWlAjI8/FoxJ+zqBkIXhLQQyraJQYyMaWH0jNaWZvrRDE6ekJ2aTohrTMWnNchQEjg3KqT4AVfVWFzzvDvv/78RlHO8qW601PcUq1qB3pdLyf5Lb6aDK9jj/HkSxU/3cR1OrmFSfZcx9X12r+u05fnzSR7XXkEX/UtH6jsBvig1tCHdJCYooAyhXSRq9pU/tTPm9T0+e0J6CADoRfIqtTE+eIL1Kd4469sb1KH1aVZPkHiey1suxmNL3f5U6kqnxmnXyF9+/6Cc8ZdmgtA5Jz7mvw/J31zmfRHQFM5Onel8WJlqvK7TP2271TdU5KuVLlAcBtwIoT/7rJno1qz4LWTKEkyTgt5B34vCiSOmaETKtfg6bfVp6mMWvHDqNmL4DZql4qanWRtCRtYCMJauZzdotwkKs8M+un1eDT6KdqMJSsWQlI57es5UxHK/EWhTmYVhzsUmnlv5U78glQQpq1SlyvDQKZaJeHgFkpzUKysNc7/rMqalxlqcxTYWbCJecDQREiUA+E0io4+0X7l7TlZD5lGMftwL1SemxcUmruAkDQrXrTPxD6I23U2CqySTCj6tiwORNgcFKoMYoxDyoT6BEjEuZRjtmIeDsdsQ8WpZQ7ifYCJ8XB0kf6awlfLIckaV0Jt5M2+pCuP0TI3y4hYKqP397/e/T6/GxZpK2jgCvxjNaf9o8X76WgxC7NaVNjqlvZ5l1Dig6y8/YGkeBTfXo3iq3HMASw1QKHKTmmdjjth97D1Hr76yOaUbCukXGaz68bHcBUj+U47l3LobbLtb1HqM+48dmgaah345PLtls0kyo4k+ZGGG+U08xqeAxp5TO2/UjnCRW6Hgy1/+Li7oH8UnVdDb+47I3HJDKm84j8atrfC8VXRPhXeEv/4onhD+D1X288EzUCl4FomwuwsScD6jt+FnPFhPkjGu7sHOpz/AD74PQ4=
+sidebar_class_name: "get api-method"
+info_path: docs/reference/2025-02-12/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading as={"h1"} className={"openapi__heading"} children={"Get type"}></Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/spaces/{space_id}/types/{type_id}"}
+  context={"endpoint"}
+>
+
+</MethodEndpoint>
+
+Get type
+
+<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+
+<ParamsDetails
+  parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type ID","in":"path","name":"type_id","required":true,"schema":{"type":"string"}}]}
+>
+
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"The requested type","content":{"application/json":{"schema":{"properties":{"type":{"properties":{"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu","type":"string"},"name":{"example":"Page","type":"string"},"recommended_layout":{"example":"todo","type":"string"},"type":{"example":"type","type":"string"},"unique_key":{"example":"ot-page","type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"404":{"description":"Resource not found","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
+>
+
+</StatusCodes>

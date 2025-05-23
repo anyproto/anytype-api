@@ -1,0 +1,71 @@
+---
+id: solve-auth-challenge
+title: "Solve challenge"
+description: "After receiving a challenge ID from the display_code endpoint, the client calls this endpoint to provide the corresponding 4-digit code (also via a query parameter) along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns a permanent app key. This endpoint is central to the authentication process, as it validates the user's identity and issues a token that can be used for further interactions with the API."
+sidebar_label: "Solve challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV91u2zYUfhVCN2sB23K8tMAMDJibpIW3os3iLL0oAoOSKJuNJCok5dQxDOwh9oR7kn2HlC3Hdryl2dWwXDg2dX6+8/H8aREkwsRallaqIugHg9QKzbSIhZzJYsI4i6c8y0QxEWx4ylKtcmangiXSlBmfj2OVCCaKpFSysC33KM6kKCyLoWZwIM36ObOKlVrNJHScpNJamFIVCbk6bidyIqFIJl/wzCg2kxwIbiuh56zkmucC6F4yninI30k79WY2EHbY5bQBxGZCy1QKwsHtlrBRWUVRMyB0SGLLeJG0mEwZYEjTAg+20oUBhlLonBcUFy9LdiPm5GgzNDKCx5pnFCV54hU+Cytj7rwg8FgYGOWGzM94JhNuHTTBKiP0dzhPSMHOCQcsmkqQb6tuROEjiHnBIieesFRpllYa6poBgdA8JkemIWZwPuwErUABvMMwTHDDCHsmBsB2smICImtyTdD/vNjKCWIURBqKQqUryxQmcEBZktBU8ERo/CpgiBKpmNt5KdpXXhEPtLitpBbAYHUlWoGJpyLnQZ/cpbzKLLR63d6rdve43etBgfQJsNVIj2C5bO0DhqSsMTU3C2QuyhU2l0ANtLXgWCYHcf0tgAcpi2TRUszoZqhKagLYqTA3VpWUN4/hgfaTcFx7YWHsG5XMSSJWSIDC0lf4yeqcC78YgrnYNaWiL0h3mEJQga9BIwwJ9LrdJxlEWiO9rPTakB2jOPylbl9VXTk+e3FHGwVC7LmADIgQX3leZgTzfjp6F97/epFPBqdzmX06t5OkSNXR7enrrvql2wtHVxN59I6/ta9/3JcwW+Hit7TOMC9lDtazziXV1kVNQODoeBz4TgnKwlcDAlFa3vtC95XgytNUkaG40B/W8cHD8bM4dumC/w1NEU/Gtf1dFlpBjrbDJ1s6b3jCDujUjD1QEVorvU/YWG4r80AYIa4FqTlN0BsOXQg6cda58j0RJJw5V3uuY1i4xgnmy8qS71f/MpeukxY8G6Mjo+mNHw16L6vDWpt5bfao9nP5ffUt/I4cqAPc7gPvrPIJDYaAEj24ptiR8DRMSuXSp+Q47wchVXToxhUOvRU/UCqd0YywtuyHYaawG0yh2f/+qNv9IZwdBdTSjIgrjeE3orvy1xMJrjG7yOv611uFSUyz4udPl0HdJV0RuKcNfeTMgaccuGja5dmKwsWS2nGqVunD6/vIuSSwpipLpe1P3PfxjlQ7w42NvAweNAEaRNjohCvLexoLVgaaoyIv1R2IAu08z5BVm9PcD/PaHzYE9GpVaSwSf/7+hyk5vrSYv2x8aXIbmxjk6R+sZ7RmtNxOEYk5ti1aClAigloeIm6CYiNnnA1m4IBHmWDvvRg76nR3osTkm1ZRJ1Y5BQznVq0ib6PBhlGmohBsFuH74cnZh9FZJ0+IBwSXm48pZSOs76fNyYxVOvYrxiqNV8SDN5zWS8nDvQEOKCuxrW3ENqJ1oNkQgq3L2Ogf/2/A/8ENuG4JVny1IS4NS9iyTuZF3bs+B67LQNR1L7QjalB0vlhE3IjfdLZc0rHf3dySLA2VCNpgiqsSB1LqxUW92r1k/2Bl3QvWLVXbmysYrEg0cJvpt8B5+gJ7CJ3fYxtU1/RDS4IFxq4hWL8lPIu+Q68iB9DtvpA8oM8LnXin7Uuy00jsrBSNxiCORWkPym4OzPOPI5paUb23527/CDS/oxcAfAINvbC5NCYBd7YIMl5MKrdtBN4m/f0F37B+/A==
+sidebar_class_name: "post api-method"
+info_path: docs/reference/2025-04-22/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Solve challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/auth/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+After receiving a challenge ID from the display_code endpoint, the client calls this endpoint to provide the corresponding 4-digit code (also via a query parameter) along with the challenge ID. The endpoint verifies that the challenge solution is correct and, if it is, returns a permanent app key. This endpoint is central to the authentication process, as it validates the user's identity and issues a token that can be used for further interactions with the API.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-04-22","type":"string"}},{"description":"The ID of the challenge to solve","in":"query","name":"challenge_id","required":true,"schema":{"type":"string"}},{"description":"4-digit code retrieved from Anytype Desktop app","in":"query","name":"code","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"app_key":{"description":"The app key used to authenticate requests","example":"zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=","type":"string"}},"type":"object","title":"apimodel.TokenResponse"}}},"description":"The app key that can be used in the Authorization header for subsequent requests"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

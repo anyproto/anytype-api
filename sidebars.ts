@@ -1,6 +1,6 @@
 // @ts-check
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
-import apiVersions from "./docs/api/versions.json";
+import apiVersions from "./docs/reference/versions.json";
 import { versionCrumb, versionSelector } from "docusaurus-plugin-openapi-docs/lib/sidebars/utils";
 import { openApiConfig } from "./openapi.config";
 
@@ -29,12 +29,12 @@ function buildApiSidebar(version: string) {
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, properties, types, and templates to build powerful extensions.",
         slug: version === latestVersion ? "/reference" : `/reference/${version}`,
       },
-      items: require(`./docs/api/${version}/sidebar.ts`),
+      items: require(`./docs/reference/${version}/sidebar.ts`),
     },
     {
       type: "ref",
       label: "Changelog",
-      id: `api/changelog`,
+      id: "reference/changelog",
     },
   ];
 }

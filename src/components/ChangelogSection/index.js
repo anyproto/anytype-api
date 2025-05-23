@@ -46,7 +46,7 @@ function ChangelogEntry({ version, date, title, description, isLatest }) {
   const timeAgo = getTimeAgo(date, isLatest);
 
   return (
-    <Link to={`/docs/api/changelog#${version}`} className={styles.changelogEntryLink}>
+    <Link to={`/docs/reference/changelog#${version}`} className={styles.changelogEntryLink}>
       <div className={styles.changelogEntry}>
         <div className={styles.entryHeader}>
           <div className={styles.versionInfo}>
@@ -83,7 +83,7 @@ export default function ChangelogSection() {
             </div>
 
             <div className={styles.viewAllContainer}>
-              <Link to="/docs/api/changelog" className={styles.viewAllLink}>
+              <Link to="/docs/reference/changelog" className={styles.viewAllLink}>
                 All changes →
               </Link>
             </div>

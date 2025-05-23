@@ -33,7 +33,7 @@ This method is recommended if you need to supply an API key to a third-party int
 The challenge-based authentication flow is available in two versions:
 
 - **v0.46.6 and later:** Uses the current endpoint schema as described below
-- **Earlier versions:** Uses a different endpoint schema, that will be deprecated in the future. See the [2025-04-22 API Auth reference](https://developers.anytype.io/docs/api/2025-04-22/create-auth-challenge) for previous details
+- **Earlier versions:** Uses a different endpoint schema, that will be deprecated in the future. See the [2025-04-22 API Auth reference](https://developers.anytype.io/docs/reference/2025-04-22/create-auth-challenge) for previous details
 
 Current version (v0.46.6+) implementation:
 
