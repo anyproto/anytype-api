@@ -26,19 +26,25 @@ const recentChanges = [
     version: "2025-05-20",
     date: "2025-05-20",
     title: "Authentication, Type and Property Updates",
-    description: "New authentication endpoints, stable type and property keys, rate limiting enhancements",
+    description: "New authentication endpoints, stable type/property keys, rate limiting, and built-in SVG icons",
   },
   {
     version: "2025-04-22",
     date: "2025-04-22",
     title: "Comprehensive CRUD Operations",
-    description: "Space, type, property, and tag management endpoints",
+    description: "Full CRUD operations for spaces, types, properties, and tags with enhanced metadata support",
   },
   {
     version: "2025-03-17",
     date: "2025-03-17",
-    title: "Initial API Release",
-    description: "Initial API release with basic CRUD operations",
+    title: "Collections & Member Management",
+    description: "List operations, member management, OpenAPI 3.1 upgrade, and enhanced object properties",
+  },
+  {
+    version: "2025-02-24",
+    date: "2025-02-24",
+    title: "Foundational Endpoints",
+    description: "Basic object and space operations to enable first version of Raycast extension",
   },
 ];
 

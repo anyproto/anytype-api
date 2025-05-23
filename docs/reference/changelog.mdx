@@ -4,13 +4,14 @@ title: Changelog
 sidebar_label: Changelog
 description: Track changes and updates to the Anytype API across different versions
 toc_max_heading_level: 4
+displayed_sidebar: openApiSidebar20250520
 ---
 
 Stay up to date with the latest API changes and improvements.
 
-### 2025-05-20
+## 2025-05-20
 
-#### Added
+### Added
 
 - New authentication endpoints:
   - `POST /v1/auth/challenges` for creating new challenges
@@ -18,28 +19,28 @@ Stay up to date with the latest API changes and improvements.
 - Support for built-in SVG as type icons
 - Stable type and property keys: You can now specify these keys when creating or updating types and properties. They must be unique and follow camel_case formatting.
 
-#### Changed
+### Changed
 
 - Burst rate limiting (sustained 1rps, burst size 60) with option to disable via `ANYTYPE_API_DISABLE_RATE_LIMIT=1` environment variable
 - Switched creation endpoints to return StatusCreated (201) instead of StatusOk (200)
 - Improved API key generation system
 - Removed ExportService dependency, now using RPC for exports
 
-#### Fixed
+### Fixed
 
 - Request body format for `POST /spaces/:space_id/lists/:list_id/objects`
 - Emoji input validation checks
 - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects` now works with built-in type queries
 
-#### Breaking Changes
+### Breaking Changes
 
 - Removed `format` from `PropertyLinkWithValue` for improved efficiency
 - Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) will be deprecated in favor of new challenge-based system in the future
 - Added required subresource `views` to path `/spaces/:space_id/lists/:list_id/:view_id/objects [get]` for retrieving objects in a list view
 
-### 2025-04-22
+## 2025-04-22
 
-#### Added
+### Added
 
 - New space management endpoint:
   - `PATCH /spaces/:space_id`
@@ -62,7 +63,7 @@ Stay up to date with the latest API changes and improvements.
 - Added property `id` alongside `key` in responses
 - Return linked `properties` (featured and from sidebar) and `plural_name` for types
 
-#### Changed
+### Changed
 
 - Renamed `recommended_layout` to `layout` for types
 - Moved `description` and `source` to `[]properties` in `CreateObjectRequest`
@@ -70,14 +71,14 @@ Stay up to date with the latest API changes and improvements.
 - Removed `ot-` prefix for type keys
 - Renamed `property` to `property_key` in sort options in search
 
-#### Breaking Changes
+### Breaking Changes
 
 - Deprecated separate markdown export, unified with `getObject`
 - Deprecated `blocks` in `getObject` in favor of `markdown` exported body
 
-### 2025-03-17
+## 2025-03-17
 
-#### Added
+### Added
 
 - New space endpoint:
   - `GET /spaces/:space_id`
@@ -94,7 +95,7 @@ Stay up to date with the latest API changes and improvements.
 - Added `description` field for spaces
 - Included custom `properties` (formerly: relations) in object response details
 
-#### Changed
+### Changed
 
 - Upgraded Swagger specification to OpenAPI 3.1
 - Implemented `last_modified` as a fallback sort criterion for the `last_opened` sort
@@ -104,11 +105,11 @@ Stay up to date with the latest API changes and improvements.
   - `GET /spaces/:space_id/types/:type_id/templates/:template_id` now returns 410 for deleted templates
 - Archived objects, types and templates now have `archived: true` flag
 
-#### Fixed
+### Fixed
 
 - Corrected error mapping originating from middleware functions
 
-#### Breaking Changes
+### Breaking Changes
 
 - Renamed `details` to `properties` with explicit `format` field and standardized naming conventions
 - Standardized icon structure with clear format differentiation (`emoji`, `file`, or `icon`)
