@@ -4,6 +4,7 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
 import { getOpenApiPluginConfig } from "./openapi.config";
+import { openApiConfig } from "./openapi.config";
 
 const config: Config = {
   title: "Anytype API",
@@ -196,7 +197,15 @@ const config: Config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs", "@easyops-cn/docusaurus-search-local"],
+  themes: [
+    "docusaurus-theme-openapi-docs",
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        ignoreFiles: [new RegExp(`reference/(?!${openApiConfig.latestVersion}/).*`)],
+      },
+    ],
+  ],
 };
 
 export default async function createConfig() {
