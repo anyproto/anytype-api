@@ -9,7 +9,7 @@ keywords: [anytype, api, authentication, bearer token, desktop app, pairing flow
 
 Before you begin, make sure you have:
 
-- The Anytype desktop app installed (v0.46.6 or later) and running with a logged-in account.
+- The Anytype desktop app installed (v0.46.7 or later) and running with a logged-in account.
 - Basic knowledge of JSON and HTTP methods.
 
 ## API Key Generation
@@ -23,7 +23,7 @@ The simplest way to generate an API key is through the Anytype desktop client (a
 1. Open the Anytype desktop app
 2. Go to Settings
 3. Navigate to the `API Keys` section
-4. Click "Create new API key" and give it a meaningful name
+4. Click "Create new" and give it a meaningful name
 5. Copy the generated API key
 
 This method is recommended if you need to supply an API key to a third-party integration or need a straightforward way to generate an API key.
@@ -76,7 +76,7 @@ Current version (v0.46.6+) implementation:
 
    ```json
    {
-     "api_key": "zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6="
+     "api_key": "zhSG/zQRmgAD..."
    }
    ```
 
