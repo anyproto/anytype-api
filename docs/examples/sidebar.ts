@@ -30,6 +30,10 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "doc",
+      id: "examples/intermediate/mcp",
+    },
+    {
+      type: "doc",
       id: "examples/introductory/journal",
     },
   ],
