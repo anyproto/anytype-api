@@ -8,7 +8,7 @@ keywords: [anytype, mcp, server, api, integration, demo, automation, extensions,
 # Anytype MCP Server
 
 ## Overview
-The Anytype MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server implementation, enabling AI assistants to seamlessly interact with [Anytype's API](https://github.com/anyproto/anytype-api) through natural language.
+The Anytype MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server enabling AI assistants to seamlessly interact with [Anytype's API](https://github.com/anyproto/anytype-api) through natural language.
 
 It bridges the gap between AI and Anytype's powerful features by converting Anytype's OpenAPI specification into MCP tools, allowing you to manage your knowledge base through conversation.
 
@@ -22,6 +22,104 @@ It bridges the gap between AI and Anytype's powerful features by converting Anyt
     allowFullScreen
   ></iframe>
 </div>
+
+## Features
+
+- **Global & Space Search** - Find objects across your entire Anytype workspace
+- **Spaces & Members** - Manage spaces and collaborate with team members
+- **Objects & Lists** - Create, update, and organize your knowledge objects
+- **Properties & Tags** - Add metadata and categorize your content
+- **Types & Templates** - Work with custom object types and templates
+
+## Quick Start
+
+### One-Click Installation
+
+For quick setup, you can use these one-click installation links:
+
+- [Add to Cursor](https://cursor.com/install-mcp?name=anytype&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMm5weCUyMC15JTIwJTQwYW55cHJvdG8lMkZhbnl0eXBlLW1jcCUyMiUyQyUyMmVudiUyMiUzQSU3QiUyMk9QRU5BUElfTUNQX0hFQURFUlMlMjIlM0ElMjIlN0IlNUMlMjJBdXRob3JpemF0aW9uJTVDJTIyJTNBJTVDJTIyQmVhcmVyJTIwJTNDWU9VUl9BUElfS0VZJTNFJTVDJTIyJTJDJTIwJTVDJTIyQW55dHlwZS1WZXJzaW9uJTVDJTIyJTNBJTVDJTIyMjAyNS0wNS0yMCU1QyUyMiU3RCUyMiU3RCU3RA%3D%3D)
+- [Add to LM Studio](https://lmstudio.ai/install-mcp?name=anytype&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBhbnlwcm90by9hbnl0eXBlLW1jcCJdLCJlbnYiOnsiT1BFTkFQSV9NQ1BfSEVBREVSUyI6IntcIkF1dGhvcml6YXRpb25cIjpcIkJlYXJlciA8WU9VUl9BUElfS0VZPlwiLCBcIkFueXR5cGUtVmVyc2lvblwiOlwiMjAyNS0wNS0yMFwifSJ9fQ%3D%3D)
+
+:::note
+You'll need to create an API key in Anytype and replace `<YOUR_API_KEY>` in the configuration with your actual key to get started.
+:::
+
+### Manual Setup
+
+### 1. Get Your API Key
+
+1. Open Anytype
+2. Go to App Settings
+3. Navigate to API Keys section
+4. Click on `Create new` button
+
+<details>
+<summary>Alternative: Get API key via CLI</summary>
+
+You can also get your API key using the command line:
+
+```bash
+npx -y @anyproto/anytype-mcp get-key
+```
+
+</details>
+
+### 2. Configure Your MCP Client
+
+Add the following configuration to your MCP client settings:
+
+```json
+{
+  "mcpServers": {
+    "anytype": {
+      "command": "npx",
+      "args": ["-y", "@anyproto/anytype-mcp"],
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+      }
+    }
+  }
+}
+```
+
+:::tip
+After creating an API key in Anytype, you can copy a ready-to-use configuration snippet with your API key already filled in from the API Keys section.
+:::
+
+<details>
+<summary>Alternative: Global Installation</summary>
+
+If you prefer to install the package globally:
+
+1. Install the package:
+```bash
+npm install -g @anyproto/anytype-mcp
+```
+
+2. Update your MCP client configuration to use the global installation:
+```json
+{
+  "mcpServers": {
+    "anytype": {
+      "command": "anytype-mcp",
+      "env": {
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+## Example Interactions
+
+Here are some examples of how you can interact with your Anytype through the MCP server:
+
+- "Create a new space called 'Project Ideas' with description 'A space for storing project ideas'"
+- "Add a new object of type 'Task' with title 'Research AI trends' to the 'Project Ideas' space"
+- "Create a second one with title 'Dive deep into LLMs' with due date in 3 days and assign it to me"
+- "Now create a collection with the title 'Tasks for this week' and add the two tasks to that list. Set due date of the first one to 10 days from now"
 
 ## Resources
 - [GitHub Repository](https://github.com/anyproto/anytype-mcp)
