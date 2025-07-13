@@ -8,6 +8,7 @@ keywords: [anytype, mcp, server, api, integration, demo, automation, extensions,
 # Anytype MCP Server
 
 ## Overview
+
 The Anytype MCP Server is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server enabling AI assistants to seamlessly interact with [Anytype's API](https://github.com/anyproto/anytype-api) through natural language.
 
 It bridges the gap between AI and Anytype's powerful features by converting Anytype's OpenAPI specification into MCP tools, allowing you to manage your knowledge base through conversation.
@@ -84,6 +85,10 @@ Add the following configuration to your MCP client settings after replacing `<YO
 }
 ```
 
+:::tip
+After creating an API key in Anytype, you can copy a ready-to-use configuration snippet with your API key already filled in from the API Keys section.
+:::
+
 #### Claude Code (CLI)
 
 Run this command to add the Anytype MCP server after replacing `<YOUR_API_KEY>` with your actual API key:
@@ -92,21 +97,19 @@ Run this command to add the Anytype MCP server after replacing `<YOUR_API_KEY>` 
 claude mcp add anytype -e OPENAPI_MCP_HEADERS='{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-05-20"}' -s user -- npx -y @anyproto/anytype-mcp
 ```
 
-:::tip
-After creating an API key in Anytype, you can copy a ready-to-use configuration snippet with your API key already filled in from the API Keys section.
-:::
-
 <details>
 <summary>Alternative: Global Installation</summary>
 
 If you prefer to install the package globally:
 
 1. Install the package:
+
 ```bash
 npm install -g @anyproto/anytype-mcp
 ```
 
 2. Update your MCP client configuration to use the global installation:
+
 ```json
 {
   "mcpServers": {
@@ -132,5 +135,6 @@ Here are some examples of how you can interact with your Anytype through the MCP
 - "Now create a collection with the title 'Tasks for this week' and add the two tasks to that list. Set due date of the first one to 10 days from now"
 
 ## Resources
+
 - [GitHub Repository](https://github.com/anyproto/anytype-mcp)
 - [NPM Package](https://www.npmjs.com/package/@anyproto/anytype-mcp)
