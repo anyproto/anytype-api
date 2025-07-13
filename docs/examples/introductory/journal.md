@@ -19,9 +19,13 @@ In this cookbook example, we'll write a small **Python** script that uses the **
 - **Adds default content:** Prompts you interactively to specify custom content, or uses a detailed default template.
 - **Sets an icon:** Optionally assigns a 📝 emoji as the page icon for easy identification.
 
-> Note: Make sure your Anytype app is running and you've the latest version installed. Without the Anytype app running locally, the API calls will fail with a connection error.
+:::warning Prerequisites
+Make sure your Anytype app is running and you've the latest version installed. Without the Anytype app running locally, the API calls will fail with a connection error.
+:::
 
-> 💡 **Source code**: You can find the complete implementation in [src/examples/journal.py](https://github.com/anyproto/anytype-api/blob/main/src/examples/journal.py)
+:::info Source Code
+You can find the complete implementation in [src/examples/journal.py](https://github.com/anyproto/anytype-api/blob/main/src/examples/journal.py)
+:::
 
 ## Fetching Your Space ID
 
@@ -86,9 +90,7 @@ In the code above, we use the `requests.get` function to call `/spaces` with the
 
 - The **Authorization header** sends our API key as a Bearer token to authenticate.
 - We include **Anytype-Version** to match the API version (in this case, `"2025-05-20"`).
-- On success, the response JSON contains our spaces. We take the first space's `id` (and printed its name for confirmation).
-
-For real-world scripts, you might choose a specific space by filtering `spaces_list` or by name, but here we use the first one for simplicity.
+- On success, the response JSON contains our spaces. The script then prompts you to select which space to use interactively.
 
 ## Creating the Journal Entry Object
 
@@ -174,7 +176,9 @@ Let's break down the creation step:
 - We then used `requests.post` to send the payload to the create object endpoint. The URL includes the `first_space_id` we got earlier.
 - After a successful creation (HTTP 200), the API returns the full object data as JSON. We print out the new object's ID and name for confirmation.
 
-> Tip: Instead of a static template, you could enhance this script by retrieving a journal template object from your space and using its content or template ID. The Anytype API allows specifying a `template_id` in the payload to base the new object on an existing template.
+:::tip Enhancement Idea
+Instead of a static template, you could enhance this script by retrieving a journal template object from your space and using its content or template ID. The Anytype API allows specifying a `template_id` in the payload to base the new object on an existing template.
+:::
 
 ## Running the Script
 
