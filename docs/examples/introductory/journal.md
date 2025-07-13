@@ -98,7 +98,7 @@ Now that we have a target `space_id`, we can create a new object in that space. 
 In our example, we set:
 
 - **name** to `"Journal – <Date>"` (with today's date).
-- **type_key** to `"ot-page"`, which is the type for a normal page in Anytype. (If you have a dedicated journal type or template, you could use its key or template ID here.)
+- **type_key** to `"page"`, which is the type for a normal page in Anytype. (If you have a dedicated journal type or template, you could use its key or template ID here.)
 - **body** to a markdown string that starts with a level-2 heading and a prompt.
 - **icon** to an emoji with format `emoji`.
 
@@ -145,7 +145,7 @@ def create_journal_entry(space_id, name, body, icon):
     """Create the journal entry in the given space and return the created object."""
     payload = {
         "name": name,
-        "type_key": "ot-page",
+        "type_key": "page",
         "body": body,
         "icon": {"emoji": icon, "format": "emoji"}
     }

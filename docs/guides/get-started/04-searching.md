@@ -25,7 +25,7 @@ curl -X POST "http://localhost:31009/v1/search?offset=0&limit=10" \
 -H "Anytype-Version: 2025-05-20" \
 -d '{
     "query": "project",
-    "types": ["ot-page"],
+    "types": ["page"],
     "sort": {
         "direction": "desc",
         "property": "last_modified_date"

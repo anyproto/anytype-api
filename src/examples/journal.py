@@ -93,7 +93,7 @@ def create_journal_entry(space_id, name, body, icon):
     """Create the journal entry in the given space and return the created object."""
     payload = {
         "name": name,
-        "type_key": "ot-page",
+        "type_key": "page",
         "body": body,
         "icon": {"emoji": icon, "format": "emoji"}
     }
