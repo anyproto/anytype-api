@@ -21,7 +21,7 @@ The Anytype API gives you the tools to make more out of Anytype. Here's what you
 Explore practical applications of Anytype's API:
 
 - [anytype-raycast](https://github.com/anyproto/anytype-raycast): A Raycast Extension based on the Anytype API that allows you to create, browse, search and edit within Anytype - right at your fingertips, anywhere on your Mac.
-- [anytype-mcp](https://github.com/anyproto/anytype-mcp): A Model Context Protocol (MCP) server to enable AI assistants to seamlessly interact with Anytype's API through natural language.
+- [anytype-mcp](https://github.com/anyproto/anytype-mcp): A Model Context Protocol (MCP) server enabling AI assistants to seamlessly interact with Anytype's API through natural language.
 
 ## Local Development
 
