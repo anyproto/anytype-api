@@ -13,7 +13,7 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/logo.ico",
+  favicon: "img/favicon.ico",
 
   organizationName: "anyproto",
   projectName: "anytype-api",
