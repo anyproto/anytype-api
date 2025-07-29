@@ -18,6 +18,78 @@ const config: Config = {
   organizationName: "anyproto",
   projectName: "anytype-api",
 
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Anytype API',
+        alternateName: 'Anytype Developers',
+        url: 'https://developers.anytype.io',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://developers.anytype.io/search/?q={search_term_string}',
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Anytype',
+        url: 'https://anytype.io',
+        logo: 'https://developers.anytype.io/img/logo.svg',
+        sameAs: [
+          'https://github.com/anyproto',
+          'https://x.com/anytypelabs',
+          'https://community.anytype.io',
+        ],
+      }),
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Guides',
+            item: 'https://developers.anytype.io/docs/guides',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'API Reference',
+            item: 'https://developers.anytype.io/docs/reference',
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Examples',
+            item: 'https://developers.anytype.io/docs/examples',
+          },
+        ],
+      }),
+    },
+  ],
+
   presets: [
     [
       "classic",
@@ -30,6 +102,34 @@ const config: Config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.map((item) => {
+              if (item.url === 'https://developers.anytype.io/') {
+                return {...item, priority: 1.0};
+              }
+              if (item.url.match(/\/(docs\/(guides|reference|examples))\/?$/)) {
+                return {...item, priority: 0.9};
+              }
+              if (item.url.includes('/guides/get-started/')) {
+                return {...item, priority: 0.8};
+              }
+              if (item.url.includes('/reference/2025-05-20/')) {
+                return {...item, priority: 0.7};
+              }
+              if (item.url.match(/\/reference\/\d{4}-\d{2}-\d{2}\//)) {
+                return {...item, priority: 0.2};
+              }
+              return item;
+            });
+          },
+        },
       } satisfies Preset.Options,
     ],
   ],
@@ -41,6 +141,10 @@ const config: Config = {
       { name: "twitter:description", content: "The developer portal for extending Anytype through powerful integrations." },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://developers.anytype.io/img/twitter-card.png" },
+      { property: "og:title", content: "Start building with Anytype's API" },
+      { property: "og:description", content: "The developer portal for extending Anytype through powerful integrations." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://developers.anytype.io" },
     ],
     colorMode: {
       defaultMode: "light",
