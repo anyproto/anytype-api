@@ -3,10 +3,22 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 import apiVersions from "./docs/reference/versions.json";
 import { versionCrumb, versionSelector } from "docusaurus-plugin-openapi-docs/lib/sidebars/utils";
 import { openApiConfig } from "./openapi.config";
+import referenceSidebar20250212 from "./docs/reference/2025-02-12/sidebar";
+import referenceSidebar20250317 from "./docs/reference/2025-03-17/sidebar";
+import referenceSidebar20250422 from "./docs/reference/2025-04-22/sidebar";
+import referenceSidebar20250520 from "./docs/reference/2025-05-20/sidebar";
+import guidesSidebar from "./docs/guides/sidebar";
+import examplesSidebar from "./docs/examples/sidebar";
 
 const { latestVersion, showVersions, versions } = openApiConfig;
 
 function buildApiSidebar(version: string) {
+  const referenceSidebarsByVersion: Record<string, SidebarsConfig[string]> = {
+    "2025-02-12": referenceSidebar20250212,
+    "2025-03-17": referenceSidebar20250317,
+    "2025-04-22": referenceSidebar20250422,
+    "2025-05-20": referenceSidebar20250520,
+  };
   return [
     {
       type: "html",
@@ -29,7 +41,7 @@ function buildApiSidebar(version: string) {
           "Access a detailed guide to the Anytype API. Learn how to query, retrieve, and update spaces, objects, properties, types, and templates to build powerful extensions.",
         slug: version === latestVersion ? "/reference" : `/reference/${version}`,
       },
-      items: require(`./docs/reference/${version}/sidebar.ts`),
+      items: referenceSidebarsByVersion[version] ?? [],
     },
     {
       type: "ref",
@@ -50,7 +62,7 @@ const sidebars: SidebarsConfig = {
         description: "Explore a collection of guides that provide step-by-step instructions and best practices for using the Anytype API.",
         slug: "/guides",
       },
-      items: require("./docs/guides/sidebar.ts"),
+      items: guidesSidebar,
     },
   ],
   ...Object.fromEntries(
@@ -70,7 +82,7 @@ const sidebars: SidebarsConfig = {
           "Browse real-world examples that showcase the potential of the Anytype API. Get inspired to create custom integrations and workflows.",
         slug: "/examples",
       },
-      items: require("./docs/examples/sidebar.ts"),
+      items: examplesSidebar,
     },
   ],
 };
