@@ -41,8 +41,8 @@ const recentChanges = [
     description: "List operations, member management, OpenAPI 3.1 upgrade, and enhanced object properties",
   },
   {
-    version: "2025-02-24",
-    date: "2025-02-24",
+    version: "2025-02-12",
+    date: "2025-02-12",
     title: "Foundational Endpoints",
     description: "Basic object and space operations to enable first version of Raycast extension",
   },

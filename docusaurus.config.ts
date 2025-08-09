@@ -18,72 +18,73 @@ const config: Config = {
   organizationName: "anyproto",
   projectName: "anytype-api",
 
+  future: {
+    v4: true,
+    experimental_faster: true,
+  },
+
   headTags: [
     {
-      tagName: 'script',
+      tagName: "script",
       attributes: {
-        type: 'application/ld+json',
+        type: "application/ld+json",
       },
       innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Anytype API',
-        alternateName: 'Anytype Developers',
-        url: 'https://developers.anytype.io',
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Anytype API",
+        alternateName: "Anytype Developers",
+        url: "https://developers.anytype.io",
         potentialAction: {
-          '@type': 'SearchAction',
+          "@type": "SearchAction",
           target: {
-            '@type': 'EntryPoint',
-            urlTemplate: 'https://developers.anytype.io/search/?q={search_term_string}',
+            "@type": "EntryPoint",
+            urlTemplate: "https://developers.anytype.io/search/?q={search_term_string}",
           },
-          'query-input': 'required name=search_term_string',
+          "query-input": "required name=search_term_string",
         },
       }),
     },
     {
-      tagName: 'script',
+      tagName: "script",
       attributes: {
-        type: 'application/ld+json',
+        type: "application/ld+json",
       },
       innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'Anytype',
-        url: 'https://anytype.io',
-        logo: 'https://developers.anytype.io/img/logo.svg',
-        sameAs: [
-          'https://github.com/anyproto',
-          'https://x.com/anytypelabs',
-          'https://community.anytype.io',
-        ],
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Anytype",
+        url: "https://anytype.io",
+        logo: "https://developers.anytype.io/img/logo.svg",
+        sameAs: ["https://github.com/anyproto", "https://x.com/anytypelabs", "https://community.anytype.io"],
       }),
     },
     {
-      tagName: 'script',
+      tagName: "script",
       attributes: {
-        type: 'application/ld+json',
+        type: "application/ld+json",
       },
       innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
         itemListElement: [
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             position: 1,
-            name: 'Guides',
-            item: 'https://developers.anytype.io/docs/guides',
+            name: "Guides",
+            item: "https://developers.anytype.io/docs/guides",
           },
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             position: 2,
-            name: 'API Reference',
-            item: 'https://developers.anytype.io/docs/reference',
+            name: "API Reference",
+            item: "https://developers.anytype.io/docs/reference",
           },
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             position: 3,
-            name: 'Examples',
-            item: 'https://developers.anytype.io/docs/examples',
+            name: "Examples",
+            item: "https://developers.anytype.io/docs/examples",
           },
         ],
       }),
@@ -103,28 +104,28 @@ const config: Config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
         sitemap: {
-          changefreq: 'weekly',
+          changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
-          filename: 'sitemap.xml',
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
           createSitemapItems: async (params) => {
-            const {defaultCreateSitemapItems, ...rest} = params;
+            const { defaultCreateSitemapItems, ...rest } = params;
             const items = await defaultCreateSitemapItems(rest);
             return items.map((item) => {
-              if (item.url === 'https://developers.anytype.io/') {
-                return {...item, priority: 1.0};
+              if (item.url === "https://developers.anytype.io/") {
+                return { ...item, priority: 1.0 };
               }
               if (item.url.match(/\/(docs\/(guides|reference|examples))\/?$/)) {
-                return {...item, priority: 0.9};
+                return { ...item, priority: 0.9 };
               }
-              if (item.url.includes('/guides/get-started/')) {
-                return {...item, priority: 0.8};
+              if (item.url.includes("/guides/get-started/")) {
+                return { ...item, priority: 0.8 };
               }
-              if (item.url.includes('/reference/2025-05-20/')) {
-                return {...item, priority: 0.7};
+              if (item.url.includes("/reference/2025-05-20/")) {
+                return { ...item, priority: 0.7 };
               }
               if (item.url.match(/\/reference\/\d{4}-\d{2}-\d{2}\//)) {
-                return {...item, priority: 0.2};
+                return { ...item, priority: 0.2 };
               }
               return item;
             });
