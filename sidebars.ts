@@ -3,22 +3,31 @@ import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 import apiVersions from "./docs/reference/versions.json";
 import { versionCrumb, versionSelector } from "docusaurus-plugin-openapi-docs/lib/sidebars/utils";
 import { openApiConfig } from "./openapi.config";
+import guidesSidebar from "./docs/guides/sidebar";
+import examplesSidebar from "./docs/examples/sidebar";
 import referenceSidebar20250212 from "./docs/reference/2025-02-12/sidebar";
 import referenceSidebar20250317 from "./docs/reference/2025-03-17/sidebar";
 import referenceSidebar20250422 from "./docs/reference/2025-04-22/sidebar";
 import referenceSidebar20250520 from "./docs/reference/2025-05-20/sidebar";
-import guidesSidebar from "./docs/guides/sidebar";
-import examplesSidebar from "./docs/examples/sidebar";
 
 const { latestVersion, showVersions, versions } = openApiConfig;
 
+const referenceSidebarsByVersion: Record<string, SidebarsConfig[string]> = {
+  "2025-02-12": referenceSidebar20250212,
+  "2025-03-17": referenceSidebar20250317,
+  "2025-04-22": referenceSidebar20250422,
+  "2025-05-20": referenceSidebar20250520,
+};
+
+const missingReferenceSidebars = showVersions.filter((v) => !referenceSidebarsByVersion[v]);
+if (missingReferenceSidebars.length > 0) {
+  throw new Error(
+    `Missing reference sidebars for versions: ${missingReferenceSidebars.join(", ")}. ` +
+      `Add './docs/reference/<version>/sidebar.ts' and import it in 'sidebars.ts'.`
+  );
+}
+
 function buildApiSidebar(version: string) {
-  const referenceSidebarsByVersion: Record<string, SidebarsConfig[string]> = {
-    "2025-02-12": referenceSidebar20250212,
-    "2025-03-17": referenceSidebar20250317,
-    "2025-04-22": referenceSidebar20250422,
-    "2025-05-20": referenceSidebar20250520,
-  };
   return [
     {
       type: "html",
