@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Community Projects Schema",
+  "description": "Schema for Anytype community projects data",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description", "author", "repository", "tags", "category", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier: author/repo-name format (e.g., 'charlesneimog/anytype-client')",
+            "pattern": "^[a-z0-9-]+/[a-z0-9_-]+$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name of the project"
+          },
+          "description": {
+            "type": "string",
+            "description": "Short description of the project"
+          },
+          "author": {
+            "type": "string",
+            "description": "Primary author or organization"
+          },
+          "contributors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Additional contributors (optional)"
+          },
+          "repository": {
+            "type": "string",
+            "format": "uri",
+            "description": "GitHub or other repository URL"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Project website or documentation URL (optional)"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags for categorization and search"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["SDK", "Integration", "Tool", "Extension", "Template", "Other"],
+            "description": "Main category of the project"
+          },
+          "language": {
+            "type": "string",
+            "description": "Primary programming language or platform"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "maintained", "archived", "experimental"],
+            "description": "Current maintenance status"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when project was added (ISO format)"
+          }
+        }
+      }
+    }
+  },
+  "required": ["projects"]
+}

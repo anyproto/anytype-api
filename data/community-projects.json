@@ -1,0 +1,77 @@
+{
+  "$schema": "./community-projects.schema.json",
+  "projects": [
+    {
+      "id": "charlesneimog/anytype-client",
+      "name": "Python Client for Anytype",
+      "description": "A Python client library for interacting with the Anytype API",
+      "author": "charlesneimog",
+      "repository": "https://github.com/charlesneimog/anytype-client",
+      "tags": ["sdk", "python", "client"],
+      "category": "SDK",
+      "language": "Python",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    },
+    {
+      "id": "wethegreenpeople/anytype-mcp",
+      "name": "Anytype MCP (Semantic Search)",
+      "description": "A Model Context Protocol (MCP) server for Anytype that enables semantic search and RAG (Retrieval-Augmented Generation) capabilities over your Anytype documents",
+      "author": "wethegreenpeople",
+      "repository": "https://github.com/wethegreenpeople/anytype-mcp",
+      "tags": ["integration", "mcp", "ai", "semantic-search", "rag"],
+      "category": "Integration",
+      "language": "TypeScript",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    },
+    {
+      "id": "epheo/anytype-go",
+      "name": "Anytype Go SDK",
+      "description": "A Go SDK for interacting with the Anytype API to manage spaces, objects, and perform searches. This library provides a feature-rich, fluent interface to integrate Anytype functionality into your Go applications",
+      "author": "epheo",
+      "repository": "https://github.com/epheo/anytype-go",
+      "tags": ["sdk", "go", "client"],
+      "category": "SDK",
+      "language": "Go",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    },
+    {
+      "id": "mattxcnm/zotero-anytype",
+      "name": "Zotero to Anytype",
+      "description": "Integration between Zotero reference manager and Anytype",
+      "author": "mattxcnm",
+      "repository": "https://github.com/mattxcnm/zotero-anytype",
+      "tags": ["integration", "zotero", "research"],
+      "category": "Integration",
+      "language": "JavaScript",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    },
+    {
+      "id": "beaucronin/anytype-python-client",
+      "name": "Anytype Python Client",
+      "description": "A comprehensive Python client for the Anytype API with both synchronous and asynchronous support",
+      "author": "beaucronin",
+      "repository": "https://github.com/beaucronin/anytype-python-client",
+      "tags": ["sdk", "python", "async", "client"],
+      "category": "SDK",
+      "language": "Python",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    },
+    {
+      "id": "lanesawyer/anytype_rs",
+      "name": "Anytype Rust Library",
+      "description": "Rust library for the Anytype API",
+      "author": "lanesawyer",
+      "repository": "https://github.com/lanesawyer/anytype_rs",
+      "tags": ["sdk", "rust", "client"],
+      "category": "SDK",
+      "language": "Rust",
+      "status": "active",
+      "dateAdded": "2025-08-19"
+    }
+  ]
+}
