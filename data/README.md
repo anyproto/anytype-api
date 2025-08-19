@@ -23,11 +23,11 @@ Each project entry should include:
 - **category**: One of: SDK, Integration, Tool, Extension, Template, Other
 - **language**: Primary programming language
 - **status**: One of: active, maintained, archived, experimental
+- **dateAdded**: ISO format date when added (YYYY-MM-DD, e.g., "2025-08-19")
 
 Optional fields:
 - **contributors**: Array of additional contributor names
 - **website**: Project website or documentation URL
-- **dateAdded**: ISO format date when added
 
 ## Example Entry
 
@@ -41,7 +41,8 @@ Optional fields:
   "tags": ["integration", "automation"],
   "category": "Integration",
   "language": "TypeScript",
-  "status": "active"
+  "status": "active",
+  "dateAdded": "2025-08-19"
 }
 ```
 

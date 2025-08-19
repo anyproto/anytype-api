@@ -8,7 +8,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "description", "author", "repository", "tags", "category", "status"],
+        "required": ["id", "name", "description", "author", "repository", "tags", "category", "language", "status", "dateAdded"],
         "properties": {
           "id": {
             "type": "string",
