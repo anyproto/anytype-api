@@ -18,11 +18,6 @@ const config: Config = {
   organizationName: "anyproto",
   projectName: "anytype-api",
 
-  future: {
-    v4: true,
-    experimental_faster: true,
-  },
-
   headTags: [
     {
       tagName: "script",
