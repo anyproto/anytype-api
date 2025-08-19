@@ -167,7 +167,7 @@ const config: Config = {
         {
           position: "left",
           label: "Guides",
-          to: "/docs/guides",
+          to: "/docs/guides/get-started/authentication",
         },
         {
           position: "left",
@@ -177,7 +177,7 @@ const config: Config = {
         {
           position: "left",
           label: "Examples",
-          to: "/docs/examples",
+          to: "/docs/examples/overview",
         },
         {
           href: "https://github.com/anyproto/anytype-api",
@@ -194,7 +194,7 @@ const config: Config = {
           items: [
             {
               label: "Guides",
-              to: "/docs/guides",
+              to: "/docs/guides/get-started/authentication",
             },
             {
               label: "Reference",
@@ -202,7 +202,7 @@ const config: Config = {
             },
             {
               label: "Examples",
-              to: "/docs/examples",
+              to: "/docs/examples/overview",
             },
           ],
         },
