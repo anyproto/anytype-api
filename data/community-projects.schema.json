@@ -69,6 +69,10 @@
             "type": "string",
             "format": "date",
             "description": "Date when project was added (ISO format)"
+          },
+          "stars": {
+            "type": "number",
+            "description": "GitHub stars count (auto-updated)"
           }
         }
       }
