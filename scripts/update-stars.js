@@ -49,7 +49,13 @@ async function updateStars() {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   for (const project of projects) {
-    if (project.repository.includes("github.com")) {
+    let repoHostname;
+    try {
+      repoHostname = new URL(project.repository).hostname;
+    } catch (err) {
+      repoHostname = "";
+    }
+    if (repoHostname === "github.com") {
       const stars = await fetchGitHubStars(project.repository);
 
       if (stars !== null) {
