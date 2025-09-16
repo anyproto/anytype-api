@@ -16,7 +16,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 74
+      "stars": 77
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -35,7 +35,7 @@
       "language": "TypeScript",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 11
+      "stars": 12
     },
     {
       "id": "epheo/anytype-go",
@@ -52,7 +52,7 @@
       "language": "Go",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 10
+      "stars": 11
     },
     {
       "id": "mattxcnm/zotero-anytype",
@@ -69,7 +69,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 7
+      "stars": 10
     },
     {
       "id": "beaucronin/anytype-python-client",
@@ -87,7 +87,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 3
+      "stars": 6
     },
     {
       "id": "lanesawyer/anytype_rs",
@@ -104,7 +104,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 1
+      "stars": 2
     }
   ]
 }
