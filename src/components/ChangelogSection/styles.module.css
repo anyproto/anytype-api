@@ -39,6 +39,10 @@
 
 .changelogList {
   margin-bottom: var(--spacing-xl);
+  position: relative;
+  /* Subtle bottom fade to indicate more content is available */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
 }
 
 .changelogEntryLink {

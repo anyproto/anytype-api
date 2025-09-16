@@ -83,7 +83,7 @@ export default function ChangelogSection() {
             </div>
 
             <div className={styles.changelogList}>
-              {recentChanges.map((change, idx) => (
+              {recentChanges.slice(0, 3).map((change, idx) => (
                 <ChangelogEntry key={idx} {...change} isLatest={idx === 0} />
               ))}
             </div>
