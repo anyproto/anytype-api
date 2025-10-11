@@ -57,7 +57,7 @@ curl -X POST 'http://localhost:31009/v1/spaces/<YOUR_SPACE_ID>/objects' \
   `GET /v1/spaces/{space_id}/objects/{object_id}`
 
 - Update an Object:
-  `PUT /v1/spaces/{space_id}/objects/{object_id}`
+  `PATCH /v1/spaces/{space_id}/objects/{object_id}`
 
 - Delete an Object:
   `DELETE /v1/spaces/{space_id}/objects/{object_id}`
