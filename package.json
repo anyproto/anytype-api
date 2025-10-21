@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "prebuild": "node scripts/update-stars.js",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -18,7 +19,6 @@
     "clean-api-docs:version": "docusaurus clean-api-docs:version",
     "make-reference": "npm run clean-api-docs:version anytype:all && npm run gen-api-docs:version anytype:all",
     "gen-community-projects": "node scripts/generate-community-projects.js",
-    "update-stars": "node scripts/update-stars.js",
     "lint": "eslint . --ext .ts,.tsx,.md,.mdx",
     "lint:fix": "eslint . --ext .ts,.tsx,.md,.mdx --fix"
   },
