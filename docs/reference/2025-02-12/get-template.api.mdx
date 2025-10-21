@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"Get template"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get template"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces/{space_id}/types/{type_id}/templates/{template_id}"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 Get template
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type ID","in":"path","name":"type_id","required":true,"schema":{"type":"string"}},{"description":"Template ID","in":"path","name":"template_id","required":true,"schema":{"type":"string"}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ Get template
   label={undefined}
   responses={{"200":{"description":"The requested template","content":{"application/json":{"schema":{"properties":{"template":{"properties":{"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreictrp3obmnf6dwejy5o4p7bderaaia4bdg2psxbfzf44yya5uutge","type":"string"},"name":{"example":"Template Name","type":"string"},"type":{"example":"template","type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"404":{"description":"Resource not found","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"Retrieve token"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve token"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
   path={"/auth/token"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 Retrieve token
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Challenge ID","in":"query","name":"challenge_id","required":true,"schema":{"type":"string"}},{"description":"4-digit code retrieved from Anytype Desktop app","in":"query","name":"code","required":true,"schema":{"type":"string"}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ Retrieve token
   label={undefined}
   responses={{"200":{"description":"Authentication token","content":{"application/json":{"schema":{"properties":{"app_key":{"example":"zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=","type":"string"},"session_token":{"example":"eyJhbGciOeJIRzI1NiIsInR5cCI6IkpXVCJ1.eyJzZWVkIjaiY0dmVndlUnAifQ.Y1EZecYnwmvMkrXKOa2XJnAbaRt34urBabe06tmDQII","type":"string"}},"type":"object"}}}},"400":{"description":"Invalid input","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

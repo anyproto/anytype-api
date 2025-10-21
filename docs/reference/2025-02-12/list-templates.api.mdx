@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"List templates"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List templates"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces/{space_id}/types/{type_id}/templates"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 List templates
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type ID","in":"path","name":"type_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"type":"integer","default":0}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"type":"integer","maximum":1000,"default":100}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ List templates
   label={undefined}
   responses={{"200":{"description":"List of templates","content":{"application/json":{"schema":{"properties":{"data":{"items":{"properties":{"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreictrp3obmnf6dwejy5o4p7bderaaia4bdg2psxbfzf44yya5uutge","type":"string"},"name":{"example":"Template Name","type":"string"},"type":{"example":"template","type":"string"}},"type":"object"},"type":"array"},"pagination":{"properties":{"has_more":{"description":"whether there are more items available","example":true,"type":"boolean"},"limit":{"description":"the current limit","example":100,"type":"integer"},"offset":{"description":"the current offset","example":0,"type":"integer"},"total":{"description":"the total number of items available on that endpoint","example":1024,"type":"integer"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

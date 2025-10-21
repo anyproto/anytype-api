@@ -59,7 +59,7 @@ export function getOpenApiPluginConfig(): Plugin.PluginOptions {
   return {
     anytype: {
       specPath: latestVersionConfig.specPath,
-      outputDir: "docs/api",
+      outputDir: "docs/reference",
       sidebarOptions: {
         groupPathsBy: "tag",
         categoryLinkSource: "tag",

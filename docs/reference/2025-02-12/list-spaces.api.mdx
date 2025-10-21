@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"List spaces"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List spaces"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 List spaces
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"type":"integer","default":0}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"type":"integer","maximum":1000,"default":100}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ List spaces
   label={undefined}
   responses={{"200":{"description":"List of spaces","content":{"application/json":{"schema":{"properties":{"data":{"items":{"properties":{"account_space_id":{"example":"bafyreihpd2knon5wbljhtfeg3fcqtg3i2pomhhnigui6lrjmzcjzep7gcy.23me69r569oi1","type":"string"},"analytics_id":{"example":"624aecdd-4797-4611-9d61-a2ae5f53cf1c","type":"string"},"archive_object_id":{"example":"bafyreialsgoyflf3etjm3parzurivyaukzivwortf32b4twnlwpwocsrri","type":"string"},"device_id":{"example":"12D3KooWGZMJ4kQVyQVXaj7gJPZr3RZ2nvd9M2Eq2pprEoPih9WF","type":"string"},"gateway_url":{"example":"http://127.0.0.1:31006","type":"string"},"home_object_id":{"example":"bafyreie4qcl3wczb4cw5hrfyycikhjyh6oljdis3ewqrk5boaav3sbwqya","type":"string"},"icon":{"example":"http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"id":{"example":"bafyreigyfkt6rbv24sbv5aq2hko3bhmv5xxlf22b4bypdu6j7hnphm3psq.23me69r569oi1","type":"string"},"local_storage_path":{"example":"/Users/johndoe/Library/Application Support/Anytype/data/AAHTtt1wuQEnaYBNZ2Cyfcvs6DqPqxgn8VXDVk4avsUkMuha","type":"string"},"marketplace_workspace_id":{"example":"_anytype_marketplace","type":"string"},"name":{"example":"Space Name","type":"string"},"network_id":{"example":"N83gJpVd9MuNRZAuJLZ7LiMntTThhPc6DtzWWVjb1M3PouVU","type":"string"},"profile_object_id":{"example":"bafyreiaxhwreshjqwndpwtdsu4mtihaqhhmlygqnyqpfyfwlqfq3rm3gw4","type":"string"},"space_view_id":{"example":"bafyreigzv3vq7qwlrsin6njoduq727ssnhwd6bgyfj6nm4hv3pxoc2rxhy","type":"string"},"tech_space_id":{"example":"bafyreif4xuwncrjl6jajt4zrrfnylpki476nv2w64yf42ovt7gia7oypii.23me69r569oi1","type":"string"},"timezone":{"example":"","type":"string"},"type":{"example":"space","type":"string"},"widgets_id":{"example":"bafyreialj7pceh53mifm5dixlho47ke4qjmsn2uh4wsjf7xq2pnlo5xfva","type":"string"},"workspace_object_id":{"example":"bafyreiapey2g6e6za4zfxvlgwdy4hbbfu676gmwrhnqvjbxvrchr7elr3y","type":"string"}},"type":"object"},"type":"array"},"pagination":{"properties":{"has_more":{"description":"whether there are more items available","example":true,"type":"boolean"},"limit":{"description":"the current limit","example":100,"type":"integer"},"offset":{"description":"the current offset","example":0,"type":"integer"},"total":{"description":"the total number of items available on that endpoint","example":1024,"type":"integer"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

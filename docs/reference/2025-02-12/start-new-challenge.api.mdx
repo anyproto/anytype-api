@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"Start new challenge"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start new challenge"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
   path={"/auth/display_code"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 Start new challenge
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"App name requesting the challenge","in":"query","name":"app_name","required":true,"schema":{"type":"string"}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ Start new challenge
   label={undefined}
   responses={{"200":{"description":"Challenge ID","content":{"application/json":{"schema":{"properties":{"challenge_id":{"example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object"}}}},"400":{"description":"Invalid input","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

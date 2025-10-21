@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"List members"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List members"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces/{space_id}/members"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 List members
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"type":"integer","default":0}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"type":"integer","maximum":1000,"default":100}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ List members
   label={undefined}
   responses={{"200":{"description":"List of members","content":{"application/json":{"schema":{"properties":{"data":{"items":{"properties":{"global_name":{"example":"john.any","type":"string"},"icon":{"example":"http://127.0.0.1:31006/image/bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay?width=100","type":"string"},"id":{"example":"_participant_bafyreigyfkt6rbv24sbv5aq2hko1bhmv5xxlf22b4bypdu6j7hnphm3psq_23me69r569oi1_AAjEaEwPF4nkEh9AWkqEnzcQ8HziBB4ETjiTpvRCQvWnSMDZ","type":"string"},"identity":{"example":"AAjEaEwPF4nkEh7AWkqEnzcQ8HziGB4ETjiTpvRCQvWnSMDZ","type":"string"},"name":{"example":"John Doe","type":"string"},"role":{"enum":["Reader","Writer","Owner","NoPermission"],"example":"Owner","type":"string"},"type":{"example":"member","type":"string"}},"type":"object"},"type":"array"},"pagination":{"properties":{"has_more":{"description":"whether there are more items available","example":true,"type":"boolean"},"limit":{"description":"the current limit","example":100,"type":"integer"},"offset":{"description":"the current offset","example":0,"type":"integer"},"total":{"description":"the total number of items available on that endpoint","example":1024,"type":"integer"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"Get type"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get type"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces/{space_id}/types/{type_id}"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 Get type
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type ID","in":"path","name":"type_id","required":true,"schema":{"type":"string"}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ Get type
   label={undefined}
   responses={{"200":{"description":"The requested type","content":{"application/json":{"schema":{"properties":{"type":{"properties":{"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreigyb6l5szohs32ts26ku2j42yd65e6hqy2u3gtzgdwqv6hzftsetu","type":"string"},"name":{"example":"Page","type":"string"},"recommended_layout":{"example":"todo","type":"string"},"type":{"example":"type","type":"string"},"unique_key":{"example":"ot-page","type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"404":{"description":"Resource not found","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

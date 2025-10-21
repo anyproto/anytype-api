@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"Export object"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export object"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"post"}
   path={"/spaces/{space_id}/objects/{object_id}/export/{format}"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 Export object
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Object ID","in":"path","name":"object_id","required":true,"schema":{"type":"string"}},{"description":"Export format","in":"path","name":"format","required":true,"schema":{"type":"string","enum":["markdown","protobuf"]}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ Export object
   label={undefined}
   responses={{"200":{"description":"Object exported successfully","content":{"application/json":{"schema":{"properties":{"path":{"example":"/path/to/export","type":"string"}},"type":"object"}}}},"400":{"description":"Bad request","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      

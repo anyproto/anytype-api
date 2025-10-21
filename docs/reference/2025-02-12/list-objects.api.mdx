@@ -19,31 +19,44 @@ import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
 
-<Heading as={"h1"} className={"openapi__heading"} children={"List objects"}></Heading>
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List objects"}
+>
+</Heading>
 
 <MethodEndpoint
   method={"get"}
   path={"/spaces/{space_id}/objects"}
   context={"endpoint"}
 >
-
+  
 </MethodEndpoint>
+
+
 
 List objects
 
-<Heading id={"request"} as={"h2"} className={"openapi-tabs__heading"} children={"Request"}></Heading>
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
 
 <ParamsDetails
   parameters={[{"description":"Space ID","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"type":"integer","default":0}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"type":"integer","maximum":1000,"default":100}}]}
 >
-
+  
 </ParamsDetails>
 
 <RequestSchema
   title={"Body"}
   body={undefined}
 >
-
+  
 </RequestSchema>
 
 <StatusCodes
@@ -51,5 +64,8 @@ List objects
   label={undefined}
   responses={{"200":{"description":"List of objects","content":{"application/json":{"schema":{"properties":{"data":{"items":{"properties":{"blocks":{"items":{"properties":{"align":{"enum":["AlignLeft","AlignCenter","AlignRight","AlignJustify"],"example":"AlignLeft","type":"string"},"background_color":{"example":"red","type":"string"},"children_ids":{"example":["['6797ce8ecda913cde14b02dc']"],"items":{"type":"string"},"type":"array"},"file":{"properties":{"added_at":{"type":"integer"},"hash":{"type":"string"},"mime":{"type":"string"},"name":{"type":"string"},"size":{"type":"integer"},"state":{"type":"string"},"style":{"type":"string"},"target_object_id":{"type":"string"},"type":{"type":"string"}},"type":"object"},"id":{"example":"64394517de52ad5acb89c66c","type":"string"},"text":{"properties":{"checked":{"example":true,"type":"boolean"},"color":{"example":"red","type":"string"},"icon":{"example":"📄","type":"string"},"style":{"enum":["Paragraph","Header1","Header2","Header3","Header4","Quote","Code","Title","Checkbox","Marked","Numbered","Toggle","Description","Callout"],"example":"Paragraph","type":"string"},"text":{"example":"Some text","type":"string"}},"type":"object"},"vertical_align":{"enum":["VerticalAlignTop","VerticalAlignMiddle","VerticalAlignBottom"],"example":"VerticalAlignTop","type":"string"}},"type":"object"},"type":"array"},"details":{"items":{"properties":{"details":{"additionalProperties":true,"type":"object"},"id":{"enum":["last_modified_date","last_modified_by","created_date","created_by","last_opened_date","tags"],"example":"last_modified_date","type":"string"}},"type":"object"},"type":"array"},"icon":{"example":"📄","type":"string"},"id":{"example":"bafyreie6n5l5nkbjal37su54cha4coy7qzuhrnajluzv5qd5jvtsrxkequ","type":"string"},"layout":{"example":"basic","type":"string"},"name":{"example":"Object Name","type":"string"},"root_id":{"example":"bafyreicypzj6uvu54664ucv3hmbsd5cmdy2dv4fwua26sciq74khzpyn4u","type":"string"},"snippet":{"example":"The beginning of the object body...","type":"string"},"space_id":{"example":"bafyreigyfkt6rbv24sbv5aq2hko3bhmv5xxlf22b4bypdu6j7hnphm3psq.23me69r569oi1","type":"string"},"type":{"example":"Page","type":"string"}},"type":"object"},"type":"array"},"pagination":{"properties":{"has_more":{"description":"whether there are more items available","example":true,"type":"boolean"},"limit":{"description":"the current limit","example":100,"type":"integer"},"offset":{"description":"the current offset","example":0,"type":"integer"},"total":{"description":"the total number of items available on that endpoint","example":1024,"type":"integer"}},"type":"object"}},"type":"object"}}}},"401":{"description":"Unauthorized","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}},"500":{"description":"Internal server error","content":{"application/json":{"schema":{"properties":{"error":{"properties":{"message":{"type":"string"}},"type":"object"}},"type":"object"}}}}}}
 >
-
+  
 </StatusCodes>
+
+
+      
