@@ -155,8 +155,7 @@ const config: Config = {
       title: "Developers",
       logo: {
         alt: "Anytype",
-        src: "img/logo.svg",
-        srcDark: "img/logo@dark.svg",
+        src: "img/logo.png",
       },
       items: [
         {
