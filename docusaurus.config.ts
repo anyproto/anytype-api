@@ -12,8 +12,12 @@ const config: Config = {
   url: "https://developers.anytype.io",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   organizationName: "anyproto",
   projectName: "anytype-api",
