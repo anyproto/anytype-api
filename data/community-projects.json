@@ -78,6 +78,19 @@
       "status": "active",
       "dateAdded": "2025-08-19",
       "stars": 2
+    },
+    {
+      "id": "lazjedi/save-to-anytype",
+      "name": "Save to Anytype (Browser Extension)",
+      "description": "Save important web pages with your selected text in Markdown format to Anytype. Lightweight and easy-to-use alternative web clipper.",
+      "author": "lazjedi",
+      "repository": "https://github.com/lazjedi/Save-to-Anytype",
+      "tags": ["browser-extension", "chrome-extension", "firefox-addon", "web-clipper", "markdown"],
+      "category": "Extension",
+      "language": "JavaScript",
+      "status": "active",
+      "dateAdded": "2025-11-01",
+      "stars": 0
     }
   ]
 }
