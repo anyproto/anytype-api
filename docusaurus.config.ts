@@ -225,6 +225,10 @@ const config: Config = {
           title: "More",
           items: [
             {
+              label: "Download",
+              href: "https://download.anytype.io",
+            },
+            {
               label: "GitHub",
               href: "https://github.com/anyproto/anytype-api",
             },
