@@ -7,6 +7,79 @@ const DATA_FILE = path.join(__dirname, "../data/community-projects.json");
 const COMMUNITY_DIR = path.join(__dirname, "../docs/examples/community");
 const OVERVIEW_FILE = path.join(__dirname, "../docs/examples/overview.mdx");
 
+async function fetchGitHubStars(url) {
+  try {
+    const match = url.match(/github\.com\/([^/]+)\/([^/]+)/);
+    if (!match) return null;
+
+    const [, owner, repo] = match;
+    const cleanRepo = repo.replace(/\.git$/, "");
+
+    const headers = {
+      Accept: "application/vnd.github.v3+json",
+    };
+
+    if (process.env.GITHUB_TOKEN) {
+      headers["Authorization"] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+
+    const response = await fetch(`https://api.github.com/repos/${owner}/${cleanRepo}`, { headers });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data.stargazers_count;
+    } else if (response.status === 403) {
+      console.warn(`⚠️  Rate limit hit for ${url}`);
+      return null;
+    } else {
+      console.warn(`⚠️  Failed to fetch stars for ${url}: ${response.status}`);
+      return null;
+    }
+  } catch (error) {
+    console.error(`Failed to fetch GitHub stars for ${url}:`, error.message);
+    return null;
+  }
+}
+
+async function updateStars(projects) {
+  console.log("🌟 Updating GitHub stars for community projects...\n");
+
+  let updated = 0;
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  for (const project of projects) {
+    let repoHostname;
+    try {
+      repoHostname = new URL(project.repository).hostname;
+    } catch (err) {
+      repoHostname = "";
+    }
+    if (repoHostname === "github.com") {
+      const stars = await fetchGitHubStars(project.repository);
+
+      if (stars !== null) {
+        const oldStars = project.stars != null ? project.stars : 0;
+        project.stars = stars;
+        const diff = stars - oldStars;
+        const change = diff > 0 ? `(+${diff})` : diff < 0 ? `(${diff})` : "";
+        console.log(`  ✓ ${project.name}: ${stars} stars ${change}`);
+        if (diff !== 0) updated++;
+      } else {
+        console.log(`  ⚠️  ${project.name}: Could not fetch stars`);
+      }
+
+      // Delay to avoid rate limiting
+      await delay(100);
+    }
+  }
+
+  console.log(`\n✨ Updated ${updated} project(s) with new star counts!`);
+
+  if (!process.env.GITHUB_TOKEN) {
+    console.log("\n💡 Tip: Set GITHUB_TOKEN environment variable to avoid rate limits");
+  }
+}
+
 function generateProjectPage(project, position) {
   const statusBadge =
     {
@@ -112,7 +185,7 @@ function generateOverviewSection(projects) {
       content += `\n#### ${pluralCategory}\n\n`;
       categoryGroups[category].forEach((project) => {
         const safeId = project.id.replace("/", "-");
-        const stars = project.stars ? ` (⭐ ${project.stars})` : "";
+        const stars = project.stars != null ? ` (⭐ ${project.stars})` : "";
         content += `- **[${project.name}](/docs/examples/community/${safeId})**${stars} - ${project.description}\n`;
       });
     }
@@ -131,7 +204,7 @@ function generateOverviewSection(projects) {
     content += `\n#### Other\n\n`;
     categoryGroups["Other"].forEach((project) => {
       const safeId = project.id.replace("/", "-");
-      const stars = project.stars ? ` (⭐ ${project.stars})` : "";
+      const stars = project.stars != null ? ` (⭐ ${project.stars})` : "";
       content += `- **[${project.name}](/docs/examples/community/${safeId})**${stars} - ${project.description}\n`;
     });
   }
@@ -165,11 +238,8 @@ ${generateOverviewSection(projects)}`;
   console.log("✅ Updated overview.mdx");
 }
 
-function main() {
-  const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
-  const projects = data.projects;
-
-  console.log(`📚 Generating pages for ${projects.length} community projects...`);
+async function generatePages(projects) {
+  console.log(`\n📚 Generating pages for ${projects.length} community projects...`);
 
   if (!fs.existsSync(COMMUNITY_DIR)) {
     fs.mkdirSync(COMMUNITY_DIR, { recursive: true });
@@ -202,9 +272,24 @@ function main() {
   console.log("   2. Run: npm run gen-community-projects");
 }
 
-try {
-  main();
-} catch (error) {
-  console.error("❌ Error generating community projects:", error);
-  process.exit(1);
+async function main() {
+  try {
+    const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
+    const projects = data.projects;
+
+    // First update stars, then generate pages
+    await updateStars(projects);
+
+    // Save updated stars to file
+    data.projects = projects;
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2) + "\n");
+
+    // Then generate all the pages
+    await generatePages(projects);
+  } catch (error) {
+    console.error("❌ Error:", error);
+    process.exit(1);
+  }
 }
+
+main();
