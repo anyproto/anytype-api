@@ -51,7 +51,7 @@ ${project.description}
 - **Category:** [${project.category}](/docs/examples/overview#${categoryAnchor})
 - **Language:** ${project.language}
 - **Status:** ${statusBadge}
-- **Stars:** ${project.stars ? `⭐ ${project.stars}` : "N/A"}${dateAdded}
+- **Stars:** ${project.stars != null ? `⭐ ${project.stars}` : "N/A"}${dateAdded}
 
 ## Links
 

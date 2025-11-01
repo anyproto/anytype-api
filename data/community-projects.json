@@ -91,6 +91,19 @@
       "status": "active",
       "dateAdded": "2025-11-01",
       "stars": 0
+    },
+    {
+      "id": "mowbraym/anytypeglobalsearch",
+      "name": "Global Search CLI",
+      "description": "A command line utility that accesses the Anytype API to provide global (cross-Space) search",
+      "author": "mowbraym",
+      "repository": "https://github.com/mowbraym/AnytypeGlobalSearch",
+      "tags": ["cli", "command-line", "search", "pascal", "cross-space"],
+      "category": "Tool",
+      "language": "Pascal",
+      "status": "active",
+      "dateAdded": "2025-01-23",
+      "stars": 0
     }
   ]
 }
