@@ -41,8 +41,8 @@ npm run lint:fix       # Auto-fix linting issues
 - `/openapi/` - OpenAPI specifications for each API version
 
 ### API Versions
-- Current: 2025-05-20 (latest)
-- Supported: 2025-05-20, 2025-04-22
+- Current: 2025-11-08 (latest)
+- Supported: 2025-11-08, 2025-05-20, 2025-04-22
 - Legacy: 2025-03-17, 2025-02-12
 
 ### Configuration Files
@@ -62,6 +62,43 @@ When updating API documentation:
 1. Edit the OpenAPI spec in `/openapi/[version]/openapi.yaml`
 2. Run `npm run make-reference` to regenerate documentation
 3. The generated docs will appear in `/docs/reference/[version]/`
+
+### Adding a New API Version
+When adding a new API version (e.g., `2025-11-08`):
+
+1. **Add the OpenAPI spec file**
+   - Place the new YAML file in `/docs/reference/openapi-YYYY-MM-DD.yaml`
+   - Example: `/docs/reference/openapi-2025-11-08.yaml`
+
+2. **Update `openapi.config.ts`**
+   - Set `latestVersion` to the new version date
+   - Add the new version to `showVersions` array (typically show 3 most recent)
+   - Add a new entry in the `versions` object with:
+     - `specPath`: Path to the YAML file
+     - `outputDir`: Output directory for generated docs
+     - `label`: Version label (usually the date)
+     - `baseUrl`: URL path for the docs
+     - `downloadUrl`: Raw GitHub URL to the YAML file
+
+3. **Generate the documentation**
+   - Run `npm run make-reference` to generate docs for all versions
+   - This creates `/docs/reference/YYYY-MM-DD/` directory with generated content
+   - Note: `versions.json` is automatically updated by this command
+
+4. **Update `sidebars.ts`**
+   - Import the generated sidebar: `import referenceSidebarYYYYMMDD from "./docs/reference/YYYY-MM-DD/sidebar";`
+   - Add the version to `referenceSidebarsByVersion` object mapping the date string to the imported sidebar
+   - Example: `"2025-11-08": referenceSidebar20251108`
+   - Note: If you forget this step, the build will fail with a helpful error message
+
+5. **Update API Versions section in CLAUDE.md**
+   - Update the "Current" version to the new latest
+   - Adjust "Supported" and "Legacy" version lists as needed
+
+6. **Verify the changes**
+   - Run `npm run start` to preview the site locally
+   - Check that the version selector displays all expected versions
+   - Verify that the new version docs render correctly
 
 ### Content Structure
 - Guides go in `/docs/guides/` - follow the existing pattern
