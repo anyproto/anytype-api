@@ -9,6 +9,7 @@ import referenceSidebar20250212 from "./docs/reference/2025-02-12/sidebar";
 import referenceSidebar20250317 from "./docs/reference/2025-03-17/sidebar";
 import referenceSidebar20250422 from "./docs/reference/2025-04-22/sidebar";
 import referenceSidebar20250520 from "./docs/reference/2025-05-20/sidebar";
+import referenceSidebar20251108 from "./docs/reference/2025-11-08/sidebar";
 
 const { latestVersion, showVersions, versions } = openApiConfig;
 
@@ -17,6 +18,7 @@ const referenceSidebarsByVersion: Record<string, SidebarsConfig[string]> = {
   "2025-03-17": referenceSidebar20250317,
   "2025-04-22": referenceSidebar20250422,
   "2025-05-20": referenceSidebar20250520,
+  "2025-11-08": referenceSidebar20251108,
 };
 
 const missingReferenceSidebars = showVersions.filter((v) => !referenceSidebarsByVersion[v]);

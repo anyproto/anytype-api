@@ -16,9 +16,19 @@ export interface OpenApiConfig {
 }
 
 export const openApiConfig: OpenApiConfig = {
+  // TODO: Uncomment this when the 2025-11-08 version is ready
+  //   latestVersion: "2025-11-08",
+  //   showVersions: ["2025-11-08", "2025-05-20", "2025-04-22"],
   latestVersion: "2025-05-20",
   showVersions: ["2025-05-20", "2025-04-22"],
   versions: {
+    "2025-11-08": {
+      specPath: "docs/reference/openapi-2025-11-08.yaml",
+      outputDir: "docs/reference/2025-11-08",
+      label: "2025-11-08",
+      baseUrl: "/docs/reference/2025-11-08/anytype-api",
+      downloadUrl: "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/reference/openapi-2025-11-08.yaml",
+    },
     "2025-05-20": {
       specPath: "docs/reference/openapi-2025-05-20.yaml",
       outputDir: "docs/reference/2025-05-20",

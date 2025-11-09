@@ -1,0 +1,71 @@
+---
+id: create-auth-challenge
+title: "Create Challenge"
+description: "Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a 4-digit code within the Anytype Desktop. The `challenge_id` must then be used with the `/v1/auth/api_keys` endpoint to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access."
+sidebar_label: "Create Challenge"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21v2zYQ/iuEvnQD/N68LP60NM2GDMVaxGn3IShsSjrbbCRSJSm3nuH/vuco2bJjJ8OQfRkwB7Al8u54z3PHu8sqSsklVhVeGR0No19Jk5WenJDCaGp7lZOQpZ+T9iqRLCWSucwy0jMSU2PFzEps6Zm4/HAjZJKQc8IbAQ1ROrKvnFjIMvMd8bGAbmHNQqUsLrGeqVRMZFGMtcxp0gpK0FmQFcq5MnhRavW1JDHZnjpW6URInYpUuSKTSxY6aadqprxITErim/JzpYOxS730y4LEW3IP3hQdcTc/MJWXzrOwFnFwOQ0Ggvqku+h3GX1XFmr8QEs3EaTTwijtGaQz2YKCZMMJe2bJW0ULfnlMnjcPpNkP5UROUNPK5TDqSgu4fi49eM+Wwlu4BV/ATlbrumCb7Rmr/sQe8+vETAJsRXwnakWm4ABC/CZFPBNLiOaYlcZbHyFVSAvKPfSj4f3qURIwSYiBY3/NtCISwQVgnAhlxUJzkilZvHHs8F5T3f5UKWLD0tdSWYIbAEOtyCVzymU05OOmnBPQGvQGp+1+v937CQqsjzUH8vQsWq8/VzbI+TcmXbJiYrQHmfy4Q0z3i2O/VzsnIM/Ag1fkatlx5eYxqLyzwQnJKggIT302J+teiOEpfZd5kbGzsoI9zpPiCILtiom/UOJZQvmgdxUCc7WxeVudBRXoHLpYuyJi8CCYBMR84xe7HMA9ZnzNCw63zlUsDHr9F3C4e2mO89jcAVxr6ZxJlPS716m+sFgK95SzWROleH/iLnF9qW/eHuln52cn59NTSlJ50X9NF3JA/X48OHtZBCqqngpB49XN26PonJeWF5o8gZ2TXu8lnIMm/m2QxzId18lwCLYV5SgCcvZI541MxTM6NTF7KmStsceEAdKXbk8YELeCqIs0Q1V4jvdPXPYD/utwyhG+dz3G5um/TCJ7abXMxlWvGT+J9iidN7X2plM9qf1SYk//IbGj4M+TpB73OxiUM24D0SW6RPSZYaPFcPcoTEiZQmJ9GG2b4TbDHTYra1UbKW3GncH7Ytjt9gfnnR7++sPX/V7vIuJy7igprfLLEceqCk9M0qJj8dHbt1+MzSW3h9/+uIvqxhGyP+w29PFJAQHnwG3TKq43FO6W/r1SveYuNjWbtJJ1nHKpGIEri8JY/3Ot0VHmoM+JUSWDjQa1A+xGp7uxfKSeoL1wSyUt4wx935HMM56cQmpCh1tvqCz1ca+4HTlTWrR50RaukHhoiSoH8NCkPKYoyPMPgQMe5Vqh0sa0NDrlCQE3h7jQAXCDSYyCcXG5AAXslHhXiYl+p3cAErPWvIw7ickZLw73ZgO8jYLdjTMTd0Gm7r67ubr+fXTdyVOmAeBy937KmQrrx1kLMmMzHVfDxia7N7yDNqzW48n+BIEDOGNzqXewVWVeXO10771g7NSV/6ff//z0WxcGT999F/RgUl3Xubuqy9h9tOhDMBScVrRTylCe5lzvILFaxdLRR5ut17yMCFiMn/d4XEir+HbwGyzXQ3AYoZXjDZTNqcwcPZNlP9zWY9qP4u8m7aNweBo6Nm8jo0qWhsyqFrqqDm3fsZ1G4qB9NhqXoLLwz8rudogP70dcoeN6Ps9Dr42s/MbTKL7hDf9LEgLIAmFtFWVSz8rQWaPKJn/+AqOnGKg=
+sidebar_class_name: "post api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create Challenge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/auth/challenges"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Generates a one-time authentication challenge for granting API access to the user's vault. Upon providing a valid `app_name`, the server issues a unique `challenge_id` and displays a 4-digit code within the Anytype Desktop. The `challenge_id` must then be used with the `/v1/auth/api_keys` endpoint to solve the challenge and retrieve an authentication token. This mechanism ensures that only trusted applications and authorized users gain access.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-11-08","type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"properties":{"app_name":{"description":"The name of the app that is requesting the challenge","example":"anytype_mcp","type":"string"}},"type":"object","title":"CreateChallengeRequest"}}},"description":"The request body containing the app name","required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"201":{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the displayed code and needed to solve the challenge for api_key","example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object","title":"CreateChallengeResponse"}}},"description":"The challenge ID associated with the started challenge"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"ValidationError"}}},"description":"Bad request"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

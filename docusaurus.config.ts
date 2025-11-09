@@ -120,7 +120,7 @@ const config: Config = {
               if (item.url.includes("/guides/get-started/")) {
                 return { ...item, priority: 0.8 };
               }
-              if (item.url.includes("/reference/2025-05-20/")) {
+              if (item.url.includes(`/reference/${openApiConfig.latestVersion}/`)) {
                 return { ...item, priority: 0.7 };
               }
               if (item.url.match(/\/reference\/\d{4}-\d{2}-\d{2}\//)) {
