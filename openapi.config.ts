@@ -16,11 +16,8 @@ export interface OpenApiConfig {
 }
 
 export const openApiConfig: OpenApiConfig = {
-  // TODO: Uncomment this when the 2025-11-08 version is ready
-  //   latestVersion: "2025-11-08",
-  //   showVersions: ["2025-11-08", "2025-05-20", "2025-04-22"],
-  latestVersion: "2025-05-20",
-  showVersions: ["2025-05-20", "2025-04-22"],
+  latestVersion: "2025-11-08",
+  showVersions: ["2025-11-08", "2025-05-20", "2025-04-22"],
   versions: {
     "2025-11-08": {
       specPath: "docs/reference/openapi-2025-11-08.yaml",

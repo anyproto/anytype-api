@@ -1,5 +1,11 @@
 [
   {
+    "version": "2025-11-08",
+    "label": "2025-11-08",
+    "baseUrl": "/docs/reference/2025-11-08/anytype-api",
+    "downloadUrl": "https://raw.githubusercontent.com/anyproto/anytype-api/main/docs/reference/openapi-2025-11-08.yaml"
+  },
+  {
     "version": "2025-05-20",
     "label": "2025-05-20",
     "baseUrl": "/docs/reference/2025-05-20/anytype-api",
