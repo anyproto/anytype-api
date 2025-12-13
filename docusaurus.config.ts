@@ -88,6 +88,22 @@ const config: Config = {
         ],
       }),
     },
+    {
+      tagName: "meta",
+      attributes: {
+        name: "theme-color",
+        content: "#ffdbd8",
+        media: "(prefers-color-scheme: light)",
+      },
+    },
+    {
+      tagName: "meta",
+      attributes: {
+        name: "theme-color",
+        content: "#8d8370",
+        media: "(prefers-color-scheme: dark)",
+      },
+    },
   ],
 
   presets: [
