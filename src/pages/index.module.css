@@ -6,6 +6,8 @@
 .heroBanner {
   color: var(--ifm-color-emphasis-900);
   padding: 2rem;
+  padding-top: calc(2rem + 60px); /* Extra padding to compensate for negative margin */
+  margin-top: -60px; /* Pull hero up behind navbar */
   text-align: left;
   position: relative;
   overflow: hidden;

@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-navbar-shadow: none;
   --ifm-color-primary: #ff6a7b;
   --ifm-color-primary-dark: #e85968;
   --ifm-color-primary-darker: #d14d5b;
@@ -48,6 +49,7 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
+  --ifm-navbar-shadow: none;
   --ifm-color-primary: #fcd1c3;
   --ifm-color-primary-dark: #fab2a0;
   --ifm-color-primary-darker: #f99783;
@@ -178,4 +180,21 @@ h4 {
   .footer-copyright {
     padding-top: 0rem;
   }
+}
+
+/* Navbar gradient - fades from top color to transparent */
+.navbar {
+  background: linear-gradient(
+    180deg,
+    var(--ifm-color-primary-lightest) 0%,
+    transparent 100%
+  );
+}
+
+[data-theme="dark"] .navbar {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ifm-color-primary-lightest) 50%, var(--ifm-background-color)) 0%,
+    transparent 100%
+  );
 }
