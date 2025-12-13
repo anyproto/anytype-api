@@ -4,10 +4,39 @@ title: Changelog
 sidebar_label: Changelog
 description: Track changes and updates to the Anytype API across different versions
 toc_max_heading_level: 3
-displayed_sidebar: openApiSidebar20250520
+displayed_sidebar: openApiSidebar20251108
 ---
 
 Stay up to date with the latest API changes and improvements.
+
+## 2025-11-08
+
+Markdown body patching, object type updates, inline tag creation, and property-based filtering.
+
+### Added
+
+- Markdown body patching: Update an object's markdown body via `UpdateObjectRequest` ([#5](https://github.com/anyproto/anytype-api/issues/5))
+- Update object type: Patch an object's `type_key` to change its type
+- Inline tag creation: Add tags directly in `CreatePropertyRequest` for `select` and `multi_select` properties
+- Property-based filtering: Filter listing and search endpoints using query parameters
+
+### Changed
+
+- Improved performance for type, property, and tag map lookups through subscription-based caching
+- No-op changes to type or property keys are now silently ignored, preventing incorrect errors when patching unchanged keys
+
+### Fixed
+
+- Clarified error messages for reserved system properties
+- Property key now correctly populated when creating a type with properties
+- Corrected icon name enum values in OpenAPI spec
+- Updated OpenAPI schema to clarify nullable icons and types
+- API error messages now show actual invalid key name instead of empty property key ([#2633](https://github.com/anyproto/anytype-heart/issues/2633))
+- Search no longer returns types of deleted type keys ([#7](https://github.com/anyproto/anytype-api/issues/7))
+
+### Deprecated
+
+- Authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` are now deprecated in favor of the challenge-based authentication system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in 2025-05-20
 
 ## 2025-05-20
 

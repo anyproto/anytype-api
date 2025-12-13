@@ -23,6 +23,12 @@ function getTimeAgo(dateString, isLatest) {
 
 const recentChanges = [
   {
+    version: "2025-11-08",
+    date: "2025-11-08",
+    title: "Markdown Body Patching & Filtering",
+    description: "Markdown body patching, object type updates, inline tag creation, and property-based filtering",
+  },
+  {
     version: "2025-05-20",
     date: "2025-05-20",
     title: "Authentication, Type and Property Updates",
