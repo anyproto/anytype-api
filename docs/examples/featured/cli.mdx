@@ -1,0 +1,58 @@
+---
+sidebar_position: 3
+title: "Anytype CLI"
+description: "Run Anytype as a headless server using the command-line interface for automation, scripting, and programmatic access."
+keywords: [anytype, cli, command-line, server, api, automation, scripting, bot, headless]
+---
+
+# Anytype CLI
+
+## Overview
+
+The Anytype CLI is a command-line interface that embeds [anytype-heart](https://github.com/anyproto/anytype-heart) to run Anytype as a headless server. It can be used for automation, server deployments, and running Anytype as a background service.
+
+## Features
+
+- **Headless Operation** - Run Anytype without a GUI, perfect for servers and automation
+- **Cross-Platform Service** - Install as a background service (launchd, systemd, Windows)
+- **Bot Accounts** - Create dedicated accounts for automations and integrations
+- **Space Management** - Join, leave, and list spaces from the command line
+- **API Key Generation** - Create and manage API keys for programmatic access
+- **HTTP API** - Exposes the full Anytype API at `http://127.0.0.1:31012`
+
+## Quick Start
+
+### Installation
+
+```bash
+/usr/bin/env bash -c "$(curl -fsSL https://raw.githubusercontent.com/anyproto/anytype-cli/HEAD/install.sh)"
+```
+
+### Basic Usage
+
+```bash
+# Run the server interactively
+anytype serve
+
+# Or install and run as a background service
+anytype service install
+anytype service start
+
+# Create a bot account
+anytype auth create my-bot
+
+# Generate an API key
+anytype auth apikey create my-integration
+```
+
+Once running, the HTTP API is available at `http://127.0.0.1:31012`. Use your API key to authenticate requests:
+
+```bash
+curl "http://127.0.0.1:31012/spaces" \
+     -H "Authorization: Bearer <YOUR_API_KEY>" \
+     -H "Anytype-Version: 2025-11-08"
+```
+
+## Resources
+
+- [GitHub Repository](https://github.com/anyproto/anytype-cli) - Full documentation, commands reference, and examples
