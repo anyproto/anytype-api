@@ -162,6 +162,24 @@
       "status": "active",
       "dateAdded": "2025-11-28",
       "stars": 5
+    },
+    {
+      "id": "splch/n8n-nodes-anytype",
+      "name": "n8n Anytype Node",
+      "description": "An n8n community node for the Anytype API.",
+      "author": "splch",
+      "repository": "https://github.com/splch/n8n-nodes-anytype",
+      "tags": [
+        "integration",
+        "n8n",
+        "workflow",
+        "automation"
+      ],
+      "category": "Integration",
+      "language": "TypeScript",
+      "status": "active",
+      "dateAdded": "2025-12-17",
+      "stars": 1
     }
   ]
 }
