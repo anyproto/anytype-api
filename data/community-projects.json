@@ -16,7 +16,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 85
+      "stars": 86
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -52,7 +52,7 @@
       "language": "Go",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 15
+      "stars": 16
     },
     {
       "id": "mattxcnm/zotero-anytype",
@@ -69,7 +69,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 11
+      "stars": 12
     },
     {
       "id": "beaucronin/anytype-python-client",
@@ -123,7 +123,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -161,7 +161,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-11-28",
-      "stars": 2
+      "stars": 5
     }
   ]
 }
