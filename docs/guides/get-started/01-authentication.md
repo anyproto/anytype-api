@@ -45,7 +45,7 @@ Current version (v0.46.6+) implementation:
    ```bash
    curl -X POST "http://localhost:31009/v1/auth/challenges" \
         -H "Content-Type: application/json" \
-        -H "Anytype-Version: 2025-05-20" \
+        -H "Anytype-Version: 2025-11-08" \
         -d '{"app_name": "my_awesome_app"}'
    ```
 
@@ -65,7 +65,7 @@ Current version (v0.46.6+) implementation:
    ```bash
    curl -X POST "http://localhost:31009/v1/auth/api_keys" \
         -H "Content-Type: application/json" \
-        -H "Anytype-Version: 2025-05-20" \
+        -H "Anytype-Version: 2025-11-08" \
         -d '{
           "challenge_id": "67647f5ecda913e9a2e11b26",
           "code": "1234"

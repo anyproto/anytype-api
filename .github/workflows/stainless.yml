@@ -16,5 +16,5 @@ jobs:
       - uses: stainless-api/upload-openapi-spec-action@main
         with:
           stainless_api_key: ${{ secrets.STAINLESS_API_KEY }}
-          input_path: "docs/reference/openapi-2025-05-20.yaml"
+          input_path: "docs/reference/openapi-2025-11-08.yaml"
           project_name: "anytype"

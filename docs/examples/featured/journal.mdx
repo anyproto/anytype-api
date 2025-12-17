@@ -38,7 +38,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 ANYTYPE_API_BASE_URL = "http://localhost:31009"
-ANYTYPE_VERSION = "2025-05-20"
+ANYTYPE_VERSION = "2025-11-08"
 
 # Get the api key from the environment variable
 load_dotenv()
@@ -89,7 +89,7 @@ def select_space(spaces):
 In the code above, we use the `requests.get` function to call `/spaces` with the required headers:
 
 - The **Authorization header** sends our API key as a Bearer token to authenticate.
-- We include **Anytype-Version** to match the API version (in this case, `"2025-05-20"`).
+- We include **Anytype-Version** to match the API version (in this case, `"2025-11-08"`).
 - On success, the response JSON contains our spaces. The script then prompts you to select which space to use interactively.
 
 ## Creating the Journal Entry Object

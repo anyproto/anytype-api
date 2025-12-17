@@ -4,7 +4,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 ANYTYPE_API_BASE_URL = "http://localhost:31009"
-ANYTYPE_VERSION = "2025-05-20"
+ANYTYPE_VERSION = "2025-11-08"
 
 # Get the api key from the environment variable
 load_dotenv()

@@ -22,7 +22,7 @@ Call the `/search` endpoint to perform a search across all spaces you have acces
 curl -X POST "http://localhost:31009/v1/search?offset=0&limit=10" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <YOUR_API_KEY>" \
--H "Anytype-Version: 2025-05-20" \
+-H "Anytype-Version: 2025-11-08" \
 -d '{
     "query": "project",
     "types": ["page"],

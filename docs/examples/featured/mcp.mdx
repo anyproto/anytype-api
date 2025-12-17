@@ -78,7 +78,7 @@ Add the following configuration to your MCP client settings after replacing `<YO
       "command": "npx",
       "args": ["-y", "@anyproto/anytype-mcp"],
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-11-08\"}"
       }
     }
   }
@@ -94,7 +94,7 @@ After creating an API key in Anytype, you can copy a ready-to-use configuration 
 Run this command to add the Anytype MCP server after replacing `<YOUR_API_KEY>` with your actual API key:
 
 ```bash
-claude mcp add anytype -e OPENAPI_MCP_HEADERS='{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-05-20"}' -s user -- npx -y @anyproto/anytype-mcp
+claude mcp add anytype -e OPENAPI_MCP_HEADERS='{"Authorization":"Bearer <YOUR_API_KEY>", "Anytype-Version":"2025-11-08"}' -s user -- npx -y @anyproto/anytype-mcp
 ```
 
 <details>
@@ -116,7 +116,7 @@ npm install -g @anyproto/anytype-mcp
     "anytype": {
       "command": "anytype-mcp",
       "env": {
-        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-05-20\"}"
+        "OPENAPI_MCP_HEADERS": "{\"Authorization\":\"Bearer <YOUR_API_KEY>\", \"Anytype-Version\":\"2025-11-08\"}"
       }
     }
   }
