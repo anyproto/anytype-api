@@ -176,6 +176,14 @@ const config: Config = {
         hideable: true,
       },
     },
+    announcementBar: {
+      id: "cli_release",
+      content:
+        '🚀 <strong>New:</strong> <a href="/docs/examples/featured/cli">Anytype CLI</a> is now available - run Anytype as a headless server for automation and scripting.',
+      backgroundColor: "#ffdbd8",
+      textColor: "#000000",
+      isCloseable: false,
+    },
     navbar: {
       title: "Developers",
       logo: {
