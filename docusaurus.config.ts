@@ -179,7 +179,7 @@ const config: Config = {
     announcementBar: {
       id: "cli_release",
       content:
-        '🚀 <strong>New:</strong> <a href="/docs/examples/featured/cli">Anytype CLI</a> is now available - run Anytype as a headless server for automation and scripting.',
+        '🚀 <strong>New:</strong> <a href="https://github.com/anyproto/anytype-cli">Anytype CLI</a> is now available - run Anytype as a headless server for automation and scripting.',
       backgroundColor: "#ffdbd8",
       textColor: "#000000",
       isCloseable: false,
