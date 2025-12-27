@@ -3,6 +3,7 @@
 
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import { themes as prismThemes } from "prism-react-renderer";
 import { getOpenApiPluginConfig } from "./openapi.config";
 import { openApiConfig } from "./openapi.config";
 
@@ -276,7 +277,16 @@ const config: Config = {
     </div>`,
     },
     prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ["ruby", "csharp", "php", "java", "powershell", "json", "bash", "dart", "objectivec", "r"],
+      magicComments: [
+        {
+          className: "theme-code-block-highlighted-line",
+          line: "highlight-next-line",
+          block: { start: "highlight-start", end: "highlight-end" },
+        },
+      ],
     },
     languageTabs: [
       {
