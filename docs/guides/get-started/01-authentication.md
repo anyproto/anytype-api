@@ -9,7 +9,7 @@ keywords: [anytype, api, authentication, bearer token, desktop app, pairing flow
 
 Before you begin, make sure you have:
 
-- The Anytype desktop app installed (v0.46.7 or later) and running with a logged-in account.
+- The latest Anytype desktop app installed and running with a logged-in account.
 - Basic knowledge of JSON and HTTP methods.
 
 ## API Key Generation
@@ -18,7 +18,7 @@ There are two ways to generate an API key for authentication:
 
 ### 1. Desktop Client Settings
 
-The simplest way to generate an API key is through the Anytype desktop client (available in v0.46.6 or later):
+The simplest way to generate an API key is through the Anytype desktop client:
 
 1. Open the Anytype desktop app
 2. Go to Settings
@@ -30,12 +30,7 @@ This method is recommended if you need to supply an API key to a third-party int
 
 ### 2. Programmatic Authentication Flow
 
-The challenge-based authentication flow is available in two versions:
-
-- **v0.46.6 and later:** Uses the current endpoint schema as described below
-- **Earlier versions:** Uses a different endpoint schema, that will be deprecated in the future. See the [2025-04-22 API Auth reference](https://developers.anytype.io/docs/reference/2025-04-22/create-auth-challenge) for previous details
-
-Current version (v0.46.6+) implementation:
+Use the challenge-based authentication flow to generate API keys programmatically:
 
 1. **Create a Challenge:**
    This endpoint initiates an authentication challenge. You supply an app name in the request body, and the server returns a `challenge_id`. In the Anytype desktop application, it will display a 4‑digit code to the user.
