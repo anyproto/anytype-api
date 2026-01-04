@@ -2281,6 +2281,11 @@ components:
           enum:
             - grid
             - table
+            - list
+            - galery
+            - kanban
+            - calendar
+            - graph
           example: grid
           type: string
         name:
