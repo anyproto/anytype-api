@@ -16,7 +16,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 86
+      "stars": 89
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -52,24 +52,7 @@
       "language": "Go",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 16
-    },
-    {
-      "id": "mattxcnm/zotero-anytype",
-      "name": "Zotero to Anytype",
-      "description": "Integration between Zotero reference manager and Anytype",
-      "author": "mattxcnm",
-      "repository": "https://github.com/mattxcnm/zotero-anytype",
-      "tags": [
-        "integration",
-        "zotero",
-        "research"
-      ],
-      "category": "Integration",
-      "language": "JavaScript",
-      "status": "active",
-      "dateAdded": "2025-08-19",
-      "stars": 12
+      "stars": 17
     },
     {
       "id": "beaucronin/anytype-python-client",
@@ -87,7 +70,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 11
+      "stars": 14
     },
     {
       "id": "lanesawyer/anytype_rs",
@@ -123,7 +106,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 5
+      "stars": 8
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -179,7 +162,7 @@
       "language": "TypeScript",
       "status": "active",
       "dateAdded": "2025-12-17",
-      "stars": 6
+      "stars": 10
     }
   ]
 }
