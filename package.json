@@ -29,8 +29,8 @@
     "@easyops-cn/docusaurus-search-local": "0.52.2",
     "@mdx-js/react": "3.1.1",
     "clsx": "2.1.1",
-    "docusaurus-plugin-openapi-docs": "4.5.1",
-    "docusaurus-theme-openapi-docs": "4.5.1",
+    "docusaurus-plugin-openapi-docs": "4.6.0",
+    "docusaurus-theme-openapi-docs": "4.6.0",
     "prism-react-renderer": "2.4.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"
