@@ -52,7 +52,7 @@
       "language": "Go",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 17
+      "stars": 18
     },
     {
       "id": "beaucronin/anytype-python-client",
@@ -106,7 +106,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 8
+      "stars": 9
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -163,6 +163,24 @@
       "status": "active",
       "dateAdded": "2025-12-17",
       "stars": 10
+    },
+    {
+      "id": "glabular/anytype-net",
+      "name": "Anytype.NET",
+      "description": "An unofficial .NET client library for accessing the Anytype API",
+      "author": "glabular",
+      "repository": "https://github.com/glabular/Anytype.NET/",
+      "tags": [
+        "sdk",
+        "dotnet",
+        "csharp",
+        "client"
+      ],
+      "category": "SDK",
+      "language": "C#",
+      "status": "active",
+      "dateAdded": "2026-01-23",
+      "stars": 1
     }
   ]
 }
