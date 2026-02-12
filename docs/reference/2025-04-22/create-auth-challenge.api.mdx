@@ -48,22 +48,19 @@ Generates a one-time authentication challenge for granting API access to the use
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-04-22","type":"string"}},{"description":"The name of the app requesting API access","in":"query","name":"app_name","required":true,"schema":{"type":"string"}}]}
+  {...require("./create-auth-challenge.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+  {...require("./create-auth-challenge.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the displayed code and needed to solve the challenge for token","example":"67647f5ecda913e9a2e11b26","type":"string"}},"type":"object","title":"apimodel.DisplayCodeResponse"}}},"description":"The challenge ID associated with the started challenge"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./create-auth-challenge.StatusCodes.json")}
 >
   
 </StatusCodes>

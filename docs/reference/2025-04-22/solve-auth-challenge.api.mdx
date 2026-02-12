@@ -48,22 +48,19 @@ After receiving a challenge ID from the display_code endpoint, the client calls 
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-04-22","type":"string"}},{"description":"The ID of the challenge to solve","in":"query","name":"challenge_id","required":true,"schema":{"type":"string"}},{"description":"4-digit code retrieved from Anytype Desktop app","in":"query","name":"code","required":true,"schema":{"type":"string"}}]}
+  {...require("./solve-auth-challenge.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+  {...require("./solve-auth-challenge.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"app_key":{"description":"The app key used to authenticate requests","example":"zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=","type":"string"}},"type":"object","title":"apimodel.TokenResponse"}}},"description":"The app key that can be used in the Authorization header for subsequent requests"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Invalid input"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./solve-auth-challenge.StatusCodes.json")}
 >
   
 </StatusCodes>

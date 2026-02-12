@@ -48,22 +48,19 @@ import Translate from "@docusaurus/Translate";
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space to create the property in; must be retrieved from ListSpaces endpoint","in":"path","name":"space_id","required":true,"schema":{"type":"string"}}]}
+  {...require("./create-property.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"key":{"description":"The key of the property; should always be snake_case, otherwise it will be converted to snake_case","example":"some_user_defined_property_key","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"}},"required":["format","name"],"type":"object","title":"apimodel.CreatePropertyRequest"}}},"description":"The property to create","required":true}}
+  {...require("./create-property.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"content":{"application/json":{"schema":{"properties":{"property":{"description":"The property","properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"id":{"description":"The id of the property","example":"bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a","type":"string"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"},"object":{"description":"The data model of the object","example":"property","type":"string"}},"type":"object","title":"apimodel.Property"}},"type":"object","title":"apimodel.PropertyResponse"}}},"description":"The created property"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"429":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"rate_limit_exceeded","type":"string"},"message":{"example":"Rate limit exceeded","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":429,"type":"integer"}},"type":"object","title":"util.RateLimitError"}}},"description":"Rate limit exceeded"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./create-property.StatusCodes.json")}
 >
   
 </StatusCodes>

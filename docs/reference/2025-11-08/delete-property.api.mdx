@@ -48,22 +48,19 @@ This endpoint "deletes" a property by marking it as archived. The deletion proce
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-11-08","type":"string"}},{"description":"The ID of the space to which the property belongs; must be retrieved from ListSpaces endpoint","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The ID of the property to delete; must be retrieved from ListProperties endpoint or obtained from response context","in":"path","name":"property_id","required":true,"schema":{"type":"string"}}]}
+  {...require("./delete-property.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./delete-property.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"property":{"description":"The property","properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"PropertyFormat"},"id":{"description":"The id of the property","example":"bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a","type":"string"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"},"object":{"description":"The data model of the object","example":"property","type":"string"}},"type":"object","title":"Property"}},"type":"object","title":"PropertyResponse"}}},"description":"The deleted property"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"UnauthorizedError"}}},"description":"Unauthorized"},"403":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"forbidden","type":"string"},"message":{"example":"Forbidden","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":403,"type":"integer"}},"type":"object","title":"ForbiddenError"}}},"description":"Forbidden"},"404":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"object_not_found","type":"string"},"message":{"example":"Resource not found","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":404,"type":"integer"}},"type":"object","title":"NotFoundError"}}},"description":"Resource not found"},"410":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"resource_gone","type":"string"},"message":{"example":"Resource is gone","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":410,"type":"integer"}},"type":"object","title":"GoneError"}}},"description":"Resource deleted"},"429":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"rate_limit_exceeded","type":"string"},"message":{"example":"Rate limit exceeded","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":429,"type":"integer"}},"type":"object","title":"RateLimitError"}}},"description":"Rate limit exceeded"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+  {...require("./delete-property.StatusCodes.json")}
 >
   
 </StatusCodes>

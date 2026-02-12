@@ -48,22 +48,19 @@ Returns a paginated list of members belonging to the specified space. Each membe
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-04-22","type":"string"}},{"description":"The ID of the space to list members for","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"default":100,"maximum":1000,"type":"integer"}}]}
+  {...require("./list-members.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-members.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"description":"The member","properties":{"global_name":{"description":"The global name of the member in the network","example":"john.any","type":"string"},"icon":{"description":"The icon of the object","oneOf":[{"properties":{"emoji":{"description":"The emoji of the icon","example":"📄","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.EmojiIcon"},{"properties":{"file":{"description":"The file of the icon","example":"bafybeieptz5hvcy6txplcvphjbbh5yjc2zqhmihs3owkh5oab4ezauzqay","type":"string"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"}},"type":"object","title":"apimodel.FileIcon"},{"properties":{"color":{"description":"The color of the icon","enum":["grey","yellow","orange","red","pink","purple","blue","ice","teal","lime"],"example":"yellow","type":"string","x-enum-varnames":["ColorGrey","ColorYellow","ColorOrange","ColorRed","ColorPink","ColorPurple","ColorBlue","ColorIce","ColorTeal","ColorLime"],"title":"apimodel.Color"},"format":{"description":"The format of the icon","enum":["icon"],"type":"string","x-enum-varnames":["IconFormatEmoji","IconFormatFile","IconFormatIcon"],"title":"apimodel.IconFormat"},"name":{"description":"The name of the icon","example":"document","type":"string"}},"type":"object","title":"apimodel.NamedIcon"}],"type":"object","title":"apimodel.Icon"},"id":{"description":"The profile object id of the member","example":"_participant_bafyreigyfkt6rbv24sbv5aq2hko1bhmv5xxlf22b4bypdu6j7hnphm3psq_23me69r569oi1_AAjEaEwPF4nkEh9AWkqEnzcQ8HziBB4ETjiTpvRCQvWnSMDZ","type":"string"},"identity":{"description":"The identity of the member in the network","example":"AAjEaEwPF4nkEh7AWkqEnzcQ8HziGB4ETjiTpvRCQvWnSMDZ","type":"string"},"name":{"description":"The name of the member","example":"John Doe","type":"string"},"object":{"description":"The data model of the object","example":"member","type":"string"},"role":{"description":"The role of the member","enum":["viewer","editor","owner","no_permission"],"example":"owner","type":"string"},"status":{"description":"The status of the member","enum":["joining","active","removed","declined","removing","canceled"],"example":"active","type":"string"}},"type":"object","title":"apimodel.Member"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1000,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-apimodel_Member"}}},"description":"The list of members in the space"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./list-members.StatusCodes.json")}
 >
   
 </StatusCodes>

@@ -48,22 +48,19 @@ Removes a given object from the specified list (collection only) in a space. The
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space to which the list belongs; must be retrieved from ListSpaces endpoint","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The ID of the list from which the object will be removed; must be retrieved from SearchSpace endpoint with types: ['collection', 'set']","in":"path","name":"list_id","required":true,"schema":{"type":"string"}},{"description":"The ID of the object to remove from the list; must be retrieved from SearchSpace or GlobalSearch endpoints or obtained from response context","in":"path","name":"object_id","required":true,"schema":{"type":"string"}}]}
+  {...require("./remove-list-object.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./remove-list-object.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"type":"string"}}},"description":"Objects removed successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"object_not_found","type":"string"},"message":{"example":"Resource not found","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":404,"type":"integer"}},"type":"object","title":"util.NotFoundError"}}},"description":"Not found"},"429":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"rate_limit_exceeded","type":"string"},"message":{"example":"Rate limit exceeded","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":429,"type":"integer"}},"type":"object","title":"util.RateLimitError"}}},"description":"Rate limit exceeded"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./remove-list-object.StatusCodes.json")}
 >
   
 </StatusCodes>

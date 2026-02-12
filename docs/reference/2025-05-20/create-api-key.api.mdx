@@ -48,22 +48,19 @@ After receiving a `challenge_id` from the `/v1/auth/challenges` endpoint, the cl
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}}]}
+  {...require("./create-api-key.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"properties":{"challenge_id":{"description":"The challenge id associated with the previously displayed code","example":"67647f5ecda913e9a2e11b26","type":"string"},"code":{"description":"The 4-digit code retrieved from Anytype Desktop app","example":"1234","type":"string"}},"type":"object","title":"apimodel.CreateApiKeyRequest"}}},"description":"The request body containing the challenge ID and code","required":true}}
+  {...require("./create-api-key.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"201":{"content":{"application/json":{"schema":{"properties":{"api_key":{"description":"The api key used to authenticate requests","example":"zhSG/zQRmgADyilWPtgdnfo1qD60oK02/SVgi1GaFt6=","type":"string"}},"type":"object","title":"apimodel.CreateApiKeyResponse"}}},"description":"The API key that can be used in the Authorization header for subsequent requests"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"util.ValidationError"}}},"description":"Bad request"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./create-api-key.StatusCodes.json")}
 >
   
 </StatusCodes>

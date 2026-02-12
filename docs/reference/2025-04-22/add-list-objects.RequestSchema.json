@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"items":{"type":"string"},"type":"array"}}},"description":"The list of object IDs to add to the list","required":true}}

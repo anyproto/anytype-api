@@ -48,22 +48,19 @@ import Translate from "@docusaurus/Translate";
 </Heading>
 
 <ParamsDetails
-  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-04-22","type":"string"}},{"description":"The ID of the space to list properties for","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The number of items to skip before starting to collect the result set","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"The number of items to return","in":"query","name":"limit","schema":{"default":100,"maximum":1000,"type":"integer"}}]}
+  {...require("./list-properties.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./list-properties.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"data":{"description":"The list of items in the current result set","items":{"description":"The property","properties":{"format":{"description":"The format of the property used for filtering","enum":["text","number","select","multi_select","date","files","checkbox","url","email","phone","objects"],"type":"string","x-enum-varnames":["PropertyFormatText","PropertyFormatNumber","PropertyFormatSelect","PropertyFormatMultiSelect","PropertyFormatDate","PropertyFormatFiles","PropertyFormatCheckbox","PropertyFormatUrl","PropertyFormatEmail","PropertyFormatPhone","PropertyFormatObjects"],"title":"apimodel.PropertyFormat"},"id":{"description":"The id of the property","example":"bafyreids36kpw5ppuwm3ce2p4ezb3ab7cihhkq6yfbwzwpp4mln7rcgw7a","type":"string"},"key":{"description":"The key of the property","example":"last_modified_date","type":"string"},"name":{"description":"The name of the property","example":"Last modified date","type":"string"},"object":{"description":"The data model of the object","example":"property","type":"string"}},"type":"object","title":"apimodel.Property"},"type":"array","uniqueItems":false},"pagination":{"description":"The pagination metadata for the response","properties":{"has_more":{"description":"Indicates if there are more items available beyond the current result set","example":true,"type":"boolean"},"limit":{"description":"The maximum number of items returned in the result set","example":100,"type":"integer"},"offset":{"description":"The number of items skipped before starting to collect the result set","example":0,"type":"integer"},"total":{"description":"The total number of items available for the endpoint","example":1000,"type":"integer"}},"type":"object","title":"pagination.PaginationMeta"}},"type":"object","title":"pagination.PaginatedResponse-apimodel_Property"}}},"description":"The list of properties in the specified space"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"util.UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"util.ServerError"}}},"description":"Internal server error"}}}
+  {...require("./list-properties.StatusCodes.json")}
 >
   
 </StatusCodes>

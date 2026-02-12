@@ -1,0 +1,1 @@
+{"parameters":[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-11-08","type":"string"}},{"description":"The ID of the space to update; must be retrieved from ListSpaces endpoint","in":"path","name":"space_id","required":true,"schema":{"type":"string"}}]}

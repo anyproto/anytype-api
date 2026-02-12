@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"app_name":{"description":"The name of the app that is requesting the challenge","example":"anytype_mcp","type":"string"}},"type":"object","title":"apimodel.CreateChallengeRequest"}}},"description":"The request body containing the app name","required":true}}
