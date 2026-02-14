@@ -1852,7 +1852,7 @@ components:
           example: status
           type: string
         select:
-          description: Tag Id - for eq/ne conditions (single selection)
+          description: Tag Id - for eq/ne/in conditions (single selection)
           example: tag_id
           type: string
       type: object
@@ -2291,9 +2291,8 @@ components:
           description: The layout of the view
           enum:
             - grid
-            - table
             - list
-            - galery
+            - gallery
             - kanban
             - calendar
             - graph
@@ -3602,7 +3601,7 @@ paths:
           in: query
           name: format
           schema:
-            default: '"md"'
+            default: md
             enum:
               - md
             type: string
