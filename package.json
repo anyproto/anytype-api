@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "3.9.2",
-    "@typescript-eslint/eslint-plugin": "8.57.1",
-    "@typescript-eslint/parser": "8.57.1",
+    "@typescript-eslint/eslint-plugin": "8.57.2",
+    "@typescript-eslint/parser": "8.57.2",
     "eslint-plugin-mdx": "3.7.0",
     "typescript": "5.9.3"
   },
