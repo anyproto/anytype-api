@@ -74,6 +74,36 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Files",
+      items: [
+        {
+          type: "doc",
+          id: "reference/2025-05-20/upload-file",
+          label: "Upload file",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-05-20/delete-file",
+          label: "Delete file",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-05-20/download-file",
+          label: "Download file",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-05-20/get-image",
+          label: "Download image",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Lists",
       items: [
         {

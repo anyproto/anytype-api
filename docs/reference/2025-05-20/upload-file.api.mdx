@@ -1,0 +1,71 @@
+---
+id: upload-file
+title: "Upload file"
+description: "Uploads a file to the specified space. Accepts multipart/form-data with a file field. The file is processed and stored, then a file object is created. Returns the file object ID and file ID (IPFS CID)."
+sidebar_label: "Upload file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdV99v2zYQ/lcIvawFbEv2Fgzz09I0ATwUqxEn3UMRGJR0stlKokZSXj1D//vuSMqWbcVbkD4NeTBJ3Y/vvjvyLrsgBZ0oURkhy2AaPFa55KlmnGUiB2YkM2tguoJEZAJSXPEERuw6SaAymhV1bkTFlQkzqYphyg1nfwmzbvVRJ09H7GENbi80q5RMQGu0xUu0Z6SCdEBeylZJxl8gMSSbKOAG0MA9mFqV2oLpyszeWyv2CNdvZvO7BbuZvX87CgaBrEBximuWYmS1jWxJovgNMfMCDCgdTD/vTkgguBv8hDsmM+v0ej4jMmpNyoKE1sBTULgr0RDur8ut2VYw/OQU8YOCP2uB0QVTo2oYBDpZQ8GDKbnLODKHWpNocjWMroaTCBVIH8+0UaJcBU0z6AOGYXpMNhcWlQ3tQI6RLciKm/UBolVYivQitlMQT04YtHkn0y1JJLI0UBpa9uSfjs+sWdYbjKgnoLbQXBRn2Bo60JUsNWiyOImiExC8qnKR2EyHXzTZ7SLAesM6MMJpp2C4yO2Sp6kgHZ7PuyJnGO8IH9YKt9Hts+QqMEBxCoBYnZ6ma67AJua8PM+TPfAGew3dHZV8X6WcoMK9MDl4VXep7z2LfXmwDlwC6JLXCV3RrM7zLSH76VWUJzIF+oVvvKgsphjvoa+pPiIK9M1XJzrvkMcLOj7uIxVQSqo+YW24qfWRMIa4FxQY5gqv9iVaP/FcpDb+W+ulh9MuYkvi+LuSWJe8NmupxN+Q/mcWH/9F6fU0jl9EYxfPs0QegcavV9+5HAmowmdgqUHhs798NuBeSmdemzlt9qz2a7m9emGJLiyeZ1ntx01yGpJaCbO1nTEGrrCNYgJw+0TdwPAVNU37ZujgiWjB7FCLraS9nLbpTINwMw5tx9Hhru08TZhZLXJCXl33rVVODdWYahqG48nPowj/xtMfx1H0S0AuW0QLyqlLYxdXu7vDHsSpq/72x0Pge5p9b+zXA83kyUYqyky2pcR9bgrsD5SKuqqkMr9y19ZHQp61erZwMvjhEIHGEA46YWu5p/PhfENTBZQ8RkowDbzAX81sOaIOTR92lvLuftD4nGhZK2SUDV331wPfFnBxKHMcp1CefgBLBycoXNKYFMNWlimNRnhbgFoBBnyIiS2scXa9QQoIFPvgxNh4FJ0FuUJodTxKZEHxonMj28CHvBJhnMs4RDLL8MPs5vb3xe2osLcXgyv0x4yqE633s2ZlljJbunmrreiWd6QNT/2EdjxEoQOqwoKXndhc/2N+9DvKQ+cZ+V/Nvr7SDXwzIZYADoONT+DO38/PwWZMl8SWES6mnekwa6/2mm40iu52MdfwqPKmoWNsaoqeB1xuuBJUK26MFprW+BZkPNdwges3937Ie8teMtT2huUPsX6oKnhe0w6XX2HbHXqbJ5T1U/urwF7616AXoANy/g/CHitN+k7oxjkdPpCdg0TfnH1QchXZET/rh033mZ5/XNDzGPtxvrANMSDDfsLdL+nFHwTtI+tj27+mfkFc9qYAi8ZKPMivUGLhtEQY2lM6muYfiMr5Zg==
+sidebar_class_name: "post api-method"
+info_path: docs/reference/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/spaces/{space_id}/files"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Uploads a file to the specified space. Accepts multipart/form-data with a file field. The file is processed and stored, then a file object is created. Returns the file object ID and file ID (IPFS CID).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space to upload the file to","in":"path","name":"space_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"multipart/form-data":{"schema":{"type":"file"}}},"description":"The file to upload","required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"properties":{"details":{"additionalProperties":{},"description":"File metadata","type":"object"},"file_id":{"description":"Preload file ID (IPFS CID)","type":"string"},"object_id":{"description":"File object ID","type":"string"}},"type":"object","title":"FileUploadResponse"}}},"description":"File uploaded successfully"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

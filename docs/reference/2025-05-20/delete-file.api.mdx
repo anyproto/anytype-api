@@ -1,0 +1,71 @@
+---
+id: delete-file
+title: "Delete file"
+description: "Removes a file object. By default the file is moved to the bin and can be restored. Pass `skip_bin=true` to permanently delete it instead."
+sidebar_label: "Delete file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV22P2jgQ/itWvlwrAQm0q9MhVbptl0qcVndVoe2HakWdZCDuJnZqO7Qcyn+/GSeBsARuX/qh4kP8MmM/88x4Zth6MZhIi9wKJb2x9x4ytQbDOFuKFJgKv0JkB+z1hsWw5EVqmU2g2hOGkWzMrHKLoZCMy5hFXLIQmAZjlYZ4wN5xY9gXcyvyBcq8srqAL6SUg864BGlTOj0Fi2daJqSxwOOB1/MUSnACNo0RWiWyoLtxL+eaZzjXxht/3t6xYo5w1riFM6aWDt3luyndWRhSFiSU4C2gcSbxIJxfyo3d5ND/WCnihoZvhUATvDFh7nkmSiDj3piuc2Sg1igYXfSDi/4oQAXSxzVjtZArryx7XcCmVw0mk/MI9oSGkCq5MgizgZhzm+wBOvGFiM8iuxeElm8RTvdtJPPkyz4lIJnT6vR25WqiAyMJjyAPYYg0gL4VoDct++sI8jo9seSpgZ0LQqVS4BIx3ZABJlfSgCGFUfCSPpGSFsHQkOd5KiIXaP5XQ7i3Z2wse3dsfEtkVhbFHu6+DIIHXZBrinMrKniRioG+8INneepM4fGCXIDv6TjEel4GxvDVHZ3XyOoZncr1hyqgtdJdwsZyW5gDYTRxJyjQzBW+IyKmXqqPx7mw7uyPPBWxs3/ibulgsY3YkTj8qSQWkhc2UVr8C/G9WfzwP0pPp3H4IBrbeE4SeQAady9+cjgSUC15ujCgMccuThrcSem01maVNjup/VRuLx4YojOH5ySr3bhJzkBUaGE3rgyFwDXWLHQATm8o91i+ogrlsoTxbogW9M6+nrlSRuKevx76LsUbf9uk+tKnNIwLdTYuKfc5BFXZK3RKlczafOz7w9HvgwB/w/GLYRD84dH1DboZ+bdyaRtjM3urMDlTOfvr07xJry73uN095XSTs1rIpWrCitd+yrggNKbIc6Xtn7yqpwOhjmosm1UyuLG3wKAJex2/OfnIFfMEOw8q5yB5iOSgS3iGX8NcaKIOlf3vwiasvu43Q92IKjRyy/pV2TW9ugDiYB/yPUby9AEMI25pSD1NCBslXU+CLwewlJDBe5vYzB3OLtdIAYFi15UYGw6CIyNXCK0IB5HKyF683KrG8D7PhR+mKvSRTOlfT99M/p5NBpl7yWhcZv5ZUqTi6d2sOZmFWi6qRqeJ7oZ3pA1X69bosHvBC3JlLNbolm1XVaGue64DP7RSyq/VNdahauGH9dGH2C+UtQe29VP77K2HFOUuDnAwbnVW7r3RWtP/4CNKkBfS2m5DbuCDTsuSlqv2xHWfwpDX410XcpKpRzdEnVbdwuawL1rztCAx9/bXXAuC9UCIz97X/d5zdv92tRNevYjh2Ya2g92Q7trGx8I7amUfgaRxdXmDovXfgidxdu6/xxlHHv8D2fsTOaqFoghy29o7Kudlu8pcTa4n8wmKNwm/aZCbzF4PyN5OljDoncRc3YIsyx1pluZEWVn+ByQQ5XE=
+sidebar_class_name: "delete api-method"
+info_path: docs/reference/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/v1/spaces/{space_id}/files/{file_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a file object. By default the file is moved to the bin and can be restored. Pass `skip_bin=true` to permanently delete it instead.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space the file belongs to","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The file object ID","in":"path","name":"file_id","required":true,"schema":{"type":"string"}},{"description":"When true, permanently delete instead of moving to bin","in":"query","name":"skip_bin","schema":{"default":false,"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"204":{"content":{"application/json":{"schema":{"type":"string"}}},"description":"File deleted"},"400":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"bad_request","type":"string"},"message":{"example":"Bad request","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":400,"type":"integer"}},"type":"object","title":"ValidationError"}}},"description":"Bad request"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"UnauthorizedError"}}},"description":"Unauthorized"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

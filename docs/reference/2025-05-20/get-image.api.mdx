@@ -1,0 +1,71 @@
+---
+id: get-image
+title: "Download image"
+description: "Streams an image. Pass `width` to receive a pre-rendered variant; SVGs are sanitized inline. The id can be either a file object ID or a raw file CID. Same bearer-token auth as other endpoints."
+sidebar_label: "Download image"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdV9+P2zYM/lcEv6wbktjJ7jAse9mhd1dkKNqiubYPxSFVbCZRa0uqJOcuC/y/j5Ts/FictOntaciDbYkUP34kRWYdZWBTI7QTSkbDaOwM8MIyLpko+Bx67A23ln16EJlbfGJOMQMpiCUwzrSBrgGZgYGMLbkRXLo/2Pj9C1Q3wCyXwom/cU/IXEg86m4BTGQsxcOnwEC4BRg8ZyZyYGr6GVLHRtdM0ZrhD2H9+ei6x8a8AFTBU03XqS8gGS/dgnHLlD8DQWglpLO9qBMpDYaTO6MMHZqDm3hPcEdzgwc5MDYaflz/y3MCt8Qt/GJqxvBcdvVmRB6XlpQFCS2Ao7v4JfEg/L6SK7fS0H0fFHHDwNdSICHR0JkSOpFNF1DwaEjmZrzMHWoNksFlN7nsDhJUIH1cs84IOY+qqtMGjGgJmKzmKfg37xWykis5t4izwai5W2wRevmJyE5C+y4Mwd5enJoItZv2Ck82/dq/8Jxp8Qg584nIZj5J2hKwgfK1BLPaYvFqUYthzBqYY0ir6p5gWq2kBUsCgyShR6pQAs/FV651LlKfW/FnS+jWhwcSJ+RHcD/+pVVo4y7K7bs78izXRm2E+xdJ/ywc2lAFOBG8SFUG9IRHXuicbJeSikcZKs3D/OtEBVhL9bKn9O4bSiEt9nXAGGXahK3jrrR7wuhk5zAkm6X6ePwW7gDPjbfTwuUeaM/kxX/KZEA1kcpNZqqU38/mW7CqNFjHqMqOqj6d04uzOH2l3C1hOcpnyM0tZhS4PLNIvkUp4TRY7RMLBm/jyVF/W3kd1dosaLOj2k+lFt0+i9qxx3Oc2FbcJGchLY1wK9+wQgeknMbPe7qwHJ9TL4tu8dKx0T3Rgglf9z3f8Ug2ipf92DcCG6+bhlDF/oLCleaeruh+9ABCfyxNTi3POT2M4/7gt16Cv/7w136S/B6R9QbcmMIbIroLsfm6Vabg1Pf++nDXXMFEStjdMk6Wws0pZ6rJKl6HqeCC0NhSa2Xcnzw03p5QB82YjYMMbmw9sOjCViduTj6IxN1CWN/3QfIpcooR4QU+LfOZiTo0Hzzg6MJqcz9ZHIlCOVvWDf3Zduo+iS/bjO8wkqcHYBZxR69cZtjCV0pmNLpg4QC2H3J46xMbh7viaokUECj2Moixfi85cHKO0MppL1UF+YvGnWoc73It4mmupjGSKeOXo+c3r8Y3vcIXMjpX2NczSlQ8vZ01LzNRs0mYiJrkbnhH2nC1nqH2xxw0oJV1BZc7vl2rB5krnrFmPtsLxc6l8n+YSuscd/DoYgw+zihVHbp1XaUfo2WfysMnEL4Md0a3UKq0uBmqsP4WSCnprddTbuGdyauKlsPo4ydcYSlh8D6Y8dzCCYbPn7JaHfoCq51ha8nzkmT8ZeE1p5QwZwF79rYeHX9mZwzCreDqRUzoXWwN6A3bfgT9UXynh+QfgLWJd3WPsvX/jydReOpPzomgHv7V2YYXGauF0hS029k7mAaq3Sb14oYaQtMtauObtlC/kLOtHGHae4k7qr2q2lDma5H4qqp/ADXLF+8=
+sidebar_class_name: "get api-method"
+info_path: docs/reference/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/spaces/{space_id}/images/{image_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams an image. Pass `width` to receive a pre-rendered variant; SVGs are sanitized inline. The id can be either a file object ID or a raw file CID. Same bearer-token auth as other endpoints.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space the image belongs to","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The image object ID or file CID","in":"path","name":"image_id","required":true,"schema":{"type":"string"}},{"description":"Optional pixel width for a pre-rendered variant","in":"query","name":"width","schema":{"type":"integer"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"file"}},"image/*":{"schema":{"type":"string"}}},"description":"Image contents"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"object_not_found","type":"string"},"message":{"example":"Resource not found","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":404,"type":"integer"}},"type":"object","title":"NotFoundError"}}},"description":"Image not found"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      

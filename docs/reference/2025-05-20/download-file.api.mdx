@@ -1,0 +1,71 @@
+---
+id: download-file
+title: "Download file"
+description: "Streams the raw bytes of a file object. The response Content-Type matches the stored media type. Authentication is the same bearer-token scheme as the rest of the API, so the URL is not directly embeddable in unauthenticated browser image elements without proxying."
+sidebar_label: "Download file"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01v4zYQ/SuELm0B25LTBEV9arCbFC6CbREn7WERGJQ0trkrkVpy5MQ19N87Q1GxXSvZZNNjkYMpcobz5nG+so1ycJlVFSqjo0k0QwuydAJXIKy8F+kGwQmzEFIsVAHCpJ8gw5G44XNwldEOxDujETQObzYViFJitoL2BofGQi5KyJUUSKcjcV7TgUaVSbYoVBCUJYgUpAU7RPMZtHB0Ce3JAAUcMgpen/8xHQhn/Pr2+oqv0AZFriwhKzYCyhTyXKaEVmlRa7mzSFhSa+4dWKFKuQQBBRnR6MS9wpWpUVTWPGyUXo6iQWQqsB7lNCdmcnOvCyPzOfNAp5W0BBrBumjycfsvGpmeNR2xizvYAo2oHSsrFlqBzMHSl6aL6Ptcb5ij4Z+tIh1Y+FKTW2QebQ2DyJMiowmbW8i6QNI6SU7OhsnZ8CQhBdanPYeWfIiaZtAHbPq+w+QqmYFf+cdNoTB6SYybDmIlcbUD6MXnKn8W2Ysg7MUSwem3xjKvNXbHwm1UOj4/SRL+ydoA5aWsqiIEX/zJMaDt8X3+iQn6gbTJEHDofIIcai2MpagnvVRpaTc970BXHZJwyQQEWC6i49Nk/CqkFKgUnqhaPzOTA//Cgyyrgk23cW+s+hvyY0CDqATnKAMOlW6/otS+2KEOWGtsn7BDibU7ECYnHwUVObqk8Gduwla4nr4VHuG58HZ6qDwA7Zk8/U+ZbFHNqcbMF6bWL2fzGpypLSUYl6cnVd/O6emrOP1g8JKxPMmnD80dZDo/e2UWfY1Rhmm1LOZUiKlKzp90t5fWadAWrbZ4UvutzJLbr2J25vE8yWs/bpZzkNVW4cY3krYLckjT5x1XNJRL7jH+YVx0x7RQvHNPWgL6TsSyUbwex75Cu3jbVeom5lJGG6GYNhFbY/Nt16ptwY0IsZrE8fjkp1FCf+PJj+Mk+Tli2x20mW/Hnp99gN3XZVcBf/vrJgoFmilpT3d8syXvstIL08WUDI9USsVoXF1VxuIvsm2HI2WOWqSYtTJ0sPPAkQs7nbi7+egdblY0MXA3Bs1DgqP3kCX9OuHjknS4a/NAIIK57xwPID6XnRi2XdMNQv+ixS7eB37K4R+gGKKBg5ZS09QBG6NzHioobYC6Ezu880nM2kJxviYK/ORy1YqJ8Sg5cnJJ0Op0lJmS/SXjaDrHh7JScVqYNCYydXw1fXfxYXYxKn0ak3Ol+33BYUq397PmZeZmMW/nlC60O96JNtoNk83h8EEGKuOwlHrPt/dhaBJhaDp4ib2K8v/cuTd3hlxBeMCYgohGoyaEwDbk+sdoPeY084FIi8neZOYTnve6+YmyeEUPw1rbbSod3NqiaXj7Sw2Wiw4t19Iqht7OssrxmirMQhYOnnm276/DaPaDePlk2etf2KRQ5ACTRc1ftPwMm/3J04+T3wrvaOr8BiQdq80diYYJ/k2cPfdvQi++FsfxPwuPUJmjIJRlUOHe2VHfbvbbya8XXLy7yh6MP5bwsGBneymi4PISN5xHTfPImM8r5qtp/gEzavpq
+sidebar_class_name: "get api-method"
+info_path: docs/reference/2025-05-20/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/spaces/{space_id}/files/{file_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams the raw bytes of a file object. The response Content-Type matches the stored media type. Authentication is the same bearer-token scheme as the rest of the API, so the URL is not directly embeddable in unauthenticated browser image elements without proxying.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"description":"The version of the API to use","in":"header","name":"Anytype-Version","required":true,"schema":{"default":"2025-05-20","type":"string"}},{"description":"The ID of the space the file belongs to","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"The file object ID","in":"path","name":"file_id","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"content":{"application/json":{"schema":{"type":"file"}},"application/octet-stream":{"schema":{"format":"binary","type":"string"}}},"description":"File contents"},"401":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"unauthorized","type":"string"},"message":{"example":"Unauthorized","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":401,"type":"integer"}},"type":"object","title":"UnauthorizedError"}}},"description":"Unauthorized"},"404":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"object_not_found","type":"string"},"message":{"example":"Resource not found","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":404,"type":"integer"}},"type":"object","title":"NotFoundError"}}},"description":"File not found"},"500":{"content":{"application/json":{"schema":{"properties":{"code":{"example":"internal_server_error","type":"string"},"message":{"example":"Internal server error","type":"string"},"object":{"example":"error","type":"string"},"status":{"example":500,"type":"integer"}},"type":"object","title":"ServerError"}}},"description":"Internal server error"}}}
+>
+  
+</StatusCodes>
+
+
+      
