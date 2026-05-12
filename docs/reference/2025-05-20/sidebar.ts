@@ -94,12 +94,6 @@ const sidebar: SidebarsConfig = {
           label: "Download file",
           className: "api-method get",
         },
-        {
-          type: "doc",
-          id: "reference/2025-05-20/get-image",
-          label: "Download image",
-          className: "api-method get",
-        },
       ],
     },
     {
