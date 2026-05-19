@@ -205,8 +205,55 @@ h4 {
   background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--ifm-color-primary-lightest) 50%, var(--ifm-background-color)) 0%,
+    70%,
     transparent 100%
   );
+}
+
+/* Announcement bar — the config sets a fixed pale background and black text
+   which glare in dark mode. Override with a subtle tinted dark surface. */
+[data-theme="dark"] div[class*="announcementBar_"] {
+  background: color-mix(in srgb, var(--ifm-color-primary-lightest) 18%, var(--ifm-background-color)) !important;
+  color: var(--ifm-color-content) !important;
+}
+[data-theme="dark"] div[class*="announcementBar_"] a {
+  color: var(--ifm-color-primary);
+}
+
+/* Navbar search input — the default emphasis-200 background reads as a
+   bright pill against the dark navbar gradient. Use the surface color so
+   the input integrates with the navbar. */
+[data-theme="dark"] .navbar__search-input {
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-color-content);
+}
+[data-theme="dark"] .navbar__search-input::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+/* Render the magnifier as a CSS mask on the search container, so its color
+   follows `color` (currentColor inside a data-URL background-image doesn't
+   inherit from the host — that's why the icon stayed black). */
+[data-theme="dark"] .navbar__search-input {
+  background-image: none;
+}
+[data-theme="dark"] .navbar__search {
+  position: relative;
+  color: var(--ifm-color-emphasis-600);
+}
+[data-theme="dark"] .navbar__search::before {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(-50%);
+  background-color: currentColor;
+  -webkit-mask: var(--ifm-navbar-search-input-icon) no-repeat center / contain;
+  mask: var(--ifm-navbar-search-input-icon) no-repeat center / contain;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Tables */

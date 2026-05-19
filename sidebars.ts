@@ -1,8 +1,25 @@
 // @ts-check
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 import apiVersions from "./docs/reference/versions.json";
-import { versionCrumb, versionSelector } from "docusaurus-plugin-openapi-docs/lib/sidebars/utils";
 import { openApiConfig } from "./openapi.config";
+
+/* Single combined version dropdown: button shows the current version
+   inline, menu lists all versions with the current one marked active.
+   Replaces the plugin's split versionSelector + versionCrumb pair. */
+function versionDropdown(currentVersion: string, versions: { label: string; baseUrl: string }[]) {
+  const items = versions
+    .map((v) => {
+      const active = v.label === currentVersion ? " dropdown__link--active" : "";
+      return `<li><a class="dropdown__link${active}" href="${v.baseUrl}">${v.label}</a></li>`;
+    })
+    .join("");
+  return `<div class="dropdown dropdown--hoverable dropdown--right">
+  <button class="button button--block button--sm button--secondary">
+    <span>API Version: <strong>${currentVersion}</strong></span>
+  </button>
+  <ul class="dropdown__menu">${items}</ul>
+</div>`;
+}
 import guidesSidebar from "./docs/guides/sidebar";
 import examplesSidebar from "./docs/examples/sidebar";
 import referenceSidebar20250212 from "./docs/reference/2025-02-12/sidebar";
@@ -34,13 +51,8 @@ function buildApiSidebar(version: string) {
     {
       type: "html",
       defaultStyle: true,
-      value: versionSelector(apiVersions),
+      value: versionDropdown(version, apiVersions),
       className: "version-button",
-    },
-    {
-      type: "html",
-      defaultStyle: true,
-      value: versionCrumb(version),
     },
     {
       type: "category",
@@ -58,11 +70,6 @@ function buildApiSidebar(version: string) {
       type: "ref",
       label: "Changelog",
       id: "reference/changelog",
-    },
-    {
-      type: "ref",
-      label: "Release notes",
-      id: "reference/release-notes",
     },
   ];
 }

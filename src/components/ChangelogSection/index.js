@@ -26,7 +26,7 @@ const recentChanges = [
     date: "2026-05-13",
     title: "File API",
     description: "Upload, download, and delete files in spaces (anytype-heart v0.50.5)",
-    href: "/docs/reference/release-notes#may-13-2026",
+    href: "/docs/reference/changelog#2025-11-08-file-management",
   },
   {
     version: "2025-11-08",
@@ -101,7 +101,7 @@ export default function ChangelogSection() {
             </div>
 
             <div className={styles.viewAllContainer}>
-              <Link to="/docs/reference/release-notes" className={styles.viewAllLink}>
+              <Link to="/docs/reference/changelog" className={styles.viewAllLink}>
                 All changes →
               </Link>
             </div>

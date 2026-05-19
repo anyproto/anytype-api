@@ -2,14 +2,32 @@
 id: changelog
 title: Changelog
 sidebar_label: Changelog
-description: Track changes and updates to the Anytype API across different versions
+description: A chronological log of Anytype API changes — each entry is the anytype-heart release that shipped the change, with the API version it applies to
 toc_max_heading_level: 3
 displayed_sidebar: openApiSidebar20251108
 ---
 
-Stay up to date with the latest API changes and improvements.
+A chronological log of changes to the Anytype API. Each entry is the `anytype-heart` release that shipped it and notes the API version (the `Anytype-Version` value) the change applies to. A new API version is minted only for breaking changes.
 
-## 2025-11-08
+<a id="2025-11-08-file-management"></a>
+
+## File management
+
+_Shipped May 13, 2026 in anytype-heart v0.50.5 · applies to API version `2025-11-08` (no version change)._
+
+Backward-compatible additions. Availability depends on the running `anytype-heart` build — a client can confirm support by checking the `files` paths in the spec served at `GET /docs/openapi.json` by the local instance.
+
+### Added
+
+- `POST /v1/spaces/:space_id/files` to upload a file
+- `GET /v1/spaces/:space_id/files/:file_id` to download a file
+- `DELETE /v1/spaces/:space_id/files/:file_id` to delete a file
+
+<a id="2025-11-08"></a>
+
+## API version 2025-11-08
+
+_Shipped December 11, 2025 in anytype-heart v0.46.3._
 
 Markdown body patching, object type updates, inline tag creation, and property-based filtering.
 
@@ -36,11 +54,15 @@ Markdown body patching, object type updates, inline tag creation, and property-b
 
 ### Deprecated
 
-- Deprecated authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` in favor of the challenge-based system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in 2025-05-20
+- Authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` in favor of the challenge-based system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in `2025-05-20`
 
-## 2025-05-20
+<a id="2025-05-20"></a>
 
-New authentication endpoints, stable type/property keys, rate limiting, and built-in SVG icons.
+## API version 2025-05-20
+
+_Shipped June 17, 2025 in anytype-heart v0.41.0._
+
+New authentication endpoints, stable type/property keys, rate limiting, and built-in SVG icons. Contains **breaking changes** — review them before upgrading a pinned client.
 
 ### Added
 
@@ -63,38 +85,56 @@ New authentication endpoints, stable type/property keys, rate limiting, and buil
 - Fixed emoji input validation
 - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects` now works with built-in type queries
 
-### Breaking Changes
+### Breaking changes
 
 - Removed `format` from `PropertyLinkWithValue` for improved efficiency
-- Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) will be deprecated in favor of the new challenge-based system in a future release
+- Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) flagged for deprecation in favor of the new challenge-based system
 - Added required `views` subresource to `GET /spaces/:space_id/lists/:list_id/:view_id/objects` for retrieving objects in a list view
 
-## 2025-04-22
+<a id="2025-04-22"></a>
+<a id="2025-03-17"></a>
 
-Full CRUD operations for spaces, types, properties, and tags with enhanced metadata support.
+## API version 2025-04-22
+
+_Shipped May 6, 2025 in anytype-heart v0.40.20. First stable release carrying the `Anytype-Version` header._
+
+Full CRUD for spaces, types, properties, and tags, plus collections and member management, OpenAPI 3.1, and enhanced object properties. Also includes everything originally documented under API version `2025-03-17`, which never shipped as the served version (its constant was superseded by `2025-04-22` before this release). Contains **breaking changes**.
 
 ### Added
 
-- New space management endpoint:
+- Space management:
+  - `GET /spaces/:space_id`
   - `PATCH /spaces/:space_id`
-- New type management endpoints:
+- Space member management:
+  - `GET /spaces/:space_id/members/:member_id`
+  - `PATCH /spaces/:space_id/members/:member_id`
+- Type management:
   - `POST /spaces/:space_id/types`
   - `PATCH /spaces/:space_id/types/:type_id`
   - `DELETE /spaces/:space_id/types/:type_id`
-- New property management endpoints:
+- Property management:
   - `GET /spaces/:space_id/properties`
   - `GET /spaces/:space_id/properties/:property_id`
   - `POST /spaces/:space_id/properties`
   - `PATCH /spaces/:space_id/properties/:property_id`
   - `DELETE /spaces/:space_id/properties/:property_id`
-- New tag management endpoints:
+- Tag management:
   - `GET /spaces/:space_id/properties/:property_id/tags`
   - `GET /spaces/:space_id/properties/:property_id/tags/:tag_id`
   - `POST /spaces/:space_id/properties/:property_id/tags`
   - `PATCH /spaces/:space_id/properties/:property_id/tags/:tag_id`
   - `DELETE /spaces/:space_id/properties/:property_id/tags/:tag_id`
-- Added property `id` alongside `key` in responses
-- Returned linked `properties` (featured and from sidebar) and `plural_name` for types
+- List (collection/query) endpoints:
+  - `GET /spaces/:space_id/lists/:list_id/views`
+  - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects`
+  - `POST /spaces/:space_id/lists/:list_id/objects`
+  - `DELETE /spaces/:space_id/lists/:list_id/objects`
+- Property `id` alongside `key` in responses
+- Linked `properties` (featured and from sidebar) and `plural_name` returned for types
+- `Anytype-Version` response header
+- `name` as a sort property option for search endpoints
+- `description` field for spaces
+- Custom `properties` (formerly relations) in object response details
 
 ### Changed
 
@@ -103,36 +143,7 @@ Full CRUD operations for spaces, types, properties, and tags with enhanced metad
 - Renamed layout `todo` to `action` for consistency
 - Removed `ot-` prefix for type keys
 - Renamed `property` to `property_key` in sort options in search
-
-### Breaking Changes
-
-- Deprecated the separate markdown export; unified with `getObject`
-- Deprecated `blocks` in `getObject` in favor of the `markdown` exported body
-
-## 2025-03-17
-
-Collections and member management, OpenAPI 3.1 upgrade, and enhanced object properties.
-
-### Added
-
-- New space endpoint:
-  - `GET /spaces/:space_id`
-- New space member endpoint:
-  - `GET /spaces/:space_id/members/:member_id`
-  - `PATCH /spaces/:space_id/members/:member_id`
-- New list (collection/query) endpoints:
-  - `GET /spaces/:space_id/lists/:list_id/views`
-  - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects`
-  - `POST /spaces/:space_id/lists/:list_id/objects`
-  - `DELETE /spaces/:space_id/lists/:list_id/objects`
-- Added `Anytype-Version` response header
-- Added `name` as a sort property option for search endpoints
-- Added `description` field for spaces
-- Included custom `properties` (formerly relations) in object response details
-
-### Changed
-
-- Upgraded the Swagger specification to OpenAPI 3.1
+- Upgraded the spec to OpenAPI 3.1
 - Added `last_modified` as a fallback sort criterion for the `last_opened` sort
 - Updated status codes for deleted resources:
   - `GET /spaces/:space_id/objects/:object_id` now returns 410 for deleted objects
@@ -144,8 +155,10 @@ Collections and member management, OpenAPI 3.1 upgrade, and enhanced object prop
 
 - Corrected error mapping originating from middleware functions
 
-### Breaking Changes
+### Breaking changes
 
+- Deprecated the separate markdown export; unified with `getObject`
+- Deprecated `blocks` in `getObject` in favor of the `markdown` exported body
 - Renamed `details` to `properties` with explicit `format` field and standardized naming conventions
 - Standardized icon structure with clear format differentiation (`emoji`, `file`, or `icon`)
 - Renamed `timestamp` to `property` in sort for search endpoints
@@ -153,10 +166,12 @@ Collections and member management, OpenAPI 3.1 upgrade, and enhanced object prop
 - Renamed `object_type_unique_key` to `type_key` for object creation
 - Changed markdown export endpoint to `GET /spaces/:space_id/objects/:object_id/:format`
 
-## 2025-02-12
+<a id="2025-02-12"></a>
 
-Basic object and space operations to enable first version of Raycast extension.
+## API version 2025-02-12
+
+_Initial release — February 12, 2025. Predates the `Anytype-Version` header mechanism._
 
 ### Added
 
-- Basic object and space operations to enable first version of Raycast extension
+- Basic object and space operations to enable the first version of the Raycast extension

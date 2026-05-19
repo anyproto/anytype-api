@@ -27,6 +27,12 @@
   padding: var(--spacing-xl);
 }
 
+/* Soften pixel-art SVGs in dark mode — the near-white emphasis-900
+   reads as harsh, dithered noise on the dark background. */
+:global([data-theme="dark"]) .featureSvg {
+  color: var(--ifm-color-emphasis-700);
+}
+
 .featureTitle {
   text-align: left;
   font-size: var(--font-size-h3);
