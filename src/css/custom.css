@@ -151,9 +151,12 @@ h4 {
 .get > .menu__link::before {
   content: "get";
   background-color: var(--ifm-color-primary);
-  /* GET uses the light brand primary as its background, so white text is
-     unreadable (especially in dark mode where primary is pale cream).
-     Use dark text + a faint border for contrast and definition. */
+}
+
+/* In dark mode the brand primary is pale cream, so the default white badge
+   text becomes unreadable. Use dark text + a faint border for the GET badge
+   only; other method badges have saturated backgrounds and stay white. */
+[data-theme="dark"] .get > .menu__link::before {
   color: #1c1e21;
   border-color: rgba(0, 0, 0, 0.2);
 }

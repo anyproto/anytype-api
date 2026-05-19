@@ -1,5 +1,4 @@
 import Link from "@docusaurus/Link";
-import React from "react";
 import styles from "./styles.module.css";
 
 function getTimeAgo(dateString, isLatest) {
@@ -22,6 +21,13 @@ function getTimeAgo(dateString, isLatest) {
 }
 
 const recentChanges = [
+  {
+    version: "2025-11-08",
+    date: "2026-05-13",
+    title: "File API",
+    description: "Upload, download, and delete files in spaces (anytype-heart v0.50.5)",
+    href: "/docs/reference/release-notes#may-13-2026",
+  },
   {
     version: "2025-11-08",
     date: "2025-11-08",
@@ -54,11 +60,11 @@ const recentChanges = [
   },
 ];
 
-function ChangelogEntry({ version, date, title, description, isLatest }) {
+function ChangelogEntry({ version, date, title, description, href, isLatest }) {
   const timeAgo = getTimeAgo(date, isLatest);
 
   return (
-    <Link to={`/docs/reference/changelog#${version}`} className={styles.changelogEntryLink}>
+    <Link to={href ?? `/docs/reference/changelog#${version}`} className={styles.changelogEntryLink}>
       <div className={styles.changelogEntry}>
         <div className={styles.entryHeader}>
           <div className={styles.versionInfo}>
@@ -95,7 +101,7 @@ export default function ChangelogSection() {
             </div>
 
             <div className={styles.viewAllContainer}>
-              <Link to="/docs/reference/changelog" className={styles.viewAllLink}>
+              <Link to="/docs/reference/release-notes" className={styles.viewAllLink}>
                 All changes →
               </Link>
             </div>

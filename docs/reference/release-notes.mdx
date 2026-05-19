@@ -7,35 +7,34 @@ toc_max_heading_level: 3
 displayed_sidebar: openApiSidebar20251108
 ---
 
-A running, **calendar-dated** log of API changes as they ship in `anytype-heart` — including backward-compatible additions that do not introduce a new API version.
+A running, **calendar-dated** log of API changes as they ship in anytype-heart — including backward-compatible additions that do not introduce a new API version.
 
-:::info How this differs from the [Changelog](./changelog)
+:::info[How this differs from the Changelog]
 
-The [Changelog](./changelog) is organized by **API version** (the `Anytype-Version` value). A version's section describes what that version's contract looks like, and a new version is minted only for **breaking** changes.
+The [Changelog](./changelog) is per API version and only changes on breaking changes. These Release notes are per anytype-heart release, so backward-compatible additions appear by ship date instead of being backdated into an existing version.
 
-These **Release notes** are organized by **the `anytype-heart` release a change actually shipped in**. Backward-compatible additions become available to the current API version without a new version date, so they are recorded here by ship date rather than backdated into a released version's section.
-
-Each entry notes the API version the change applies to and the `anytype-heart` release that first shipped it. Dates and versions are derived from the served `ApiVersion` history in `anytype-heart` (`core/api/server/middleware.go`) and the first stable release tag containing each change.
 :::
 
-## 2026-05-13 — anytype-heart v0.50.5
+## May 13, 2026
 
-**API version `2025-11-08` (unchanged).**
+Shipped in anytype-heart v0.50.5.  
+Applies to API version [`2025-11-08`](./changelog#2025-11-08) (unchanged).
 
 ### Added
 
-- File management endpoints — a backward-compatible addition; clients on `2025-11-08` gain access without changing the `Anytype-Version` header:
+- File management endpoints — backward-compatible additions to API version `2025-11-08`:
   - `POST /v1/spaces/:space_id/files` to upload a file
   - `GET /v1/spaces/:space_id/files/:file_id` to download a file
   - `DELETE /v1/spaces/:space_id/files/:file_id` to delete a file
 
-  Availability depends on the running `anytype-heart` build. A client can confirm support by checking for the `files` paths in the spec served at `GET /docs/openapi.json` by the local instance.
+  Availability depends on the running anytype-heart build. A client can confirm support by checking for the `files` paths in the spec served at `GET /docs/openapi.json` by the local instance.
 
-## 2025-12-11 — anytype-heart v0.46.3
+## December 11, 2025
 
-**API version `2025-11-08` introduced** (served-version bump committed 2025-11-09).
+Shipped in anytype-heart v0.46.3.  
+Introduces API version [`2025-11-08`](./changelog#2025-11-08).
 
-Markdown body patching, object type updates, inline tag creation, and property-based filtering. See the [`2025-11-08` Changelog](./changelog#2025-11-08) for the full contract, including changed, fixed, and deprecated items.
+Markdown body patching, object type updates, inline tag creation, and property-based filtering.
 
 ### Added
 
@@ -44,11 +43,12 @@ Markdown body patching, object type updates, inline tag creation, and property-b
 - Inline tag creation in `CreatePropertyRequest` for `select` / `multi_select`
 - Property-based filtering on listing and search endpoints
 
-## 2025-06-17 — anytype-heart v0.41.0
+## June 17, 2025
 
-**API version `2025-05-20` introduced** (served-version bump committed 2025-05-09).
+Shipped in anytype-heart v0.41.0.  
+Introduces API version [`2025-05-20`](./changelog#2025-05-20).
 
-Challenge-based authentication, stable type/property keys, rate limiting, and built-in SVG icons. This version contains **breaking changes** — see the [`2025-05-20` Changelog](./changelog#2025-05-20) for the full list before upgrading a pinned client.
+Challenge-based authentication, stable type/property keys, rate limiting, and built-in SVG icons. This version contains **breaking changes** — review them before upgrading a pinned client.
 
 ### Added
 
@@ -56,11 +56,12 @@ Challenge-based authentication, stable type/property keys, rate limiting, and bu
 - Stable, caller-specified type and property keys
 - Built-in SVG type icons
 
-## 2025-05-06 — anytype-heart v0.40.20
+## May 6, 2025
 
-**API version `2025-04-22` introduced** (served-version bump committed 2025-04-20).
+Shipped in anytype-heart v0.40.20.  
+Introduces API version [`2025-04-22`](./changelog#2025-04-22).
 
-First stable release carrying the API versioning header. Full CRUD for spaces, types, properties, and tags. This version contains **breaking changes** — see the [`2025-04-22` Changelog](./changelog#2025-04-22).
+First stable release carrying the `Anytype-Version` header. Full CRUD for spaces, types, properties, and tags. This version contains **breaking changes**.
 
 ### Added
 
@@ -68,8 +69,3 @@ First stable release carrying the API versioning header. Full CRUD for spaces, t
 - Full type CRUD: `POST` / `PATCH` / `DELETE /spaces/:space_id/types[/:type_id]`
 - Full property CRUD under `/spaces/:space_id/properties`
 - Full tag CRUD under `/spaces/:space_id/properties/:property_id/tags`
-
-:::note On API version `2025-03-17`
-
-The served `ApiVersion` constant was first added on 2025-04-06 with the value `2025-03-17`, but it was bumped to `2025-04-22` on 2025-04-20 — before the first release (v0.40.20) that contained it. As a result **`2025-03-17` was never the served version in any stable `anytype-heart` release**. Its documented contract (collections and member management, OpenAPI 3.1 upgrade, the `Anytype-Version` response header) reached users folded into the `2025-04-22` release above. The [`2025-03-17` Changelog](./changelog#2025-03-17) is retained as a record of that contract.
-:::
