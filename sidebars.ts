@@ -59,6 +59,11 @@ function buildApiSidebar(version: string) {
       label: "Changelog",
       id: "reference/changelog",
     },
+    {
+      type: "ref",
+      label: "Release notes",
+      id: "reference/release-notes",
+    },
   ];
 }
 

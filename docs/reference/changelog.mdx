@@ -22,21 +22,21 @@ Markdown body patching, object type updates, inline tag creation, and property-b
 
 ### Changed
 
-- Improved performance for type, property, and tag map lookups through subscription-based caching
-- No-op changes to type or property keys are now silently ignored, preventing incorrect errors when patching unchanged keys
+- Improved type, property, and tag map lookup performance via subscription-based caching
+- No-op changes to type or property keys are now ignored, preventing spurious errors when patching unchanged keys
 
 ### Fixed
 
 - Clarified error messages for reserved system properties
 - Property key now correctly populated when creating a type with properties
-- Corrected icon name enum values in OpenAPI spec
-- Updated OpenAPI schema to clarify nullable icons and types
-- API error messages now show actual invalid key name instead of empty property key ([#2633](https://github.com/anyproto/anytype-heart/issues/2633))
-- Search no longer returns types of deleted type keys ([#7](https://github.com/anyproto/anytype-api/issues/7))
+- Corrected icon name enum values in the OpenAPI spec
+- Clarified nullable icons and types in the OpenAPI schema
+- API error messages now show the actual invalid key name instead of an empty property key ([#2633](https://github.com/anyproto/anytype-heart/issues/2633))
+- Search no longer returns types for deleted type keys ([#7](https://github.com/anyproto/anytype-api/issues/7))
 
 ### Deprecated
 
-- Authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` are now deprecated in favor of the challenge-based authentication system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in 2025-05-20
+- Deprecated authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` in favor of the challenge-based system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in 2025-05-20
 
 ## 2025-05-20
 
@@ -45,29 +45,29 @@ New authentication endpoints, stable type/property keys, rate limiting, and buil
 ### Added
 
 - New authentication endpoints:
-  - `POST /v1/auth/challenges` for creating new challenges
-  - `POST /v1/auth/api_keys` for exchanging challenge code for API key
-- Support for built-in SVG as type icons
-- Stable type and property keys: You can now specify these keys when creating or updating types and properties. They must be unique and follow camel_case formatting.
+  - `POST /v1/auth/challenges` to create a challenge
+  - `POST /v1/auth/api_keys` to exchange a challenge code for an API key
+- Support for built-in SVG type icons
+- Stable type and property keys: specify these keys when creating or updating types and properties. Keys must be unique and use camel_case.
 
 ### Changed
 
-- Burst rate limiting (sustained 1rps, burst size 60) with option to disable via `ANYTYPE_API_DISABLE_RATE_LIMIT=1` environment variable
-- Switched creation endpoints to return StatusCreated (201) instead of StatusOk (200)
-- Improved API key generation system
-- Removed ExportService dependency, now using RPC for exports
+- Added burst rate limiting (sustained 1 rps, burst size 60), disable via the `ANYTYPE_API_DISABLE_RATE_LIMIT=1` environment variable
+- Creation endpoints now return 201 Created instead of 200 OK
+- Improved the API key generation system
+- Removed the ExportService dependency; exports now use RPC
 
 ### Fixed
 
-- Request body format for `POST /spaces/:space_id/lists/:list_id/objects`
-- Emoji input validation checks
+- Corrected request body format for `POST /spaces/:space_id/lists/:list_id/objects`
+- Fixed emoji input validation
 - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects` now works with built-in type queries
 
 ### Breaking Changes
 
 - Removed `format` from `PropertyLinkWithValue` for improved efficiency
-- Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) will be deprecated in favor of new challenge-based system in the future
-- Added required subresource `views` to path `/spaces/:space_id/lists/:list_id/:view_id/objects [get]` for retrieving objects in a list view
+- Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) will be deprecated in favor of the new challenge-based system in a future release
+- Added required `views` subresource to `GET /spaces/:space_id/lists/:list_id/:view_id/objects` for retrieving objects in a list view
 
 ## 2025-04-22
 
@@ -94,7 +94,7 @@ Full CRUD operations for spaces, types, properties, and tags with enhanced metad
   - `PATCH /spaces/:space_id/properties/:property_id/tags/:tag_id`
   - `DELETE /spaces/:space_id/properties/:property_id/tags/:tag_id`
 - Added property `id` alongside `key` in responses
-- Return linked `properties` (featured and from sidebar) and `plural_name` for types
+- Returned linked `properties` (featured and from sidebar) and `plural_name` for types
 
 ### Changed
 
@@ -106,8 +106,8 @@ Full CRUD operations for spaces, types, properties, and tags with enhanced metad
 
 ### Breaking Changes
 
-- Deprecated separate markdown export, unified with `getObject`
-- Deprecated `blocks` in `getObject` in favor of `markdown` exported body
+- Deprecated the separate markdown export; unified with `getObject`
+- Deprecated `blocks` in `getObject` in favor of the `markdown` exported body
 
 ## 2025-03-17
 
@@ -122,23 +122,23 @@ Collections and member management, OpenAPI 3.1 upgrade, and enhanced object prop
   - `PATCH /spaces/:space_id/members/:member_id`
 - New list (collection/query) endpoints:
   - `GET /spaces/:space_id/lists/:list_id/views`
-  - `GET /spaces/:space_id/lists/:list_id/views/view_id/objects`
+  - `GET /spaces/:space_id/lists/:list_id/views/:view_id/objects`
   - `POST /spaces/:space_id/lists/:list_id/objects`
   - `DELETE /spaces/:space_id/lists/:list_id/objects`
-- Added `Anytype-Version` to response headers
-- Added `name` as sort property option for search endpoints
+- Added `Anytype-Version` response header
+- Added `name` as a sort property option for search endpoints
 - Added `description` field for spaces
-- Included custom `properties` (formerly: relations) in object response details
+- Included custom `properties` (formerly relations) in object response details
 
 ### Changed
 
-- Upgraded Swagger specification to OpenAPI 3.1
-- Implemented `last_modified` as a fallback sort criterion for the `last_opened` sort
+- Upgraded the Swagger specification to OpenAPI 3.1
+- Added `last_modified` as a fallback sort criterion for the `last_opened` sort
 - Updated status codes for deleted resources:
   - `GET /spaces/:space_id/objects/:object_id` now returns 410 for deleted objects
   - `GET /spaces/:space_id/types/:type_id` now returns 410 for deleted types
   - `GET /spaces/:space_id/types/:type_id/templates/:template_id` now returns 410 for deleted templates
-- Archived objects, types and templates now have `archived: true` flag
+- Archived objects, types, and templates now have an `archived: true` flag
 
 ### Fixed
 
