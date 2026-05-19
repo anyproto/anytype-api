@@ -151,6 +151,11 @@ h4 {
 .get > .menu__link::before {
   content: "get";
   background-color: var(--ifm-color-primary);
+  /* GET uses the light brand primary as its background, so white text is
+     unreadable (especially in dark mode where primary is pale cream).
+     Use dark text + a faint border for contrast and definition. */
+  color: #1c1e21;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .put > .menu__link::before {
