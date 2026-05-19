@@ -1,0 +1,69 @@
+---
+id: download-file
+title: "Download file"
+description: "Streams the bytes of a file object. The response Content-Type matches the stored media type. For images, pass `width` to fetch a pre-rendered variant at that pixel width; SVGs are sanitized inline. `width` is ignored for non-image files. The id can be either a file object ID or, for images, a raw file CID."
+sidebar_label: "Download file"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV99v2zYQ/lcIvawFbMvOGmxzX5blR+GhaIc6zR6KwKWks81WIlWScuIZ+t93R0q2HCteHOdxCBBL4h353Xd35MdVkICJtcitUDIYBmOrgWeG2TmwaGnBMDVlnE1FCkxF3yC2PXaNYxpMrqQBdq6kBWm718scWMZtPAfvbazSkLAMEsGZxdEeu1KaiYzPwHRYzo1hX+9EYudfmVVsCuiKK+UauhpkAuS84FpwaRm3OCX+y8U9pMw5vWXjm3eGcY0rcSms+AfthUyFxIXqeYVhYiYdjimuLZXsuvVdPMZHIhIWc8kiYCAQt96Olo0umNId515D50zzO290PrroBZ1A5aA5MThKkMNE3clU8WRCJjiac80zsKBNMPyyekA4QVjgEL4R1cTc2V8jYqQw5CzIaA4cCcE3iRPh+5lcEqPdG++IAxp+FALjDIZWF9AJDOYh48GQlpvyIrXoddI/Oe32T7snfXQgf/xmrBZyFpRlpw0YBe8xmZzH4J5c3BGkSs4w0aqGmHM73wB05hOR7EX2JAgPcvEK89Bkv5GY1+1QyPJoJB/dA0+bFbhZuq5T83ZdbpjNdbWZGtiPAvRyg8zNErTgENhSM8x3Wd4Sat9phgxO+n36iX3T0SPP81TErvjCb4bArnYndIWIYW1Zq9iC7RrX8NteGBh2MvpFQnKH+CFBONU2QVeUjwqWCXD4zYFIc01NZIWPM1YJ0C/c8yxPaekI+4kSCMbu4ukEGRiDVG/7/METtsfHV9W2C2itdJuxsdwWZssYQ+zspmz9qZoe34V1c9/wVCQu/ku3SguNI7kgI+YqhTU2Dsfo4EUZLSQv7Fxp2jmfTOnn/3A6ntPBQZw28TzK6hZox+SbF2XSo5pIZSdTVcins/kJjCo0bqzoyh51PZ7TNwdx+kHZK8LyKJ+u2TeQcfz0hbudYGrcbycGNJ6Ok0fDbaV1VHkz780e9T6W2dMDd4Cxw7On+9twk52BuNDCLp2AiABVj6aSxtdbOiMsn5G2cIkxwS3RgvVOWmQG1ikQsg3CxSB0J7MJV/UJXYZOC4Wr6pws6UByy3u1UuiUBIi1+TAMBye/9Pr4Nxj+POj3fwto7RramJLr89kEWL9d1WfKn39f12ee29fd6IZvWsmFLORU1TXFqyRlXBAaU+S50vZ37mVQT6gdacTG3gYHNhEYDGHjE9Yz7+Theo7CkVQYSB4hOZgPnuEvqknKEPqQWrtDuciq5X4ypIhdLxvW9WoJlaIvAFK763rvOC1MP4A1xK0TlDJBRbVUMiExiW0DeN5TwJuY2NhvFGcLpIBAsffejA16/Z0gZwitiHqxyiheXNyqOvAuz0UYpSoKkUwZvh+dX34YX/Yy18YYXGY+TqlMcfZ21pzNRE0nXp/WpV3zjrTh10rR1qJzMOj2f6UFcmVsxmUjtotKLLNKLG9lorGj/H8zedbNpOoqC/c2xHJDGVpWxbKqdoUvwWJADelKFh+GDe3uwNC3WkRjv88xheS1WkXcwGedliV99trW3W+EoQLF3WfKUwN7Unq0qm6N7jssG+Ia9VRBNm6vcjNGVK8H4Xz1qbo5vGZPvxW1Yqs+Yjs1odWY18y7C8hz4R12Y3oGzLoYyls0ra6mRxG67/67J8W7t+BNspHAyiiOIbeNsR1hUjbPy3eXdDrVR1e1+PqMqh4o2FaKsCecxbX6DrIs14xZeie+yvJfrgX/Fw==
+sidebar_class_name: "get api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Download file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/spaces/{space_id}/files/{file_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams the bytes of a file object. The response Content-Type matches the stored media type. For images, pass `width` to fetch a pre-rendered variant at that pixel width; SVGs are sanitized inline. `width` is ignored for non-image files. The id can be either a file object ID or, for images, a raw file CID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./download-file.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./download-file.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./download-file.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

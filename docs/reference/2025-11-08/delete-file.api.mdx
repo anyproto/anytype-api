@@ -1,0 +1,69 @@
+---
+id: delete-file
+title: "Delete file"
+description: "Removes a file object. By default the file is moved to the bin and can be restored. Pass `skip_bin=true` to permanently delete it instead."
+sidebar_label: "Delete file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV22P2jgQ/itWvtxVApJwXbWHdNJtu1TitLqrCm0/VCvqJAO4m9ip7XClKP+9M04CYQncvvTDiQ/xy4z9zDPjmWHrJWBiLXIrlPRG3jvI1BoM42whUmAq+gKxHbBXG5bAghepZXYF1Z4wjGQTZpVbjIRkXCYs5pJFwDQYqzQkA/aWG8M+m1uRz1HmD6sL+ExKOeiMS5A2pdNTsHimZUIaCzwZeD1PoQQnYJMEoVUic7ob93KueYZzbbzRp+0dK2YIZ41bOGNq4dBdvp3QnYUhZUFCK7wFNM4kHoTzS7mxmxz6HypF3NDwtRBogjcizD3PxCvIuDei6xwZqDUMhhf94KI/DFCB9HHNWC3k0ivLXhewyVWDyeQ8hj2hEaRKLg3CbCDm3K72AJ34XCRnkd0LQsu3CKf7NpJ58mUfVyCZ0+r0duVqogMjCY8gD2GINIC+FqA3LfvrCPI6PbHgqYGdCyKlUuASMd2QASZX0oAhhWHwnD6xkhbB0JDneSpiF2j+F0O4t2dsLHt3bHxDZFYWJR7uPg+CB12Qa4pzKyp4sUqAvvCNZ3nqTOHJnFyA7+k4xHpeBsbw5R2dV8jqGZ3K9YcqoLXSXcLGcluYA2E0cSco0MwlviMipl6qj8e5sO7sDzwVibN/7G7pYLGN2JEY/lQSC8kLu1JafIfk3iy+/w+lp9MYPojGNp6TRB6Axt2LnxyOBFRLns4NaMyx85MGd1I6qbVZpc1Oaj+V24sHhujU4TnJajdukjMQF1rYjStDEXCNNQsdgNMbyj2WL6lCuSxhvBuiBb2zr2eulJG4569D36V442+bVF/6lIZxoc7GJeU+h6Aqe4VOqZJZm498Pxy+GAT4C0e/hUHwu0fXN+im5N/KpW2MzeyNwuRM5eyvj7Mmvbrc43b3lNNNzmohF6oJK177KeOC0Jgiz5W2f/Kqng6EOqqxbFrJ4MbeAoMm7HX85uQjV8xW2HlQOQfJIyQHXcIz/BrmQhN1qOz/K+yK1df9YqgbUYVGblm/KrumVxdAHOxDvsdInj6AYcQtDamniWCjpOtJ8OUAlhIyeG8Tm7rD2eUaKSBQ7LoSY+EgODJyidCKaBCrjOzFy61qDO/zXPhRqiIfyZT+9eT1+O/peJC5l4zGZeafBUUqnt7NmpOZq8W8anSa6G54R9pwtW6Nmu4lDPvBS7ogV8ZijW7ZdlUV6rrnOvBDK6X8v7rGOlQtfLM++hD7hbL2wLZ+ap+8dUhR7uIAB6NWZ+XeG601/Q8+ohXyQlrbbcQNvNdpWdJy1Z647lMY8nqy60JOMvXohqjTqlvYHPZFa54WJObe/pprQbAeCPHXd3W/94zdv13thFcvYni2oe1gN6S7tvGx8I5a2UcgaVxd3qBo/bfgSZyd++9xxpHH/0D2/kSOaqE4hty29o7KedmuMlfj6/FsjOJNwm8a5Caz1wOyt5MlDHonMVO3IMtyR5qlOVFWlj8AML3ldA==
+sidebar_class_name: "delete api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/v1/spaces/{space_id}/files/{file_id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes a file object. By default the file is moved to the bin and can be restored. Pass `skip_bin=true` to permanently delete it instead.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-file.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-file.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-file.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
