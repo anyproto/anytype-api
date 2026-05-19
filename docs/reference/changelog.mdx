@@ -9,9 +9,7 @@ displayed_sidebar: openApiSidebar20251108
 
 A chronological log of changes to the Anytype API. Each entry is the `anytype-heart` release that shipped it and notes the API version (the `Anytype-Version` value) the change applies to. A new API version is minted only for breaking changes.
 
-<a id="2025-11-08-file-management"></a>
-
-## File management
+<h2 id="2025-11-08-file-management">File management</h2>
 
 _Shipped May 13, 2026 in anytype-heart v0.50.5 · applies to API version `2025-11-08` (no version change)._
 
@@ -23,9 +21,7 @@ Backward-compatible additions. Availability depends on the running `anytype-hear
 - `GET /v1/spaces/:space_id/files/:file_id` to download a file
 - `DELETE /v1/spaces/:space_id/files/:file_id` to delete a file
 
-<a id="2025-11-08"></a>
-
-## API version 2025-11-08
+<h2 id="2025-11-08">API version 2025-11-08</h2>
 
 _Shipped December 11, 2025 in anytype-heart v0.46.3._
 
@@ -56,9 +52,7 @@ Markdown body patching, object type updates, inline tag creation, and property-b
 
 - Authentication endpoints `/v1/auth/display_code` and `/v1/auth/token` in favor of the challenge-based system (`/v1/auth/challenges` and `/v1/auth/api_keys`) introduced in `2025-05-20`
 
-<a id="2025-05-20"></a>
-
-## API version 2025-05-20
+<h2 id="2025-05-20">API version 2025-05-20</h2>
 
 _Shipped June 17, 2025 in anytype-heart v0.41.0._
 
@@ -91,10 +85,8 @@ New authentication endpoints, stable type/property keys, rate limiting, and buil
 - Authentication endpoints (`/v1/auth/display_code`, `/v1/auth/token`) flagged for deprecation in favor of the new challenge-based system
 - Added required `views` subresource to `GET /spaces/:space_id/lists/:list_id/:view_id/objects` for retrieving objects in a list view
 
-<a id="2025-04-22"></a>
-<a id="2025-03-17"></a>
-
-## API version 2025-04-22
+<h2 id="2025-04-22">API version 2025-04-22</h2>
+<span id="2025-03-17" />
 
 _Shipped May 6, 2025 in anytype-heart v0.40.20. First stable release carrying the `Anytype-Version` header._
 
@@ -166,9 +158,7 @@ Full CRUD for spaces, types, properties, and tags, plus collections and member m
 - Renamed `object_type_unique_key` to `type_key` for object creation
 - Changed markdown export endpoint to `GET /spaces/:space_id/objects/:object_id/:format`
 
-<a id="2025-02-12"></a>
-
-## API version 2025-02-12
+<h2 id="2025-02-12">API version 2025-02-12</h2>
 
 _Initial release — February 12, 2025. Predates the `Anytype-Version` header mechanism._
 

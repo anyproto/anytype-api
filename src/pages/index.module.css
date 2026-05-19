@@ -36,8 +36,6 @@
   grid-column: 2;
 }
 
-/* Pixel-art SVG uses currentColor; in dark mode the inherited hero white
-   makes the dithered detail look harsh — soften to a muted gray. */
 :global([data-theme="dark"]) .icon {
   color: var(--ifm-color-emphasis-700);
 }

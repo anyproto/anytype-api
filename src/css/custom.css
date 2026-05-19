@@ -153,12 +153,17 @@ h4 {
   background-color: var(--ifm-color-primary);
 }
 
-/* In dark mode the brand primary is pale cream, so the default white badge
-   text becomes unreadable. Use dark text + a faint border for the GET badge
-   only; other method badges have saturated backgrounds and stay white. */
 [data-theme="dark"] .get > .menu__link::before {
   color: #1c1e21;
   border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .openapi-explorer__request-btn {
+  color: #1c1e21;
+}
+
+[data-theme="dark"] .badge--primary {
+  color: #1c1e21;
 }
 
 .put > .menu__link::before {
@@ -210,8 +215,6 @@ h4 {
   );
 }
 
-/* Announcement bar — the config sets a fixed pale background and black text
-   which glare in dark mode. Override with a subtle tinted dark surface. */
 [data-theme="dark"] div[class*="announcementBar_"] {
   background: color-mix(in srgb, var(--ifm-color-primary-lightest) 18%, var(--ifm-background-color)) !important;
   color: var(--ifm-color-content) !important;
@@ -220,9 +223,6 @@ h4 {
   color: var(--ifm-color-primary);
 }
 
-/* Navbar search input — the default emphasis-200 background reads as a
-   bright pill against the dark navbar gradient. Use the surface color so
-   the input integrates with the navbar. */
 [data-theme="dark"] .navbar__search-input {
   background-color: var(--ifm-background-surface-color);
   color: var(--ifm-color-content);
@@ -231,9 +231,6 @@ h4 {
   color: var(--ifm-color-emphasis-500);
 }
 
-/* Render the magnifier as a CSS mask on the search container, so its color
-   follows `color` (currentColor inside a data-URL background-image doesn't
-   inherit from the host — that's why the icon stayed black). */
 [data-theme="dark"] .navbar__search-input {
   background-image: none;
 }
