@@ -23,6 +23,13 @@ function getTimeAgo(dateString, isLatest) {
 const recentChanges = [
   {
     version: "2025-11-08",
+    date: "2026-06-01",
+    title: "Chat API",
+    description: "Create chats, send and stream messages, react, and search chat history (anytype-heart v0.50.7)",
+    href: "/docs/reference/changelog#2025-11-08-chat",
+  },
+  {
+    version: "2025-11-08",
     date: "2026-05-13",
     title: "File API",
     description: "Upload, download, and delete files in spaces (anytype-heart v0.50.5)",
