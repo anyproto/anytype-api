@@ -9,6 +9,28 @@ displayed_sidebar: openApiSidebar20251108
 
 A chronological log of changes to the Anytype API. Each entry is the `anytype-heart` release that shipped it and notes the API version (the `Anytype-Version` value) the change applies to. A new API version is minted only for breaking changes.
 
+<h2 id="2025-11-08-chat">Chat API</h2>
+
+_Shipped June 1, 2026 in anytype-heart v0.50.7 · applies to API version `2025-11-08` (no version change)._
+
+Backward-compatible additions exposing real-time chat on spaces and objects.
+
+### Added
+
+- `POST /v1/spaces/:space_id/chats` to create a chat
+- `GET /v1/spaces/:space_id/chats` to list chats in a space
+- `POST /v1/spaces/:space_id/chats/:chat_id/messages` to add a message
+- `GET /v1/spaces/:space_id/chats/:chat_id/messages` to list messages
+- `GET /v1/spaces/:space_id/chats/:chat_id/messages/:message_id` to get a single message
+- `PUT /v1/spaces/:space_id/chats/:chat_id/messages/:message_id` to edit a message
+- `DELETE /v1/spaces/:space_id/chats/:chat_id/messages/:message_id` to delete a message
+- `GET /v1/spaces/:space_id/chats/:chat_id/messages/stream` for SSE-based real-time message streaming
+- `POST /v1/spaces/:space_id/chats/:chat_id/messages/search` to search messages
+- `POST /v1/spaces/:space_id/chats/:chat_id/messages/:message_id/reactions` to toggle a reaction
+- `GET /v1/spaces/:space_id/chats/:chat_id/messages/reactions` to read reactions
+- `POST /v1/spaces/:space_id/chats/:chat_id/messages/read` to mark messages as read
+- `POST /v1/spaces/:space_id/chats/:chat_id/messages/read_all` to mark all messages as read
+
 <h2 id="2025-11-08-file-management">File management</h2>
 
 _Shipped May 13, 2026 in anytype-heart v0.50.5 · applies to API version `2025-11-08` (no version change)._

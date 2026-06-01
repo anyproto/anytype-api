@@ -1,0 +1,69 @@
+---
+id: toggle-chat-reaction
+title: "Toggle message reaction"
+description: "Toggles an emoji reaction on a message. If the reaction already exists for the current user, it will be removed; otherwise, it will be added."
+sidebar_label: "Toggle message reaction"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV19v2zYQ/yqEXrYBtmVlC9p5L0uzDPBQrEWcdg9BYJwk2mYqiRpJOfEMfYQ99BPsK+4j7I6kLLmW06bJw5Ag4Z8j73e/u+OdtkHKdaJEaYQsgklwJZfLjGsGBeO5vBVMcUhoj+EvsJxrDUs+YtMFMyve7kKGw3TD+L3QRrOFVHY/qZTihWGV5mrAhGF3IstYTAdzuebpT0yimLoTmu9tQ5rydBQMAllyBaRhmiI6Y9HNkxWYeaMahUpQkHPDlQ4m19tPLUIYa9yyNjjUZ2+nzEgChYcFCa0QPFc4K/AinJ8VG7Mp+fC9O4gbiv9ZCcURhVEVHwQ6WfEcggmpW0CVGTx1Mj45HUbRcPwSD9B5XNNGiWIZ1PWgD9j0lwaTLiHZwSnBrFowdmsu0gdRPFIdUchkfMsT06/Ucvy8On3w9Ovzm49VeeOEuTavZLohiUQWBkOOhlCWmUhs+IS3mhBtO1eVioLLCK5pZqPdDu4hLzNS8u8/H//uc2QH3rU/d7MT23FqhLG3uIy69NF66cDiNXjPIVku5zA2XaQfUGGV61IW2qE+GY8/b/OhqgaNV5MGKPHDl1x1lL5EpnyfvRjSuXfNIYmDxt/7Z15Byh4447ndO8KVkqpPWBswld4TRhN3ggLNXGLKEznHXPceMpFa+y+slh6ndRFbEqNnJbEqoDIrqcRfPP1iFt995tDTaYweRWMXz1Ei90Dj7ukzhyMBVQVkc6xEWA7mRw3upXTqTzN3mh09/VRuTx8ZojOL5yir/bhJTnOszcJsbMWMOSiss+gAnN7Qo2pgScU0OMcyQK8blteVpBJcSpub9vGeBOE6Cm150uG2KVN1SLUDF3wJqUNPKS61r3wdNgVcB4SG4LnyXamMKrIx5SQMo5MXozH+RJPvo/H4x4CwNdBn5Hzn764BzexXqXKgsvzbH1eBryH2YbK7rT9Ik6WEguqyLSYXjU92xcFVhJrq10I20Qne3TkIwq2rspTK/AyugxgJedBVsJmTwY3WVo3GtmfC5uaeKiG0bWB4ATF1appDjv81sxHu3/U7YVbMq/tG4wulZaXQS2zoGg098MUfB23mDBjJ0z+OloOhIRQpNmQbWdh2DBOQY+0hg1ub2Mxezs7WSAGBYq+dGItG4wMjlwitikeJzMleVG5kY/gQShHGmYxDJLMIX0/PL36fXYxy+yCgcbl+s6CAx9v7WbMyc7mYu9auSZKGd6QNV30zuN+voQKK7ByKjm2udDd9C+t0nHs+6bxS/7v+2ce44fcmRJdi41V7h2x9Dl8H64jSw4YFDiaddtMmMq213WCTy7T6Sc/WpDOm6IpeCbx6u41B83cqq2taxtxS9OLgcA1KUKy4jl1oGuP7soAMTTnO77eXvh/6jvX3z70G+0WMFPI/ZBXNcPiBb7r9tW1gnw5lv7f+CkAN28+Ep+27vwJLx8f1DUr7L6Unee2hz7FeiA7K4UfZDi0x5YTOndLhFd3TShw0D+2JsyThpXlQtlsA376ZUTmJ/edGbjuNQMEd5QD+tdzJ0qUCCti1bZBBsaxsXxG4O6niNAXLG72rTH5AJPd6B9PKSlzJD7zA1GoYMjQnP9X1fyoTc50=
+sidebar_class_name: "post api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Toggle message reaction"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/spaces/{space_id}/chats/{chat_id}/messages/{message_id}/reactions"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Toggles an emoji reaction on a message. If the reaction already exists for the current user, it will be removed; otherwise, it will be added.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./toggle-chat-reaction.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./toggle-chat-reaction.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./toggle-chat-reaction.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

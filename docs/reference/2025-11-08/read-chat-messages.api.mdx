@@ -1,0 +1,69 @@
+---
+id: read-chat-messages
+title: "Read messages"
+description: "Marks messages within the given order-id range as read. Pass an empty body to mark the entire chat as read. `type` defaults to 'messages'; use 'mentions' to mark unread @-mentions instead."
+sidebar_label: "Read messages"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdV99v2zYQ/lcIvWwDbEtym/3wXppmGeChXYM47R7awKWks81GIjWScusZ+t93R0mWXMlps/RpCBBT1N3x7rvjfae9l4CJtcitUNKbeS+5vjMsA2P4Ggz7KOxGSGY3wNZiC5IpnYAei4RpLtfAuGEaeDJhV9wYxiWDLLc7Fqlkx6xiGVpzyiCt0MDiDbetznu7y+E9S2DFi9QaUnjnNUe/835lhQG3I8k53DmYLCRZYM/GzTsmpLFk1Bt5KgfNaXeeYEAkuKRzl41lFMm55hlY0Mabvd1/BsEN+rvFV/jE1Mq5f341p7PRH1QWJLRBs6DxSaIhfD6XO4pm/KZSxBca/i4wZvTB6gJGnok3kHFvRse5gFFrGkzPxmE4Dn5GBdLHPWO1kGuvLEdDjs1/a3wyOY8P7uTcblpn3KulSO714oHHudSp6APEdvhQh/EDz7ythMHY51gxJBEraTGntOR5norYZdL/YMilfcdUrinPVmA+SXaFyVy64iQfcAc+8SxP6bQg4GE0jZ8kT+FsFfSBHnkRrJSGr1H/cUg95cYujeUWespud+xQ6alVGygtiwzL0OvUZ1PWHgLUGusI9JLX7BwyZIV1StdYqBeYmpe18nWFN+qg0nHCSbS+150LUlKOTI7eVFBPg+DLieobp8YCSXP5yerTrzF0MuOxSuAY6wgvel1NQ3DX6B3rPKeIT+vUaB6pgNZKDwlTrgtzJIwhHgQFhrnGlnFfst7wVCQu/kt3ykCSuh47EMNvCmIheWE3Sot/YLBoB1F8/QWlx8MYPgjGrj8ngTxyGt+efeNyJEe15OnSgEY6WZ4MeBDSea3NKm12Uvux2J49sEQXzp+TqA77TXIG4kILu3OMGwHXyNKYAHy8JR6wfE1k7FGvoraH3WejiMBz5e6mI5uZ529D39Gb8fcNzZU+cQ9u1BRU+k2n9F2vobPJmYrsC50Sf1ubz3w/nP40CfAvnD0Jg+AXjzxpHF1Qqqvsdt1tnn5XOuNE4n/8dePVJOfakHvbok8nOQCohK5btrtsMtBnrz5l9RiqT0ufsdAA9Rz4oyQCX6mm3HldPxkXBI0p8lxp+4xXI81EqN6YwxaVDL5o4TSIZ6vjN5Z7JXKzEcZNVCB5lOKQaYBn+EtDHOKAOjR50eTJ6uO+I9IwqtCYdjauJh8zqqcRXLRXccRInn5wEE0RAFxymbAIdkq66RBvNCCVUcBtTGzhjLPzLUJATrEXlRgLJ0EvyDW6VkSTWGUULx5uVRP4mOfCj1IV+Qim9F/MLy7/XFxOMtdhMLjMvFrRDULrw6g5maVaLatZs7l1De4IG+7W0+nxAIkH0FXJuOzE5ii9MzccZaLT7P4Pc39d5RY+WR9zjyNqWWduX3ePt942pKvq6gcXs86g7FoI7bVzbAc310ewN2yoGaGd/T7iBl7rtCxpGy+1psaGyy3Xgiqo+rAQhtZ4HVc8NXAP/t9f10PzD2x4zB+Mrt7E+qGq4GlBT7i8g133M8DN9o935fgT4D841EBb3qJo/QX1KJju+0wb9K/yo/+xdnCVoKqELqpDxzdkp5XoDQWtxnkcQ27vle0S29WrBRFHVH/5ZG6C8DT/SPWG/x1wKq8+BFDA7e2xz8t14eYFr7JJ3NJQUx30gYPqBYE8mBqsYydxo+5AYi03CFl6pjyV5b/BZId3
+sidebar_class_name: "post api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Read messages"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/v1/spaces/{space_id}/chats/{chat_id}/messages/read"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Marks messages within the given order-id range as read. Pass an empty body to mark the entire chat as read. `type` defaults to "messages"; use "mentions" to mark unread @-mentions instead.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./read-chat-messages.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./read-chat-messages.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./read-chat-messages.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

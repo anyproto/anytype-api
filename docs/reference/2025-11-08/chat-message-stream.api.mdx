@@ -1,0 +1,69 @@
+---
+id: chat-message-stream
+title: "Subscribe to chat messages (SSE)"
+description: "Opens a Server-Sent Events stream for real-time chat updates. On connect, the last N messages are sent, followed by live events (message_added, message_updated, message_deleted, reactions_updated). Periodic SSE comment lines (`: heartbeat`) keep the connection alive during idle periods; per the SSE spec these are invisible to EventSource clients. Clients can tune the cadence with the Anytype-Heartbeat-Seconds header (1-60s, default 30s; out-of-range or unparsable values fall back to the default)."
+sidebar_label: "Subscribe to chat messages (SSE)"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVm1v2zYQ/iuEviwBLEtOmm7zvqzLMixDkRRw1n0YApeSzjZbSVRJyo0X+L/vOdLyS2w3G1IEiCXqXp577nh3j1FBNjeqcUrX0TC6bai2QooRmTmZeES1E1dz/LfCOkOyEhNtBB7K2KmKRD6TTrRNIR3ZvritRa7rmnLXE25GopTWiRtRkbVySrBrSFgY68FKWeovVIhsIUo1J0HByclKdiyLgopepzoOLrYOCirJHwBLzuBtJ3PaF+/IKF2oXIxGV0BUVRxGqWpAOPkwFDOSxmUk3YdT8Ymo8VhXwGFJSI+oaI2qp0IVJYnGG7Q/8YOXZsO2oZxfLPnAVD1XVmWQdjpwNtKtyWG5VBxbX1yGB5HLWri2puBXFlRD6otyM3/wpl64RUPx7x1KZAHgCsu4C/g/GcSvU9sTBU1kWzpxngKYbl2sJ7GR9ZQEUtTWjTRWMpy5LFtEPpFlKTKZf2J87Gilf9qPepFGYJKDvy5QBZzVccd0yDtkYFBWIN3YaPj345PCuYNBVIxl/vQkBPLuml21lqCsWCgEgLcahvDehfo+KOKDoc+tMgQQzrTUi2w+o0pGQ3bn0ULrLD27iAeDOP0BCqyPM4BEsqLlsvcU2JpGJAjYQQYeUIWBUs/lNpWnz2HdS0t0EOV52osq+aCqtoqGr/lF1eFlsAbNgKbwcQA103n9a8ekbWS+JrGRbraB5T+NVfFV7p4ladedv9Q6+4jrcNipr4+X+rxpqwzVDJ+Gcr6g6zaBokGXKIRet5MOxueWzGKDo1SVcof5v9jmf5Cmz2XgnmOxDfoIWTZ0lqb8A/8O2HxA9OAS36bi1ZXA4fF4l70n8fqWEXooYvYch6YXQfTVnjvZNKXK/Z1MPlq2sO2tMXxjnQpgc10Q/9KDrJqSYWSyGHNuyLr9SwIqAtW7Or/IQnxFZ1UQOypkjDaHhK2TrrU7wq84B/uV3x2t680p522/RxsufPxX3ssBSrcRexIH35TEtpatm2mj/qHiP7P45zNKL6fxYAM5SuM2nqNE7oDG14tvXI6+9dayHFu/V4yPBnyQ0uuVtgja4qj2S7m9+J8lGrako6wexs1yGD/YLtzCD1IME4PpiwTg9Z47kZNTnrHRJZpEdM+sIDk8mKfk/CBm0SiZDxLf/m3y2I2BZcKNBQerFr1Muq6arOd4QBOGeGtKnnXONcMkGZx930/xNxieo2P+GDGUDumIcx3Su423e/tNm0rycP7jr7uuIfs+5L9u6GdPngFVT3RXYnKVs0oqRmPbptHG/SzDxO0rvTeFxSjI4MMmAosQNjpJZ3kvLXczZf1yQjXvR9hswQt+bdgQwjoZ9rGVu+8s2oz125wVcRjHWMBCPeBhU/7YeyHPP4SS4q24JyRGWUYL7Aq8aeEWYcX2Fb6JSaxWxTdzUOCXtrdBTAz66V6QU0Brsz4WW44Xzp3uAo9lo5Ks1FkCMuvk7fXl1c3oql/5W43gKns74aqF9cOseZmxnozD2tZVesc7aMPpatHb3cWWy38BlGo+eQ==
+sidebar_class_name: "get api-method"
+info_path: docs/reference/2025-11-08/anytype-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Subscribe to chat messages (SSE)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/v1/spaces/{space_id}/chats/{chat_id}/messages/stream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Opens a Server-Sent Events stream for real-time chat updates. On connect, the last N messages are sent, followed by live events (message_added, message_updated, message_deleted, reactions_updated). Periodic SSE comment lines (`: heartbeat`) keep the connection alive during idle periods; per the SSE spec these are invisible to EventSource clients. Clients can tune the cadence with the Anytype-Heartbeat-Seconds header (1-60s, default 30s; out-of-range or unparsable values fall back to the default).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./chat-message-stream.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./chat-message-stream.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./chat-message-stream.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

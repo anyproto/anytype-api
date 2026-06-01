@@ -74,6 +74,90 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Chat",
+      items: [
+        {
+          type: "doc",
+          id: "reference/2025-11-08/list-chats",
+          label: "List chats",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/create-chat",
+          label: "Create chat",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/get-chat-messages",
+          label: "Get chat messages",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/add-chat-message",
+          label: "Add chat message",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/delete-chat-message",
+          label: "Delete chat message",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/get-chat-message",
+          label: "Get chat message",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/edit-chat-message",
+          label: "Edit chat message",
+          className: "api-method patch",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/toggle-chat-reaction",
+          label: "Toggle message reaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/read-chat-messages",
+          label: "Read messages",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/search-chat-messages",
+          label: "Search chat messages",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/chat-message-stream",
+          label: "Subscribe to chat messages (SSE)",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/read-chat-reactions",
+          label: "Read reactions",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/2025-11-08/read-all-chat-messages",
+          label: "Mark chat as read",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Files",
       items: [
         {
