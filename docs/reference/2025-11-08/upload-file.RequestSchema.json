@@ -1,1 +1,1 @@
-{"title":"Body","body":{"content":{"multipart/form-data":{"schema":{"type":"file"}}},"description":"The file to upload","required":true}}
+{"title":"Body","body":{"content":{"multipart/form-data":{"schema":{"type":"object","properties":{"file":{"type":"string","format":"binary","description":"The file to upload"}},"required":["file"]}}},"description":"The file to upload","required":true}}

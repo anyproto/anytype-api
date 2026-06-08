@@ -3999,13 +3999,222 @@ paths:
         with a file field. The file is processed and stored, then a file object is
         created. Returns the file object ID along with its name, MIME type and size.
       operationId: upload_file
+      x-codeSamples:
+        - lang: cURL
+          label: cURL
+          source: |-
+            curl -X POST "http://localhost:31009/v1/spaces/<space-id>/files" \
+              -H "Authorization: Bearer <api-key>" \
+              -H "Anytype-Version: 2025-11-08" \
+              -F "file=@/path/to/photo.png"
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            # Open the file in binary mode; requests builds the multipart/form-data
+            # body (with the boundary) for you. Do not set Content-Type yourself.
+            with open("/path/to/photo.png", "rb") as file:
+                response = requests.post(
+                    "http://localhost:31009/v1/spaces/<space-id>/files",
+                    headers={
+                        "Authorization": "Bearer <api-key>",
+                        "Anytype-Version": "2025-11-08",
+                    },
+                    files={"file": file},
+                )
+
+            print(response.json())
+        - lang: JavaScript
+          label: JavaScript
+          source: |-
+            // `file` is a File or Blob — e.g. from an <input type="file"> in the
+            // browser, or `new Blob([buf])` in Node 18+.
+            const form = new FormData();
+            form.append("file", file);
+
+            const response = await fetch(
+              "http://localhost:31009/v1/spaces/<space-id>/files",
+              {
+                method: "POST",
+                headers: {
+                  Authorization: "Bearer <api-key>",
+                  "Anytype-Version": "2025-11-08",
+                  // Do NOT set Content-Type: the runtime adds the multipart boundary.
+                },
+                body: form,
+              },
+            );
+
+            const result = await response.json();
+            console.log(result);
+        - lang: Go
+          label: Go
+          source: |-
+            package main
+
+            import (
+            	"bytes"
+            	"fmt"
+            	"io"
+            	"mime/multipart"
+            	"net/http"
+            	"os"
+            )
+
+            func main() {
+            	file, err := os.Open("/path/to/photo.png")
+            	if err != nil {
+            		panic(err)
+            	}
+            	defer file.Close()
+
+            	var body bytes.Buffer
+            	writer := multipart.NewWriter(&body)
+            	part, _ := writer.CreateFormFile("file", "photo.png")
+            	io.Copy(part, file)
+            	writer.Close()
+
+            	req, _ := http.NewRequest(
+            		"POST",
+            		"http://localhost:31009/v1/spaces/<space-id>/files",
+            		&body,
+            	)
+            	req.Header.Set("Authorization", "Bearer <api-key>")
+            	req.Header.Set("Anytype-Version", "2025-11-08")
+            	// FormDataContentType() includes the generated multipart boundary.
+            	req.Header.Set("Content-Type", writer.FormDataContentType())
+
+            	resp, err := http.DefaultClient.Do(req)
+            	if err != nil {
+            		panic(err)
+            	}
+            	defer resp.Body.Close()
+
+            	out, _ := io.ReadAll(resp.Body)
+            	fmt.Println(string(out))
+            }
+        - lang: Rust
+          label: Rust
+          source: |-
+            // reqwest = { version = "0.12", features = ["blocking", "multipart"] }
+            use reqwest::blocking::multipart;
+
+            fn main() -> Result<(), Box<dyn std::error::Error>> {
+                // `.file(...)` reads the path and sets the filename + multipart boundary.
+                let form = multipart::Form::new().file("file", "/path/to/photo.png")?;
+
+                let response = reqwest::blocking::Client::new()
+                    .post("http://localhost:31009/v1/spaces/<space-id>/files")
+                    .header("Authorization", "Bearer <api-key>")
+                    .header("Anytype-Version", "2025-11-08")
+                    .multipart(form)
+                    .send()?;
+
+                println!("{}", response.text()?);
+                Ok(())
+            }
+        - lang: C
+          label: C
+          source: |-
+            // Requires libcurl >= 7.56 (curl_mime API). Link with -lcurl.
+            #include <curl/curl.h>
+
+            int main(void) {
+              CURL *curl = curl_easy_init();
+              if (!curl) return 1;
+
+              // curl_mime builds the multipart/form-data body, including the boundary.
+              curl_mime *mime = curl_mime_init(curl);
+              curl_mimepart *part = curl_mime_addpart(mime);
+              curl_mime_name(part, "file");
+              curl_mime_filedata(part, "/path/to/photo.png");
+
+              struct curl_slist *headers = NULL;
+              headers = curl_slist_append(headers, "Authorization: Bearer <api-key>");
+              headers = curl_slist_append(headers, "Anytype-Version: 2025-11-08");
+
+              curl_easy_setopt(curl, CURLOPT_URL,
+                               "http://localhost:31009/v1/spaces/<space-id>/files");
+              curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+              curl_easy_setopt(curl, CURLOPT_MIMEPOST, mime);
+
+              curl_easy_perform(curl);
+
+              curl_mime_free(mime);
+              curl_slist_free_all(headers);
+              curl_easy_cleanup(curl);
+              return 0;
+            }
+        - lang: Swift
+          label: Swift
+          source: |-
+            import Foundation
+
+            let url = URL(string: "http://localhost:31009/v1/spaces/<space-id>/files")!
+            let boundary = "Boundary-\(UUID().uuidString)"
+            let filePath = "/path/to/photo.png"
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("Bearer <api-key>", forHTTPHeaderField: "Authorization")
+            request.setValue("2025-11-08", forHTTPHeaderField: "Anytype-Version")
+            // The boundary MUST be part of the Content-Type header.
+            request.setValue("multipart/form-data; boundary=\(boundary)",
+                             forHTTPHeaderField: "Content-Type")
+
+            var body = Data()
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"file\"; filename=\"photo.png\"\r\n".data(using: .utf8)!)
+            body.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+            body.append(try! Data(contentsOf: URL(fileURLWithPath: filePath)))
+            body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+
+            let task = URLSession.shared.uploadTask(with: request, from: body) { data, _, _ in
+                if let data = data {
+                    print(String(data: data, encoding: .utf8) ?? "")
+                }
+            }
+            task.resume()
+        - lang: Kotlin
+          label: Kotlin
+          source: |-
+            import okhttp3.MediaType.Companion.toMediaType
+            import okhttp3.MultipartBody
+            import okhttp3.OkHttpClient
+            import okhttp3.Request
+            import okhttp3.RequestBody.Companion.asRequestBody
+            import java.io.File
+
+            val client = OkHttpClient()
+
+            // MultipartBody.FORM sets multipart/form-data and generates the boundary.
+            val body = MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart(
+                    "file",
+                    "photo.png",
+                    File("/path/to/photo.png").asRequestBody("application/octet-stream".toMediaType()),
+                )
+                .build()
+
+            val request = Request.Builder()
+                .url("http://localhost:31009/v1/spaces/<space-id>/files")
+                .header("Authorization", "Bearer <api-key>")
+                .header("Anytype-Version", "2025-11-08")
+                .post(body)
+                .build()
+
+            client.newCall(request).execute().use { response ->
+                println(response.body?.string())
+            }
       parameters:
       - description: The version of the API to use
         in: header
         name: Anytype-Version
         required: true
         schema:
-          default: "2025-05-20"
+          default: "2025-11-08"
           type: string
       - description: The ID of the space to upload the file to
         in: path
@@ -4017,7 +4226,14 @@ paths:
         content:
           multipart/form-data:
             schema:
-              type: file
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to upload
+              required:
+                - file
         description: The file to upload
         required: true
       responses:
@@ -4079,7 +4295,7 @@ paths:
         name: Anytype-Version
         required: true
         schema:
-          default: "2025-05-20"
+          default: "2025-11-08"
           type: string
       - description: The ID of the space the file belongs to
         in: path
@@ -4141,7 +4357,7 @@ paths:
         name: Anytype-Version
         required: true
         schema:
-          default: "2025-05-20"
+          default: "2025-11-08"
           type: string
       - description: The ID of the space the file belongs to
         in: path
@@ -4163,9 +4379,6 @@ paths:
       responses:
         "200":
           content:
-            application/json:
-              schema:
-                type: file
             application/octet-stream:
               schema:
                 format: binary
