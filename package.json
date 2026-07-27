@@ -1,6 +1,6 @@
 {
   "name": "anytype-api",
-  "version": "1.4.17",
+  "version": "1.4.18",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
