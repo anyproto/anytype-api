@@ -269,7 +269,7 @@ async function generatePages(projects) {
   console.log(`\n✨ Successfully generated ${projects.length} community project pages!`);
   console.log("\n📝 To add a new project:");
   console.log("   1. Edit data/community-projects.json");
-  console.log("   2. Run: npm run gen-community-projects");
+  console.log("   2. Run: bun run gen-community-projects");
 }
 
 async function main() {

@@ -7,7 +7,7 @@ This directory contains the structured data for Anytype community projects that 
 To add your project to the community showcase:
 
 1. Edit `community-projects.json` and add your project following the schema
-2. Run `npm run gen-community-projects` to generate the documentation pages
+2. Run `bun run gen-community-projects` to generate the documentation pages
 3. Submit a PR with your changes
 
 ## Project Data Structure

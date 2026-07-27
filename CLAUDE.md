@@ -10,23 +10,23 @@ This is the Anytype API documentation website built with Docusaurus v3.8.1. It p
 
 ### Development
 ```bash
-npm run start          # Start development server on localhost:3000
-npm run build          # Build production site
-npm run serve          # Serve built site locally
-npm run clear          # Clear Docusaurus cache
+bun run start          # Start development server on localhost:3000
+bun run build          # Build production site
+bun run serve          # Serve built site locally
+bun run clear          # Clear Docusaurus cache
 ```
 
 ### API Documentation Generation
 ```bash
-npm run make-reference  # Clean and regenerate all API documentation from OpenAPI specs
-npm run gen-api-docs    # Generate API docs from OpenAPI specifications
-npm run clean-api-docs  # Remove generated API documentation
+bun run make-reference  # Clean and regenerate all API documentation from OpenAPI specs
+bun run gen-api-docs    # Generate API docs from OpenAPI specifications
+bun run clean-api-docs  # Remove generated API documentation
 ```
 
 ### Code Quality
 ```bash
-npm run lint           # Run ESLint on TypeScript, MDX, and Markdown files
-npm run lint:fix       # Auto-fix linting issues
+bun run lint           # Run ESLint on TypeScript, MDX, and Markdown files
+bun run lint:fix       # Auto-fix linting issues
 ```
 
 ## Architecture & Key Components
@@ -60,7 +60,7 @@ npm run lint:fix       # Auto-fix linting issues
 ### API Documentation Updates
 When updating API documentation:
 1. Edit the OpenAPI spec in `/openapi/[version]/openapi.yaml`
-2. Run `npm run make-reference` to regenerate documentation
+2. Run `bun run make-reference` to regenerate documentation
 3. The generated docs will appear in `/docs/reference/[version]/`
 
 ### Adding a New API Version
@@ -81,7 +81,7 @@ When adding a new API version (e.g., `2025-11-08`):
      - `downloadUrl`: Raw GitHub URL to the YAML file
 
 3. **Generate the documentation**
-   - Run `npm run make-reference` to generate docs for all versions
+   - Run `bun run make-reference` to generate docs for all versions
    - This creates `/docs/reference/YYYY-MM-DD/` directory with generated content
    - Note: `versions.json` is automatically updated by this command
 
@@ -96,7 +96,7 @@ When adding a new API version (e.g., `2025-11-08`):
    - Adjust "Supported" and "Legacy" version lists as needed
 
 6. **Verify the changes**
-   - Run `npm run start` to preview the site locally
+   - Run `bun run start` to preview the site locally
    - Check that the version selector displays all expected versions
    - Verify that the new version docs render correctly
 
@@ -114,7 +114,7 @@ When adding a new API version (e.g., `2025-11-08`):
 
 ## Important Notes
 
- - The project uses npm (see `package.json`'s `packageManager`)
+ - The project uses bun (see `bun.lock`)
 - ESLint is configured for TypeScript, MDX, and Markdown files
 - No testing framework is configured - rely on linting for code quality
 - The site is optimized for static hosting with SEO and performance features enabled
