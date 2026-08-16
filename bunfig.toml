@@ -1,0 +1,6 @@
+# Docusaurus' openapi plugin pulls in ajv-draft-04, whose optional `ajv@^8` peer
+# is left unsatisfied by bun's default hoisted layout (root resolves to ajv@6).
+# The isolated linker resolves each package against its own dependent, matching
+# the tree npm produced.
+[install]
+linker = "isolated"

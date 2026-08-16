@@ -16,7 +16,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 102
+      "stars": 104
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -35,7 +35,7 @@
       "language": "TypeScript",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 17
+      "stars": 18
     },
     {
       "id": "epheo/anytype-go",
@@ -52,7 +52,7 @@
       "language": "Go",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 27
+      "stars": 28
     },
     {
       "id": "beaucronin/anytype-python-client",
@@ -70,7 +70,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 16
+      "stars": 17
     },
     {
       "id": "lanesawyer/anytype_rs",
@@ -106,7 +106,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 33
+      "stars": 37
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -144,7 +144,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-11-28",
-      "stars": 5
+      "stars": 6
     },
     {
       "id": "splch/n8n-nodes-anytype",
@@ -180,7 +180,7 @@
       "language": "C#",
       "status": "active",
       "dateAdded": "2026-01-23",
-      "stars": 5
+      "stars": 6
     },
     {
       "id": "Tumypmyp/any-task",
@@ -199,7 +199,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2026-06-23",
-      "stars": 3
+      "stars": 5
     }
   ]
 }
