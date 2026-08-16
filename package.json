@@ -31,6 +31,7 @@
     "@docusaurus/preset-classic": "3.10.2",
     "@easyops-cn/docusaurus-search-local": "0.55.2",
     "@mdx-js/react": "3.1.1",
+    "brace-expansion": "1.1.18",
     "clsx": "2.1.1",
     "docusaurus-plugin-openapi-docs": "5.1.2",
     "docusaurus-theme-openapi-docs": "5.1.2",
