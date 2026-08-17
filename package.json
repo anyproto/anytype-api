@@ -32,19 +32,19 @@
     "@easyops-cn/docusaurus-search-local": "0.55.2",
     "@mdx-js/react": "3.1.1",
     "clsx": "2.1.1",
-    "docusaurus-plugin-openapi-docs": "5.1.2",
-    "docusaurus-theme-openapi-docs": "5.1.2",
+    "docusaurus-plugin-openapi-docs": "5.2.0",
+    "docusaurus-theme-openapi-docs": "5.2.0",
     "prism-react-renderer": "2.4.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "3.10.2",
-    "@typescript-eslint/eslint-plugin": "8.65.0",
-    "@typescript-eslint/parser": "8.65.0",
-    "eslint": "8.57.1",
+    "@typescript-eslint/eslint-plugin": "8.67.0",
+    "@typescript-eslint/parser": "8.67.0",
+    "eslint": "10.8.1",
     "eslint-plugin-mdx": "3.8.1",
-    "typescript": "6.0.2"
+    "typescript": "7.0.2"
   },
   "browserslist": {
     "production": [
