@@ -2,6 +2,45 @@
   "$schema": "./community-projects.schema.json",
   "projects": [
     {
+      "id": "stevelr/anyr",
+      "name": "Anytype Toolbox",
+      "description": "CLI and MCP Server for Anytype: manage spaces and objects, edit documents in Markdown, back up and restore, chat",
+      "author": "stevelr",
+      "repository": "https://github.com/stevelr/anytype",
+      "website": "https://docs.anytype-toolbox.org",
+      "tags": [
+        "cli",
+        "mcp-server",
+        "backup",
+        "markdown",
+        "export"
+      ],
+      "category": "Integration",
+      "language": "Rust",
+      "status": "active",
+      "dateAdded": "2025-08-20",
+      "stars": 28
+    },
+    {
+      "id": "stevelr/anytype",
+      "name": "Anytype Rust SDK",
+      "description": "An ergonomic Anytype API client in Rust. Unifies HTTP and gRPC backends.",
+      "author": "stevelr",
+      "repository": "https://github.com/stevelr/anytype",
+      "website": "https://docs.rs/anytype",
+      "tags": [
+        "client",
+        "rust",
+        "http",
+        "grpc"
+      ],
+      "category": "SDK",
+      "language": "Rust",
+      "status": "active",
+      "dateAdded": "2025-08-20",
+      "stars": 28
+    },
+    {
       "id": "charlesneimog/anytype-client",
       "name": "Python Client for Anytype",
       "description": "A Python client library for interacting with the Anytype API",
@@ -16,7 +55,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 104
+      "stars": 105
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -106,7 +145,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 37
+      "stars": 38
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -162,7 +201,7 @@
       "language": "TypeScript",
       "status": "active",
       "dateAdded": "2025-12-17",
-      "stars": 26
+      "stars": 27
     },
     {
       "id": "glabular/anytype-net",
@@ -183,7 +222,7 @@
       "stars": 6
     },
     {
-      "id": "Tumypmyp/any-task",
+      "id": "tumypmyp/any-task",
       "name": "AnyTask",
       "description": "A Cross-Platform Client for Anytype written with Rust and Dioxus",
       "author": "Tumypmyp",
@@ -199,7 +238,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2026-06-23",
-      "stars": 5
+      "stars": 6
     }
   ]
 }
