@@ -19,7 +19,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2025-08-20",
-      "stars": 28
+      "stars": 32
     },
     {
       "id": "stevelr/anytype",
@@ -38,7 +38,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2025-08-20",
-      "stars": 28
+      "stars": 32
     },
     {
       "id": "charlesneimog/anytype-client",
@@ -55,7 +55,7 @@
       "language": "Python",
       "status": "active",
       "dateAdded": "2025-08-19",
-      "stars": 105
+      "stars": 106
     },
     {
       "id": "wethegreenpeople/anytype-mcp",
@@ -145,7 +145,7 @@
       "language": "JavaScript",
       "status": "active",
       "dateAdded": "2025-11-01",
-      "stars": 38
+      "stars": 40
     },
     {
       "id": "mowbraym/anytype-global-search",
@@ -238,7 +238,7 @@
       "language": "Rust",
       "status": "active",
       "dateAdded": "2026-06-23",
-      "stars": 6
+      "stars": 7
     }
   ]
 }
