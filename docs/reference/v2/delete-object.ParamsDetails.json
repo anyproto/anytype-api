@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Space id","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Object id","in":"path","name":"object_id","required":true,"schema":{"type":"string"}},{"description":"Probe deletability without writing","in":"query","name":"dry_run","schema":{"type":"boolean"}}]}

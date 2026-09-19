@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Space id","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"File or icon id","in":"path","name":"file_id","required":true,"schema":{"type":"string"}},{"description":"Image variant width; zero selects the original","in":"query","name":"width","schema":{"minimum":0,"type":"integer"}}]}

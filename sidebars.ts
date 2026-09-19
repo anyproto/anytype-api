@@ -1,21 +1,34 @@
 // @ts-check
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
-import apiVersions from "./docs/reference/versions.json";
-import { openApiConfig } from "./openapi.config";
+import { getVersionGroups, openApiConfig, openApiV2Config } from "./openapi.config";
 
 /* Single combined version dropdown: button shows the current version
-   inline, menu lists all versions with the current one marked active.
-   Replaces the plugin's split versionSelector + versionCrumb pair. */
-function versionDropdown(currentVersion: string, versions: { label: string; baseUrl: string }[]) {
-  const items = versions
-    .map((v) => {
-      const active = v.label === currentVersion ? " dropdown__link--active" : "";
-      return `<li><a class="dropdown__link${active}" href="${v.baseUrl}">${v.label}</a></li>`;
+   inline, menu lists all versions grouped by major with the current one
+   marked active. Replaces the plugin's split versionSelector + versionCrumb
+   pair. Groups come from openapi.config rather than the plugin-generated
+   docs/reference/versions.json, which is a flat array and cannot say which
+   major a version belongs to. */
+function versionDropdown(currentVersion: string) {
+  const groups = getVersionGroups();
+  const current = groups.flatMap((group) => group.items).find((v) => v.version === currentVersion);
+
+  const items = groups
+    .map((group) => {
+      const links = group.items
+        .map((v) => {
+          const active = v.version === currentVersion ? " dropdown__link--active" : "";
+          return `<li><a class="dropdown__link${active}" href="${v.href}">${v.label}</a></li>`;
+        })
+        .join("");
+      /* Group titles are plain list items, not dropdown__link — not focusable,
+         not clickable. */
+      return `<li class="version-dropdown__group">${group.title}</li>${links}`;
     })
     .join("");
+
   return `<div class="dropdown dropdown--hoverable dropdown--right">
   <button class="button button--block button--sm button--secondary">
-    <span>API Version: <strong>${currentVersion}</strong></span>
+    <span>API Version: <strong>${current?.display ?? currentVersion}</strong></span>
   </button>
   <ul class="dropdown__menu">${items}</ul>
 </div>`;
@@ -27,6 +40,7 @@ import referenceSidebar20250317 from "./docs/reference/2025-03-17/sidebar";
 import referenceSidebar20250422 from "./docs/reference/2025-04-22/sidebar";
 import referenceSidebar20250520 from "./docs/reference/2025-05-20/sidebar";
 import referenceSidebar20251108 from "./docs/reference/2025-11-08/sidebar";
+import referenceSidebarV2 from "./docs/reference/v2/sidebar";
 
 const { latestVersion, showVersions, versions } = openApiConfig;
 
@@ -46,12 +60,19 @@ if (missingReferenceSidebars.length > 0) {
   );
 }
 
+if (!referenceSidebarV2 || referenceSidebarV2.length === 0) {
+  throw new Error(
+    `Missing reference sidebar for API v2. Run 'bun run make-reference' to generate ` +
+      `'./docs/reference/v2/sidebar.ts'.`
+  );
+}
+
 function buildApiSidebar(version: string) {
   return [
     {
       type: "html",
       defaultStyle: true,
-      value: versionDropdown(version, apiVersions),
+      value: versionDropdown(version),
       className: "version-button",
     },
     {
@@ -65,6 +86,34 @@ function buildApiSidebar(version: string) {
         slug: version === latestVersion ? "/reference" : `/reference/${version}`,
       },
       items: referenceSidebarsByVersion[version] ?? [],
+    },
+    {
+      type: "ref",
+      label: "Changelog",
+      id: "reference/changelog",
+    },
+  ];
+}
+
+/* v2 differs from v1 in one place: the Reference category links to a
+   hand-written landing page rather than a generated-index, because a
+   pre-release needs framing the spec description cannot give it. */
+function buildV2Sidebar(): SidebarsConfig[string] {
+  return [
+    {
+      type: "html",
+      defaultStyle: true,
+      value: versionDropdown(openApiV2Config.label),
+      className: "version-button",
+    },
+    {
+      type: "category",
+      label: "Reference",
+      link: {
+        type: "doc",
+        id: "reference/v2-overview",
+      },
+      items: referenceSidebarV2,
     },
     {
       type: "ref",
@@ -94,6 +143,7 @@ const sidebars: SidebarsConfig = {
       showVersions.includes(version) ? buildApiSidebar(version) : [],
     ])
   ),
+  openApiSidebarV2: buildV2Sidebar(),
   exampleSidebar: [
     {
       type: "category",

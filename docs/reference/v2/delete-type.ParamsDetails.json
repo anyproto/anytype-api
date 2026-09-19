@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Space id","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Type key","in":"path","name":"type","required":true,"schema":{"type":"string"}},{"description":"Validate and report without committing","in":"query","name":"dry_run","schema":{"type":"boolean"}}]}

@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"description":{"type":"string"},"name":{"type":"string"}},"type":"object","title":"CreateSpaceRequest"}}},"description":"The space to create","required":true}}

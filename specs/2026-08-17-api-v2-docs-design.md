@@ -218,10 +218,15 @@ Content:
 1. A `:::warning` admonition: v2 is a pre-release, its surface may change without
    a version bump, and it should not be depended on by shipped integrations yet.
 2. What v2 is — AnyBlock JSON documents rather than block trees (one GET returns
-   an editable document, one PATCH edits it); one camelCase vocabulary
-   throughout; compact responses; a single error shape with path-addressed
-   issues; `etag`/`If-Match`; `Idempotency-Key`; `?dry_run=true`; paginated list
-   surfaces; runtime-discoverable schemas; short space references.
+   an editable document, one PATCH edits it); one vocabulary (snake_case
+   throughout, addressed by name rather than by id); compact responses; a single
+   error shape with path-addressed issues; `etag`/`If-Match`;
+   `Idempotency-Key`; `?dry_run=true`; paginated list surfaces;
+   runtime-discoverable schemas; short space references.
+
+   Note: the C2 vocabulary rule is upstream prose in `core/api/v2/doc.go` and
+   has changed once already during pre-release. Re-read it from the synced spec
+   before restating it here.
 3. A v1 → v2 orientation table for readers who know v1.
 4. A link into the generated Introduction for the spec description and download.
 

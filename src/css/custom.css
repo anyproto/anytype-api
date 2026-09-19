@@ -300,3 +300,24 @@ table code {
 [data-theme="dark"] table tbody td {
   border-color: var(--ifm-color-emphasis-300);
 }
+
+/* Version dropdown group titles (v1 / v2). Plain list items rather than
+   dropdown__link, so they are neither focusable nor clickable. */
+.version-dropdown__group {
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-xs);
+  font-size: var(--font-size-caption);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.version-dropdown__group:not(:first-child) {
+  margin-top: var(--spacing-xs);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: var(--spacing-md);
+}
+
+[data-theme="dark"] .version-dropdown__group:not(:first-child) {
+  border-top-color: var(--ifm-color-emphasis-300);
+}

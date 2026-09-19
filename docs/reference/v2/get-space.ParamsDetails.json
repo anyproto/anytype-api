@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Space id","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"compact (default) is the short space reference; full is the whole <cid>.<replicationKey> id, and the spelling to store outside this API","in":"query","name":"ids","schema":{"type":"string"}}]}

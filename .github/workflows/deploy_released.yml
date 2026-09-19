@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build project
+      - name: Build and verify agent discovery assets
         run: bun run build
 
       - name: Deploy to GitHub Pages
@@ -32,6 +32,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           cname: developers.anytype.io
+          # Serve raw Markdown and the .well-known discovery directory as built.
+          enable_jekyll: false
 
       - name: Create Release
         uses: softprops/action-gh-release@v3

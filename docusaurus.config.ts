@@ -145,6 +145,11 @@ const config: Config = {
               if (item.url.includes(`/reference/${openApiConfig.latestVersion}/`)) {
                 return { ...item, priority: 0.7 };
               }
+              // Below v1 latest, well above pinned v1 dates. The date pattern
+              // below cannot match "v2", so the two rules never interact.
+              if (item.url.includes("/reference/v2")) {
+                return { ...item, priority: 0.6 };
+              }
               if (item.url.match(/\/reference\/\d{4}-\d{2}-\d{2}\//)) {
                 return { ...item, priority: 0.2 };
               }
@@ -177,10 +182,13 @@ const config: Config = {
         hideable: true,
       },
     },
+    /* Docusaurus supports exactly one announcement bar. The Anytype CLI
+       announcement it previously carried is retired for the v2 pre-release
+       window; restoring it is a one-line revert. */
     announcementBar: {
-      id: "cli_release",
+      id: "api_v2_prerelease",
       content:
-        '🚀 <strong>New:</strong> <a href="https://github.com/anyproto/anytype-cli">Anytype CLI</a> is now available - run Anytype as a headless server for automation and scripting.',
+        '🧪 <strong>Pre-release:</strong> <a href="/docs/reference/v2">Anytype API v2</a> is now available to try - objects as editable JSON documents, built for agents and humans.',
       backgroundColor: "#ffdbd8",
       textColor: "#000000",
       isCloseable: false,
@@ -348,7 +356,11 @@ const config: Config = {
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
-        ignoreFiles: [new RegExp(`reference/(?!${openApiConfig.latestVersion}/).*`)],
+        // Index v1 latest and all of v2; skip pinned v1 dates, whose pages
+        // would otherwise duplicate every latest result. "v2" carries no
+        // trailing slash so the pattern covers both the generated pages
+        // (reference/v2/...) and the landing page (reference/v2-overview).
+        ignoreFiles: [new RegExp(`reference/(?!(${openApiConfig.latestVersion}/|v2))`)],
       },
     ],
   ],

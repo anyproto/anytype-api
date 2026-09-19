@@ -9,6 +9,26 @@ displayed_sidebar: openApiSidebar20251108
 
 A chronological log of changes to the Anytype API. Each entry is the `anytype-heart` release that shipped it and notes the API version (the `Anytype-Version` value) the change applies to. A new API version is minted only for breaking changes.
 
+<h2 id="v2-pre-release">API v2 — pre-release</h2>
+
+_Unreleased — available in builds from `go-7383-apiv2-phase0` (`acc12262b`) · applies to API version `2025-11-08` (no version change)._
+
+A second API major, served alongside v1 by the same process on the same port. v2 exposes an object as a single AnyBlock JSON document rather than a block tree: one `GET` returns a whole editable document, one `PATCH` edits it. It is a pre-release — the surface can change without a new API version being minted. See [API v2](/docs/reference/v2) for the full introduction.
+
+Nothing about v1 changes. `Anytype-Version` is unchanged and is not used by v2 routes.
+
+### Added
+
+- 50 operations under `/v2/...`, covering auth, spaces, objects, search, types, properties, lists, chat, members, files, templates and schemas
+- One handler error shape — `{status, code, message, issues:[{path, message, hint}]}` — with shared middleware refusals using the older envelope
+- `etag` on every object read, plus an `ETag` header; `If-Match` on mutations, with chats using order ids and `last_state_id` instead
+- `Idempotency-Key` and `?dry_run=true` on every resource mutation
+- Stable property and type keys by default, with `?keys=name` for display names; inputs accept both
+- Chat message streams over Server-Sent Events, with `Last-Event-ID` for resuming additions
+- File and icon downloads with byte ranges and conditional requests
+- Runtime-discoverable schemas at `GET /v2/schemas`, `GET /v2/schemas/{kind}` and `GET /v2/schemas/ops/{op}`, strict-mode-compatible for constrained decoding
+- Short space references — the last six characters of a space id's CID half — accepted anywhere a space id is; `?ids=full` returns full ids for storage outside the API
+
 <h2 id="2025-11-08-chat">Chat API</h2>
 
 _Shipped June 1, 2026 in anytype-heart v0.50.7 · applies to API version `2025-11-08` (no version change)._
