@@ -156,6 +156,14 @@ export function getOpenApiPluginConfig(): Plugin.PluginOptions {
         groupPathsBy: "tag",
         categoryLinkSource: "tag",
       },
+      /* The plugin's default tag template appends a DocCardList driven by
+         useCurrentSidebarCategory, which imports @docusaurus/theme-common into
+         generated content. Under bun's isolated installs that resolves to a
+         second copy of the package, whose React context does not match the one
+         the layout provides, and SSG fails with a ReactContextError. Our
+         template keeps the tag description and drops the card list; the sidebar
+         already lists every endpoint in the category. */
+      tagTemplate: "scripts/openapi-templates/tag.mustache",
       downloadUrl: openApiV2Config.downloadUrl,
     } satisfies OpenApiPlugin.Options,
   } satisfies Plugin.PluginOptions;
