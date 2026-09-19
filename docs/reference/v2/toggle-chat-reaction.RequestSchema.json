@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"emoji":{"type":"string"}},"type":"object","title":"ChatReactionRequest"}}},"description":"The emoji to toggle","required":true}}

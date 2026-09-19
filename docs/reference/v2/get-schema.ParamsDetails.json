@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Schema kind, as listed by GET /v2/schemas","in":"path","name":"kind","required":true,"schema":{"type":"string"}}]}

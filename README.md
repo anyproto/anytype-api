@@ -43,6 +43,45 @@ bun run serve
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+## Agent skill publishing
+
+`bun run build` generates the agent assets, builds the site, and verifies the
+result. Both pull-request CI and release CI run this command. A release publishes
+the checked assets to GitHub Pages, including the `.well-known` directory.
+
+The public endpoints are:
+
+- `/skill.md` and `/.well-known/agent-skills/anytype-api/SKILL.md`: raw skill Markdown
+- `/.well-known/agent-skills/index.json`: discovery manifest with a SHA-256 digest
+- `/.well-known/skills/index.json`: the legacy discovery format and its skill file
+- `/llms.txt`: links to the skill, API v2 documentation, and the stable v1 reference
+- `/openapi-v2.yaml`: the same API specification used by this site
+
+The authored skill lives at `core/api/v2/SKILL.md` in `anytype-heart`. Refresh
+the committed snapshot from a local checkout when syncing the v2 API docs:
+
+```bash
+bun run sync-agent-skill ../anytype-heart_anyblockjson
+bun run build
+```
+
+Commit both files under `data/agent-skill/`. `source.json` records the upstream
+revision, whether the skill has local edits, and the exact content digest. Review
+the source skill before syncing: this command copies its content without rewriting
+it. Builds use the snapshot without network access or a sibling checkout. This also
+allows previewing upstream revisions that have not been pushed yet.
+
+Generated files under `static/` are ignored by Git. For a standalone generation
+or validation, run `bun run gen-agent-docs` or `bun run check-agent-docs`.
+The build check fails if any asset is missing or stale, the skill digest differs,
+or a documentation link in `llms.txt` does not resolve inside the build.
+
+Once a release publishes these endpoints, users can install the skill with:
+
+```bash
+npx skills add https://developers.anytype.io --skill anytype-api
+```
+
 ## Contribution
 
 Thank you for your desire to develop Anytype together!

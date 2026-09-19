@@ -15,6 +15,22 @@ export interface OpenApiConfig {
   versions: Record<string, OpenApiVersion>;
 }
 
+/* API v2 is a second major, not another date version of v1. It has no
+   `Anytype-Version` parameter on any route, so it has no date axis to select
+   from — one spec, one entry, served from its own plugin instance. When v2
+   reaches GA and starts minting date versions, this grows a `versions` map of
+   its own and `/docs/reference/v2` becomes the latest alias, the same shape v1
+   has today. */
+export interface OpenApiV2Config {
+  specPath: string;
+  outputDir: string;
+  label: string;
+  /* The hand-written landing page, not the generated Introduction — this is
+     where the version dropdown sends readers. */
+  baseUrl: string;
+  downloadUrl: string;
+}
+
 export const openApiConfig: OpenApiConfig = {
   latestVersion: "2025-11-08",
   showVersions: ["2025-11-08", "2025-05-20", "2025-04-22"],
@@ -57,6 +73,59 @@ export const openApiConfig: OpenApiConfig = {
   },
 };
 
+export const openApiV2Config: OpenApiV2Config = {
+  specPath: "docs/reference/openapi-v2.yaml",
+  outputDir: "docs/reference/v2",
+  label: "v2",
+  baseUrl: "/docs/reference/v2",
+  downloadUrl: "/openapi-v2.yaml",
+};
+
+/* One dropdown, two groups. Built here rather than from the plugin-generated
+   `docs/reference/versions.json` because that file is a flat array and cannot
+   express which major a version belongs to. */
+export interface VersionGroupItem {
+  /* Stable key used to mark the current entry active. */
+  version: string;
+  /* Menu text. */
+  label: string;
+  /* Button text when this entry is the current one. */
+  display: string;
+  href: string;
+}
+
+export interface VersionGroup {
+  title: string;
+  items: VersionGroupItem[];
+}
+
+export function getVersionGroups(): VersionGroup[] {
+  const { latestVersion, showVersions, versions } = openApiConfig;
+
+  return [
+    {
+      title: "API v2 — pre-release",
+      items: [
+        {
+          version: openApiV2Config.label,
+          label: openApiV2Config.label,
+          display: `${openApiV2Config.label} (pre-release)`,
+          href: openApiV2Config.baseUrl,
+        },
+      ],
+    },
+    {
+      title: "API v1",
+      items: showVersions.map((version) => ({
+        version,
+        label: version === latestVersion ? `${versions[version].label} (latest)` : versions[version].label,
+        display: versions[version].label,
+        href: versions[version].baseUrl,
+      })),
+    },
+  ];
+}
+
 export function getOpenApiPluginConfig(): Plugin.PluginOptions {
   const { latestVersion, showVersions, versions } = openApiConfig;
   const latestVersionConfig = versions[latestVersion];
@@ -76,6 +145,26 @@ export function getOpenApiPluginConfig(): Plugin.PluginOptions {
       baseUrl: latestVersionConfig.baseUrl,
       downloadUrl: latestVersionConfig.downloadUrl,
       versions: filteredVersions,
+    } satisfies OpenApiPlugin.Options,
+    /* No `version`/`versions`: a non-versioned instance. Its outputDir sits
+       inside the v1 instance's, which is safe — the plugin cleans with
+       `deep: 1` globs scoped to each instance's own outputDir. */
+    anytypeV2: {
+      specPath: openApiV2Config.specPath,
+      outputDir: openApiV2Config.outputDir,
+      sidebarOptions: {
+        groupPathsBy: "tag",
+        categoryLinkSource: "tag",
+      },
+      /* The plugin's default tag template appends a DocCardList driven by
+         useCurrentSidebarCategory, which imports @docusaurus/theme-common into
+         generated content. Under bun's isolated installs that resolves to a
+         second copy of the package, whose React context does not match the one
+         the layout provides, and SSG fails with a ReactContextError. Our
+         template keeps the tag description and drops the card list; the sidebar
+         already lists every endpoint in the category. */
+      tagTemplate: "scripts/openapi-templates/tag.mustache",
+      downloadUrl: openApiV2Config.downloadUrl,
     } satisfies OpenApiPlugin.Options,
   } satisfies Plugin.PluginOptions;
 }

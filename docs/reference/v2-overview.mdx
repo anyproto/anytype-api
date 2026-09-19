@@ -1,0 +1,47 @@
+---
+id: v2-overview
+title: API v2
+sidebar_label: Overview
+description: Work with Anytype objects as editable AnyBlock JSON documents. API v2 is available as a pre-release for agents, scripts, and integrations.
+slug: /reference/v2
+---
+
+# API v2
+
+:::warning[Pre-release]
+API v2 can change without a new API version. For production integrations
+that need a stable contract, use [API v1](/docs/reference).
+
+:::
+
+API v2 exposes an object as one editable **AnyBlock JSON document**. A single
+`GET` reads its properties and content; a single `PATCH` applies a batch of
+edits. It is designed for agents, scripts, and integrations that need to work
+with whole documents.
+
+Both API majors run in the same Anytype process, on the same port, and accept
+the same API keys. v2 routes start with `/v2/` and do not require the
+`Anytype-Version` request header.
+
+## Start building
+
+- [Connect and authenticate](/docs/reference/v2/anytype-api#connect-and-authenticate)
+  to obtain an API key and check its access.
+- [Read and search](/docs/reference/v2/anytype-api#read-and-search-efficiently)
+  using whole documents, outlines, or selected properties.
+- [Edit with a batch of operations](/docs/reference/v2/anytype-api#edit-with-a-batch-of-operations),
+  with concurrency checks, retries, and dry runs.
+- [Discover schemas](/docs/reference/v2/anytype-api#discover-schemas-at-runtime)
+  to construct and validate requests.
+
+The [Introduction](/docs/reference/v2/anytype-api) explains the shared
+conventions, errors, streams, and file downloads. Browse
+[Objects](/docs/reference/v2/objects) for the document endpoints.
+
+## For agents
+
+[Download the API skill](pathname:///skill.md), or install it with:
+
+```bash
+npx skills add https://developers.anytype.io --skill anytype-api
+```

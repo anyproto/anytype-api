@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Space id","in":"path","name":"space_id","required":true,"schema":{"type":"string"}},{"description":"Rows to skip","in":"query","name":"offset","schema":{"default":0,"type":"integer"}},{"description":"Rows to return","in":"query","name":"limit","schema":{"default":25,"type":"integer"}}]}

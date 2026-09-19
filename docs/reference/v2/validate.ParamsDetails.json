@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Retry key; identical requests replay, different requests conflict","in":"header","name":"Idempotency-Key","schema":{"type":"string"}}]}

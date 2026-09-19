@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"attachments":{"items":{"type":"string"},"type":"array","uniqueItems":false},"reply_to":{"type":"string"},"text":{"type":"string"}},"type":"object","title":"AddChatMessageRequest"}}},"description":"The message to send","required":true}}

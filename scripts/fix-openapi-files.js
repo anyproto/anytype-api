@@ -50,6 +50,27 @@ const DOWNLOAD_BOGUS = /^( *)application\/json:\n\1  schema:\n\1    type: file\n
 // annotations; Files were introduced in 2025-11-08.
 const STALE_VERSION_DEFAULT = 'default: "2025-05-20"';
 
+// --- API v2 ---------------------------------------------------------------
+//
+// Detects a v2 document by its paths rather than its filename, matching how the
+// v1 rules above are scoped.
+const V2_PATH = /^ {2}\/v2\//m;
+
+// docusaurus-plugin-openapi-docs derives the Introduction page's doc id from
+// `kebabCase(info.title)`, and lodash splits letter-digit boundaries — so
+// "Anytype API v2" becomes `anytype-api-v-2` and the page lands at the
+// malformed-looking /docs/reference/v2/anytype-api-v-2. Every title containing
+// "v2" has this problem; there is no string that both says v2 and kebab-cases
+// cleanly. The major is already carried by the URL segment, the version
+// dropdown and the hand-written landing page, so drop it from the title here.
+//
+// Only the title. `info.version` is deliberately left alone: core/api/v2/doc.go
+// documents it as the `Anytype-Version` header value that one gin engine sets
+// for both v1 and v2 route groups, so rewriting it would make the spec we serve
+// for download disagree with the running server.
+const V2_TITLE_ORIGINAL = /^ {2}title: Anytype API v2$/m;
+const V2_TITLE_NORMALIZED = /^ {2}title: Anytype API$/m;
+
 // `lang`/`label` MUST equal the postman-code-generators label (the theme
 // matches code samples to tabs on it). Order mirrors docusaurus.config.ts.
 const CODE_SAMPLES = [
@@ -135,6 +156,30 @@ function fixSpec(text, version) {
   return { text, changed };
 }
 
+// v2 needs none of the v1 rewrites above — its upload endpoint is a different
+// shape, and its samples would need different URLs and no Anytype-Version
+// header. Note that v2's upload operationId is also `upload_file`, so the two
+// rule sets must stay in separate branches of main(): running the v1 rules over
+// a v2 spec would graft v1 `/v1/...` code samples onto a v2 endpoint.
+function fixV2Spec(text) {
+  const changed = [];
+
+  if (V2_TITLE_ORIGINAL.test(text)) {
+    text = text.replace(V2_TITLE_ORIGINAL, "  title: Anytype API");
+    changed.push("info.title (Introduction page id)");
+  } else if (!V2_TITLE_NORMALIZED.test(text)) {
+    // Fail loud: an unrecognised title means the upstream general-info block
+    // changed, and the Introduction page would silently move to a new URL.
+    throw new Error(
+      "fix-openapi-files: v2 spec has neither the expected `title: Anytype API v2` " +
+        "nor the normalized `title: Anytype API`. The upstream @title annotation in " +
+        "core/api/v2/doc.go likely changed — update V2_TITLE_* in scripts/fix-openapi-files.js."
+    );
+  }
+
+  return { text, changed };
+}
+
 // Best-effort YAML validation so a bad injection fails the build loudly instead
 // of producing a corrupt spec. `yaml` ships with Docusaurus.
 function assertValidYaml(text, file) {
@@ -161,13 +206,18 @@ function main() {
     const full = path.join(REFERENCE_DIR, file);
     const original = fs.readFileSync(full, "utf8");
 
-    // Scope strictly to specs that expose the Files endpoints.
-    if (!original.includes(FILES_PATH)) continue;
+    let text, changed;
 
-    const versionMatch = file.match(/(\d{4}-\d{2}-\d{2})/);
-    const version = versionMatch ? versionMatch[1] : null;
+    if (original.includes(FILES_PATH)) {
+      // v1 specs that expose the Files endpoints.
+      const versionMatch = file.match(/(\d{4}-\d{2}-\d{2})/);
+      ({ text, changed } = fixSpec(original, versionMatch ? versionMatch[1] : null));
+    } else if (V2_PATH.test(original)) {
+      ({ text, changed } = fixV2Spec(original));
+    } else {
+      continue;
+    }
 
-    const { text, changed } = fixSpec(original, version);
     if (text !== original) {
       assertValidYaml(text, file);
       fs.writeFileSync(full, text);

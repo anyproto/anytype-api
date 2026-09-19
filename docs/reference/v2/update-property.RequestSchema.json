@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"Fields of the property to change. Body schema and example: GET /v2/schemas/property","required":true}}

@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"PATCH ops envelope, an array of ops. Body schema and example per op: GET /v2/schemas/ops/<op>","required":true}}

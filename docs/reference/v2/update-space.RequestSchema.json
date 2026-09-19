@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"properties":{"description":{"type":"string"},"name":{"type":"string"}},"type":"object","title":"UpdateSpaceRequest"}}},"description":"The fields to change","required":true}}

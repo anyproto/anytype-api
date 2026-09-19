@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"Collection to create. Body schema and example: GET /v2/schemas/collection","required":true}}

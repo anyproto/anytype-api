@@ -27,3 +27,6 @@ jobs:
 
       - name: Run linter
         run: bun run lint
+
+      - name: Build and verify agent discovery assets
+        run: bun run build

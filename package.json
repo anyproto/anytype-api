@@ -1,12 +1,12 @@
 {
   "name": "anytype-api",
-  "version": "1.4.18",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "dev": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "bun run gen-agent-docs && docusaurus start",
+    "dev": "bun run start",
+    "build": "bun run gen-agent-docs && docusaurus build && bun run check-agent-docs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -20,8 +20,11 @@
     "pregen-api-docs:version": "bun run fix-openapi",
     "gen-api-docs:version": "docusaurus gen-api-docs:version",
     "clean-api-docs:version": "docusaurus clean-api-docs:version",
-    "make-reference": "bun run clean-api-docs:version anytype:all && bun run gen-api-docs:version anytype:all",
+    "make-reference": "bun run clean-api-docs:version anytype:all && bun run gen-api-docs:version anytype:all && bun run clean-api-docs anytypeV2 && bun run gen-api-docs anytypeV2",
     "gen-community-projects": "node scripts/generate-community-projects.js",
+    "sync-agent-skill": "node scripts/agent-docs.js sync",
+    "gen-agent-docs": "node scripts/agent-docs.js generate",
+    "check-agent-docs": "node scripts/agent-docs.js check",
     "lint": "eslint . --ext .ts,.tsx,.md,.mdx",
     "lint:fix": "eslint . --ext .ts,.tsx,.md,.mdx --fix"
   },
@@ -44,7 +47,8 @@
     "@typescript-eslint/parser": "8.65.0",
     "eslint": "8.57.1",
     "eslint-plugin-mdx": "3.8.1",
-    "typescript": "6.0.2"
+    "typescript": "6.0.2",
+    "yaml": "2.9.0"
   },
   "browserslist": {
     "production": [
