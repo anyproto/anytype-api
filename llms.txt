@@ -1,0 +1,16 @@
+# Anytype API
+
+> Developer documentation for Anytype's local HTTP API.
+
+API v2 is pre-release. Its routes start with /v2/. API v1 remains available for production integrations.
+The API runs locally with Anytype; this documentation domain does not host user data or API operations.
+
+## Documentation and skills
+
+- [API v2 overview](https://developers.anytype.io/docs/reference/v2): Start here for API v2, currently pre-release.
+- [API v2 Introduction](https://developers.anytype.io/docs/reference/v2/anytype-api): Authentication and shared API conventions.
+- [API v2 OpenAPI specification](https://developers.anytype.io/openapi-v2.yaml): Download the full v2 endpoint and schema reference.
+- [Anytype API agent skill](https://developers.anytype.io/skill.md): Instructions for searching, reading, creating and editing through API v2.
+- [Agent skill discovery](https://developers.anytype.io/.well-known/agent-skills/index.json): Skill metadata, download URL and content digest.
+- [API v1 reference](https://developers.anytype.io/docs/reference): The stable API for production integrations.
+- [Guides](https://developers.anytype.io/docs/guides): Getting started guides; these currently target API v1.
