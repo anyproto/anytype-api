@@ -6,7 +6,7 @@
       "description": "Call Anytype's local HTTP API v2 directly — search, read, create and edit objects, queries, collections and chats over REST. Use when writing scripts, SDK code or curl against the API. For interactive note/task work prefer the `anytype` CLI and its skill (cmd/anytype/SKILL.md); this guide is the raw-HTTP layer beneath it.",
       "type": "skill-md",
       "url": "/.well-known/agent-skills/anytype-api/SKILL.md",
-      "digest": "sha256:97bd1b56bca9152d0c2d5e0864cefce7fc1dd1de08e5ebd52613fc3297ca3261"
+      "digest": "sha256:02182547cb8c622a47ac566cd05f765ae8d789f90540fc005b3a8f32bb0ef951"
     }
   ]
 }
