@@ -1,1 +1,1 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"Collection to create. Body schema and example: GET /v2/schemas/collection","required":true}}
+{"title":"Body","body":{"content":{"application/json":{"schema":{"additionalProperties":false,"properties":{"items":{"items":{"description":"member object id","maxLength":256,"type":"string"},"maxItems":1000,"type":"array"},"name":{"maxLength":4096,"type":"string"}},"required":["name"],"type":"object"}}},"description":"Collection to create","required":true}}

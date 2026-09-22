@@ -81,7 +81,11 @@ key returns `401`.
   as `page` or `task`.
 - **Queries** show a live selection of objects. **Collections** hold a
   hand-curated list.
-- **Chats** store messages separately from document blocks.
+- **Chats** store messages separately from document blocks. An object's
+  discussion, its comment thread, is a chat reached by the id an object read
+  serves as `discussion`.
+- **Widgets** are the sidebar: the objects a space pins for every member,
+  and the ones this account keeps for itself.
 
 Blocks form a flat array in document order, with `indent` describing the
 hierarchy. Inline text formatting uses Markdown. The title and description
@@ -95,6 +99,7 @@ live in the `name` and `description` properties.
 | Read a document | `GET /v2/spaces/{space_id}/objects/{object_id}` |
 | Create an object | `POST /v2/spaces/{space_id}/objects` |
 | Edit a document | `PATCH /v2/spaces/{space_id}/objects/{object_id}` |
+| Pin an object to the sidebar | `POST /v2/spaces/{space_id}/widgets` |
 
 ## Names and identifiers
 
@@ -198,6 +203,10 @@ changes the title and appends a paragraph:
 The batch is atomic: an invalid operation rejects the whole request.
 Discover the accepted fields for each operation at
 `GET /v2/schemas/ops/{op}`.
+
+An object's type is part of the document envelope, not a property: change
+it with the `set_type` operation. Only layouts of one family convert, and
+a refused change names the types the object can take instead.
 
 ### Concurrency, retries, and dry runs
 

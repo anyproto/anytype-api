@@ -318,6 +318,12 @@ const sidebar: SidebarsConfig = {
           label: "Mark chat activity as read",
           className: "api-method post",
         },
+        {
+          type: "doc",
+          id: "reference/v2/create-discussion",
+          label: "Start an object's discussion",
+          className: "api-method post",
+        },
       ],
     },
     {
@@ -380,9 +386,49 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "reference/v2/list-templates",
+          label: "List templates",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "reference/v2/create-template",
           label: "Create a template",
           className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Widgets",
+      link: {
+        type: "doc",
+        id: "reference/v2/widgets",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "reference/v2/list-widgets",
+          label: "List widgets",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "reference/v2/create-widget",
+          label: "Create a widget",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/v2/delete-widget",
+          label: "Delete a widget",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "reference/v2/update-widget",
+          label: "Update a widget",
+          className: "api-method patch",
         },
       ],
     },

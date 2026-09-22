@@ -1,1 +1,1 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"Fields of the property to change. Body schema and example: GET /v2/schemas/property","required":true}}
+{"title":"Body","body":{"content":{"application/json":{"schema":{"additionalProperties":false,"properties":{"name":{"description":"the new display name; the key is identity and does not change","maxLength":4096,"type":"string"}},"required":["name"],"type":"object"}}},"description":"The new display name","required":true}}

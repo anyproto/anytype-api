@@ -1,1 +1,1 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object"}}},"description":"Document to validate. Body schema and example: GET /v2/schemas/object","required":true}}
+{"title":"Body","body":{"content":{"application/json":{"schema":{"description":"an AnyBlock document of any kind, checked without being stored; its schema and a worked example come from get_schema with kind document","type":"object"}}},"description":"Document to validate","required":true}}
