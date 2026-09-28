@@ -51,7 +51,7 @@ async function updateStars(projects) {
     let repoHostname;
     try {
       repoHostname = new URL(project.repository).hostname;
-    } catch (err) {
+    } catch {
       repoHostname = "";
     }
     if (repoHostname === "github.com") {
