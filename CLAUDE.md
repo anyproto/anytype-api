@@ -25,7 +25,7 @@ bun run clean-api-docs  # Remove generated API documentation
 
 ### Code Quality
 ```bash
-bun run lint           # Run ESLint on TypeScript, MDX, and Markdown files
+bun run lint           # Run Oxlint on JavaScript and TypeScript files
 bun run lint:fix       # Auto-fix linting issues
 ```
 
@@ -173,7 +173,7 @@ When adding a new API version (e.g., `2025-11-08`):
 ## Important Notes
 
  - The project uses bun (see `bun.lock`)
-- ESLint is configured for TypeScript, MDX, and Markdown files
+- Oxlint checks JavaScript and TypeScript files; Markdown/MDX is compiled by the Docusaurus build but has no separate lint checks
 - No testing framework is configured - rely on linting for code quality
 - The site is optimized for static hosting with SEO and performance features enabled
 - Use `@docusaurus/faster` for improved development experience

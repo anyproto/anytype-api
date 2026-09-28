@@ -25,8 +25,8 @@
     "sync-agent-skill": "node scripts/agent-docs.js sync",
     "gen-agent-docs": "node scripts/agent-docs.js generate",
     "check-agent-docs": "node scripts/agent-docs.js check",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
@@ -42,12 +42,8 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@docusaurus/eslint-plugin": "3.10.2",
-    "@typescript-eslint/eslint-plugin": "8.70.1",
-    "@typescript-eslint/parser": "8.70.1",
-    "eslint": "10.11.0",
-    "eslint-plugin-mdx": "3.8.1",
-    "typescript": "6.0.2",
+    "oxlint": "1.86.0",
+    "typescript": "7.0.2",
     "yaml": "2.9.0"
   },
   "browserslist": {
