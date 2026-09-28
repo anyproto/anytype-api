@@ -25,8 +25,8 @@
     "sync-agent-skill": "node scripts/agent-docs.js sync",
     "gen-agent-docs": "node scripts/agent-docs.js generate",
     "check-agent-docs": "node scripts/agent-docs.js check",
-    "lint": "eslint . --ext .ts,.tsx,.md,.mdx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.md,.mdx --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "8.70.1",
     "eslint": "10.11.0",
     "eslint-plugin-mdx": "3.8.1",
-    "typescript": "7.0.2",
+    "typescript": "6.0.2",
     "yaml": "2.9.0"
   },
   "browserslist": {
