@@ -258,6 +258,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "reference/2025-11-08/get-objects-batch",
+          label: "Get objects by ID",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "reference/2025-11-08/update-object",
           label: "Update object",
           className: "api-method patch",
