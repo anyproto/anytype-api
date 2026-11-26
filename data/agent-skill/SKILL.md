@@ -5,10 +5,8 @@ description: Call Anytype's local HTTP API v2 directly — search, read, create 
 
 # Anytype API v2 — HTTP guide for agents
 
-Local REST API at `http://127.0.0.1:31009` (the Anytype app must be
-running). Every call sends `Authorization: Bearer <key>`; keys are created
-in the app (Settings → API keys) — **the API mints none**. Bodies are
-compact JSON, and every name this API owns is `snake_case` — params,
+Local REST API at `http://127.0.0.1:31009` while Anytype Desktop is running.
+Bodies are compact JSON, and every name this API owns is `snake_case` — params,
 fields and op names alike. (Inside an object's `blocks` and `properties`
 you are reading the AnyBlock format's content; property and type keys
 there are served as slugs by default, as display names under
@@ -16,11 +14,36 @@ there are served as slugs by default, as display names under
 `?offset=&limit=` (default 25, max 1000) and returns
 `{data, total, offset, limit, has_more}`.
 
-**First call: `GET /v2/auth/whoami`.** A key may be scoped to particular
-spaces and to read-only. `grant.scoped: false` means the whole account;
-otherwise `grant.spaces` lists what you may touch and `grant.permission`
-whether you may write. Ask this instead of discovering limits through 403s
-(`space_not_granted` / `write_not_granted` — the message names the grant).
+## Pair and make a first read
+
+If the user has already configured an API key, use it. Otherwise, with the
+user signed in to Anytype Desktop, make the two pairing requests without a
+bearer token. Send `Content-Type: application/json` on both.
+
+1. `POST /v2/auth/challenges` with `{"app_name":"My integration"}`. Keep the
+   returned `challenge_id` for this pairing.
+2. Ask the user to review the app, choose spaces and permissions in Desktop,
+   and approve. Have the user enter the displayed four-digit code in the
+   integration's local setup prompt and keep the code and key out of chat and logs.
+3. `POST /v2/auth/api_keys` with `{"challenge_id":"<id>","code":"<four digits>"}`.
+   Keep the code as a string to preserve leading zeros. The response contains
+   `api_key` and the approved `grant`.
+
+Use `Authorization: Bearer <key>` on `GET /v2/auth/whoami` to check the key.
+A scoped key reports its permission and whether it covers all spaces. For
+selected spaces, `grant.spaces` lists them. A legacy key with `grant.scoped:
+false` gives account-wide access. Confirm the integration works by calling
+`GET /v2/spaces` through the intended client with that same key.
+
+Pairing errors include a `code` and recovery `message`. For
+`challenge_not_approved`, wait for the user and keep the same challenge ID.
+For `incorrect_answer`, ask the user to check the displayed code. For
+`invalid_challenge_id`, start a fresh challenge only if the user still wants
+to pair. Stop automatic retries on `pairing_rate_limited` or
+`challenge_attempts_exceeded`. For `account_not_running`, ask the user to
+open Desktop and sign in. Older versions may return a generic 500 for these
+conditions. Check Desktop for the prompt with the user, or use a key the user
+created in Settings → API Keys.
 
 ## The data model in six ideas
 
@@ -61,6 +84,8 @@ whether you may write. Ask this instead of discovering limits through 403s
 | Intent | Call |
 |---|---|
 | find objects | `POST …/{space_id}/search` (or `POST /v2/search` across spaces — rows then carry `space_id`). Search with filters; don't enumerate `GET …/objects` |
+| watch a search live (new objects, unread mentions) | `POST …/{space_id}/search/stream` — SSE, same body without `query`; see Query |
+| notice a new, renamed or removed space without polling | `GET /v2/spaces/stream` — SSE, the spaces list held open; see Spaces stream |
 | read one object | `GET …/objects/{id}` — start with `?outline=true` |
 | change property values | PATCH op `set_properties` — `add`/`remove` for list values, `set` for scalars |
 | complete a task object | `set_properties` (`"set":{"done":true}` or the status option) — a property, not a block edit |
@@ -72,7 +97,8 @@ whether you may write. Ask this instead of discovering limits through 403s
 | show/hide a view column, edit a view | op `update_view` — works on queries, collections and a type's default view (PATCH the type OBJECT id from `GET …/types/{key}`) |
 | add / reorder / remove a view | ops `insert_view` (`copy_from` duplicates one) · `move_view` (`position:"first"` = default tab) · `delete_view` |
 | create an object | `POST …/objects` — shortcut `{type, name, properties, markdown}` covers most cases |
-| delete an object you created | `DELETE …/objects/{id}` — archives (Bin, reversible in the app). Only works on objects THIS key created after provenance shipped; anything else → 403 `not_created_by_this_key`, permanently — don't retry, archive in the app instead. Ownership is matched on the app name EXACTLY (byte-for-byte — re-pair under the identical name to keep delete rights). User content only: system objects 403. Probe first with `?dry_run=true` |
+| archive / restore an object | `DELETE …/objects/{id}` moves it to the Bin — any user content you can write; system objects 403. `POST …/objects/{id}/restore` brings it back (an object in the Bin refuses edits with 409 `object_archived` until then). The receipt's warning says whether THIS key may also delete it for good |
+| delete an object for good | `DELETE …/objects/{id}?permanent=true` — archived first or not, only objects THIS key created (app name matched EXACTLY, byte-for-byte), with no other member's changes and no discussion, and for a file, that no other object uses (409 `file_in_use` names them; chat attachments are not checked). Afterwards every route on it answers 410 `object_deleted` — drop the id; searching can only find a different object. Anything else → 403, permanently — archive instead. Probe with `?dry_run=true`; there is no `skip_bin` |
 | curate a collection | PATCH ops `add_items` / `remove_items` on the collection object |
 | read a query / collection | `GET …/queries/{id}/objects` · `…/collections/{id}/objects` (`?view=`, `?fields=`) |
 | new type / property | `POST …/types` · `POST …/properties`; select options ride the property, or `?create_missing_options=true` mints them from values |
@@ -99,7 +125,8 @@ whether you may write. Ask this instead of discovering limits through 403s
   unknown, re-read and use the fresh ids. `?ids=full` is the backup/export
   shape — the read to archive or clone from, not needed for editing.
 - List/search rows are minimal `{id, name, type}`; add columns with
-  `fields=` (property keys) instead of GETting each object.
+  `fields=` (property keys) instead of GETting each object. Search rows also
+  carry `discussion` (the object's comment-thread chat id) when it has one.
 - Every object read returns an `etag` (envelope + `ETag` header).
 
 ## Edit: PATCH ops
@@ -223,16 +250,72 @@ read: no `Idempotency-Key`, `dry_run` ignored.
   pages, don't plan on the number.
 - Sorts: any property key, `{"property", "direction": "asc|desc"}`;
   default is `last_modified_date desc`.
+- `unread_mention_count` / `unread_message_count` are unread counters for
+  this account only: a chat (the space chat and every other chat) keeps its
+  own, and an object's discussion keeps its counters on the object. Filter,
+  sort or list them in `fields` (numbers); `GET …/properties` does not show
+  them. So `unread_mention_count > 0` in a search or the search stream finds
+  space chats and other chats as well as objects whose discussion mentions
+  you. An object that is neither a chat nor has a discussion has neither
+  counter, so it never matches `> 0`.
+- **Watch a search live**: `POST …/search/stream` (SSE), body = the search
+  body without `query` (refused: full text is not followed live), no paging.
+  Read `object_added` until `snapshot_complete`: that is the whole matching
+  set (`snapshot_complete.warnings` = the search's warnings). Then
+  `object_added` (entered the set), `object_updated` (a requested field, the
+  name, the type or `discussion` changed; carries the whole row) and
+  `object_removed` (`object_id` left the set; it may still exist). Rows are
+  search rows, `fields` applied. One stream per space.
+  - Mentions inbox: `{"filter":"unread_mention_count > 0","fields":["name","discussion"]}`.
+    A hit with `discussion` is an object: read it through
+    `GET …/chats/{discussion}/messages`. A hit without one is a chat: its row
+    `id` is the chat id. Marking it with `POST …/chats/{id}/read`
+    `scope:"mentions"` emits `object_removed`. A new mention elsewhere arrives
+    as `object_added`, once sync has loaded that chat or discussion (no
+    promised latency).
+  - Objects you created and their discussions: take your member `id` from
+    `GET …/members/me`, then `{"filter":"creator = \"<member id>\"","fields":["discussion"]}`.
+    An object gaining its first discussion arrives as `object_updated` with
+    `discussion` set; follow that chat with the chat stream. Comments are chat
+    events, not search events.
+  - No event ids, `Last-Event-ID` ignored. After any reconnect you get a fresh
+    snapshot: diff it against what you hold, and anything absent left the set.
+  - At most 16 search streams per process (429 `too_many_streams`, close
+    one), separate from the chat stream caps. The stream never disconnects
+    you on its own.
 
 ## Chats
 
+- `POST …/chats/{id}/status` publishes ephemeral activity. An empty body or
+  `{}` signals typing; the server omits empty `text` so clients can localize
+  the label. Agents can send `{"text":"Searching documentation","data":{"tool_call":"web_search"}}`.
+  `data` accepts any JSON value. The encoded payload is limited to 65,508 bytes.
+  The pubsub topic is `status/<chat_id>`; `Event.Pubsub.Message` carries the
+  verified sender identity. These updates are not stored messages or SSE
+  message events. Refresh while active (two seconds recommended), stop when
+  finished, and let receivers expire status (ten seconds recommended).
+  `?dry_run=true` does not publish; use a fresh `Idempotency-Key` per refresh.
+
+- `GET …/chats` rows carry `kind`, `is_main`, `unread_messages` and
+  `unread_mentions`. `is_main` is true for the space's main chat (the space
+  chat every member shares) and false for every other chat and discussion.
+  `?include=discussions` adds object discussions (row id = the discussion id,
+  usable on every chat route; `parent_id` = the object) and
+  `?unread=messages|mentions` keeps only rows with unread state. That is the
+  inbox: one call per space finds every chat and discussion with an unread
+  mention. Read a hit with `…/messages`, clear it with `POST …/read`
+  `scope:"mentions"`.
 - `GET …/chats/{id}/messages` returns `{messages, state, message_count,
   has_more, next_before?, next_after?}`. `state` carries `unread_messages`,
   `unread_mentions`, `last_state_id` — so "anything new?" is a `?limit=1`
   read. Cursors only (`?after=` walks forward; otherwise newest-first via
   `next_before`); `?offset=` is rejected.
-- Message `text` is inline markup both ways (mentions as
-  `<mention object_id="…">`); ≤8000 UTF-16 units; `attachments` = up to 32 object
+- Message `text` is markdown both ways (mentions as
+  `<mention object_id="…">`). In a space chat a `#` heading line posts as a
+  bold line and a ``` fence as code (language dropped; several lines show as
+  a code block and read back as a fence, one line as inline code); other
+  block syntax stays literal. Reads escape literal block syntax (`\#`), so
+  echoing `text` back keeps the message. ≤8000 UTF-16 units; `attachments` = up to 32 object
   ids from `POST …/files`. `?reactions=full` adds who reacted.
 - Mark read: `POST …/chats/{id}/read` with `{"up_to": <order>,
   "last_state_id": <id>}` — **both** from the same GET, else nothing marks.
@@ -246,11 +329,59 @@ read: no `Idempotency-Key`, `dry_run` ignored.
   carries `discussion: "<id>"` when one exists; `POST …/objects/{id}/discussion`
   mints one (201, `created: true`) or returns the existing id (200). Use
   that id as the chat id on every route above; `reply_to` makes a threaded
-  reply. Same message body; a discussion stores the text as one paragraph
-  block per line (blank lines dropped, a `---` line is a divider) and reads
-  it back as `text`. Discussions are not in `GET …/chats`.
+  reply. Same message body; a discussion stores the markdown as blocks:
+  headings, list items, checkboxes, quotes and fenced code keep their style,
+  other lines become one paragraph each (blank lines dropped, a `---` line is
+  a divider, a table one line per row with a warning), nesting is flattened,
+  and a read returns the same markdown as `text`. Discussions are not in
+  `GET …/chats` unless you pass `?include=discussions`.
+- **Watch a whole space on one connection**: `GET …/chats/stream` (SSE;
+  discussions included by default, `?include=none` for chats only). Read
+  `chat_added` events until `snapshot_complete`: that is the space's chat set
+  (each `chat` is a `GET …/chats` row, `is_main` included, plus
+  `last_state_id`), and a chat you were watching that is not in it is gone. Then live
+  `chat_added`/`chat_updated`/`chat_removed`, `state_updated` and
+  `message_*`/`reactions_updated`/`pinned_updated` events, each with
+  `space_id` and `chat_id` (message events also `kind`, `parent_id`). A chat
+  that appears later is followed by its newest messages.
+  - No event ids, no replay. Keep one checkpoint per chat: the highest
+    `message.state_id` you processed (never from `state_updated` or
+    `last_state_id`). After any reconnect, for each chat whose
+    `chat_added.last_state_id` is ahead of its checkpoint, catch up once with
+    `GET …/chats/{id}/messages/stream` and `Last-Event-ID: <checkpoint>`,
+    drain the replayed `message_added`, close; one at a time (those count
+    against the per-chat cap). The replay covers the newest `limit` messages of
+    the chat (pass `limit=1000`); an older-order message that synced late and
+    fell outside that window is not recovered. `resync_required` there →
+    re-read the chat.
+  - Dedupe on message id: an event can repeat, and rarely describe a change
+    that rolled back; confirm a message you did not hold with a read. Still
+    apply `message_updated`/`message_deleted` for messages you already hold.
+  - Edits, deletions and reactions during a gap are not recovered; re-read a
+    chat's recent messages after a gap if that matters.
+  - At most 16 space streams per process (429 `too_many_streams`, close one).
+    A 500 naming a chat means that chat's state failed to load; the space's
+    stream stays refused until the app restarts.
 
-## Conventions on every call
+- **Spaces stream** — `GET /v2/spaces/stream` (SSE) is `GET /v2/spaces` held
+  open; not the per-space chat stream above.
+  - Opens with `space_added` per space (the list row, **full ids always**;
+    `ids=compact` is a 400), then `snapshot_complete` carrying
+    `has_not_granted_spaces`.
+  - Live: `space_added`, `space_updated` (whole row), `space_removed`
+    `{space_id, reason}`, `not_granted_updated`. Reasons: `access_removed`
+    (the key's grant was edited), `gone` (deleted or left), `unavailable`
+    (did not load here, or still joining — may come back as `space_added`, or
+    get a second `space_removed` with its final reason).
+  - A grant edit changes the stream in place, no reconnect. `stream_closed`
+    `{reason: key_revoked | key_expired}` is the last event before the server
+    ends it: the key now answers 401, do not reconnect. An end with no
+    `stream_closed` (server restart) can be reopened.
+  - No ids, no replay: a reconnect is a fresh snapshot; a space you hold that
+    is absent from it has left.
+  - At most 16 spaces streams per process (429 `too_many_streams`, close one).
+
+## Authenticated API conventions
 
 - **Errors** are `{status, code, message, issues:[{path, message,
   hint}]}` — built to be repaired in ONE retry: fix the named path per the
@@ -311,16 +442,14 @@ read: no `Idempotency-Key`, `dry_run` ignored.
 
 ## Not in v2 (yet)
 
-- **Object DELETE is own-output-only** — `DELETE …/objects/{id}` archives
-  only objects THIS key created (recorded at creation, immutably). Objects
+- **Permanent DELETE is own-output-only** — `?permanent=true` removes only
+  objects THIS key created (recorded at creation, immutably). Objects
   created before that shipped, in the app, by import or by other members
-  are permanently 403 for every key — there is no "delete arbitrary
-  objects" capability. `?dry_run=true` is the cheap deletability probe;
-  types/properties still use their own DELETE routes.
+  can be archived and restored, never deleted for good through the API.
+  Types/properties use their own DELETE routes and have no API restore.
 - No file content extraction ("read this PDF") in the API. Download its
   bytes with `GET …/files/{file_id}/content` and process them in the client.
-- **No chat SSE stream** under /v2 and no per-chat message full-text
-  search (both v1 for now); poll `GET messages?limit=1` instead.
+- No per-chat message full-text search under /v2 (v1 for now).
 - `GET …/types/{key}/schema` is a 501 stub — compose from
   `GET …/types/{key}` + `…/properties/{key}/options`.
 - No option rename/recolor/delete under /v2 (v1 tags admin, Phase 8).
